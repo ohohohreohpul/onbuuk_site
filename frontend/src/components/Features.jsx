@@ -36,16 +36,43 @@ const Features = () => {
                 </p>
               </div>
               
-              {/* Mockup */}
+              {/* Mockup - Calendar View */}
               <div className="mt-auto bg-white border border-gray-200 p-4">
-                <div className="space-y-2">
-                  <div className="h-3 bg-gray-200 w-3/4"></div>
-                  <div className="h-3 bg-gray-200 w-1/2"></div>
-                  <div className="flex gap-2 mt-4">
-                    <div className="h-20 bg-[#E5F8F6] border border-[#14B8A6] flex-1"></div>
-                    <div className="h-20 bg-gray-100 border border-gray-200 flex-1"></div>
-                    <div className="h-20 bg-gray-100 border border-gray-200 flex-1"></div>
-                  </div>
+                <div className="text-xs font-semibold text-gray-600 mb-3">SELECT DATE & TIME</div>
+                <div className="grid grid-cols-7 gap-1">
+                  {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day, i) => (
+                    <div key={i} className="text-center text-xs font-medium text-gray-500 mb-2">{day}</div>
+                  ))}
+                  {[...Array(35)].map((_, i) => {
+                    const isSelected = i === 15;
+                    const isToday = i === 10;
+                    const isDisabled = i < 8;
+                    return (
+                      <div 
+                        key={i} 
+                        className={`aspect-square flex items-center justify-center text-xs ${
+                          isSelected 
+                            ? 'bg-[#14B8A6] text-white font-bold' 
+                            : isToday
+                            ? 'bg-[#E5F8F6] text-[#14B8A6] font-medium border border-[#14B8A6]'
+                            : isDisabled
+                            ? 'text-gray-300'
+                            : 'text-gray-700 hover:bg-gray-100'
+                        }`}
+                      >
+                        {i + 1}
+                      </div>
+                    );
+                  })}
+                </div>
+                <div className="mt-4 pt-4 border-t border-gray-200 grid grid-cols-3 gap-2">
+                  {['9:00 AM', '10:30 AM', '2:00 PM'].map((time, i) => (
+                    <div key={i} className={`text-center py-2 text-xs font-medium border ${
+                      i === 0 ? 'bg-[#14B8A6] text-white border-[#14B8A6]' : 'border-gray-200 text-gray-700'
+                    }`}>
+                      {time}
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
