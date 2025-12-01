@@ -90,12 +90,27 @@ const Features = () => {
               Built-in gift card system and customizable loyalty programs to boost retention and revenue.
             </p>
             <div className="bg-white border border-gray-300 p-4 mt-auto">
-              <div className="space-y-2">
-                <div className="flex justify-between">
-                  <div className="h-2 bg-gray-200 w-1/3"></div>
-                  <div className="h-2 bg-[#A4D23E] w-1/4"></div>
+              <div className="text-xs font-semibold text-gray-600 mb-3">GIFT CARD</div>
+              <div className="bg-gradient-to-br from-[#A4D23E] to-[#8BC234] p-4 text-white">
+                <div className="flex justify-between items-start mb-6">
+                  <div className="text-xs font-medium">BUUK</div>
+                  <div className="text-xs">GIFT</div>
                 </div>
-                <div className="h-16 bg-[#FFF9E5] border border-[#A4D23E] mt-3"></div>
+                <div className="mb-4">
+                  <div className="text-2xl font-bold">€50.00</div>
+                  <div className="text-xs opacity-80">Gift Card Value</div>
+                </div>
+                <div className="flex justify-between items-end">
+                  <div className="text-xs">
+                    <div className="opacity-80 text-[10px]">CODE</div>
+                    <div className="font-mono font-semibold">GIFT-2024</div>
+                  </div>
+                  <div className="text-xs opacity-80">Valid 12 months</div>
+                </div>
+              </div>
+              <div className="mt-3 flex gap-2">
+                <div className="flex-1 text-center py-2 bg-[#FFF9E5] border border-[#A4D23E] text-xs font-medium text-gray-900">Buy</div>
+                <div className="flex-1 text-center py-2 border border-gray-200 text-xs font-medium text-gray-600">Redeem</div>
               </div>
             </div>
           </div>
