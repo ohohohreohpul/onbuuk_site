@@ -48,7 +48,7 @@ const Header = () => {
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
             <Button 
-              onClick={() => scrollToSection('cta')}
+              onClick={() => window.location.href = 'https://app.onbuuk.com'}
               className="bg-[#14B8A6] hover:bg-[#0d9488] text-white font-medium px-6 h-11"
             >
               Get Started
