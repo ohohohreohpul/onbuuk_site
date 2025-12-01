@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
-import { Mail, Phone, Building2, Send } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { toast } from 'sonner';
 
 const CTA = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
     businessName: '',
     message: ''
   });
@@ -19,13 +18,12 @@ const CTA = () => {
     
     // Mock form submission
     console.log('Form submitted:', formData);
-    toast.success('Thanks for your interest! We\'ll contact you shortly.');
+    toast.success('Thanks! We\'ll contact you shortly.');
     
     // Reset form
     setFormData({
       name: '',
       email: '',
-      phone: '',
       businessName: '',
       message: ''
     });
@@ -39,51 +37,57 @@ const CTA = () => {
   };
 
   return (
-    <section id="cta" className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+    <section id="cta" className="py-24 bg-[#14B8A6]">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
-          <div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <div className="text-white">
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
               Ready to Transform Your Booking Experience?
             </h2>
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              Join hundreds of businesses already using buuk to streamline their operations and delight their customers. Get started today with a free demo.
+            <p className="text-xl text-white/90 mb-8 leading-relaxed">
+              Join hundreds of salons and spas using buuk to streamline operations and delight customers.
             </p>
             
-            {/* Contact Info */}
-            <div className="space-y-4">
-              <div className="flex items-center space-x-3 text-gray-700">
-                <div className="w-10 h-10 bg-teal-100 rounded-lg flex items-center justify-center">
-                  <Mail className="w-5 h-5 text-teal-600" />
+            {/* Benefits List */}
+            <ul className="space-y-4 mb-8">
+              <li className="flex items-center space-x-3">
+                <div className="w-6 h-6 bg-white flex items-center justify-center flex-shrink-0">
+                  <svg className="w-4 h-4 text-[#14B8A6]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
+                  </svg>
                 </div>
-                <div>
-                  <p className="text-sm text-gray-500">Email us</p>
-                  <p className="font-medium">hello@buuk.com</p>
+                <span className="text-lg">14-day free trial, no credit card required</span>
+              </li>
+              <li className="flex items-center space-x-3">
+                <div className="w-6 h-6 bg-white flex items-center justify-center flex-shrink-0">
+                  <svg className="w-4 h-4 text-[#14B8A6]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
+                  </svg>
                 </div>
-              </div>
-              
-              <div className="flex items-center space-x-3 text-gray-700">
-                <div className="w-10 h-10 bg-lime-100 rounded-lg flex items-center justify-center">
-                  <Phone className="w-5 h-5 text-lime-600" />
+                <span className="text-lg">Setup in under 30 minutes</span>
+              </li>
+              <li className="flex items-center space-x-3">
+                <div className="w-6 h-6 bg-white flex items-center justify-center flex-shrink-0">
+                  <svg className="w-4 h-4 text-[#14B8A6]" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"></path>
+                  </svg>
                 </div>
-                <div>
-                  <p className="text-sm text-gray-500">Call us</p>
-                  <p className="font-medium">+1 (555) 123-4567</p>
-                </div>
-              </div>
-            </div>
+                <span className="text-lg">Cancel anytime, no questions asked</span>
+              </li>
+            </ul>
           </div>
 
           {/* Right Content - Form */}
-          <div className="bg-white rounded-3xl shadow-2xl border border-gray-100 p-8 md:p-10">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">
-              Book Your Free Demo
+          <div className="bg-white border-2 border-gray-900 p-8 lg:p-10">
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">
+              Get Started Today
             </h3>
+            <p className="text-gray-600 mb-8">Fill out the form and we'll get you set up</p>
             
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="name" className="block text-sm font-semibold text-gray-900 mb-2">
                   Your Name *
                 </label>
                 <Input
@@ -94,12 +98,12 @@ const CTA = () => {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="John Doe"
-                  className="h-12"
+                  className="h-12 border-2 border-gray-200 focus:border-[#14B8A6]"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-2">
                   Email Address *
                 </label>
                 <Input
@@ -110,65 +114,48 @@ const CTA = () => {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="john@example.com"
-                  className="h-12"
+                  className="h-12 border-2 border-gray-200 focus:border-[#14B8A6]"
                 />
               </div>
 
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                  Phone Number
+                <label htmlFor="businessName" className="block text-sm font-semibold text-gray-900 mb-2">
+                  Business Name *
                 </label>
                 <Input
-                  id="phone"
-                  name="phone"
-                  type="tel"
-                  value={formData.phone}
+                  id="businessName"
+                  name="businessName"
+                  type="text"
+                  required
+                  value={formData.businessName}
                   onChange={handleChange}
-                  placeholder="+1 (555) 123-4567"
-                  className="h-12"
+                  placeholder="Your Salon Name"
+                  className="h-12 border-2 border-gray-200 focus:border-[#14B8A6]"
                 />
               </div>
 
               <div>
-                <label htmlFor="businessName" className="block text-sm font-medium text-gray-700 mb-2">
-                  Business Name
-                </label>
-                <div className="relative">
-                  <Building2 className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
-                  <Input
-                    id="businessName"
-                    name="businessName"
-                    type="text"
-                    value={formData.businessName}
-                    onChange={handleChange}
-                    placeholder="Your Business Name"
-                    className="h-12 pl-11"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                  Message (Optional)
+                <label htmlFor="message" className="block text-sm font-semibold text-gray-900 mb-2">
+                  Tell us about your needs (Optional)
                 </label>
                 <Textarea
                   id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Tell us about your business and booking needs..."
+                  placeholder="What are you looking for in a booking system?"
                   rows={4}
-                  className="resize-none"
+                  className="resize-none border-2 border-gray-200 focus:border-[#14B8A6]"
                 />
               </div>
 
               <Button 
                 type="submit"
                 size="lg"
-                className="w-full bg-teal-600 hover:bg-teal-700 text-white h-12 text-base shadow-lg shadow-teal-600/20 hover:shadow-xl hover:shadow-teal-600/30 transition-all duration-300 group"
+                className="w-full bg-gray-900 hover:bg-gray-800 text-white h-14 text-base font-medium group"
               >
-                Send Message
-                <Send className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                Start Free Trial
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </form>
           </div>
