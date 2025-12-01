@@ -85,21 +85,21 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-gray-200">
             <nav className="flex flex-col space-y-4">
-              <button onClick={() => scrollToSection('features')} className="text-left text-gray-700 hover:text-gray-900 transition-colors font-medium">
+              <button onClick={() => handleNavigation('features')} className="text-left text-gray-700 hover:text-gray-900 transition-colors font-medium">
                 Features
               </button>
-              <button onClick={() => scrollToSection('how-it-works')} className="text-left text-gray-700 hover:text-gray-900 transition-colors font-medium">
+              <button onClick={() => handleNavigation('how-it-works')} className="text-left text-gray-700 hover:text-gray-900 transition-colors font-medium">
                 How It Works
               </button>
-              <button onClick={() => scrollToSection('integrations')} className="text-left text-gray-700 hover:text-gray-900 transition-colors font-medium">
+              <button onClick={() => handleNavigation('integrations')} className="text-left text-gray-700 hover:text-gray-900 transition-colors font-medium">
                 Integrations
               </button>
-              <button onClick={() => scrollToSection('pricing')} className="text-left text-gray-700 hover:text-gray-900 transition-colors font-medium">
+              <button onClick={() => handleNavigation('pricing')} className="text-left text-gray-700 hover:text-gray-900 transition-colors font-medium">
                 Pricing
               </button>
-              <a href="/blog" className="text-left text-gray-700 hover:text-gray-900 transition-colors font-medium">
+              <button onClick={() => navigate('/blog')} className="text-left text-gray-700 hover:text-gray-900 transition-colors font-medium">
                 Blog
-              </a>
+              </button>
               <div className="pt-4">
                 <Button 
                   onClick={() => window.location.href = 'https://app.onbuuk.com'}
