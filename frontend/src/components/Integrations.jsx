@@ -36,10 +36,32 @@ const Integrations = () => {
               key={index} 
               className="bg-white border-2 border-gray-200 p-8 hover:border-[#14B8A6] transition-all duration-300 hover:scale-105 group"
             >
-              <div className={`w-16 h-16 ${integration.color} mb-4 mx-auto group-hover:scale-110 transition-transform`}></div>
+              <div className={`w-16 h-16 ${integration.color} mb-4 mx-auto group-hover:scale-110 transition-transform flex items-center justify-center`}>
+                <span className="text-white font-bold text-xl">{integration.name.charAt(0)}</span>
+              </div>
               <p className="text-center font-semibold text-gray-900">{integration.name}</p>
+              <div className="mt-2 flex items-center justify-center">
+                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                <span className="text-xs text-gray-500 ml-1">Connected</span>
+              </div>
             </div>
           ))}
+        </div>
+        
+        {/* Integration Stats */}
+        <div className="grid grid-cols-3 gap-6 mb-12">
+          <div className="bg-white border-2 border-gray-200 p-6">
+            <div className="text-3xl font-bold text-gray-900 mb-2">8</div>
+            <div className="text-sm text-gray-600">Active Integrations</div>
+          </div>
+          <div className="bg-white border-2 border-gray-200 p-6">
+            <div className="text-3xl font-bold text-gray-900 mb-2">12K+</div>
+            <div className="text-sm text-gray-600">Synced Events</div>
+          </div>
+          <div className="bg-white border-2 border-gray-200 p-6">
+            <div className="text-3xl font-bold text-gray-900 mb-2">99.9%</div>
+            <div className="text-sm text-gray-600">Uptime</div>
+          </div>
         </div>
 
         {/* CTA */}
