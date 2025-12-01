@@ -85,7 +85,7 @@ const Header = () => {
               </a>
               <div className="pt-4">
                 <Button 
-                  onClick={() => scrollToSection('cta')}
+                  onClick={() => window.location.href = 'https://app.onbuuk.com'}
                   className="w-full bg-[#14B8A6] hover:bg-[#0d9488] text-white"
                 >
                   Get Started
