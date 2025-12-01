@@ -59,14 +59,16 @@ async def admin_login(credentials: AdminLogin):
 
 # Admin Blog Management Routes
 @admin_router.get('/blog', response_model=List[BlogPost])
-async def admin_get_all_posts(db: AsyncIOMotorDatabase):
+async def admin_get_all_posts():
     """Get all blog posts (including unpublished)"""
+    from server import db
     posts = await db.blog_posts.find().sort('createdAt', -1).to_list(100)
     return [BlogPost(**post) for post in posts]
 
 @admin_router.post('/blog', response_model=BlogPost)
-async def admin_create_post(post_data: BlogPostCreate, db: AsyncIOMotorDatabase):
+async def admin_create_post(post_data: BlogPostCreate):
     """Create a new blog post"""
+    from server import db
     slug = generate_slug(post_data.title)
     
     # Check if slug already exists
@@ -83,16 +85,18 @@ async def admin_create_post(post_data: BlogPostCreate, db: AsyncIOMotorDatabase)
     return post
 
 @admin_router.get('/blog/{post_id}', response_model=BlogPost)
-async def admin_get_post(post_id: str, db: AsyncIOMotorDatabase):
+async def admin_get_post(post_id: str):
     """Get a single blog post by ID"""
+    from server import db
     post = await db.blog_posts.find_one({'id': post_id})
     if not post:
         raise HTTPException(status_code=404, detail='Blog post not found')
     return BlogPost(**post)
 
 @admin_router.put('/blog/{post_id}', response_model=BlogPost)
-async def admin_update_post(post_id: str, post_data: BlogPostUpdate, db: AsyncIOMotorDatabase):
+async def admin_update_post(post_id: str, post_data: BlogPostUpdate):
     """Update a blog post"""
+    from server import db
     post = await db.blog_posts.find_one({'id': post_id})
     if not post:
         raise HTTPException(status_code=404, detail='Blog post not found')
@@ -113,8 +117,9 @@ async def admin_update_post(post_id: str, post_data: BlogPostUpdate, db: AsyncIO
     return BlogPost(**updated_post)
 
 @admin_router.delete('/blog/{post_id}')
-async def admin_delete_post(post_id: str, db: AsyncIOMotorDatabase):
+async def admin_delete_post(post_id: str):
     """Delete a blog post"""
+    from server import db
     result = await db.blog_posts.delete_one({'id': post_id})
     if result.deleted_count == 0:
         raise HTTPException(status_code=404, detail='Blog post not found')
