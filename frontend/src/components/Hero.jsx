@@ -36,7 +36,7 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 size="lg"
-                onClick={() => scrollToSection('cta')}
+                onClick={() => window.location.href = 'https://app.onbuuk.com'}
                 className="bg-[#14B8A6] hover:bg-[#0d9488] text-white font-medium px-8 h-14 text-base group"
               >
                 Start Free Trial
@@ -45,6 +45,7 @@ const Hero = () => {
               <Button 
                 size="lg"
                 variant="outline"
+                onClick={() => scrollToSection('how-it-works')}
                 className="border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white font-medium px-8 h-14 text-base group"
               >
                 <Play className="mr-2 w-5 h-5" />
