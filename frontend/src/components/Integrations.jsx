@@ -34,15 +34,24 @@ const Integrations = () => {
           {integrations.map((integration, index) => (
             <div 
               key={index} 
-              className="bg-white border-2 border-gray-200 p-8 hover:border-[#14B8A6] transition-all duration-300 hover:scale-105 group"
+              className="bg-white border-2 border-gray-200 p-8 hover:border-[#14B8A6] transition-all duration-300 hover:scale-105 group relative"
             >
-              <div className={`w-16 h-16 ${integration.color} mb-4 mx-auto group-hover:scale-110 transition-transform flex items-center justify-center`}>
-                <span className="text-white font-bold text-xl">{integration.name.charAt(0)}</span>
+              {/* Coming Soon Badge */}
+              <div className="absolute -top-3 -right-3 bg-[#A4D23E] text-gray-900 px-3 py-1 text-xs font-bold border-2 border-gray-900 shadow-lg z-10">
+                Coming Soon to Pro
+              </div>
+              
+              <div className={`w-20 h-20 ${integration.bgColor} mb-4 mx-auto group-hover:scale-110 transition-transform flex items-center justify-center p-4`}>
+                <img 
+                  src={integration.logo} 
+                  alt={integration.name}
+                  className="w-full h-full object-contain filter brightness-0 invert"
+                />
               </div>
               <p className="text-center font-semibold text-gray-900">{integration.name}</p>
-              <div className="mt-2 flex items-center justify-center">
-                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                <span className="text-xs text-gray-500 ml-1">Connected</span>
+              <div className="mt-2 flex items-center justify-center opacity-50">
+                <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+                <span className="text-xs text-gray-500 ml-1">Coming Soon</span>
               </div>
             </div>
           ))}
