@@ -109,9 +109,9 @@ const Pricing = () => {
                   : 'bg-white border-gray-200 hover:border-[#14B8A6]'
               }`}
             >
-              {plan.highlighted && (
+              {plan.highlighted && plan.badge && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#A4D23E] text-gray-900 px-4 py-1 text-sm font-bold">
-                  MOST POPULAR
+                  {plan.badge}
                 </div>
               )}
               
@@ -125,12 +125,23 @@ const Pricing = () => {
               </div>
               
               <div className="mb-8">
-                <div className="flex items-baseline">
-                  <span className={`text-5xl font-bold ${plan.highlighted ? 'text-white' : 'text-gray-900'}`}>
-                    ${plan.price}
-                  </span>
-                  <span className={`ml-2 ${plan.highlighted ? 'text-white/80' : 'text-gray-600'}`}>/month</span>
-                </div>
+                {plan.customPricing ? (
+                  <div>
+                    <div className={`text-3xl font-bold mb-2 ${plan.highlighted ? 'text-white' : 'text-gray-900'}`}>
+                      Custom Pricing
+                    </div>
+                    <p className={`text-sm ${plan.highlighted ? 'text-white/80' : 'text-gray-600'}`}>
+                      Starting from €149/month
+                    </p>
+                  </div>
+                ) : (
+                  <div className="flex items-baseline">
+                    <span className={`text-5xl font-bold ${plan.highlighted ? 'text-white' : 'text-gray-900'}`}>
+                      {plan.currency}{plan.price}
+                    </span>
+                    <span className={`ml-2 ${plan.highlighted ? 'text-white/80' : 'text-gray-600'}`}>/month</span>
+                  </div>
+                )}
               </div>
               
               <Button 
@@ -138,10 +149,12 @@ const Pricing = () => {
                 className={`w-full mb-8 font-medium h-12 ${
                   plan.highlighted 
                     ? 'bg-white text-[#14B8A6] hover:bg-gray-100' 
+                    : plan.customPricing
+                    ? 'bg-gray-900 text-white hover:bg-gray-800'
                     : 'bg-[#14B8A6] text-white hover:bg-[#0d9488]'
                 }`}
               >
-                Start Free Trial
+                {plan.customPricing ? 'Contact Sales' : 'Start Free Trial'}
               </Button>
               
               <ul className="space-y-3">
@@ -152,11 +165,22 @@ const Pricing = () => {
                     }`}>
                       <Check className={`w-3 h-3 ${plan.highlighted ? 'text-white' : 'text-[#14B8A6]'}`} />
                     </div>
-                    <span className={`text-sm ${plan.highlighted ? 'text-white' : 'text-gray-700'}`}>
+                    <span className={`text-sm ${plan.highlighted ? 'text-white' : 'text-gray-700'} ${feature.includes('PLUS:') ? 'font-semibold' : ''}`}>
                       {feature}
                     </span>
                   </li>
                 ))}
+                
+                {plan.limitations && (
+                  <li className="pt-4 mt-4 border-t border-gray-200">
+                    <p className="text-xs text-gray-500 mb-2 font-semibold">Limitations:</p>
+                    {plan.limitations.map((limitation, i) => (
+                      <div key={i} className="flex items-start space-x-2 mb-2">
+                        <span className="text-xs text-gray-500">• {limitation}</span>
+                      </div>
+                    ))}
+                  </li>
+                )}
               </ul>
             </div>
           ))}
