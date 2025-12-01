@@ -126,10 +126,37 @@ const Features = () => {
             <p className="text-gray-600">
               Self-service booking, history tracking, and loyalty points. Empower your customers.
             </p>
-            <div className="mt-6 space-y-2">
-              <div className="h-2 bg-gray-100 border border-gray-200"></div>
-              <div className="h-2 bg-gray-100 border border-gray-200"></div>
-              <div className="h-2 bg-[#E5F8F6] border border-[#14B8A6]"></div>
+            <div className="mt-6 space-y-3">
+              <div className="flex items-center justify-between p-3 bg-gray-50 border border-gray-200">
+                <div className="flex items-center space-x-2">
+                  <div className="w-8 h-8 bg-blue-500 flex items-center justify-center text-white text-xs font-bold">EW</div>
+                  <div>
+                    <div className="text-xs font-semibold text-gray-900">Emma Wilson</div>
+                    <div className="text-[10px] text-gray-500">emma@email.com</div>
+                  </div>
+                </div>
+                <div className="text-xs font-medium text-gray-900">245 pts</div>
+              </div>
+              <div className="flex items-center justify-between p-3 bg-[#E5F8F6] border border-[#14B8A6]">
+                <div className="flex items-center space-x-2">
+                  <div className="w-8 h-8 bg-[#14B8A6] flex items-center justify-center text-white text-xs font-bold">JM</div>
+                  <div>
+                    <div className="text-xs font-semibold text-gray-900">James Miller</div>
+                    <div className="text-[10px] text-gray-500">james@email.com</div>
+                  </div>
+                </div>
+                <div className="text-xs font-medium text-[#14B8A6]">892 pts</div>
+              </div>
+              <div className="flex items-center justify-between p-3 bg-gray-50 border border-gray-200">
+                <div className="flex items-center space-x-2">
+                  <div className="w-8 h-8 bg-purple-500 flex items-center justify-center text-white text-xs font-bold">SD</div>
+                  <div>
+                    <div className="text-xs font-semibold text-gray-900">Sarah Davis</div>
+                    <div className="text-[10px] text-gray-500">sarah@email.com</div>
+                  </div>
+                </div>
+                <div className="text-xs font-medium text-gray-900">156 pts</div>
+              </div>
             </div>
           </div>
 
