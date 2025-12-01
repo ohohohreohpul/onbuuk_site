@@ -40,6 +40,9 @@ const Header = () => {
             <button onClick={() => scrollToSection('pricing')} className="text-gray-700 hover:text-gray-900 transition-colors font-medium text-sm">
               Pricing
             </button>
+            <a href="/blog" className="text-gray-700 hover:text-gray-900 transition-colors font-medium text-sm">
+              Blog
+            </a>
           </nav>
 
           {/* CTA Buttons */}
