@@ -1,4 +1,4 @@
-from fastapi import FastAPI, APIRouter
+from fastapi import FastAPI, APIRouter, Request
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
@@ -9,6 +9,7 @@ from pydantic import BaseModel, Field, ConfigDict
 from typing import List
 import uuid
 from datetime import datetime, timezone
+from blog_routes import blog_router, admin_router
 
 
 ROOT_DIR = Path(__file__).parent
@@ -24,6 +25,17 @@ app = FastAPI()
 
 # Create a router with the /api prefix
 api_router = APIRouter(prefix="/api")
+
+# Dependency to get database
+async def get_db():
+    return db
+
+# Middleware to inject db into request state
+@app.middleware("http")
+async def db_middleware(request: Request, call_next):
+    request.state.db = db
+    response = await call_next(request)
+    return response
 
 
 # Define Models
