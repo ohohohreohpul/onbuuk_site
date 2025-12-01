@@ -45,21 +45,21 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-10">
-            <button onClick={() => scrollToSection('features')} className="text-gray-700 hover:text-gray-900 transition-colors font-medium text-sm">
+            <button onClick={() => handleNavigation('features')} className="text-gray-700 hover:text-gray-900 transition-colors font-medium text-sm">
               Features
             </button>
-            <button onClick={() => scrollToSection('how-it-works')} className="text-gray-700 hover:text-gray-900 transition-colors font-medium text-sm">
+            <button onClick={() => handleNavigation('how-it-works')} className="text-gray-700 hover:text-gray-900 transition-colors font-medium text-sm">
               How It Works
             </button>
-            <button onClick={() => scrollToSection('integrations')} className="text-gray-700 hover:text-gray-900 transition-colors font-medium text-sm">
+            <button onClick={() => handleNavigation('integrations')} className="text-gray-700 hover:text-gray-900 transition-colors font-medium text-sm">
               Integrations
             </button>
-            <button onClick={() => scrollToSection('pricing')} className="text-gray-700 hover:text-gray-900 transition-colors font-medium text-sm">
+            <button onClick={() => handleNavigation('pricing')} className="text-gray-700 hover:text-gray-900 transition-colors font-medium text-sm">
               Pricing
             </button>
-            <a href="/blog" className="text-gray-700 hover:text-gray-900 transition-colors font-medium text-sm">
+            <button onClick={() => navigate('/blog')} className="text-gray-700 hover:text-gray-900 transition-colors font-medium text-sm">
               Blog
-            </a>
+            </button>
           </nav>
 
           {/* CTA Buttons */}
