@@ -145,7 +145,13 @@ const Pricing = () => {
               </div>
               
               <Button 
-                onClick={() => scrollToSection('cta')}
+                onClick={() => {
+                  if (plan.customPricing) {
+                    scrollToSection('cta');
+                  } else {
+                    window.location.href = 'https://app.onbuuk.com';
+                  }
+                }}
                 className={`w-full mb-8 font-medium h-12 ${
                   plan.highlighted 
                     ? 'bg-white text-[#14B8A6] hover:bg-gray-100' 
