@@ -171,9 +171,33 @@ const Features = () => {
             <p className="text-gray-600">
               Seamless online payments, in-person checkout, and gift card redemption all in one place.
             </p>
-            <div className="mt-6 flex gap-2">
-              <div className="h-12 bg-gray-100 border border-gray-200 flex-1"></div>
-              <div className="h-12 bg-[#E5F8F6] border border-[#14B8A6] w-20"></div>
+            <div className="mt-6 space-y-3">
+              <div className="p-3 bg-gray-50 border border-gray-200">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="text-xs font-semibold text-gray-900">Total Amount</div>
+                  <div className="text-lg font-bold text-gray-900">€85.00</div>
+                </div>
+                <div className="flex gap-2 mt-3">
+                  <div className="flex-1 p-2 bg-white border border-gray-200 text-center">
+                    <svg className="w-6 h-6 mx-auto text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm0 2v12h16V6H4zm2 2h12v2H6V8zm0 4h8v2H6v-2z"/>
+                    </svg>
+                    <div className="text-[10px] text-gray-600 mt-1">Card</div>
+                  </div>
+                  <div className="flex-1 p-2 bg-[#E5F8F6] border-2 border-[#14B8A6] text-center">
+                    <svg className="w-6 h-6 mx-auto text-[#14B8A6]" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M21.71 11.29l-9-9a.996.996 0 00-1.41 0l-9 9a.996.996 0 000 1.41l9 9c.39.39 1.02.39 1.41 0l9-9a.996.996 0 000-1.41zM14 14.5V12h-4v3H8v-4c0-.55.45-1 1-1h5V7.5l3.5 3.5-3.5 3.5z"/>
+                    </svg>
+                    <div className="text-[10px] text-[#14B8A6] font-semibold mt-1">Stripe</div>
+                  </div>
+                  <div className="flex-1 p-2 bg-white border border-gray-200 text-center">
+                    <svg className="w-6 h-6 mx-auto text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                    <div className="text-[10px] text-gray-600 mt-1">Cash</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
