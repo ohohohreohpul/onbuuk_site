@@ -103,7 +103,7 @@ const Features = () => {
                 </div>
                 
                 {/* Animated Booking Confirmation Overlay */}
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white border-2 border-[#14B8A6] shadow-2xl p-4 w-64 animate-float z-10">
+                <div className="absolute bottom-8 right-8 bg-white border-2 border-[#14B8A6] shadow-2xl p-4 w-64 animate-float z-20">
                   <div className="flex items-center space-x-3 mb-3">
                     <div className="w-10 h-10 bg-green-500 flex items-center justify-center">
                       <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -129,27 +129,6 @@ const Features = () => {
                       <span className="font-medium">2:00 PM</span>
                     </div>
                   </div>
-                </div>
-              </div>
-              
-              {/* No-Show Stats Widget */}
-              <div className="absolute top-8 right-8 bg-white border-2 border-gray-900 shadow-xl p-4 w-48">
-                <div className="flex items-center justify-between mb-2">
-                  <div className="text-xs font-bold text-gray-900">No-Show Fee</div>
-                  <div className="w-8 h-8 bg-red-100 flex items-center justify-center">
-                    <svg className="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                </div>
-                <div className="text-2xl font-bold text-gray-900 mb-1">€125.00</div>
-                <div className="text-xs text-gray-500 mb-3">Collected this month</div>
-                <div className="flex items-center justify-between text-xs">
-                  <span className="text-gray-500">5 no-shows</span>
-                  <span className="text-red-600 font-medium">-60%</span>
-                </div>
-                <div className="mt-2 h-1 bg-gray-200 relative overflow-hidden">
-                  <div className="absolute left-0 top-0 h-full w-2/5 bg-red-500"></div>
                 </div>
               </div>
             </div>
