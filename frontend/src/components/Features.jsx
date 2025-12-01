@@ -145,28 +145,53 @@ const Features = () => {
             <p className="text-gray-600 mb-6">
               Built-in gift card system and customizable loyalty programs to boost retention and revenue.
             </p>
+            
+            {/* Stats */}
+            <div className="grid grid-cols-2 gap-3 mb-6">
+              <div className="bg-white border border-gray-300 p-3">
+                <div className="text-2xl font-bold text-gray-900">€3.2K</div>
+                <div className="text-xs text-gray-600">Gift cards sold</div>
+              </div>
+              <div className="bg-white border border-gray-300 p-3">
+                <div className="text-2xl font-bold text-gray-900">450</div>
+                <div className="text-xs text-gray-600">Loyalty members</div>
+              </div>
+            </div>
+            
             <div className="bg-white border border-gray-300 p-4 mt-auto">
-              <div className="text-xs font-semibold text-gray-600 mb-3">GIFT CARD</div>
-              <div className="bg-gradient-to-br from-[#A4D23E] to-[#8BC234] p-4 text-white">
-                <div className="flex justify-between items-start mb-6">
-                  <div className="text-xs font-medium">BUUK</div>
-                  <div className="text-xs">GIFT</div>
-                </div>
-                <div className="mb-4">
-                  <div className="text-2xl font-bold">€50.00</div>
-                  <div className="text-xs opacity-80">Gift Card Value</div>
-                </div>
-                <div className="flex justify-between items-end">
-                  <div className="text-xs">
-                    <div className="opacity-80 text-[10px]">CODE</div>
-                    <div className="font-mono font-semibold">GIFT-2024</div>
+              <div className="text-xs font-semibold text-gray-600 mb-3">GIFT CARD PREVIEW</div>
+              <div className="bg-gradient-to-br from-[#A4D23E] to-[#8BC234] p-4 text-white relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-20 h-20 bg-white opacity-10 rounded-full -mr-10 -mt-10"></div>
+                <div className="absolute bottom-0 left-0 w-16 h-16 bg-white opacity-10 rounded-full -ml-8 -mb-8"></div>
+                <div className="relative z-10">
+                  <div className="flex justify-between items-start mb-6">
+                    <div className="text-xs font-bold">BUUK</div>
+                    <div className="text-xs font-medium bg-white bg-opacity-20 px-2 py-1">GIFT</div>
                   </div>
-                  <div className="text-xs opacity-80">Valid 12 months</div>
+                  <div className="mb-4">
+                    <div className="text-3xl font-bold mb-1">€50.00</div>
+                    <div className="text-xs opacity-80">Gift Card Value</div>
+                  </div>
+                  <div className="flex justify-between items-end">
+                    <div className="text-xs">
+                      <div className="opacity-80 text-[10px] mb-1">CODE</div>
+                      <div className="font-mono font-bold text-sm">GIFT-2024</div>
+                    </div>
+                    <div className="text-xs opacity-80">Exp: 12/2025</div>
+                  </div>
                 </div>
               </div>
-              <div className="mt-3 flex gap-2">
-                <div className="flex-1 text-center py-2 bg-[#FFF9E5] border border-[#A4D23E] text-xs font-medium text-gray-900">Buy</div>
-                <div className="flex-1 text-center py-2 border border-gray-200 text-xs font-medium text-gray-600">Redeem</div>
+              
+              {/* Loyalty Points */}
+              <div className="mt-4 p-3 border border-gray-300 bg-[#FFF9E5]">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="text-xs font-semibold text-gray-900">LOYALTY POINTS</div>
+                  <div className="text-lg font-bold text-[#A4D23E]">850</div>
+                </div>
+                <div className="h-2 bg-white border border-gray-300 relative overflow-hidden">
+                  <div className="absolute left-0 top-0 h-full w-4/5 bg-[#A4D23E]"></div>
+                </div>
+                <div className="text-xs text-gray-600 mt-2">150 points to next reward</div>
               </div>
             </div>
           </div>
