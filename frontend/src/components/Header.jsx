@@ -19,7 +19,12 @@ const Header = () => {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex items-center">
-            <div className="text-2xl font-bold text-[#14B8A6]">buuk</div>
+            <img 
+              src="/buuklogo.png" 
+              alt="buuk" 
+              className="h-10 w-auto"
+              style={{ maxWidth: '150px' }}
+            />
           </div>
 
           {/* Desktop Navigation */}
