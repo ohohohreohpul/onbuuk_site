@@ -212,10 +212,25 @@ const Features = () => {
             <p className="text-gray-600">
               Custom colors, logos, and form fields. Make it uniquely yours.
             </p>
-            <div className="mt-6 grid grid-cols-3 gap-2">
-              <div className="h-12 bg-[#14B8A6]"></div>
-              <div className="h-12 bg-[#A4D23E]"></div>
-              <div className="h-12 bg-gray-900"></div>
+            <div className="mt-6">
+              <div className="text-xs font-semibold text-gray-600 mb-3">BRAND COLORS</div>
+              <div className="grid grid-cols-3 gap-2 mb-3">
+                <div className="h-12 bg-[#14B8A6] flex items-center justify-center">
+                  <span className="text-white text-[10px] font-medium">#14B8A6</span>
+                </div>
+                <div className="h-12 bg-[#A4D23E] flex items-center justify-center">
+                  <span className="text-gray-900 text-[10px] font-medium">#A4D23E</span>
+                </div>
+                <div className="h-12 bg-gray-900 flex items-center justify-center">
+                  <span className="text-white text-[10px] font-medium">#1A1A1A</span>
+                </div>
+              </div>
+              <div className="p-3 bg-gray-50 border border-gray-200">
+                <div className="text-[10px] font-semibold text-gray-600 mb-2">LOGO</div>
+                <div className="h-8 bg-white border border-gray-200 flex items-center justify-center">
+                  <span className="text-[#14B8A6] font-bold">buuk</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
