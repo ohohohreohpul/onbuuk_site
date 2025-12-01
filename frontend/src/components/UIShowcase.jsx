@@ -33,31 +33,105 @@ const UIShowcase = () => {
               {/* Header */}
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="h-4 bg-gray-300 w-32 mb-2"></div>
-                  <div className="h-3 bg-gray-200 w-48"></div>
+                  <div className="text-lg font-bold text-gray-900">Dashboard Overview</div>
+                  <div className="text-xs text-gray-500 mt-1">Monday, December 2, 2024 • 9:47 AM</div>
                 </div>
-                <div className="h-10 w-32 bg-[#14B8A6]"></div>
+                <div className="h-10 px-4 bg-[#14B8A6] flex items-center justify-center text-white text-sm font-medium">
+                  + New Booking
+                </div>
               </div>
 
               {/* Stats Grid */}
               <div className="grid grid-cols-4 gap-4 mt-8">
-                {[1, 2, 3, 4].map((item) => (
-                  <div key={item} className="bg-white border border-gray-200 p-4">
-                    <div className="h-3 bg-gray-200 w-16 mb-3"></div>
-                    <div className="h-6 bg-gray-900 w-20 mb-2"></div>
-                    <div className="h-2 bg-gray-200 w-12"></div>
+                <div className="bg-white border border-gray-200 p-4">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="text-xs text-gray-500 font-medium">TODAY</div>
+                    <div className="w-6 h-6 bg-blue-100 flex items-center justify-center">
+                      <svg className="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" />
+                      </svg>
+                    </div>
                   </div>
-                ))}
+                  <div className="text-2xl font-bold text-gray-900 mb-1">12</div>
+                  <div className="text-xs text-green-600 font-medium">+3 from yesterday</div>
+                </div>
+
+                <div className="bg-white border border-gray-200 p-4">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="text-xs text-gray-500 font-medium">REVENUE</div>
+                    <div className="w-6 h-6 bg-green-100 flex items-center justify-center">
+                      <svg className="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z" /><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="text-2xl font-bold text-gray-900 mb-1">€1.2K</div>
+                  <div className="text-xs text-green-600 font-medium">+18% this week</div>
+                </div>
+
+                <div className="bg-white border border-gray-200 p-4">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="text-xs text-gray-500 font-medium">CUSTOMERS</div>
+                    <div className="w-6 h-6 bg-purple-100 flex items-center justify-center">
+                      <svg className="w-4 h-4 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="text-2xl font-bold text-gray-900 mb-1">248</div>
+                  <div className="text-xs text-gray-500 font-medium">12 new this month</div>
+                </div>
+
+                <div className="bg-white border border-gray-200 p-4">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="text-xs text-gray-500 font-medium">NO-SHOWS</div>
+                    <div className="w-6 h-6 bg-red-100 flex items-center justify-center">
+                      <svg className="w-4 h-4 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="text-2xl font-bold text-gray-900 mb-1">3</div>
+                  <div className="text-xs text-green-600 font-medium">-60% vs last month</div>
+                </div>
               </div>
 
               {/* Calendar/Schedule View */}
               <div className="bg-white border border-gray-200 p-6 mt-6">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="text-sm font-bold text-gray-900">WEEKLY SCHEDULE</div>
+                  <div className="flex items-center space-x-2">
+                    <button className="w-6 h-6 border border-gray-300 flex items-center justify-center hover:bg-gray-100">
+                      <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                      </svg>
+                    </button>
+                    <span className="text-xs text-gray-600 font-medium">Dec 2-8</span>
+                    <button className="w-6 h-6 border border-gray-300 flex items-center justify-center hover:bg-gray-100">
+                      <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                
                 <div className="grid grid-cols-7 gap-2">
-                  {[...Array(35)].map((_, i) => (
-                    <div 
-                      key={i} 
-                      className={`h-16 ${i % 7 === 3 || i % 7 === 4 ? 'bg-[#E5F8F6] border border-[#14B8A6]' : 'bg-gray-50 border border-gray-200'}`}
-                    ></div>
+                  {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map((day, i) => (
+                    <div key={i} className="text-center">
+                      <div className="text-xs font-medium text-gray-500 mb-2">{day}</div>
+                      <div className={`h-16 ${
+                        i === 2 || i === 3 
+                          ? 'bg-[#E5F8F6] border-2 border-[#14B8A6]' 
+                          : i === 5 || i === 6
+                          ? 'bg-gray-100 border border-gray-200'
+                          : 'bg-white border border-gray-200'
+                      } flex flex-col items-center justify-center`}>
+                        <div className="text-lg font-bold text-gray-900">{i + 2}</div>
+                        {(i === 0 || i === 1 || i === 2 || i === 3 || i === 4) && (
+                          <div className="text-xs text-[#14B8A6] font-medium">{[8, 12, 15, 11, 6][i]}+</div>
+                        )}
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
