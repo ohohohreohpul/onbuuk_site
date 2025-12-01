@@ -20,10 +20,9 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center">
             <img 
-              src="/buuklogo-teal.png" 
+              src="/buuklogo-new.png" 
               alt="buuk" 
               className="h-10 w-auto"
-              style={{ maxWidth: '150px', filter: 'brightness(1.2) contrast(1.1)' }}
             />
           </div>
 
