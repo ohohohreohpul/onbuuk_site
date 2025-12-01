@@ -1,72 +1,73 @@
 import React, { useState } from 'react';
-import { Calendar, Clock, ArrowRight, Tag } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Calendar, Clock, ArrowRight } from 'lucide-react';
 import { Button } from './ui/button';
 
 const blogPosts = [
   {
     id: 1,
+    slug: 'how-to-reduce-no-shows-in-your-salon-by-80-percent',
     title: 'How to Reduce No-Shows in Your Salon by 80%',
     excerpt: 'Discover proven strategies to minimize appointment cancellations and maximize your revenue with automated reminders and booking policies.',
     category: 'Best Practices',
     author: 'Sarah Johnson',
     date: 'Nov 28, 2024',
     readTime: '5 min read',
-    image: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&h=500&fit=crop',
     featured: true
   },
   {
     id: 2,
+    slug: 'complete-guide-to-gift-cards-for-salons-and-spas',
     title: 'Complete Guide to Gift Cards for Salons & Spas',
     excerpt: 'Learn how to implement and market gift cards effectively to boost revenue during holidays and special occasions.',
     category: 'Revenue Growth',
     author: 'Michael Chen',
     date: 'Nov 25, 2024',
     readTime: '7 min read',
-    image: 'https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=800&h=500&fit=crop',
     featured: false
   },
   {
     id: 3,
+    slug: 'building-customer-loyalty-the-ultimate-program-guide',
     title: 'Building Customer Loyalty: The Ultimate Program Guide',
     excerpt: 'Create a loyalty program that keeps customers coming back. Real examples from successful salons and spas.',
     category: 'Customer Retention',
     author: 'Emily Rodriguez',
     date: 'Nov 22, 2024',
     readTime: '6 min read',
-    image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&h=500&fit=crop',
     featured: false
   },
   {
     id: 4,
+    slug: '10-ways-to-optimize-your-online-booking-system',
     title: '10 Ways to Optimize Your Online Booking System',
     excerpt: 'Make booking effortless for your customers with these optimization tips that increase conversion rates.',
     category: 'Best Practices',
     author: 'David Park',
     date: 'Nov 20, 2024',
     readTime: '8 min read',
-    image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&h=500&fit=crop',
     featured: false
   },
   {
     id: 5,
+    slug: 'sms-vs-email-which-booking-reminder-works-best',
     title: 'SMS vs Email: Which Booking Reminder Works Best?',
     excerpt: 'Data-driven analysis comparing SMS and email reminder effectiveness for appointment confirmations.',
     category: 'Marketing',
     author: 'Lisa Thompson',
     date: 'Nov 18, 2024',
     readTime: '4 min read',
-    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=500&fit=crop',
     featured: false
   },
   {
     id: 6,
+    slug: 'multi-location-management-best-practices-for-chains',
     title: 'Multi-Location Management: Best Practices for Chains',
     excerpt: 'Scale your salon or spa business across multiple locations with centralized management strategies.',
     category: 'Business Growth',
     author: 'James Wilson',
     date: 'Nov 15, 2024',
     readTime: '10 min read',
-    image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=500&fit=crop',
     featured: false
   }
 ];
@@ -74,6 +75,7 @@ const blogPosts = [
 const categories = ['All', 'Best Practices', 'Revenue Growth', 'Customer Retention', 'Marketing', 'Business Growth'];
 
 const Blog = () => {
+  const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState('All');
 
   const filteredPosts = selectedCategory === 'All' 
@@ -124,7 +126,10 @@ const Blog = () => {
       {selectedCategory === 'All' && featuredPost && (
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
-            <div className="bg-[#F8FFFE] border-2 border-gray-200 overflow-hidden hover:border-[#14B8A6] transition-all duration-300 cursor-pointer group">
+            <div 
+              onClick={() => navigate(`/blog/${featuredPost.slug}`)}
+              className="bg-[#F8FFFE] border-2 border-gray-200 overflow-hidden hover:border-[#14B8A6] transition-all duration-300 cursor-pointer group"
+            >
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Image */}
                 <div className="h-64 lg:h-auto bg-gray-200 relative overflow-hidden">
@@ -187,6 +192,7 @@ const Blog = () => {
             {regularPosts.map((post) => (
               <article 
                 key={post.id}
+                onClick={() => navigate(`/blog/${post.slug}`)}
                 className="bg-white border-2 border-gray-200 hover:border-[#14B8A6] transition-all duration-300 cursor-pointer group"
               >
                 {/* Image Placeholder */}
