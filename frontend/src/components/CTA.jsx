@@ -93,9 +93,9 @@ const CTA = () => {
           {/* Right Content - Form */}
           <div className="bg-white border-2 border-gray-900 p-8 lg:p-10">
             <h3 className="text-2xl font-bold text-gray-900 mb-2">
-              Get Started Today
+              Request a Demo
             </h3>
-            <p className="text-gray-600 mb-8">Fill out the form and we'll get you set up</p>
+            <p className="text-gray-600 mb-8">Want a personalized walkthrough? We'll reach out to you.</p>
             
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
