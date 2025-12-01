@@ -1,14 +1,14 @@
 import React from 'react';
 
 const integrations = [
-  { name: 'Stripe', color: 'bg-[#635BFF]' },
-  { name: 'Google Cal', color: 'bg-[#4285F4]' },
-  { name: 'Mailchimp', color: 'bg-[#FFE01B]' },
-  { name: 'Slack', color: 'bg-[#4A154B]' },
-  { name: 'Zoom', color: 'bg-[#2D8CFF]' },
-  { name: 'QuickBooks', color: 'bg-[#2CA01C]' },
-  { name: 'Zapier', color: 'bg-[#FF4A00]' },
-  { name: 'HubSpot', color: 'bg-[#FF7A59]' },
+  { name: 'Stripe', logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/stripe.svg', bgColor: 'bg-[#635BFF]' },
+  { name: 'Google Calendar', logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/googlecalendar.svg', bgColor: 'bg-[#4285F4]' },
+  { name: 'Mailchimp', logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/mailchimp.svg', bgColor: 'bg-[#FFE01B]' },
+  { name: 'Slack', logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/slack.svg', bgColor: 'bg-[#4A154B]' },
+  { name: 'Zoom', logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/zoom.svg', bgColor: 'bg-[#2D8CFF]' },
+  { name: 'QuickBooks', logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/quickbooks.svg', bgColor: 'bg-[#2CA01C]' },
+  { name: 'Zapier', logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/zapier.svg', bgColor: 'bg-[#FF4A00]' },
+  { name: 'HubSpot', logo: 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/hubspot.svg', bgColor: 'bg-[#FF7A59]' },
 ];
 
 const Integrations = () => {
