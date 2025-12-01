@@ -139,6 +139,11 @@ const Blog = () => {
               <div className="grid lg:grid-cols-2 gap-0">
                 {/* Image */}
                 <div className="h-64 lg:h-auto bg-gray-200 relative overflow-hidden">
+                  <img 
+                    src={featuredPost.image} 
+                    alt={featuredPost.title}
+                    className="w-full h-full object-cover"
+                  />
                   <div className="absolute inset-0 bg-[#14B8A6] opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
                   <div className="absolute top-4 left-4 bg-[#A4D23E] text-gray-900 px-4 py-1 text-sm font-bold">
                     FEATURED
