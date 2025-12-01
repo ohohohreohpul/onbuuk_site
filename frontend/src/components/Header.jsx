@@ -80,6 +80,9 @@ const Header = () => {
               <button onClick={() => scrollToSection('pricing')} className="text-left text-gray-700 hover:text-gray-900 transition-colors font-medium">
                 Pricing
               </button>
+              <a href="/blog" className="text-left text-gray-700 hover:text-gray-900 transition-colors font-medium">
+                Blog
+              </a>
               <div className="pt-4">
                 <Button 
                   onClick={() => scrollToSection('cta')}
