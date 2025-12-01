@@ -22,18 +22,39 @@ const Features = () => {
         {/* Bento Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Large Feature - Spans 2 columns */}
-          <div className="lg:col-span-2 bg-[#F8FFFE] border-2 border-gray-200 p-8 hover:border-[#14B8A6] transition-all duration-300 group relative overflow-hidden">
+          <div className="lg:col-span-2 bg-[#F8FFFE] border-2 border-gray-200 p-8 hover:border-[#14B8A6] transition-all duration-300 group relative overflow-visible">
             <div className="flex flex-col h-full">
-              <div className="mb-6">
+              <div className="mb-6 relative z-20">
                 <div className="w-14 h-14 bg-[#14B8A6] flex items-center justify-center mb-6">
                   <Calendar className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
                   Smart Booking System
                 </h3>
-                <p className="text-gray-600 mb-6">
+                <p className="text-gray-600 mb-6 pr-56">
                   Real-time availability, multi-step booking flow, automated confirmations, and customer self-service portal. Make booking effortless for your clients.
                 </p>
+              </div>
+              
+              {/* No-Show Stats Widget - Positioned outside content */}
+              <div className="absolute top-4 right-4 bg-white border-2 border-gray-900 shadow-xl p-4 w-48 z-30">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="text-xs font-bold text-gray-900">No-Show Fee</div>
+                  <div className="w-8 h-8 bg-red-100 flex items-center justify-center">
+                    <svg className="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                </div>
+                <div className="text-2xl font-bold text-gray-900 mb-1">€125.00</div>
+                <div className="text-xs text-gray-500 mb-3">Collected this month</div>
+                <div className="flex items-center justify-between text-xs">
+                  <span className="text-gray-500">5 no-shows</span>
+                  <span className="text-red-600 font-medium">-60%</span>
+                </div>
+                <div className="mt-2 h-1 bg-gray-200 relative overflow-hidden">
+                  <div className="absolute left-0 top-0 h-full w-2/5 bg-red-500"></div>
+                </div>
               </div>
               
               {/* Mockup - Calendar View with Bookings */}
