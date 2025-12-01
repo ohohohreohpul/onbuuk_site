@@ -4,49 +4,71 @@ import { Button } from './ui/button';
 
 const plans = [
   {
-    name: 'Starter',
+    name: 'Standard',
     price: '29',
-    description: 'Perfect for solo practitioners',
+    currency: '€',
+    description: 'Perfect for small service businesses getting started',
     features: [
-      'Up to 100 bookings/month',
-      'Basic booking system',
+      'Multi-service booking system',
+      'Staff management (up to 5 staff)',
+      'Booking calendar',
       'Customer portal',
-      'Email notifications',
-      'Mobile responsive',
-      'Email support'
+      'Email + SMS notifications',
+      'POS system (basic)',
+      'Gift cards & loyalty program',
+      'Add-on product sales',
+      'Up to 20 services',
+      'Buuk subdomain (yourname.buuk.io)',
+      'Basic booking form customization'
+    ],
+    limitations: [
+      'No custom domain',
+      'No custom logo',
+      '"Powered by Buuk" branding'
     ],
     highlighted: false
   },
   {
-    name: 'Professional',
-    price: '79',
-    description: 'For growing businesses',
+    name: 'Pro',
+    price: '49',
+    currency: '€',
+    description: 'Full branding, integrations, and unlimited growth',
     features: [
-      'Unlimited bookings',
-      'Gift cards & loyalty',
-      'Multi-staff scheduling',
-      'Stripe payments',
-      'Custom branding',
-      'SMS notifications',
-      'Priority support',
-      'Advanced analytics'
+      'Everything in Standard, PLUS:',
+      'Custom domain',
+      'Remove all Buuk branding',
+      'Upload custom logos',
+      'Full booking widget color + theme customization',
+      'Google Calendar sync',
+      'Outlook Calendar sync',
+      'Advanced booking form customization',
+      'Advanced staff permissions',
+      'Unlimited staff',
+      'Unlimited services',
+      'Priority email support'
     ],
-    highlighted: true
+    highlighted: true,
+    badge: 'RECOMMENDED'
   },
   {
-    name: 'Enterprise',
-    price: '199',
-    description: 'For multi-location businesses',
+    name: 'Business',
+    price: 'Custom',
+    currency: '',
+    description: 'For high-volume businesses, chains, and franchises',
     features: [
-      'Everything in Professional',
-      'Multi-location support',
-      'Advanced reporting',
-      'API access',
-      'Custom integrations',
+      'Everything in Pro, PLUS:',
+      'Multi-location management',
       'Dedicated account manager',
-      'White-label options',
-      'SLA guarantee'
+      'White-label domain + branded login',
+      'Region-based hosting (if needed)',
+      'Custom integrations via API',
+      'Custom workflows + setup',
+      'Team training & onboarding',
+      'SLA & priority support',
+      'Volume-based SMS pricing',
+      'Custom reporting dashboard'
     ],
+    customPricing: true,
     highlighted: false
   }
 ];
