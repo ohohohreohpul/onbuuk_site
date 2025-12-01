@@ -162,13 +162,12 @@ const CTA = () => {
               </div>
 
               <Button 
-                type="button"
+                type="submit"
                 size="lg"
-                onClick={() => window.location.href = 'https://app.onbuuk.com'}
-                className="w-full bg-gray-900 hover:bg-gray-800 text-white h-14 text-base font-medium group"
+                disabled={loading}
+                className="w-full bg-gray-900 hover:bg-gray-800 text-white h-14 text-base font-medium"
               >
-                Start Free Trial
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                {loading ? 'Sending...' : 'Request Demo'}
               </Button>
             </form>
           </div>
