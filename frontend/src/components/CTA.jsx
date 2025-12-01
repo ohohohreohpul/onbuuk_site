@@ -150,8 +150,9 @@ const CTA = () => {
               </div>
 
               <Button 
-                type="submit"
+                type="button"
                 size="lg"
+                onClick={() => window.location.href = 'https://app.onbuuk.com'}
                 className="w-full bg-gray-900 hover:bg-gray-800 text-white h-14 text-base font-medium group"
               >
                 Start Free Trial
