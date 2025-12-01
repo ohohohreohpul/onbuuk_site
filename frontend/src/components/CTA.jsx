@@ -12,21 +12,26 @@ const CTA = () => {
     businessName: '',
     message: ''
   });
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
     
     // Mock form submission
     console.log('Form submitted:', formData);
     toast.success('Thanks! We\'ll contact you shortly.');
     
     // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      businessName: '',
-      message: ''
-    });
+    setTimeout(() => {
+      setFormData({
+        name: '',
+        email: '',
+        businessName: '',
+        message: ''
+      });
+      setLoading(false);
+    }, 1000);
   };
 
   const handleChange = (e) => {
