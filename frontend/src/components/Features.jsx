@@ -22,7 +22,7 @@ const Features = () => {
         {/* Bento Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Large Feature - Spans 2 columns */}
-          <div className="lg:col-span-2 bg-[#F8FFFE] border-2 border-gray-200 p-8 hover:border-[#14B8A6] transition-all duration-300 group">
+          <div className="lg:col-span-2 bg-[#F8FFFE] border-2 border-gray-200 p-8 hover:border-[#14B8A6] transition-all duration-300 group relative overflow-hidden">
             <div className="flex flex-col h-full">
               <div className="mb-6">
                 <div className="w-14 h-14 bg-[#14B8A6] flex items-center justify-center mb-6">
@@ -36,43 +36,99 @@ const Features = () => {
                 </p>
               </div>
               
-              {/* Mockup - Calendar View */}
-              <div className="mt-auto bg-white border border-gray-200 p-4">
-                <div className="text-xs font-semibold text-gray-600 mb-3">SELECT DATE & TIME</div>
+              {/* Mockup - Calendar View with Bookings */}
+              <div className="mt-auto bg-white border border-gray-200 p-4 relative">
+                <div className="flex items-center justify-between mb-3">
+                  <div className="text-xs font-semibold text-gray-900">DECEMBER 2024</div>
+                  <div className="flex items-center space-x-2">
+                    <div className="w-2 h-2 bg-[#14B8A6] rounded-full"></div>
+                    <span className="text-xs text-gray-500">12 bookings</span>
+                  </div>
+                </div>
+                
                 <div className="grid grid-cols-7 gap-1">
                   {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day, i) => (
                     <div key={i} className="text-center text-xs font-medium text-gray-500 mb-2">{day}</div>
                   ))}
                   {[...Array(35)].map((_, i) => {
-                    const isSelected = i === 15;
+                    const hasBooking = [8, 9, 10, 14, 15, 16, 17, 21, 22, 23, 28, 29].includes(i);
+                    const isMultiple = [15, 22].includes(i);
                     const isToday = i === 10;
                     const isDisabled = i < 8;
+                    
                     return (
                       <div 
                         key={i} 
-                        className={`aspect-square flex items-center justify-center text-xs ${
-                          isSelected 
-                            ? 'bg-[#14B8A6] text-white font-bold' 
-                            : isToday
-                            ? 'bg-[#E5F8F6] text-[#14B8A6] font-medium border border-[#14B8A6]'
+                        className={`aspect-square flex items-center justify-center text-xs relative ${
+                          isToday
+                            ? 'bg-[#14B8A6] text-white font-bold'
                             : isDisabled
                             ? 'text-gray-300'
-                            : 'text-gray-700 hover:bg-gray-100'
+                            : hasBooking
+                            ? 'text-gray-900 font-medium'
+                            : 'text-gray-700'
                         }`}
                       >
                         {i + 1}
+                        {hasBooking && !isToday && (
+                          <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 flex space-x-0.5">
+                            <div className="w-1 h-1 bg-[#14B8A6] rounded-full"></div>
+                            {isMultiple && <div className="w-1 h-1 bg-[#14B8A6] rounded-full"></div>}
+                          </div>
+                        )}
                       </div>
                     );
                   })}
                 </div>
-                <div className="mt-4 pt-4 border-t border-gray-200 grid grid-cols-3 gap-2">
-                  {['9:00 AM', '10:30 AM', '2:00 PM'].map((time, i) => (
-                    <div key={i} className={`text-center py-2 text-xs font-medium border ${
-                      i === 0 ? 'bg-[#14B8A6] text-white border-[#14B8A6]' : 'border-gray-200 text-gray-700'
-                    }`}>
-                      {time}
+                
+                {/* Animated Booking Confirmation Overlay */}
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white border-2 border-[#14B8A6] shadow-2xl p-4 w-64 animate-float z-10">
+                  <div className="flex items-center space-x-3 mb-3">
+                    <div className="w-10 h-10 bg-green-500 flex items-center justify-center">
+                      <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
                     </div>
-                  ))}
+                    <div className="flex-1">
+                      <div className="text-xs font-bold text-gray-900">Booking Confirmed!</div>
+                      <div className="text-xs text-gray-500">Sarah Martinez</div>
+                    </div>
+                  </div>
+                  <div className="text-xs text-gray-700 space-y-1">
+                    <div className="flex justify-between">
+                      <span className="text-gray-500">Service:</span>
+                      <span className="font-medium">Haircut</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-500">Date:</span>
+                      <span className="font-medium">Dec 11, 2024</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-500">Time:</span>
+                      <span className="font-medium">2:00 PM</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* No-Show Stats Widget */}
+              <div className="absolute top-8 right-8 bg-white border-2 border-gray-900 shadow-xl p-4 w-48">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="text-xs font-bold text-gray-900">No-Show Fee</div>
+                  <div className="w-8 h-8 bg-red-100 flex items-center justify-center">
+                    <svg className="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                </div>
+                <div className="text-2xl font-bold text-gray-900 mb-1">€125.00</div>
+                <div className="text-xs text-gray-500 mb-3">Collected this month</div>
+                <div className="flex items-center justify-between text-xs">
+                  <span className="text-gray-500">5 no-shows</span>
+                  <span className="text-red-600 font-medium">-60%</span>
+                </div>
+                <div className="mt-2 h-1 bg-gray-200 relative overflow-hidden">
+                  <div className="absolute left-0 top-0 h-full w-2/5 bg-red-500"></div>
                 </div>
               </div>
             </div>
