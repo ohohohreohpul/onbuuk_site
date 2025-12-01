@@ -265,8 +265,12 @@ const Blog = () => {
           <p className="text-xl text-gray-400 mb-8">
             Start your 14-day free trial and see how buuk can help you grow
           </p>
-          <Button size="lg" className="bg-[#14B8A6] hover:bg-[#0d9488] text-white font-medium px-8 h-14 text-base">
-            Get Started Free
+          <Button 
+            size="lg" 
+            onClick={() => window.location.href = 'https://app.onbuuk.com'}
+            className="bg-[#14B8A6] hover:bg-[#0d9488] text-white font-medium px-8 h-14 text-base"
+          >
+            Start Free Trial
             <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
         </div>
