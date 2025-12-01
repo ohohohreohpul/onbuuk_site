@@ -83,40 +83,67 @@ const Hero = () => {
 
           {/* Right Content - UI Mockup */}
           <div className="relative animate-slide-in">
-            <div className="bg-white border-2 border-gray-200 p-1">
+            <div className="bg-white border-2 border-gray-200 p-1 shadow-2xl">
               {/* Browser Chrome */}
-              <div className="flex items-center space-x-2 p-3 border-b border-gray-200">
-                <div className="w-3 h-3 bg-gray-300"></div>
-                <div className="w-3 h-3 bg-gray-300"></div>
-                <div className="w-3 h-3 bg-gray-300"></div>
+              <div className="flex items-center space-x-2 p-3 border-b border-gray-200 bg-gray-50">
+                <div className="w-3 h-3 bg-red-500"></div>
+                <div className="w-3 h-3 bg-yellow-500"></div>
+                <div className="w-3 h-3 bg-green-500"></div>
+                <div className="flex-1 mx-4">
+                  <div className="h-6 bg-white border border-gray-200 flex items-center px-3">
+                    <svg className="w-3 h-3 text-gray-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                    <span className="text-xs text-gray-500">app.buuk.io/dashboard</span>
+                  </div>
+                </div>
               </div>
               
-              {/* Mockup Content */}
-              <div className="bg-gray-50 p-6">
-                <div className="bg-white border border-gray-200 p-6">
+              {/* Mockup Content - Calendar Dashboard */}
+              <div className="bg-gradient-to-br from-gray-50 to-white p-6">
+                <div className="bg-white border border-gray-200 p-6 shadow-sm">
                   <div className="flex items-center justify-between mb-6">
                     <div>
                       <h3 className="text-lg font-bold text-gray-900">Today's Schedule</h3>
-                      <p className="text-sm text-gray-500">15 appointments</p>
+                      <p className="text-sm text-gray-500">Monday, Dec 2 • 15 appointments</p>
                     </div>
-                    <div className="w-10 h-10 bg-[#14B8A6] flex items-center justify-center">
-                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
+                    <div className="flex items-center space-x-2">
+                      <div className="w-10 h-10 bg-[#14B8A6] flex items-center justify-center">
+                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                      </div>
+                      <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                     </div>
                   </div>
                   
                   <div className="space-y-3">
-                    {[1, 2, 3, 4].map((item) => (
-                      <div key={item} className="flex items-center justify-between p-4 bg-gray-50 border border-gray-200">
-                        <div className="flex items-center space-x-3">
-                          <div className="w-10 h-10 bg-[#14B8A6]"></div>
-                          <div>
-                            <p className="font-semibold text-gray-900 text-sm">Haircut & Styling</p>
-                            <p className="text-xs text-gray-500">{item === 1 ? '9:00 AM' : item === 2 ? '10:30 AM' : item === 3 ? '12:00 PM' : '2:30 PM'}</p>
+                    {[
+                      { name: 'Emma Wilson', service: 'Haircut & Styling', time: '9:00 AM', status: 'Confirmed', color: 'bg-blue-500' },
+                      { name: 'James Miller', service: 'Hair Coloring', time: '10:30 AM', status: 'Confirmed', color: 'bg-purple-500' },
+                      { name: 'Sarah Davis', service: 'Manicure & Pedicure', time: '12:00 PM', status: 'Pending', color: 'bg-pink-500' },
+                      { name: 'Mike Johnson', service: 'Beard Trim', time: '2:30 PM', status: 'Confirmed', color: 'bg-orange-500' }
+                    ].map((appointment, item) => (
+                      <div key={item} className="flex items-center justify-between p-4 bg-gray-50 border border-gray-200 hover:border-[#14B8A6] transition-colors">
+                        <div className="flex items-center space-x-3 flex-1">
+                          <div className={`w-10 h-10 ${appointment.color} flex items-center justify-center text-white font-bold text-sm`}>
+                            {appointment.name.split(' ').map(n => n[0]).join('')}
+                          </div>
+                          <div className="flex-1">
+                            <p className="font-semibold text-gray-900 text-sm">{appointment.name}</p>
+                            <p className="text-xs text-gray-500">{appointment.service}</p>
+                          </div>
+                          <div className="text-right mr-4">
+                            <p className="text-sm font-medium text-gray-900">{appointment.time}</p>
                           </div>
                         </div>
-                        <span className="text-xs font-medium text-[#14B8A6] bg-[#E5F8F6] px-3 py-1 border border-[#14B8A6]">Confirmed</span>
+                        <span className={`text-xs font-medium px-3 py-1 border ${
+                          appointment.status === 'Confirmed' 
+                            ? 'text-[#14B8A6] bg-[#E5F8F6] border-[#14B8A6]' 
+                            : 'text-yellow-600 bg-yellow-50 border-yellow-600'
+                        }`}>
+                          {appointment.status}
+                        </span>
                       </div>
                     ))}
                   </div>
@@ -125,7 +152,7 @@ const Hero = () => {
             </div>
             
             {/* Floating Stats */}
-            <div className="absolute -bottom-6 -left-6 bg-white border-2 border-gray-900 p-6 animate-float">
+            <div className="absolute -bottom-6 -left-6 bg-white border-2 border-gray-900 p-6 animate-float shadow-xl">
               <div className="flex items-center space-x-4">
                 <div className="w-12 h-12 bg-[#A4D23E] flex items-center justify-center">
                   <svg className="w-7 h-7 text-gray-900" fill="currentColor" viewBox="0 0 20 20">
