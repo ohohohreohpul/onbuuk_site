@@ -19,15 +19,7 @@ const Header = () => {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex items-center">
-            <img 
-              src="https://customer-assets.emergentagent.com/job_613aef5e-d3f5-4251-84fe-d7f3fa1d0a69/artifacts/iwr6139n_buuklogo-1.png" 
-              alt="buuk" 
-              className="h-10 w-auto"
-              onError={(e) => {
-                console.error('Logo failed to load');
-                e.target.style.display = 'none';
-              }}
-            />
+            <div className="text-2xl font-bold text-[#14B8A6]">buuk</div>
           </div>
 
           {/* Desktop Navigation */}
