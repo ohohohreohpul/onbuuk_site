@@ -49,6 +49,16 @@ const CTA = () => {
               Join hundreds of salons and spas using buuk to streamline operations and delight customers.
             </p>
             
+            {/* Big CTA Button */}
+            <Button
+              size="lg"
+              onClick={() => window.location.href = 'https://app.onbuuk.com'}
+              className="bg-white text-[#14B8A6] hover:bg-gray-100 font-bold px-10 h-16 text-lg mb-8 w-full sm:w-auto group"
+            >
+              Start Free Trial Now
+              <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-1 transition-transform" />
+            </Button>
+            
             {/* Benefits List */}
             <ul className="space-y-4 mb-8">
               <li className="flex items-center space-x-3">
@@ -76,6 +86,8 @@ const CTA = () => {
                 <span className="text-lg">Cancel anytime, no questions asked</span>
               </li>
             </ul>
+            
+            <p className="text-sm text-white/80">Or fill out the form to request a personalized demo →</p>
           </div>
 
           {/* Right Content - Form */}
