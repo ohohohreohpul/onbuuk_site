@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Toaster } from './components/ui/sonner';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -12,6 +12,20 @@ import Testimonials from './components/Testimonials';
 import Pricing from './components/Pricing';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
+import Blog from './components/Blog';
+
+const HomePage = () => (
+  <>
+    <Hero />
+    <Features />
+    <UIShowcase />
+    <HowItWorks />
+    <Integrations />
+    <Testimonials />
+    <Pricing />
+    <CTA />
+  </>
+);
 
 function App() {
   return (
@@ -20,14 +34,10 @@ function App() {
         <Toaster position="top-right" />
         <Header />
         <main>
-          <Hero />
-          <Features />
-          <UIShowcase />
-          <HowItWorks />
-          <Integrations />
-          <Testimonials />
-          <Pricing />
-          <CTA />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/blog" element={<Blog />} />
+          </Routes>
         </main>
         <Footer />
       </div>
