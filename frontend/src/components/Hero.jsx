@@ -84,9 +84,9 @@ const Hero = () => {
 
           {/* Right Content - UI Mockup */}
           <div className="relative animate-slide-in">
-            <div className="bg-white border-2 border-gray-200 p-1 shadow-2xl">
+            <div className="glass-strong border-2 border-gray-200 p-1 shadow-2xl">
               {/* Browser Chrome */}
-              <div className="flex items-center space-x-2 p-3 border-b border-gray-200 bg-gray-50">
+              <div className="flex items-center space-x-2 p-3 border-b border-gray-200 bg-white/50 backdrop-blur-sm">
                 <div className="w-3 h-3 bg-red-500"></div>
                 <div className="w-3 h-3 bg-yellow-500"></div>
                 <div className="w-3 h-3 bg-green-500"></div>
