@@ -257,7 +257,7 @@ const Features = () => {
           </div>
 
           {/* Integrated Payments */}
-          <div className="bg-white border-2 border-gray-200 p-8 hover:border-[#14B8A6] transition-all duration-300">
+          <div className="bg-white border-2 border-gray-200 p-8 hover:border-[#14B8A6] transition-all duration-300 animate-slide-up hover:scale-105" style={{animationDelay: '0.3s'}}>
             <div className="w-14 h-14 bg-[#14B8A6] flex items-center justify-center mb-6">
               <CreditCard className="w-7 h-7 text-white" />
             </div>
