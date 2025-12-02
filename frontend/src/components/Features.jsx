@@ -103,8 +103,8 @@ const Features = () => {
                   })}
                 </div>
                 
-                {/* Animated Booking Confirmation Overlay */}
-                <div className="absolute bottom-8 right-8 bg-white border-2 border-[#14B8A6] shadow-2xl p-4 w-64 animate-float z-20">
+                {/* Animated Booking Confirmation Overlay - Glass Effect */}
+                <div className="hidden md:block absolute bottom-4 right-4 lg:bottom-8 lg:right-8 bg-white/95 backdrop-blur-lg border-2 border-[#14B8A6] shadow-2xl p-4 w-56 lg:w-64 animate-float z-20">
                   <div className="flex items-center space-x-3 mb-3">
                     <div className="w-10 h-10 bg-green-500 flex items-center justify-center">
                       <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -130,6 +130,20 @@ const Features = () => {
                       <span className="font-medium">2:00 PM</span>
                     </div>
                   </div>
+                </div>
+              </div>
+              
+              {/* Mobile Stats Cards - Below Calendar */}
+              <div className="lg:hidden grid grid-cols-2 gap-3 mt-6">
+                <div className="bg-white/90 backdrop-blur-md border-2 border-gray-900 p-3">
+                  <div className="text-xs font-bold text-gray-900 mb-1">No-Show Fee</div>
+                  <div className="text-xl font-bold text-gray-900">€125</div>
+                  <div className="text-xs text-red-600 font-medium">-60%</div>
+                </div>
+                <div className="bg-white/95 backdrop-blur-lg border-2 border-[#14B8A6] p-3">
+                  <div className="text-xs font-bold text-gray-900 mb-1">Confirmed</div>
+                  <div className="text-xl font-bold text-[#14B8A6]">12</div>
+                  <div className="text-xs text-gray-600">Today</div>
                 </div>
               </div>
             </div>
