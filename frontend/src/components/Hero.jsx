@@ -152,8 +152,8 @@ const Hero = () => {
               </div>
             </div>
             
-            {/* Floating Stats */}
-            <div className="absolute -bottom-6 -left-6 bg-white border-2 border-gray-900 p-6 animate-float shadow-xl">
+            {/* Floating Stats - Glass Effect */}
+            <div className="hidden md:block absolute -bottom-6 -left-6 glass-strong border-2 border-gray-900 p-6 animate-float shadow-xl">
               <div className="flex items-center space-x-4">
                 <div className="w-12 h-12 bg-[#A4D23E] flex items-center justify-center">
                   <svg className="w-7 h-7 text-gray-900" fill="currentColor" viewBox="0 0 20 20">
