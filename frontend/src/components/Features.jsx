@@ -22,22 +22,23 @@ const Features = () => {
         {/* Bento Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Large Feature - Spans 2 columns */}
-          <div className="lg:col-span-2 bg-[#F8FFFE] border-2 border-gray-200 p-8 hover:border-[#14B8A6] transition-all duration-300 group relative overflow-visible">
+          <div className="lg:col-span-2 bg-[#F8FFFE] border-2 border-gray-200 p-6 md:p-8 hover:border-[#14B8A6] transition-all duration-300 group relative overflow-visible">
             <div className="flex flex-col h-full">
+              {/* Content Section */}
               <div className="mb-6 relative z-20">
-                <div className="w-14 h-14 bg-[#14B8A6] flex items-center justify-center mb-6">
+                <div className="w-14 h-14 bg-[#14B8A6] flex items-center justify-center mb-6 animate-fade-in">
                   <Calendar className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
                   Smart Booking System
                 </h3>
-                <p className="text-gray-600 mb-6 pr-56">
+                <p className="text-gray-600 mb-6">
                   Real-time availability, multi-step booking flow, automated confirmations, and customer self-service portal. Make booking effortless for your clients.
                 </p>
               </div>
               
-              {/* No-Show Stats Widget - Positioned outside content */}
-              <div className="absolute top-4 right-4 bg-white border-2 border-gray-900 shadow-xl p-4 w-48 z-30">
+              {/* No-Show Stats Widget - Glass Effect */}
+              <div className="hidden lg:block absolute top-4 right-4 bg-white/90 backdrop-blur-md border-2 border-gray-900 shadow-xl p-4 w-48 z-30 animate-slide-in">
                 <div className="flex items-center justify-between mb-2">
                   <div className="text-xs font-bold text-gray-900">No-Show Fee</div>
                   <div className="w-8 h-8 bg-red-100 flex items-center justify-center">
