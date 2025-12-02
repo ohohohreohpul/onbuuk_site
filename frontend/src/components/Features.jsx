@@ -150,7 +150,7 @@ const Features = () => {
           </div>
 
           {/* Gift Cards & Loyalty */}
-          <div className="bg-[#FFF9E5] border-2 border-gray-200 p-8 hover:border-[#A4D23E] transition-all duration-300">
+          <div className="bg-[#FFF9E5] border-2 border-gray-200 p-8 hover:border-[#A4D23E] transition-all duration-300 animate-slide-up hover:scale-105" style={{animationDelay: '0.1s'}}>
             <div className="w-14 h-14 bg-[#A4D23E] flex items-center justify-center mb-6">
               <Gift className="w-7 h-7 text-gray-900" />
             </div>
