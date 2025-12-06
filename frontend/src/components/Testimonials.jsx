@@ -27,9 +27,9 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="relative py-32 bg-[#0a0a0a] overflow-hidden">
+    <section className="relative py-32 bg-white overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-grid opacity-20"></div>
+      <div className="absolute inset-0 bg-grid opacity-5"></div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
         {/* Section Header */}
