@@ -39,7 +39,7 @@ const Header = () => {
             <img 
               src="/buuklogo-new.png" 
               alt="buuk" 
-              className="h-10 w-auto brightness-0 invert"
+              className="h-10 w-auto brightness-0 invert sharp"
             />
           </div>
 
