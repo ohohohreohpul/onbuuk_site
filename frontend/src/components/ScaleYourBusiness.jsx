@@ -3,17 +3,17 @@ import { Building2, Users2, ChevronDown, BarChart3 } from 'lucide-react';
 import { Button } from './ui/button';
 
 const ScaleYourBusiness = () => {
-  const [openAccordion, setOpenAccordion] = useState(0);
+  const [openAccordion, setOpenAccordion] = useState(-1);
 
   const features = [
     {
-      icon: Building2,
-      title: 'Multi-Location Dashboard',
-      description: 'Manage all your salon, spa, or massage studio locations from one centralized dashboard. Monitor performance, transfer bookings between locations, and maintain consistent service quality.',
+      icon: Calendar,
+      title: 'Smart Automated Scheduling',
+      description: 'Intelligent booking system that automatically manages appointments, prevents double-bookings, and optimizes your calendar. Send automatic reminders via SMS and email to reduce no-shows by up to 75%.',
       highlights: [
-        'Centralized reporting across all locations',
-        'Staff can work at multiple locations seamlessly',
-        'Unified customer database across all branches'
+        'Auto-sync with Google Calendar and other platforms',
+        'Smart time-slot optimization based on service duration',
+        'Automated SMS/email reminders and confirmations'
       ]
     },
     {
