@@ -5,7 +5,7 @@ const Features = () => {
   return (
     <section id="features" className="relative py-32 bg-gray-50 overflow-hidden">
       {/* Background Pattern - Circuit */}
-      <div className="absolute inset-0 bg-circuit opacity-20"></div>
+      <div className="absolute inset-0 bg-circuit opacity-10"></div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
         {/* Section Header */}
