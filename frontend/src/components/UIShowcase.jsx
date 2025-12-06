@@ -1,27 +1,23 @@
 import React from 'react';
-import { Calendar, Users, CreditCard, BarChart3 } from 'lucide-react';
+import { Calendar, Users, CreditCard } from 'lucide-react';
 
 const UIShowcase = () => {
   return (
-    <section className="relative py-32 bg-gray-50 overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-dots opacity-5"></div>
-      
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+    <section className="py-24 px-6 bg-gray-50">
+      <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-20 animate-fade-in">
+        <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Powerful Dashboard at Your{' '}
-            <span className="text-gradient">Fingertips</span>
+            Powerful Dashboard at Your Fingertips
           </h2>
-          <p className="text-base lg:text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Manage bookings, customers, payments, and analytics from one beautiful interface
           </p>
         </div>
 
         {/* Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-          <div className="bg-white border-2 border-gray-200 p-6 hover:border-[#14B8A6] hover:shadow-xl transition-all hover-scale rounded-lg">
+          <div className="bg-white border-2 border-gray-200 p-6 hover:border-[#14B8A6] hover:shadow-lg transition-all rounded-xl">
             <div className="flex items-center justify-between mb-4">
               <div className="text-xs text-gray-600 font-semibold tracking-wider">TODAY'S BOOKINGS</div>
               <div className="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
@@ -32,7 +28,7 @@ const UIShowcase = () => {
             <div className="text-sm text-green-600 font-medium">+3 from yesterday</div>
           </div>
 
-          <div className="bg-white border-2 border-gray-200 p-6 hover:border-[#14B8A6] hover:shadow-xl transition-all hover-scale rounded-lg">
+          <div className="bg-white border-2 border-gray-200 p-6 hover:border-[#14B8A6] hover:shadow-lg transition-all rounded-xl">
             <div className="flex items-center justify-between mb-4">
               <div className="text-xs text-gray-600 font-semibold tracking-wider">REVENUE</div>
               <div className="w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center">
@@ -43,7 +39,7 @@ const UIShowcase = () => {
             <div className="text-sm text-green-600 font-medium">+18% this week</div>
           </div>
 
-          <div className="bg-white border-2 border-gray-200 p-6 hover:border-[#14B8A6] hover:shadow-xl transition-all hover-scale rounded-lg">
+          <div className="bg-white border-2 border-gray-200 p-6 hover:border-[#14B8A6] hover:shadow-lg transition-all rounded-xl">
             <div className="flex items-center justify-between mb-4">
               <div className="text-xs text-gray-600 font-semibold tracking-wider">CUSTOMERS</div>
               <div className="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center">
@@ -54,7 +50,7 @@ const UIShowcase = () => {
             <div className="text-sm text-gray-600 font-medium">12 new this month</div>
           </div>
 
-          <div className="bg-white border-2 border-gray-200 p-6 hover:border-[#14B8A6] hover:shadow-xl transition-all hover-scale rounded-lg">
+          <div className="bg-white border-2 border-gray-200 p-6 hover:border-[#14B8A6] hover:shadow-lg transition-all rounded-xl">
             <div className="flex items-center justify-between mb-4">
               <div className="text-xs text-gray-600 font-semibold tracking-wider">NO-SHOWS</div>
               <div className="w-10 h-10 rounded-lg bg-red-100 flex items-center justify-center">
@@ -69,7 +65,7 @@ const UIShowcase = () => {
         </div>
 
         {/* Main Dashboard Preview */}
-        <div className="bg-white border-2 border-gray-200 p-8 rounded-lg shadow-lg hover:shadow-2xl transition-all">
+        <div className="bg-white border-2 border-gray-200 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all">
           {/* Browser Chrome */}
           <div className="flex items-center space-x-2 mb-6 pb-4 border-b border-gray-200">
             <div className="w-3 h-3 rounded-full bg-red-500"></div>
@@ -91,7 +87,7 @@ const UIShowcase = () => {
               <h3 className="text-2xl font-bold text-gray-900">Dashboard Overview</h3>
               <p className="text-sm text-gray-600 mt-1">Monday, December 2, 2024 • 9:47 AM</p>
             </div>
-            <button className="bg-[#14B8A6] hover:bg-[#0d9488] text-white font-semibold px-6 py-3 rounded-lg shadow-lg transition-all">
+            <button className="bg-[#14B8A6] hover:bg-[#0d9488] text-white font-semibold px-6 py-3 rounded-lg shadow-md transition-all">
               + New Booking
             </button>
           </div>
@@ -100,7 +96,7 @@ const UIShowcase = () => {
           <div className="bg-gray-50 border border-gray-200 p-6 rounded-lg">
             <div className="flex items-center justify-between mb-6">
               <h4 className="text-lg font-bold text-gray-900">Upcoming Appointments</h4>
-              <span className="text-sm text-[#14B8A6] font-medium">View All →</span>
+              <span className="text-sm text-[#14B8A6] font-medium cursor-pointer">View All →</span>
             </div>
             
             <div className="space-y-3">

@@ -36,42 +36,32 @@ const WhyChooseBuuk = () => {
   ];
 
   return (
-    <section className="relative py-32 bg-white overflow-hidden">
-      {/* Background Pattern - Diagonal Lines */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(20, 184, 166, 0.3) 10px, rgba(20, 184, 166, 0.3) 11px)',
-        }}></div>
-      </div>
-      
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+    <section className="py-24 px-6 bg-white">
+      <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-20 animate-fade-in">
-          <div className="inline-flex items-center space-x-2 bg-[#14B8A6]/10 border border-[#14B8A6] px-4 py-2 mb-6 rounded-full">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center space-x-2 bg-gray-100 px-3 py-1.5 rounded-full mb-6">
             <Check className="w-4 h-4 text-[#14B8A6]" />
-            <span className="text-sm font-medium text-[#14B8A6]">Why Choose Buuk</span>
+            <span className="text-sm text-gray-700">Why Choose Buuk</span>
           </div>
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            The Complete{' '}
-            <span className="text-gradient">Booking Software</span>{' '}
-            for Salons, Spas & Massage Studios
+            The Complete Booking Software for Salons, Spas & Massage Studios
           </h2>
-          <p className="text-base lg:text-lg text-gray-600 max-w-4xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Built specifically for beauty and wellness businesses, our appointment booking system helps you manage everything from scheduling to payments, customer relationships to staff management—all from one powerful platform.
           </p>
         </div>
 
         {/* Benefits Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {benefits.map((benefit, index) => {
             const Icon = benefit.icon;
             return (
               <div 
                 key={index} 
-                className="bg-gray-50 border-2 border-gray-200 p-8 hover:border-[#14B8A6] hover:shadow-xl transition-all duration-500 hover-scale animate-slide-up rounded-lg"
-                style={{animationDelay: `${index * 0.1}s`}}
+                className="bg-gray-50 border-2 border-gray-200 p-8 hover:border-[#14B8A6] hover:shadow-xl transition-all duration-500 rounded-xl"
               >
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#14B8A6] to-[#0d9488] flex items-center justify-center mb-6 shadow-lg">
+                <div className="w-14 h-14 rounded-xl bg-[#14B8A6] flex items-center justify-center mb-6 shadow-md">
                   <Icon className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4">
@@ -86,7 +76,7 @@ const WhyChooseBuuk = () => {
         </div>
 
         {/* SEO-Rich Bottom Content */}
-        <div className="mt-16 bg-[#14B8A6]/5 border-2 border-[#14B8A6]/20 p-8 lg:p-12 rounded-lg">
+        <div className="mt-16 bg-[#14B8A6]/5 border-2 border-[#14B8A6]/20 p-8 lg:p-12 rounded-xl">
           <div className="max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
               Everything You Need in a Salon & Spa Booking System
