@@ -22,7 +22,7 @@ const plans = [
   {
     name: 'Standard',
     price: '29',
-    currency: '$',
+    currency: '€',
     description: 'Ideal for small to medium-sized businesses',
     features: [
       'Up to 3 admin users',
