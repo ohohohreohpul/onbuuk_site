@@ -123,7 +123,7 @@ const CTA = () => {
             
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <label htmlFor="name" className="block text-sm font-semibold text-white mb-2">
+                <label htmlFor="name" className="block text-sm font-semibold text-gray-900 mb-2">
                   Your Name *
                 </label>
                 <Input
