@@ -169,15 +169,15 @@ const Features = () => {
               </div>
               
               {/* Loyalty Points */}
-              <div className="mt-4 p-3 border border-white/10 glass rounded-lg">
+              <div className="mt-4 p-3 border border-gray-200 bg-white rounded-lg">
                 <div className="flex items-center justify-between mb-2">
-                  <div className="text-xs font-semibold text-white">LOYALTY POINTS</div>
+                  <div className="text-xs font-semibold text-gray-900">LOYALTY POINTS</div>
                   <div className="text-lg font-bold text-[#A4D23E]">850</div>
                 </div>
-                <div className="h-2 bg-white/10 border border-white/10 rounded-full relative overflow-hidden">
+                <div className="h-2 bg-gray-200 border border-gray-200 rounded-full relative overflow-hidden">
                   <div className="absolute left-0 top-0 h-full w-4/5 bg-gradient-to-r from-[#A4D23E] to-[#8BC234] rounded-full"></div>
                 </div>
-                <div className="text-xs text-gray-400 mt-2">150 points to next reward</div>
+                <div className="text-xs text-gray-600 mt-2">150 points to next reward</div>
               </div>
             </div>
           </div>
