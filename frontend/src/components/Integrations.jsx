@@ -38,7 +38,7 @@ const Integrations = () => {
           {integrations.map((integration, index) => (
             <div 
               key={index} 
-              className="glass-strong border border-white/10 p-8 hover:border-[#14B8A6]/50 transition-all duration-500 hover-scale group relative animate-slide-up"
+              className="bg-white border-2 border-gray-200 p-8 hover:border-[#14B8A6] hover:shadow-xl transition-all duration-500 hover-scale group relative animate-slide-up rounded-lg"
               style={{animationDelay: `${index * 0.05}s`}}
             >
               {/* Coming Soon Badge */}
@@ -53,10 +53,10 @@ const Integrations = () => {
                   className="w-full h-full object-contain filter brightness-0 invert"
                 />
               </div>
-              <p className="text-center font-semibold text-white">{integration.name}</p>
+              <p className="text-center font-semibold text-gray-900">{integration.name}</p>
               <div className="mt-2 flex items-center justify-center opacity-50">
                 <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                <span className="text-xs text-gray-500 ml-1">Coming Soon</span>
+                <span className="text-xs text-gray-600 ml-1">Coming Soon</span>
               </div>
             </div>
           ))}
