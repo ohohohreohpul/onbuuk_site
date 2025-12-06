@@ -117,17 +117,19 @@ const Hero = () => {
 
               {/* Animated Appointment Card */}
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-                <div className="flex items-center space-x-3">
-                  <div className={`w-12 h-12 rounded-lg ${appointments[appointmentIndex].color} flex items-center justify-center text-white font-bold`}>
-                    {appointments[appointmentIndex].avatar}
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-3">
+                    <div className={`w-10 h-10 rounded-lg ${appointments[appointmentIndex].color} flex items-center justify-center text-white font-bold text-sm`}>
+                      {appointments[appointmentIndex].avatar}
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900 text-sm">{appointments[appointmentIndex].name}</p>
+                      <p className="text-xs text-gray-600">{appointments[appointmentIndex].service}</p>
+                    </div>
                   </div>
-                  <div className="flex-1">
-                    <p className="font-semibold text-gray-900">{appointments[appointmentIndex].name}</p>
-                    <p className="text-sm text-gray-600">{appointments[appointmentIndex].service}</p>
-                  </div>
-                  <div className="text-right">
+                  <div className="flex flex-col items-end space-y-1">
                     <p className="text-sm font-medium text-gray-900">{appointments[appointmentIndex].time}</p>
-                    <span className="inline-block mt-1 text-xs font-medium text-[#14B8A6] bg-[#14B8A6]/10 px-2 py-1 rounded">
+                    <span className="text-xs font-medium text-[#14B8A6] bg-[#14B8A6]/10 px-2 py-0.5 rounded">
                       Confirmed
                     </span>
                   </div>
