@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Button } from './ui/button';
 import { ArrowRight, Check, Calendar, Clock, User } from 'lucide-react';
 
@@ -6,6 +6,8 @@ const Hero = () => {
   const [activeDay, setActiveDay] = useState(10);
   const [appointmentIndex, setAppointmentIndex] = useState(0);
   const [selectedDate, setSelectedDate] = useState(null);
+  const canvasRef = useRef(null);
+  const mousePos = useRef({ x: 0, y: 0 });
 
   const appointments = [
     { name: 'Emma Wilson', service: 'Haircut & Styling', time: '9:00 AM', avatar: 'EW', color: 'bg-blue-500' },
