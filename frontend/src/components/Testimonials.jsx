@@ -27,22 +27,18 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="relative py-32 bg-white overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-grid opacity-5"></div>
-      
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+    <section className="py-24 px-6 bg-white">
+      <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-20 animate-fade-in">
-          <div className="inline-flex items-center space-x-2 bg-[#14B8A6]/10 border border-[#14B8A6] px-4 py-2 mb-6 rounded-full">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center space-x-2 bg-gray-100 px-3 py-1.5 rounded-full mb-6">
             <Quote className="w-4 h-4 text-[#14B8A6]" />
-            <span className="text-sm font-medium text-[#14B8A6]">Testimonials</span>
+            <span className="text-sm text-gray-700">Testimonials</span>
           </div>
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Trusted by{' '}
-            <span className="text-gradient">Business Owners</span>
+            Trusted by Business Owners
           </h2>
-          <p className="text-base lg:text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             See what salon and spa owners are saying about buuk
           </p>
         </div>
@@ -52,8 +48,7 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <div 
               key={index} 
-              className="bg-gray-50 border-2 border-gray-200 p-8 hover-scale hover:border-[#14B8A6] hover:shadow-xl transition-all duration-500 animate-slide-up rounded-lg"
-              style={{animationDelay: `${index * 0.1}s`}}
+              className="bg-gray-50 border-2 border-gray-200 p-8 hover:border-[#14B8A6] hover:shadow-xl transition-all duration-500 rounded-xl"
             >
               {/* Stars */}
               <div className="flex space-x-1 mb-6">
@@ -69,7 +64,7 @@ const Testimonials = () => {
               
               {/* Author */}
               <div className="flex items-center space-x-3 pt-6 border-t border-gray-200">
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#14B8A6] to-[#0d9488] flex items-center justify-center text-white font-bold shadow-lg">
+                <div className="w-12 h-12 rounded-lg bg-[#14B8A6] flex items-center justify-center text-white font-bold shadow-md">
                   {testimonial.author.split(' ').map(n => n[0]).join('')}
                 </div>
                 <div>
@@ -82,22 +77,22 @@ const Testimonials = () => {
         </div>
 
         {/* Stats Bar */}
-        <div className="bg-[#14B8A6]/5 border-2 border-[#14B8A6]/20 p-8 lg:p-10 rounded-lg">
+        <div className="bg-[#14B8A6]/5 border-2 border-[#14B8A6]/20 p-8 lg:p-10 rounded-xl">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             <div>
-              <p className="text-4xl lg:text-5xl font-bold text-gradient mb-2">500+</p>
+              <p className="text-4xl lg:text-5xl font-bold text-[#14B8A6] mb-2">500+</p>
               <p className="text-gray-600 text-sm">Active Businesses</p>
             </div>
             <div>
-              <p className="text-4xl lg:text-5xl font-bold text-gradient mb-2">50K+</p>
+              <p className="text-4xl lg:text-5xl font-bold text-[#14B8A6] mb-2">50K+</p>
               <p className="text-gray-600 text-sm">Monthly Bookings</p>
             </div>
             <div>
-              <p className="text-4xl lg:text-5xl font-bold text-gradient mb-2">98%</p>
+              <p className="text-4xl lg:text-5xl font-bold text-[#14B8A6] mb-2">98%</p>
               <p className="text-gray-600 text-sm">Customer Satisfaction</p>
             </div>
             <div>
-              <p className="text-4xl lg:text-5xl font-bold text-gradient mb-2">24/7</p>
+              <p className="text-4xl lg:text-5xl font-bold text-[#14B8A6] mb-2">24/7</p>
               <p className="text-gray-600 text-sm">Support Available</p>
             </div>
           </div>
