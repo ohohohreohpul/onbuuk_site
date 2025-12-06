@@ -87,7 +87,7 @@ const HowItWorks = () => {
             onClick={() => window.location.href = 'https://app.onbuuk.com'}
             className="inline-flex items-center space-x-2 text-[#14B8A6] font-semibold hover:text-[#0d9488] transition-colors"
           >
-            <span>Start your free trial</span>
+            <span>Start for free</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>
