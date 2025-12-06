@@ -166,7 +166,7 @@ const CTA = () => {
                   value={formData.businessName}
                   onChange={handleChange}
                   placeholder="Your Salon Name"
-                  className="h-12 glass border border-white/20 text-white placeholder:text-gray-500 focus:border-[#14B8A6]"
+                  className="h-12 bg-white border-2 border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-[#14B8A6]"
                 />
               </div>
 
