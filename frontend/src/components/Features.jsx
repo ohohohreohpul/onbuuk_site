@@ -28,13 +28,13 @@ const Features = () => {
           {/* Large Feature - Spans 2 columns with Image Background */}
           <div className="lg:col-span-2 relative overflow-hidden bg-white border-2 border-gray-200 p-8 md:p-10 hover:border-[#14B8A6] hover:shadow-2xl transition-all duration-500 hover-scale group rounded-lg">
             {/* Background Image with Overlay */}
-            <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-500">
+            <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
               <img 
                 src="https://images.unsplash.com/photo-1761718210055-e83ca7e2c9ad" 
                 alt="Spa treatment"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-white via-white/60 to-transparent"></div>
             </div>
             
             <div className="relative z-10 flex flex-col h-full">
