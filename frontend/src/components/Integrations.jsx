@@ -80,10 +80,7 @@ const Integrations = () => {
 
         {/* CTA */}
         <div className="text-center">
-          <p className="text-gray-600 mb-6">And 50+ more integrations</p>
-          <button className="bg-[#14B8A6] hover:bg-[#0d9488] text-white font-semibold px-8 py-4 transition-all rounded-lg shadow-lg">
-            View All Integrations
-          </button>
+          <p className="text-gray-600">And 50+ more integrations coming soon</p>
         </div>
       </div>
     </section>
