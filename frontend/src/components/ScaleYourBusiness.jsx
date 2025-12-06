@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Building2, Users2, ChevronDown, BarChart3 } from 'lucide-react';
+import { Calendar, Users2, ChevronDown, BarChart3 } from 'lucide-react';
 import { Button } from './ui/button';
 
 const ScaleYourBusiness = () => {
