@@ -68,16 +68,16 @@ const WhyChooseBuuk = () => {
             return (
               <div 
                 key={index} 
-                className="glass-strong border border-white/10 p-8 hover:border-[#14B8A6]/50 transition-all duration-500 hover-scale animate-slide-up"
+                className="bg-gray-50 border-2 border-gray-200 p-8 hover:border-[#14B8A6] hover:shadow-xl transition-all duration-500 hover-scale animate-slide-up rounded-lg"
                 style={{animationDelay: `${index * 0.1}s`}}
               >
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#14B8A6] to-[#0d9488] flex items-center justify-center mb-6 shadow-lg shadow-[#14B8A6]/30">
+                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#14B8A6] to-[#0d9488] flex items-center justify-center mb-6 shadow-lg">
                   <Icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">
                   {benefit.title}
                 </h3>
-                <p className="text-gray-400 text-sm leading-relaxed">
+                <p className="text-gray-600 text-sm leading-relaxed">
                   {benefit.description}
                 </p>
               </div>
@@ -86,12 +86,12 @@ const WhyChooseBuuk = () => {
         </div>
 
         {/* SEO-Rich Bottom Content */}
-        <div className="mt-16 glass-strong border border-white/10 p-8 lg:p-12">
+        <div className="mt-16 bg-[#14B8A6]/5 border-2 border-[#14B8A6]/20 p-8 lg:p-12 rounded-lg">
           <div className="max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold text-white mb-6 text-center">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
               Everything You Need in a Salon & Spa Booking System
             </h3>
-            <div className="grid md:grid-cols-2 gap-4 text-gray-400 text-sm">
+            <div className="grid md:grid-cols-2 gap-4 text-gray-700 text-sm">
               <div className="flex items-start space-x-3">
                 <Check className="w-5 h-5 text-[#14B8A6] flex-shrink-0 mt-0.5" />
                 <span>Salon appointment booking software with calendar sync</span>
