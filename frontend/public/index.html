@@ -32,18 +32,41 @@
             }
         </style>
         <script>
-            // Remove badge via JavaScript as backup
-            document.addEventListener('DOMContentLoaded', function() {
-                const badge = document.getElementById('emergent-badge');
-                if (badge) {
-                    badge.remove();
-                }
-                // Check every second for dynamically added badges
-                setInterval(function() {
+            // Aggressively remove badge using MutationObserver
+            (function() {
+                function removeBadge() {
                     const badges = document.querySelectorAll('#emergent-badge, a[href*="utm_source=emergent-badge"]');
-                    badges.forEach(b => b.remove());
-                }, 1000);
-            });
+                    badges.forEach(function(badge) {
+                        badge.style.display = 'none';
+                        badge.remove();
+                    });
+                }
+
+                // Remove immediately
+                removeBadge();
+
+                // Watch for DOM changes
+                const observer = new MutationObserver(function() {
+                    removeBadge();
+                });
+
+                observer.observe(document.body || document.documentElement, {
+                    childList: true,
+                    subtree: true
+                });
+
+                // Also check repeatedly
+                setInterval(removeBadge, 100);
+
+                // On load
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', removeBadge);
+                } else {
+                    removeBadge();
+                }
+
+                window.addEventListener('load', removeBadge);
+            })();
         </script>
     </head>
     <body>
