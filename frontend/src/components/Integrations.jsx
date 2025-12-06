@@ -13,9 +13,9 @@ const integrations = [
 
 const Integrations = () => {
   return (
-    <section id="integrations" className="relative py-32 bg-[#050505] overflow-hidden">
+    <section id="integrations" className="relative py-32 bg-white overflow-hidden">
       {/* Background Pattern - Grid with overlay */}
-      <div className="absolute inset-0 bg-grid opacity-30"></div>
+      <div className="absolute inset-0 bg-grid opacity-5"></div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
         {/* Section Header */}
