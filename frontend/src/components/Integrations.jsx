@@ -13,7 +13,7 @@ const integrations = [
 
 const Integrations = () => {
   return (
-    <section id="integrations" className="py-24 px-6 bg-white">
+    <section id="integrations" className="py-24 px-8 lg:px-16 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">

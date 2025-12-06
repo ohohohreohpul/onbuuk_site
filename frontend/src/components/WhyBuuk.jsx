@@ -21,7 +21,7 @@ const stats = [
 
 const WhyBuuk = () => {
   return (
-    <section id="why-buuk" className="py-24 px-6 bg-gray-50">
+    <section id="why-buuk" className="py-24 px-8 lg:px-16 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}

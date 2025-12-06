@@ -3,7 +3,7 @@ import { Calendar, Users, CreditCard, Gift, Palette, BarChart3, Zap, Shield } fr
 
 const Features = () => {
   return (
-    <section id="features" className="py-24 px-6 bg-white">
+    <section id="features" className="py-24 px-8 lg:px-16 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">

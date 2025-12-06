@@ -42,7 +42,7 @@ const CTA = () => {
   };
 
   return (
-    <section id="cta" className="py-24 px-6 bg-[#003E37]">
+    <section id="cta" className="py-24 px-8 lg:px-16 bg-[#003E37]">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}

@@ -30,7 +30,7 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <section id="how-it-works" className="py-24 px-6 bg-gray-50">
+    <section id="how-it-works" className="py-24 px-8 lg:px-16 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
