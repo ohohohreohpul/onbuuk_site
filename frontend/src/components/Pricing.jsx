@@ -82,18 +82,23 @@ const Pricing = () => {
   };
 
   return (
-    <section id="pricing" className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+    <section id="pricing" className="relative py-32 bg-[#0a0a0a] overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 bg-dots opacity-20"></div>
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center space-x-2 bg-[#E5F8F6] border border-[#14B8A6] px-4 py-2 mb-6">
-            <div className="w-2 h-2 bg-[#14B8A6]"></div>
-            <span className="text-sm font-medium text-gray-900">Pricing</span>
+        <div className="text-center mb-20 animate-fade-in">
+          <div className="inline-flex items-center space-x-2 glass-teal px-4 py-2 mb-6">
+            <div className="w-2 h-2 rounded-full bg-[#14B8A6]"></div>
+            <span className="text-sm font-medium text-white">Pricing</span>
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Simple, Transparent Pricing
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+            Simple,{' '}
+            <span className="text-gradient">Transparent</span>{' '}
+            Pricing
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base lg:text-lg text-gray-400 max-w-3xl mx-auto">
             Choose the plan that fits your business. All plans include 14-day free trial.
           </p>
         </div>
@@ -103,10 +108,10 @@ const Pricing = () => {
           {plans.map((plan, index) => (
             <div 
               key={index} 
-              className={`border-2 p-8 hover:scale-105 transition-all duration-300 ${
+              className={`border p-8 hover-scale transition-all duration-500 ${
                 plan.highlighted 
-                  ? 'bg-[#14B8A6] border-gray-900 text-white relative' 
-                  : 'bg-white border-gray-200 hover:border-[#14B8A6]'
+                  ? 'glass-strong border-[#14B8A6] text-white relative shadow-2xl shadow-[#14B8A6]/20' 
+                  : 'glass-strong border-white/10 hover:border-[#14B8A6]/50'
               }`}
             >
               {plan.highlighted && plan.badge && (
