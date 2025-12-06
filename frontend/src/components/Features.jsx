@@ -121,14 +121,14 @@ const Features = () => {
           </div>
 
           {/* Gift Cards & Loyalty */}
-          <div className="glass-strong border border-white/10 p-8 hover:border-[#A4D23E]/50 transition-all duration-500 animate-slide-up hover-scale group" style={{animationDelay: '0.1s'}}>
-            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#A4D23E] to-[#8BC234] flex items-center justify-center mb-6 shadow-lg shadow-[#A4D23E]/30">
+          <div className="bg-white border-2 border-gray-200 p-8 hover:border-[#A4D23E] hover:shadow-xl transition-all duration-500 animate-slide-up hover-scale group rounded-lg" style={{animationDelay: '0.1s'}}>
+            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#A4D23E] to-[#8BC234] flex items-center justify-center mb-6 shadow-lg">
               <Gift className="w-7 h-7 text-gray-900" />
             </div>
-            <h3 className="text-2xl font-bold text-white mb-4">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
               Gift Cards & Loyalty
             </h3>
-            <p className="text-gray-300 mb-6">
+            <p className="text-gray-600 mb-6">
               Built-in gift card system and customizable loyalty programs to boost retention and revenue.
             </p>
             
