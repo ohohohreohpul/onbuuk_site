@@ -26,7 +26,7 @@ const Integrations = () => {
           </div>
           <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
             Connect With Your{' '}
-            <span className="text-gradient\">Favorite Tools</span>
+            <span className="text-gradient">Favorite Tools</span>
           </h2>
           <p className="text-base lg:text-lg text-gray-400 max-w-3xl mx-auto">
             Seamlessly integrate with the tools you already use every day
