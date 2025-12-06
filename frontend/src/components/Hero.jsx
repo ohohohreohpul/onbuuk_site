@@ -11,31 +11,8 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-[#003E37] via-[#004D45] to-[#005850]">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Large Floating Circles */}
-        <div className="absolute top-20 -left-20 w-96 h-96 bg-[#14B8A6] rounded-full opacity-20 blur-3xl animate-float" style={{animationDuration: '8s'}}></div>
-        <div className="absolute bottom-20 -right-20 w-[500px] h-[500px] bg-[#A4D23E] rounded-full opacity-15 blur-3xl animate-float" style={{animationDuration: '10s', animationDelay: '2s'}}></div>
-        <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-[#14B8A6] rounded-full opacity-10 blur-2xl animate-float" style={{animationDuration: '12s', animationDelay: '1s'}}></div>
-        
-        {/* Geometric Shapes */}
-        <div className="absolute top-1/4 left-1/4 w-32 h-32 border-4 border-[#14B8A6]/30 rotate-45 animate-spin" style={{animationDuration: '20s'}}></div>
-        <div className="absolute bottom-1/4 right-1/3 w-24 h-24 border-4 border-[#A4D23E]/20 animate-spin" style={{animationDuration: '15s', animationDirection: 'reverse'}}></div>
-        
-        {/* Small Floating Dots */}
-        <div className="absolute top-1/2 left-1/3 w-3 h-3 bg-[#14B8A6] rounded-full animate-float opacity-60" style={{animationDuration: '5s'}}></div>
-        <div className="absolute top-1/3 right-1/2 w-2 h-2 bg-[#A4D23E] rounded-full animate-float opacity-50" style={{animationDuration: '7s', animationDelay: '1s'}}></div>
-        <div className="absolute bottom-1/3 left-1/2 w-4 h-4 bg-[#14B8A6] rounded-full animate-float opacity-40" style={{animationDuration: '6s', animationDelay: '2s'}}></div>
-        <div className="absolute top-2/3 right-1/4 w-3 h-3 bg-[#A4D23E] rounded-full animate-float opacity-50" style={{animationDuration: '9s'}}></div>
-        
-        {/* Gradient Blobs */}
-        <div className="absolute top-1/2 left-10 w-72 h-72 bg-gradient-to-br from-[#14B8A6]/20 to-transparent rounded-full blur-2xl animate-float" style={{animationDuration: '11s', animationDelay: '3s'}}></div>
-        <div className="absolute bottom-10 right-1/3 w-80 h-80 bg-gradient-to-tl from-[#A4D23E]/15 to-transparent rounded-full blur-3xl animate-float" style={{animationDuration: '13s'}}></div>
-        
-        {/* Subtle Grid Pattern */}
-        <div className="absolute inset-0 bg-grid opacity-5"></div>
-      </div>
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-[#E0F7F4]">
+      {/* Clean flat background - no animations */}
 
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-32">
