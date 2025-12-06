@@ -55,11 +55,11 @@ const ScaleYourBusiness = () => {
             
             <div className="space-y-6 text-gray-600">
               <p className="text-lg leading-relaxed">
-                <strong className="text-gray-900">Meet Sarah</strong>, who started with a single hair salon in downtown. Within 18 months of using buuk's booking software, she expanded to 4 locations across the city, managing 25 stylists and serving over 1,000 clients monthly.
+                <strong className="text-gray-900">Meet Sarah</strong>, who runs a small chain of hair salons. She started with one location and now has three across the city with about 12 stylists total.
               </p>
               
               <p className="text-base leading-relaxed">
-                <strong className="text-gray-900">"The turning point was having everything in one system,"</strong> Sarah explains. "Before buuk, I was drowning in spreadsheets, missed appointments, and payment tracking nightmares. Now, I can see real-time performance across all my salons, manage staff schedules from my phone, and my clients love the instant booking confirmation."
+                <strong className="text-gray-900">"Honestly, the biggest help was getting rid of the paper appointment book,"</strong> Sarah explains. "I can check bookings from anywhere now. When I opened my second location, I didn't have to buy another scheduling system or train staff on something new - it just worked for both places right away."
               </p>
               
               <div className="bg-gray-50 border-2 border-gray-200 p-6 rounded-xl">
