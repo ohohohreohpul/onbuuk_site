@@ -3,14 +3,18 @@ import { Calendar, Users, CreditCard, BarChart3 } from 'lucide-react';
 
 const UIShowcase = () => {
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+    <section className="relative py-32 bg-[#0a0a0a] overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 bg-grid opacity-20"></div>
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Powerful Dashboard at Your Fingertips
+        <div className="text-center mb-20 animate-fade-in">
+          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+            Powerful Dashboard at Your{' '}
+            <span className="text-gradient">Fingertips</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-base lg:text-lg text-gray-400 max-w-3xl mx-auto">
             Manage bookings, customers, payments, and analytics from one beautiful interface
           </p>
         </div>
