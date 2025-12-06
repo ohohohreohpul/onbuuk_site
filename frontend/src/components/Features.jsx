@@ -3,11 +3,8 @@ import { Calendar, Users, CreditCard, Gift, Palette, BarChart3, Zap, Shield } fr
 
 const Features = () => {
   return (
-    <section id="features" className="relative py-32 bg-gray-50 overflow-hidden">
-      {/* Background Pattern - Circuit */}
-      <div className="absolute inset-0 bg-circuit opacity-10"></div>
-      
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+    <section id="features" className="py-24 px-6 bg-white">
+      <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-20 animate-fade-in">
           <div className="inline-flex items-center space-x-2 bg-[#14B8A6]/10 border border-[#14B8A6] px-4 py-2 mb-6 rounded-full">
