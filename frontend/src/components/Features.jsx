@@ -21,22 +21,12 @@ const Features = () => {
 
         {/* Bento Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Large Feature - Spans 2 columns with Image Background */}
-          <div className="lg:col-span-2 relative overflow-hidden bg-white border-2 border-gray-200 p-8 md:p-10 hover:border-[#14B8A6] hover:shadow-2xl transition-all duration-500 hover-scale group rounded-lg">
-            {/* Background Image with Overlay */}
-            <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
-              <img 
-                src="https://images.unsplash.com/photo-1761718210055-e83ca7e2c9ad" 
-                alt="Spa treatment"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-white via-white/60 to-transparent"></div>
-            </div>
-            
+          {/* Large Feature - Spans 2 columns */}
+          <div className="lg:col-span-2 relative overflow-hidden bg-white border-2 border-gray-200 p-8 md:p-10 hover:border-[#14B8A6] hover:shadow-xl transition-all duration-500 group rounded-xl">
             <div className="relative z-10 flex flex-col h-full">
               {/* Content Section */}
               <div className="mb-6">
-                <div className="w-14 h-14 rounded-xl bg-[#14B8A6] flex items-center justify-center mb-6 shadow-lg shadow-[#14B8A6]/30">
+                <div className="w-14 h-14 rounded-xl bg-[#14B8A6] flex items-center justify-center mb-6 shadow-md">
                   <Calendar className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
@@ -48,7 +38,7 @@ const Features = () => {
               </div>
               
               {/* No-Show Stats Widget */}
-              <div className="hidden lg:block absolute top-6 right-6 bg-white border-2 border-gray-200 shadow-2xl p-5 w-56 animate-slide-in rounded-lg">
+              <div className="hidden lg:block absolute top-6 right-6 bg-white border-2 border-gray-200 shadow-xl p-5 w-56 rounded-lg">
                 <div className="flex items-center justify-between mb-3">
                   <div className="text-xs font-bold text-gray-900">No-Show Fee</div>
                   <div className="w-9 h-9 rounded-lg bg-red-100 flex items-center justify-center">
@@ -117,8 +107,8 @@ const Features = () => {
           </div>
 
           {/* Gift Cards & Loyalty */}
-          <div className="bg-white border-2 border-gray-200 p-8 hover:border-[#A4D23E] hover:shadow-xl transition-all duration-500 animate-slide-up hover-scale group rounded-lg" style={{animationDelay: '0.1s'}}>
-            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#A4D23E] to-[#8BC234] flex items-center justify-center mb-6 shadow-lg">
+          <div className="bg-white border-2 border-gray-200 p-8 hover:border-[#A4D23E] hover:shadow-xl transition-all duration-500 group rounded-xl">
+            <div className="w-14 h-14 rounded-xl bg-[#A4D23E] flex items-center justify-center mb-6 shadow-md">
               <Gift className="w-7 h-7 text-gray-900" />
             </div>
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -142,9 +132,7 @@ const Features = () => {
             
             <div className="bg-gray-50 border border-gray-200 p-4 mt-auto rounded-lg">
               <div className="text-xs font-semibold text-gray-600 mb-3">GIFT CARD PREVIEW</div>
-              <div className="bg-gradient-to-br from-[#A4D23E] to-[#8BC234] p-4 text-gray-900 relative overflow-hidden rounded-lg shadow-xl">
-                <div className="absolute top-0 right-0 w-24 h-24 bg-white opacity-10 rounded-full -mr-12 -mt-12"></div>
-                <div className="absolute bottom-0 left-0 w-20 h-20 bg-white opacity-10 rounded-full -ml-10 -mb-10"></div>
+              <div className="bg-[#A4D23E] p-4 text-gray-900 relative overflow-hidden rounded-lg shadow-lg">
                 <div className="relative z-10">
                   <div className="flex justify-between items-start mb-6">
                     <div className="text-xs font-bold">BUUK</div>
@@ -171,7 +159,7 @@ const Features = () => {
                   <div className="text-lg font-bold text-[#A4D23E]">850</div>
                 </div>
                 <div className="h-2 bg-gray-200 border border-gray-200 rounded-full relative overflow-hidden">
-                  <div className="absolute left-0 top-0 h-full w-4/5 bg-gradient-to-r from-[#A4D23E] to-[#8BC234] rounded-full"></div>
+                  <div className="absolute left-0 top-0 h-full w-4/5 bg-[#A4D23E] rounded-full"></div>
                 </div>
                 <div className="text-xs text-gray-600 mt-2">150 points to next reward</div>
               </div>
@@ -179,8 +167,8 @@ const Features = () => {
           </div>
 
           {/* Customer Portal */}
-          <div className="bg-white border-2 border-gray-200 p-8 hover:border-[#14B8A6] hover:shadow-xl transition-all duration-500 animate-slide-up hover-scale rounded-lg" style={{animationDelay: '0.2s'}}>
-            <div className="w-14 h-14 rounded-xl bg-[#14B8A6] flex items-center justify-center mb-6 shadow-lg">
+          <div className="bg-white border-2 border-gray-200 p-8 hover:border-[#14B8A6] hover:shadow-xl transition-all duration-500 rounded-xl">
+            <div className="w-14 h-14 rounded-xl bg-[#14B8A6] flex items-center justify-center mb-6 shadow-md">
               <Users className="w-7 h-7 text-white" />
             </div>
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -224,8 +212,8 @@ const Features = () => {
           </div>
 
           {/* Integrated Payments */}
-          <div className="bg-white border-2 border-gray-200 p-8 hover:border-[#14B8A6] hover:shadow-xl transition-all duration-500 animate-slide-up hover-scale rounded-lg" style={{animationDelay: '0.3s'}}>
-            <div className="w-14 h-14 rounded-xl bg-[#14B8A6] flex items-center justify-center mb-6 shadow-lg">
+          <div className="bg-white border-2 border-gray-200 p-8 hover:border-[#14B8A6] hover:shadow-xl transition-all duration-500 rounded-xl">
+            <div className="w-14 h-14 rounded-xl bg-[#14B8A6] flex items-center justify-center mb-6 shadow-md">
               <CreditCard className="w-7 h-7 text-white" />
             </div>
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -263,8 +251,8 @@ const Features = () => {
           </div>
 
           {/* Full Customization */}
-          <div className="bg-white border-2 border-gray-200 p-8 hover:border-[#A4D23E] hover:shadow-xl transition-all duration-500 animate-slide-up hover-scale rounded-lg" style={{animationDelay: '0.4s'}}>
-            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#A4D23E] to-[#8BC234] flex items-center justify-center mb-6 shadow-lg">
+          <div className="bg-white border-2 border-gray-200 p-8 hover:border-[#A4D23E] hover:shadow-xl transition-all duration-500 rounded-xl">
+            <div className="w-14 h-14 rounded-xl bg-[#A4D23E] flex items-center justify-center mb-6 shadow-md">
               <Palette className="w-7 h-7 text-gray-900" />
             </div>
             <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -276,13 +264,13 @@ const Features = () => {
             <div>
               <div className="text-xs font-semibold text-gray-600 mb-3">BRAND COLORS</div>
               <div className="grid grid-cols-3 gap-2 mb-4">
-                <div className="h-14 rounded-lg bg-[#14B8A6] flex items-center justify-center shadow-lg">
+                <div className="h-14 rounded-lg bg-[#14B8A6] flex items-center justify-center shadow-md">
                   <span className="text-white text-[10px] font-medium">#14B8A6</span>
                 </div>
-                <div className="h-14 rounded-lg bg-[#A4D23E] flex items-center justify-center shadow-lg">
+                <div className="h-14 rounded-lg bg-[#A4D23E] flex items-center justify-center shadow-md">
                   <span className="text-gray-900 text-[10px] font-medium">#A4D23E</span>
                 </div>
-                <div className="h-14 rounded-lg bg-gray-900 border border-gray-200 flex items-center justify-center shadow-lg">
+                <div className="h-14 rounded-lg bg-gray-900 border border-gray-200 flex items-center justify-center shadow-md">
                   <span className="text-white text-[10px] font-medium">#1A1A1A</span>
                 </div>
               </div>
