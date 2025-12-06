@@ -129,23 +129,23 @@ const Hero = () => {
                       { name: 'James Miller', service: 'Hair Coloring', time: '10:30 AM', status: 'Confirmed', color: 'bg-purple-500' },
                       { name: 'Sarah Davis', service: 'Manicure & Pedicure', time: '12:00 PM', status: 'Pending', color: 'bg-pink-500' }
                     ].map((appointment, item) => (
-                      <div key={item} className="flex items-center justify-between p-4 glass border border-white/10 hover:border-[#14B8A6]/50 transition-colors">
+                      <div key={item} className="flex items-center justify-between p-4 bg-gray-50 border border-gray-200 hover:border-[#14B8A6] transition-colors rounded-lg">
                         <div className="flex items-center space-x-3 flex-1">
                           <div className={`w-10 h-10 rounded-lg ${appointment.color} flex items-center justify-center text-white font-bold text-sm`}>
                             {appointment.name.split(' ').map(n => n[0]).join('')}
                           </div>
                           <div className="flex-1">
-                            <p className="font-semibold text-white text-sm">{appointment.name}</p>
-                            <p className="text-xs text-gray-400">{appointment.service}</p>
+                            <p className="font-semibold text-gray-900 text-sm">{appointment.name}</p>
+                            <p className="text-xs text-gray-600">{appointment.service}</p>
                           </div>
                           <div className="text-right mr-4">
-                            <p className="text-sm font-medium text-white">{appointment.time}</p>
+                            <p className="text-sm font-medium text-gray-900">{appointment.time}</p>
                           </div>
                         </div>
                         <span className={`text-xs font-medium px-3 py-1 rounded-full ${
                           appointment.status === 'Confirmed' 
-                            ? 'text-[#14B8A6] bg-[#14B8A6]/10 border border-[#14B8A6]/30' 
-                            : 'text-yellow-400 bg-yellow-400/10 border border-yellow-400/30'
+                            ? 'text-[#14B8A6] bg-[#14B8A6]/10 border border-[#14B8A6]' 
+                            : 'text-yellow-600 bg-yellow-50 border border-yellow-600'
                         }`}>
                           {appointment.status}
                         </span>
