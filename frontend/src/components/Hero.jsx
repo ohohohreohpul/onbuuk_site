@@ -82,7 +82,7 @@ const Hero = () => {
             <div className="flex flex-wrap gap-6 text-sm text-gray-600">
               <div className="flex items-center space-x-2">
                 <Check className="w-4 h-4 text-[#14B8A6]" />
-                <span>14-day free trial</span>
+                <span>Start for free</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Check className="w-4 h-4 text-[#14B8A6]" />
@@ -90,7 +90,7 @@ const Hero = () => {
               </div>
               <div className="flex items-center space-x-2">
                 <Check className="w-4 h-4 text-[#14B8A6]" />
-                <span>Cancel anytime</span>
+                <span>Upgrade anytime</span>
               </div>
             </div>
           </div>
