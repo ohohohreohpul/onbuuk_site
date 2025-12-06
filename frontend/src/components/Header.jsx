@@ -33,7 +33,11 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center cursor-pointer" onClick={() => navigate('/')}>
-            <span className="text-xl font-bold text-gray-900">buuk</span>
+            <img 
+              src="https://customer-assets.emergentagent.com/job_613aef5e-d3f5-4251-84fe-d7f3fa1d0a69/artifacts/uk5f7m65_buuklogo.png" 
+              alt="buuk" 
+              className="h-8"
+            />
           </div>
 
           {/* Desktop Navigation */}

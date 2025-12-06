@@ -5,12 +5,28 @@ import { ArrowRight, Check, Calendar, Clock, User } from 'lucide-react';
 const Hero = () => {
   const [activeDay, setActiveDay] = useState(10);
   const [appointmentIndex, setAppointmentIndex] = useState(0);
+  const [selectedDate, setSelectedDate] = useState(null);
 
   const appointments = [
     { name: 'Emma Wilson', service: 'Haircut & Styling', time: '9:00 AM', avatar: 'EW', color: 'bg-blue-500' },
     { name: 'James Miller', service: 'Hair Coloring', time: '10:30 AM', avatar: 'JM', color: 'bg-purple-500' },
     { name: 'Sarah Davis', service: 'Manicure & Pedicure', time: '12:00 PM', avatar: 'SD', color: 'bg-pink-500' },
   ];
+
+  const dayAppointments = {
+    8: [{ name: 'John Doe', time: '2:00 PM', service: 'Massage' }],
+    9: [{ name: 'Alice Brown', time: '11:00 AM', service: 'Facial' }],
+    10: [
+      { name: 'Emma Wilson', time: '9:00 AM', service: 'Haircut' },
+      { name: 'James Miller', time: '10:30 AM', service: 'Coloring' },
+      { name: 'Sarah Davis', time: '12:00 PM', service: 'Manicure' }
+    ],
+    14: [{ name: 'Mike Johnson', time: '3:00 PM', service: 'Haircut' }],
+    15: [
+      { name: 'Lisa White', time: '10:00 AM', service: 'Spa Treatment' },
+      { name: 'Tom Green', time: '2:00 PM', service: 'Massage' }
+    ],
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -19,11 +35,16 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const handleDayClick = (day) => {
+    setActiveDay(day);
+    setSelectedDate(day);
+  };
+
   return (
     <section className="pt-32 pb-24 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left: Content */}
           <div>
             <div className="inline-flex items-center space-x-2 bg-gray-100 px-3 py-1.5 rounded-full mb-6">
@@ -75,9 +96,9 @@ const Hero = () => {
           </div>
 
           {/* Right: Interactive Demo */}
-          <div className="relative max-w-md mx-auto lg:mx-0">
+          <div className="relative">
             {/* Animated Calendar */}
-            <div className="bg-white border-2 border-gray-200 rounded-xl p-5 shadow-lg">
+            <div className="bg-white border-2 border-gray-200 rounded-xl p-5 shadow-lg max-w-md mx-auto">
               <div className="flex items-center justify-between mb-4">
                 <div>
                   <h3 className="text-base font-bold text-gray-900">December 2024</h3>
@@ -100,7 +121,7 @@ const Hero = () => {
                   return (
                     <button
                       key={i}
-                      onClick={() => setActiveDay(i)}
+                      onClick={() => handleDayClick(i)}
                       className={`aspect-square flex items-center justify-center text-sm rounded-lg transition-all ${
                         isToday
                           ? 'bg-[#14B8A6] text-white font-bold shadow-md scale-110'
@@ -115,30 +136,55 @@ const Hero = () => {
                 })}
               </div>
 
-              {/* Animated Appointment Card */}
-              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-3">
-                    <div className={`w-10 h-10 rounded-lg ${appointments[appointmentIndex].color} flex items-center justify-center text-white font-bold text-sm`}>
-                      {appointments[appointmentIndex].avatar}
-                    </div>
-                    <div>
-                      <p className="font-semibold text-gray-900 text-sm">{appointments[appointmentIndex].name}</p>
-                      <p className="text-xs text-gray-600">{appointments[appointmentIndex].service}</p>
-                    </div>
+              {/* Show appointments for selected date or current date */}
+              {selectedDate !== null && dayAppointments[selectedDate] ? (
+                <div className="space-y-2">
+                  <div className="text-xs font-semibold text-gray-600 mb-2">
+                    APPOINTMENTS FOR DAY {selectedDate + 1}
                   </div>
-                  <div className="flex flex-col items-end space-y-1">
-                    <p className="text-sm font-medium text-gray-900">{appointments[appointmentIndex].time}</p>
-                    <span className="text-xs font-medium text-[#14B8A6] bg-[#14B8A6]/10 px-2 py-0.5 rounded">
-                      Confirmed
-                    </span>
+                  {dayAppointments[selectedDate].map((apt, idx) => (
+                    <div key={idx} className="bg-gray-50 border border-gray-200 rounded-lg p-3">
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <p className="font-semibold text-gray-900 text-sm">{apt.name}</p>
+                          <p className="text-xs text-gray-600">{apt.service}</p>
+                        </div>
+                        <div className="text-right">
+                          <p className="text-sm font-medium text-gray-900">{apt.time}</p>
+                          <span className="text-xs font-medium text-[#14B8A6] bg-[#14B8A6]/10 px-2 py-0.5 rounded">
+                            Confirmed
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                /* Default Animated Appointment Card */
+                <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-3">
+                      <div className={`w-10 h-10 rounded-lg ${appointments[appointmentIndex].color} flex items-center justify-center text-white font-bold text-sm`}>
+                        {appointments[appointmentIndex].avatar}
+                      </div>
+                      <div>
+                        <p className="font-semibold text-gray-900 text-sm">{appointments[appointmentIndex].name}</p>
+                        <p className="text-xs text-gray-600">{appointments[appointmentIndex].service}</p>
+                      </div>
+                    </div>
+                    <div className="flex flex-col items-end space-y-1">
+                      <p className="text-sm font-medium text-gray-900">{appointments[appointmentIndex].time}</p>
+                      <span className="text-xs font-medium text-[#14B8A6] bg-[#14B8A6]/10 px-2 py-0.5 rounded">
+                        Confirmed
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
 
-            {/* Floating Stats */}
-            <div className="absolute -bottom-6 -left-6 bg-white border-2 border-gray-200 rounded-xl p-4 shadow-lg">
+            {/* Floating Stats - Moved to bottom right */}
+            <div className="absolute -bottom-4 -right-4 bg-white border-2 border-gray-200 rounded-xl p-4 shadow-lg">
               <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 rounded-lg bg-[#A4D23E] flex items-center justify-center">
                   <User className="w-5 h-5 text-gray-900" />
