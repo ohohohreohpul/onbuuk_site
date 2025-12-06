@@ -50,8 +50,8 @@ const ScaleYourBusiness = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content - Story */}
           <div className="animate-fade-in">
-            <div className="inline-flex items-center space-x-2 glass-teal px-4 py-2 mb-6">
-              <Building2 className="w-4 h-4 text-[#14B8A6]" />
+            <div className="inline-flex items-center space-x-2 glass-teal px-4 py-2 mb-6 rounded-full">
+              <BarChart3 className="w-4 h-4 text-[#14B8A6]" />
               <span className="text-sm font-medium text-white">Success Story</span>
             </div>
             
