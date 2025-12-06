@@ -100,18 +100,28 @@ const WhyChooseBuuk = () => {
   ];
 
   return (
-    <section className="py-24 px-12 lg:px-24 bg-white">
-      <div className="max-w-7xl mx-auto">
+    <section 
+      className="relative py-24 px-12 lg:px-24 bg-white overflow-hidden"
+      onMouseMove={handleMouseMove}
+    >
+      {/* Interactive Grid Background */}
+      <canvas 
+        ref={canvasRef}
+        className="absolute inset-0 w-full h-full"
+        style={{ pointerEvents: 'none' }}
+      />
+      
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center space-x-2 bg-gray-100 px-3 py-1.5 rounded-full mb-6">
             <Check className="w-4 h-4 text-[#14B8A6]" />
             <span className="text-sm text-gray-700">Why Choose Buuk</span>
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 max-w-4xl mx-auto px-8">
             The Complete Booking Software for Salons, Spas & Massage Studios
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto px-4">
             Built specifically for beauty and wellness businesses, our appointment booking system helps you manage everything from scheduling to payments, customer relationships to staff management—all from one powerful platform.
           </p>
         </div>
