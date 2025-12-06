@@ -20,54 +20,6 @@
     -->
         <title>buuk - Booking Management for Salons & Spas</title>
         <!-- Emergent badge script removed for paid plan -->
-        <style>
-            /* Hide Emergent badge for paid plan */
-            #emergent-badge,
-            a[href*="emergent"],
-            a[href*="utm_source=emergent-badge"] {
-                display: none !important;
-                visibility: hidden !important;
-                opacity: 0 !important;
-                pointer-events: none !important;
-            }
-        </style>
-        <script>
-            // Aggressively remove badge using MutationObserver
-            (function() {
-                function removeBadge() {
-                    const badges = document.querySelectorAll('#emergent-badge, a[href*="utm_source=emergent-badge"]');
-                    badges.forEach(function(badge) {
-                        badge.style.display = 'none';
-                        badge.remove();
-                    });
-                }
-
-                // Remove immediately
-                removeBadge();
-
-                // Watch for DOM changes
-                const observer = new MutationObserver(function() {
-                    removeBadge();
-                });
-
-                observer.observe(document.body || document.documentElement, {
-                    childList: true,
-                    subtree: true
-                });
-
-                // Also check repeatedly
-                setInterval(removeBadge, 100);
-
-                // On load
-                if (document.readyState === 'loading') {
-                    document.addEventListener('DOMContentLoaded', removeBadge);
-                } else {
-                    removeBadge();
-                }
-
-                window.addEventListener('load', removeBadge);
-            })();
-        </script>
     </head>
     <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>
