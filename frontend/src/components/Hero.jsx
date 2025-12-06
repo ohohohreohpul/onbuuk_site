@@ -75,22 +75,22 @@ const Hero = () => {
           </div>
 
           {/* Right: Interactive Demo */}
-          <div className="relative">
+          <div className="relative max-w-md mx-auto lg:mx-0">
             {/* Animated Calendar */}
-            <div className="bg-white border-2 border-gray-200 rounded-xl p-6 shadow-lg">
-              <div className="flex items-center justify-between mb-6">
+            <div className="bg-white border-2 border-gray-200 rounded-xl p-5 shadow-lg">
+              <div className="flex items-center justify-between mb-4">
                 <div>
-                  <h3 className="text-lg font-bold text-gray-900">December 2024</h3>
-                  <p className="text-sm text-gray-600">15 bookings this week</p>
+                  <h3 className="text-base font-bold text-gray-900">December 2024</h3>
+                  <p className="text-xs text-gray-600">15 bookings this week</p>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <Clock className="w-5 h-5 text-[#14B8A6]" />
-                  <span className="text-sm font-medium text-[#14B8A6]">Real-time sync</span>
+                <div className="flex items-center space-x-1.5">
+                  <Clock className="w-4 h-4 text-[#14B8A6]" />
+                  <span className="text-xs font-medium text-[#14B8A6]">Live</span>
                 </div>
               </div>
 
               {/* Calendar Grid */}
-              <div className="grid grid-cols-7 gap-2 mb-6">
+              <div className="grid grid-cols-7 gap-1.5 mb-4">
                 {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day, i) => (
                   <div key={i} className="text-center text-xs font-medium text-gray-500">{day}</div>
                 ))}
