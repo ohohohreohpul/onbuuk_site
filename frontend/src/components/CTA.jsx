@@ -115,11 +115,11 @@ const CTA = () => {
           </div>
 
           {/* Right Content - Form */}
-          <div className="glass-strong border border-white/20 p-8 lg:p-10 shadow-2xl animate-slide-in">
-            <h3 className="text-2xl font-bold text-white mb-2">
+          <div className="bg-white border-2 border-gray-200 p-8 lg:p-10 shadow-2xl animate-slide-in rounded-lg">
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">
               Request a Demo
             </h3>
-            <p className="text-gray-400 mb-8">Want a personalized walkthrough? We'll reach out to you.</p>
+            <p className="text-gray-600 mb-8">Want a personalized walkthrough? We'll reach out to you.</p>
             
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
