@@ -26,7 +26,7 @@ const Features = () => {
         {/* Bento Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Large Feature - Spans 2 columns with Image Background */}
-          <div className="lg:col-span-2 relative overflow-hidden glass-strong border border-white/10 p-8 md:p-10 hover:border-[#14B8A6]/50 transition-all duration-500 hover-scale group">
+          <div className="lg:col-span-2 relative overflow-hidden bg-white border-2 border-gray-200 p-8 md:p-10 hover:border-[#14B8A6] hover:shadow-2xl transition-all duration-500 hover-scale group rounded-lg">
             {/* Background Image with Overlay */}
             <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-500">
               <img 
