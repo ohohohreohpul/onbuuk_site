@@ -41,7 +41,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative pt-32 pb-24 px-8 lg:px-16 bg-white overflow-hidden">
+    <section className="relative pt-32 pb-24 px-12 lg:px-24 bg-white overflow-hidden">
       {/* Animated Grid Background */}
       <div className="absolute inset-0 hero-grid"></div>
       

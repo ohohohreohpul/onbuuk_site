@@ -3,7 +3,7 @@ import { Calendar, Users, CreditCard } from 'lucide-react';
 
 const UIShowcase = () => {
   return (
-    <section className="py-24 px-8 lg:px-16 bg-gray-50">
+    <section className="py-24 px-12 lg:px-24 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
