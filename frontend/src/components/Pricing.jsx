@@ -108,10 +108,10 @@ const Pricing = () => {
           {plans.map((plan, index) => (
             <div 
               key={index} 
-              className={`border p-8 hover-scale transition-all duration-500 ${
+              className={`border-2 p-8 hover-scale transition-all duration-500 rounded-lg ${
                 plan.highlighted 
-                  ? 'glass-strong border-[#14B8A6] text-white relative shadow-2xl shadow-[#14B8A6]/20' 
-                  : 'glass-strong border-white/10 hover:border-[#14B8A6]/50'
+                  ? 'bg-gradient-to-br from-[#14B8A6] to-[#0d9488] border-[#14B8A6] text-white relative shadow-2xl' 
+                  : 'bg-white border-gray-200 hover:border-[#14B8A6] hover:shadow-xl'
               }`}
             >
               {plan.highlighted && plan.badge && (
