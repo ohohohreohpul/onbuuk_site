@@ -39,7 +39,7 @@ const ScaleYourBusiness = () => {
   ];
 
   return (
-    <section className="relative py-32 bg-[#0f766e] overflow-hidden">
+    <section className="relative py-32 bg-[#0d9488] overflow-hidden">
       {/* Hexagon Pattern Background */}
       <div className="absolute inset-0 opacity-5" style={{
         backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15z' fill='none' stroke='%2314B8A6' stroke-width='1'/%3E%3C/svg%3E")`,
