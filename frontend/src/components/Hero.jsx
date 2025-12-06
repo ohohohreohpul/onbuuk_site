@@ -41,8 +41,11 @@ const Hero = () => {
   };
 
   return (
-    <section className="pt-32 pb-24 px-8 lg:px-16 bg-white">
-      <div className="max-w-7xl mx-auto">
+    <section className="relative pt-32 pb-24 px-8 lg:px-16 bg-white overflow-hidden">
+      {/* Animated Grid Background */}
+      <div className="absolute inset-0 hero-grid opacity-[0.03]"></div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Content Grid */}
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left: Content */}
@@ -73,7 +76,7 @@ const Hero = () => {
               <Button 
                 size="lg"
                 variant="outline"
-                className="border-gray-300 text-gray-700 hover:bg-gray-50 px-8 h-12 text-base rounded-lg"
+                className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:text-[#14B8A6] hover:border-[#14B8A6] px-8 h-12 text-base rounded-lg transition-all"
               >
                 Watch demo
               </Button>
@@ -98,7 +101,20 @@ const Hero = () => {
           {/* Right: Interactive Demo */}
           <div className="relative">
             {/* Animated Calendar */}
-            <div className="bg-white border-2 border-gray-200 rounded-xl p-5 shadow-lg max-w-md mx-auto">
+            <div className="bg-white border-2 border-gray-200 rounded-xl p-5 shadow-lg max-w-md mx-auto relative">
+              {/* Floating Stats - Moved inside calendar at top */}
+              <div className="absolute -top-3 -right-3 bg-white border-2 border-gray-200 rounded-xl p-3 shadow-lg z-20">
+                <div className="flex items-center space-x-2">
+                  <div className="w-8 h-8 rounded-lg bg-[#A4D23E] flex items-center justify-center">
+                    <User className="w-4 h-4 text-gray-900" />
+                  </div>
+                  <div>
+                    <p className="text-xl font-bold text-gray-900">248</p>
+                    <p className="text-[10px] text-gray-600">Happy customers</p>
+                  </div>
+                </div>
+              </div>
+
               <div className="flex items-center justify-between mb-4">
                 <div>
                   <h3 className="text-base font-bold text-gray-900">December 2024</h3>
@@ -181,19 +197,6 @@ const Hero = () => {
                   </div>
                 </div>
               )}
-            </div>
-
-            {/* Floating Stats - Moved to bottom right */}
-            <div className="absolute -bottom-4 -right-4 bg-white border-2 border-gray-200 rounded-xl p-4 shadow-lg">
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 rounded-lg bg-[#A4D23E] flex items-center justify-center">
-                  <User className="w-5 h-5 text-gray-900" />
-                </div>
-                <div>
-                  <p className="text-2xl font-bold text-gray-900">248</p>
-                  <p className="text-xs text-gray-600">Happy customers</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
