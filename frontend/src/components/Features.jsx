@@ -25,20 +25,20 @@ const Features = () => {
           <div className="lg:col-span-2 relative overflow-hidden bg-white border-2 border-gray-200 p-8 md:p-10 hover:border-[#14B8A6] hover:shadow-xl transition-all duration-500 group rounded-xl">
             <div className="relative z-10 flex flex-col h-full">
               {/* Content Section */}
-              <div className="mb-6">
+              <div className="mb-6 lg:pr-64">
                 <div className="w-14 h-14 rounded-xl bg-[#14B8A6] flex items-center justify-center mb-6 shadow-md">
                   <Calendar className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
                   Smart Booking System
                 </h3>
-                <p className="text-gray-600 mb-6 max-w-xl text-base lg:text-lg">
+                <p className="text-gray-600 mb-6 text-base lg:text-lg">
                   Real-time availability, multi-step booking flow, automated confirmations, and customer self-service portal. Make booking effortless for your clients.
                 </p>
               </div>
               
-              {/* No-Show Stats Widget */}
-              <div className="hidden lg:block absolute top-6 right-6 bg-white border-2 border-gray-200 shadow-xl p-5 w-56 rounded-lg">
+              {/* No-Show Stats Widget - Repositioned */}
+              <div className="hidden lg:block absolute top-8 right-8 bg-white border-2 border-gray-200 shadow-xl p-5 w-56 rounded-lg z-20">
                 <div className="flex items-center justify-between mb-3">
                   <div className="text-xs font-bold text-gray-900">No-Show Fee</div>
                   <div className="w-9 h-9 rounded-lg bg-red-100 flex items-center justify-center">
