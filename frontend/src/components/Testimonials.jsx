@@ -3,21 +3,21 @@ import { Star, Quote } from 'lucide-react';
 
 const testimonials = [
   {
-    text: "buuk has completely transformed how we manage our salon. Online booking increased our appointments by 40% in just 2 months!",
+    text: "We used to spend hours on the phone taking bookings. Now clients book themselves online and we actually get reminders sent automatically. It's saved us maybe 10 hours a week, no joke.",
     author: "Sarah Martinez",
     role: "Owner, Luxe Beauty Salon",
     rating: 5,
     image: "https://images.unsplash.com/photo-1675034741696-fa9551c31bb4"
   },
   {
-    text: "The gift card and loyalty features are game-changers. Our customer retention has never been better.",
+    text: "Honestly, the best part is not having to chase no-shows anymore. The SMS reminders work really well. We still get some cancellations but way less than before.",
     author: "Michael Chen",
     role: "Manager, Serenity Spa",
     rating: 5,
     image: "https://images.unsplash.com/photo-1675034741621-79a7d07c1369"
   },
   {
-    text: "Setup was incredibly simple. We were accepting bookings within 30 minutes. The customer portal is fantastic!",
+    text: "I'm not super tech-savvy, but I had it running in about an hour. My clients love that they can just pick their time slot instead of calling. Makes us look more professional too.",
     author: "Emily Rodriguez",
     role: "Founder, Glow Wellness",
     rating: 5,
