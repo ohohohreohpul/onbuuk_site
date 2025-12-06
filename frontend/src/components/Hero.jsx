@@ -19,21 +19,21 @@ const Hero = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
           <div className="text-left animate-fade-in">
-            {/* Badge with Glass Effect */}
-            <div className="inline-flex items-center space-x-2 glass-teal px-4 py-2 mb-8 animate-glow">
+            {/* Badge */}
+            <div className="inline-flex items-center space-x-2 bg-[#14B8A6]/10 border border-[#14B8A6] px-4 py-2 mb-8 rounded-full">
               <Sparkles className="w-4 h-4 text-[#14B8A6]" />
-              <span className="text-sm font-medium text-white">All-in-One Booking Platform</span>
+              <span className="text-sm font-medium text-[#14B8A6]">All-in-One Booking Platform</span>
             </div>
 
             {/* Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-[1.1]">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-[1.1]">
               Booking Made{' '}
               <span className="text-gradient">Simple</span>{' '}
               for Your Business
             </h1>
 
             {/* Subheadline */}
-            <p className="text-base lg:text-lg text-gray-300 mb-10 leading-relaxed max-w-xl">
+            <p className="text-base lg:text-lg text-gray-700 mb-10 leading-relaxed max-w-xl">
               Streamline appointments, accept payments, build loyalty, and grow your salon or spa business with buuk's complete booking management platform.
             </p>
 
