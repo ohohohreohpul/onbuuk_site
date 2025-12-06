@@ -51,23 +51,23 @@ const Features = () => {
                 </p>
               </div>
               
-              {/* No-Show Stats Widget - Glass Effect */}
-              <div className="hidden lg:block absolute top-6 right-6 glass-dark border border-white/20 shadow-2xl p-5 w-56 animate-slide-in">
+              {/* No-Show Stats Widget */}
+              <div className="hidden lg:block absolute top-6 right-6 bg-white border-2 border-gray-200 shadow-2xl p-5 w-56 animate-slide-in rounded-lg">
                 <div className="flex items-center justify-between mb-3">
-                  <div className="text-xs font-bold text-white">No-Show Fee</div>
-                  <div className="w-9 h-9 rounded-lg bg-red-500/20 flex items-center justify-center">
-                    <svg className="w-5 h-5 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+                  <div className="text-xs font-bold text-gray-900">No-Show Fee</div>
+                  <div className="w-9 h-9 rounded-lg bg-red-100 flex items-center justify-center">
+                    <svg className="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
                     </svg>
                   </div>
                 </div>
-                <div className="text-3xl font-bold text-white mb-2">€125.00</div>
-                <div className="text-xs text-gray-400 mb-3">Collected this month</div>
+                <div className="text-3xl font-bold text-gray-900 mb-2">€125.00</div>
+                <div className="text-xs text-gray-600 mb-3">Collected this month</div>
                 <div className="flex items-center justify-between text-xs mb-2">
-                  <span className="text-gray-400">5 no-shows</span>
-                  <span className="text-red-400 font-medium">-60%</span>
+                  <span className="text-gray-600">5 no-shows</span>
+                  <span className="text-red-600 font-medium">-60%</span>
                 </div>
-                <div className="h-1.5 bg-white/10 rounded-full relative overflow-hidden">
+                <div className="h-1.5 bg-gray-200 rounded-full relative overflow-hidden">
                   <div className="absolute left-0 top-0 h-full w-2/5 bg-red-500 rounded-full"></div>
                 </div>
               </div>
