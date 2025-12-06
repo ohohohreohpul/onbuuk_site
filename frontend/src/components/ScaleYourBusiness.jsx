@@ -1,25 +1,50 @@
-import React from 'react';
-import { Building2, Users2, Sparkles, BarChart3 } from 'lucide-react';
+import React, { useState } from 'react';
+import { Building2, Users2, ChevronDown, BarChart3 } from 'lucide-react';
 import { Button } from './ui/button';
 
 const ScaleYourBusiness = () => {
+  const [openAccordion, setOpenAccordion] = useState(0);
+
+  const features = [
+    {
+      icon: Building2,
+      title: 'Multi-Location Dashboard',
+      description: 'Manage all your salon, spa, or massage studio locations from one centralized dashboard. Monitor performance, transfer bookings between locations, and maintain consistent service quality.',
+      highlights: [
+        'Centralized reporting across all locations',
+        'Staff can work at multiple locations seamlessly',
+        'Unified customer database across all branches'
+      ]
+    },
+    {
+      icon: Users2,
+      title: 'Advanced Staff Management',
+      description: 'As you grow from a single salon to multiple locations, managing 5, 10, or 50+ staff members becomes effortless. Set permissions, track commissions, and monitor performance.',
+      highlights: [
+        'Individual staff booking pages and calendars',
+        'Commission tracking and payroll integration',
+        'Performance metrics per stylist/therapist'
+      ]
+    },
+    {
+      icon: BarChart3,
+      title: 'Business Intelligence & Analytics',
+      description: 'Make data-driven decisions with comprehensive analytics. Track which services are most profitable, identify peak times, and forecast revenue growth.',
+      highlights: [
+        'Revenue forecasting and trend analysis',
+        'Customer lifetime value tracking',
+        'Service performance comparisons'
+      ]
+    }
+  ];
+
   return (
     <section className="relative py-32 bg-[#050505] overflow-hidden">
-      {/* Full-width Background Image with Overlay */}
-      <div className="absolute inset-0">
-        <img 
-          src="https://images.unsplash.com/photo-1675034741696-fa9551c31bb4" 
-          alt="Professional salon environment"
-          className="w-full h-full object-cover opacity-20"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-black/95 to-black"></div>
-        
-        {/* Hexagon Pattern Background */}
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15z' fill='none' stroke='%2314B8A6' stroke-width='1'/%3E%3C/svg%3E")`,
-          backgroundSize: '60px 60px'
-        }}></div>
-      </div>
+      {/* Hexagon Pattern Background */}
+      <div className="absolute inset-0 opacity-5" style={{
+        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15z' fill='none' stroke='%2314B8A6' stroke-width='1'/%3E%3C/svg%3E")`,
+        backgroundSize: '60px 60px'
+      }}></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
