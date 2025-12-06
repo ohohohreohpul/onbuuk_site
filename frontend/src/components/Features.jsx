@@ -134,18 +134,18 @@ const Features = () => {
             
             {/* Stats */}
             <div className="grid grid-cols-2 gap-3 mb-6">
-              <div className="glass border border-white/10 p-3 rounded-lg">
-                <div className="text-2xl font-bold text-white">€3.2K</div>
-                <div className="text-xs text-gray-400">Gift cards sold</div>
+              <div className="bg-gray-50 border border-gray-200 p-3 rounded-lg">
+                <div className="text-2xl font-bold text-gray-900">€3.2K</div>
+                <div className="text-xs text-gray-600">Gift cards sold</div>
               </div>
-              <div className="glass border border-white/10 p-3 rounded-lg">
-                <div className="text-2xl font-bold text-white">450</div>
-                <div className="text-xs text-gray-400">Loyalty members</div>
+              <div className="bg-gray-50 border border-gray-200 p-3 rounded-lg">
+                <div className="text-2xl font-bold text-gray-900">450</div>
+                <div className="text-xs text-gray-600">Loyalty members</div>
               </div>
             </div>
             
-            <div className="glass-dark border border-white/10 p-4 mt-auto rounded-lg">
-              <div className="text-xs font-semibold text-gray-400 mb-3">GIFT CARD PREVIEW</div>
+            <div className="bg-gray-50 border border-gray-200 p-4 mt-auto rounded-lg">
+              <div className="text-xs font-semibold text-gray-600 mb-3">GIFT CARD PREVIEW</div>
               <div className="bg-gradient-to-br from-[#A4D23E] to-[#8BC234] p-4 text-gray-900 relative overflow-hidden rounded-lg shadow-xl">
                 <div className="absolute top-0 right-0 w-24 h-24 bg-white opacity-10 rounded-full -mr-12 -mt-12"></div>
                 <div className="absolute bottom-0 left-0 w-20 h-20 bg-white opacity-10 rounded-full -ml-10 -mb-10"></div>
