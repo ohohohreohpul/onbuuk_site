@@ -172,22 +172,22 @@ const Pricing = () => {
                 {plan.features.map((feature, i) => (
                   <li key={i} className="flex items-start space-x-3">
                     <div className={`flex-shrink-0 w-5 h-5 rounded flex items-center justify-center ${
-                      plan.highlighted ? 'bg-[#14B8A6]/20' : 'bg-white/5'
+                      plan.highlighted ? 'bg-white/20' : 'bg-[#14B8A6]/10'
                     }`}>
                       <Check className={`w-3 h-3 ${plan.highlighted ? 'text-white' : 'text-[#14B8A6]'}`} />
                     </div>
-                    <span className={`text-sm text-gray-300 ${feature.includes('PLUS:') ? 'font-semibold text-white' : ''}`}>
+                    <span className={`text-sm ${plan.highlighted ? 'text-white' : 'text-gray-700'} ${feature.includes('PLUS:') ? 'font-semibold' : ''}`}>
                       {feature}
                     </span>
                   </li>
                 ))}
                 
                 {plan.limitations && (
-                  <li className="pt-4 mt-4 border-t border-white/10">
-                    <p className="text-xs text-gray-400 mb-2 font-semibold">Limitations:</p>
+                  <li className={`pt-4 mt-4 border-t ${plan.highlighted ? 'border-white/20' : 'border-gray-200'}`}>
+                    <p className={`text-xs mb-2 font-semibold ${plan.highlighted ? 'text-white/80' : 'text-gray-600'}`}>Limitations:</p>
                     {plan.limitations.map((limitation, i) => (
                       <div key={i} className="flex items-start space-x-2 mb-2">
-                        <span className="text-xs text-gray-500">• {limitation}</span>
+                        <span className={`text-xs ${plan.highlighted ? 'text-white/70' : 'text-gray-500'}`}>• {limitation}</span>
                       </div>
                     ))}
                   </li>
