@@ -171,7 +171,7 @@ const CTA = () => {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-semibold text-white mb-2">
+                <label htmlFor="message" className="block text-sm font-semibold text-gray-900 mb-2">
                   Tell us about your needs (Optional)
                 </label>
                 <Textarea
