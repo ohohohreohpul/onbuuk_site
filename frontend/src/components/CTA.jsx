@@ -50,7 +50,7 @@ const CTA = () => {
           alt="Luxury spa treatment"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0d9488]/95 via-[#0d9488]/85 to-[#14B8A6]/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#003E37]/95 via-[#003E37]/88 to-[#003E37]/82"></div>
         
         {/* Background Pattern */}
         <div className="absolute inset-0 bg-grid opacity-20"></div>
