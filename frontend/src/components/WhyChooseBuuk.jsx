@@ -1,5 +1,5 @@
 import React from 'react';
-import { Check, TrendingUp, Users, Zap, Shield, Clock } from 'lucide-react';
+import { Check, TrendingUp, Users, Zap, Shield, Clock, Star } from 'lucide-react';
 
 const WhyChooseBuuk = () => {
   const benefits = [
@@ -29,14 +29,14 @@ const WhyChooseBuuk = () => {
       description: 'Save hours every week with smart automation. Our salon booking software automatically sends SMS and email reminders, manages staff schedules, prevents double-bookings, and handles cancellations. Focus on providing amazing treatments, not admin work.'
     },
     {
-      icon: Users,
-      title: 'Multi-Location Management',
-      description: 'Perfect for growing salon chains, spa franchises, and massage therapy centers. Manage multiple locations from one dashboard, track performance across stores, transfer staff bookings, and maintain consistent branding everywhere.'
+      icon: Star,
+      title: 'Customer Loyalty & Rewards',
+      description: 'Build a thriving community of repeat customers with built-in loyalty programs. Reward clients with points for every visit, create custom reward tiers, and track customer lifetime value. Turn first-time visitors into loyal brand advocates.'
     }
   ];
 
   return (
-    <section className="py-24 px-6 bg-white">
+    <section className="py-24 px-8 lg:px-16 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
