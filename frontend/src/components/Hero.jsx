@@ -37,6 +37,69 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    const gridSize = 60;
+    let animationFrameId;
+
+    const resizeCanvas = () => {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    };
+
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    const draw = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (let x = 0; x < canvas.width; x += gridSize) {
+        for (let y = 0; y < canvas.height; y += gridSize) {
+          const distance = Math.sqrt(
+            Math.pow(mousePos.current.x - x, 2) + Math.pow(mousePos.current.y - y, 2)
+          );
+          
+          const maxDistance = 200;
+          const intensity = Math.max(0, 1 - distance / maxDistance);
+          
+          if (intensity > 0) {
+            // Fill effect
+            ctx.fillStyle = `rgba(20, 184, 166, ${intensity * 0.15})`;
+            ctx.fillRect(x, y, gridSize, gridSize);
+          }
+          
+          // Grid lines
+          ctx.strokeStyle = `rgba(20, 184, 166, ${0.06 + intensity * 0.1})`;
+          ctx.lineWidth = 1;
+          ctx.strokeRect(x, y, gridSize, gridSize);
+        }
+      }
+
+      animationFrameId = requestAnimationFrame(draw);
+    };
+
+    draw();
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      window.removeEventListener('resize', resizeCanvas);
+    };
+  }, []);
+
+  const handleMouseMove = (e) => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    
+    const rect = canvas.getBoundingClientRect();
+    mousePos.current = {
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top
+    };
+  };
+
   const handleDayClick = (day) => {
     setActiveDay(day);
     setSelectedDate(day);
