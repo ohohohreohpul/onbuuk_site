@@ -19,7 +19,7 @@ const Hero = () => {
           alt="Luxury salon interior"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0d9488]/95 via-[#0d9488]/80 to-[#14B8A6]/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#003E37]/95 via-[#003E37]/85 to-[#003E37]/75"></div>
         
         {/* Background Pattern for Depth */}
         <div className="absolute inset-0 bg-grid opacity-30"></div>
