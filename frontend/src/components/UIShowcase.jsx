@@ -22,14 +22,14 @@ const UIShowcase = () => {
         {/* Bento Grid - Dashboard Mockup */}
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
           {/* Large Dashboard Preview - Spans 3 columns */}
-          <div className="lg:col-span-3 bg-gray-50 border-2 border-gray-200 p-8">
+          <div className="lg:col-span-3 glass-strong border border-white/10 p-8 hover-scale">
             {/* Mockup Browser Chrome */}
-            <div className="flex items-center space-x-2 mb-6 pb-4 border-b border-gray-200">
-              <div className="w-3 h-3 bg-gray-300"></div>
-              <div className="w-3 h-3 bg-gray-300"></div>
-              <div className="w-3 h-3 bg-gray-300"></div>
+            <div className="flex items-center space-x-2 mb-6 pb-4 border-b border-white/10">
+              <div className="w-3 h-3 rounded-full bg-red-500"></div>
+              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+              <div className="w-3 h-3 rounded-full bg-green-500"></div>
               <div className="flex-1"></div>
-              <div className="h-3 bg-gray-200 w-32"></div>
+              <div className="h-3 glass rounded w-32"></div>
             </div>
 
             {/* Dashboard Content */}
@@ -37,10 +37,10 @@ const UIShowcase = () => {
               {/* Header */}
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="text-lg font-bold text-gray-900">Dashboard Overview</div>
-                  <div className="text-xs text-gray-500 mt-1">Monday, December 2, 2024 • 9:47 AM</div>
+                  <div className="text-lg font-bold text-white">Dashboard Overview</div>
+                  <div className="text-xs text-gray-400 mt-1">Monday, December 2, 2024 • 9:47 AM</div>
                 </div>
-                <div className="h-10 px-4 bg-[#14B8A6] flex items-center justify-center text-white text-sm font-medium">
+                <div className="h-10 px-4 rounded-lg bg-[#14B8A6] flex items-center justify-center text-white text-sm font-semibold shadow-lg hover:bg-[#0d9488] transition-colors cursor-pointer">
                   + New Booking
                 </div>
               </div>
