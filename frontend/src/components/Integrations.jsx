@@ -13,22 +13,18 @@ const integrations = [
 
 const Integrations = () => {
   return (
-    <section id="integrations" className="relative py-32 bg-white overflow-hidden">
-      {/* Background Pattern - Grid with overlay */}
-      <div className="absolute inset-0 bg-grid opacity-5"></div>
-      
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+    <section id="integrations" className="py-24 px-6 bg-white">
+      <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-20 animate-fade-in">
-          <div className="inline-flex items-center space-x-2 bg-[#14B8A6]/10 border border-[#14B8A6] px-4 py-2 mb-6 rounded-full">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center space-x-2 bg-gray-100 px-3 py-1.5 rounded-full mb-6">
             <div className="w-2 h-2 rounded-full bg-[#14B8A6]"></div>
-            <span className="text-sm font-medium text-[#14B8A6]">Integrations</span>
+            <span className="text-sm text-gray-700">Integrations</span>
           </div>
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Connect With Your{' '}
-            <span className="text-gradient">Favorite Tools</span>
+            Connect With Your Favorite Tools
           </h2>
-          <p className="text-base lg:text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Seamlessly integrate with the tools you already use every day
           </p>
         </div>
@@ -38,15 +34,14 @@ const Integrations = () => {
           {integrations.map((integration, index) => (
             <div 
               key={index} 
-              className="bg-white border-2 border-gray-200 p-8 hover:border-[#14B8A6] hover:shadow-xl transition-all duration-500 hover-scale group relative animate-slide-up rounded-lg"
-              style={{animationDelay: `${index * 0.05}s`}}
+              className="bg-white border-2 border-gray-200 p-8 hover:border-[#14B8A6] hover:shadow-xl transition-all duration-500 relative rounded-xl"
             >
               {/* Coming Soon Badge */}
-              <div className="absolute -top-3 -right-3 bg-gradient-to-r from-[#A4D23E] to-[#8BC234] text-gray-900 px-3 py-1 rounded-full text-xs font-bold shadow-lg z-10">
+              <div className="absolute -top-3 -right-3 bg-[#A4D23E] text-gray-900 px-3 py-1 rounded-full text-xs font-bold shadow-md z-10">
                 Coming Soon to Pro
               </div>
               
-              <div className={`w-20 h-20 rounded-lg ${integration.bgColor} mb-4 mx-auto group-hover:scale-110 transition-transform flex items-center justify-center p-4 shadow-lg`}>
+              <div className={`w-20 h-20 rounded-lg ${integration.bgColor} mb-4 mx-auto transition-transform flex items-center justify-center p-4 shadow-md`}>
                 <img 
                   src={integration.logo} 
                   alt={integration.name}
@@ -64,16 +59,16 @@ const Integrations = () => {
         
         {/* Integration Stats */}
         <div className="grid grid-cols-3 gap-6 mb-12">
-          <div className="bg-gray-50 border-2 border-gray-200 p-6 rounded-lg hover-scale hover:border-[#14B8A6] transition-all">
-            <div className="text-3xl font-bold text-gradient mb-2">8</div>
+          <div className="bg-gray-50 border-2 border-gray-200 p-6 rounded-xl hover:border-[#14B8A6] hover:shadow-lg transition-all">
+            <div className="text-3xl font-bold text-[#14B8A6] mb-2">8</div>
             <div className="text-sm text-gray-600">Active Integrations</div>
           </div>
-          <div className="bg-gray-50 border-2 border-gray-200 p-6 rounded-lg hover-scale hover:border-[#14B8A6] transition-all">
-            <div className="text-3xl font-bold text-gradient mb-2">12K+</div>
+          <div className="bg-gray-50 border-2 border-gray-200 p-6 rounded-xl hover:border-[#14B8A6] hover:shadow-lg transition-all">
+            <div className="text-3xl font-bold text-[#14B8A6] mb-2">12K+</div>
             <div className="text-sm text-gray-600">Synced Events</div>
           </div>
-          <div className="bg-gray-50 border-2 border-gray-200 p-6 rounded-lg hover-scale hover:border-[#14B8A6] transition-all">
-            <div className="text-3xl font-bold text-gradient mb-2">99.9%</div>
+          <div className="bg-gray-50 border-2 border-gray-200 p-6 rounded-xl hover:border-[#14B8A6] hover:shadow-lg transition-all">
+            <div className="text-3xl font-bold text-[#14B8A6] mb-2">99.9%</div>
             <div className="text-sm text-gray-600">Uptime</div>
           </div>
         </div>

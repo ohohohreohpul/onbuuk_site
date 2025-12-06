@@ -42,34 +42,20 @@ const CTA = () => {
   };
 
   return (
-    <section id="cta" className="relative py-32 overflow-hidden">
-      {/* Full-width Background Image with Overlay */}
-      <div className="absolute inset-0">
-        <img 
-          src="https://images.unsplash.com/photo-1650044252595-cacd425982ff" 
-          alt="Luxury spa treatment"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#003E37]/95 via-[#003E37]/88 to-[#003E37]/82"></div>
-        
-        {/* Background Pattern */}
-        <div className="absolute inset-0 bg-grid opacity-20"></div>
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+    <section id="cta" className="py-24 px-6 bg-[#003E37]">
+      <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
-          <div className="text-white animate-fade-in">
-            <div className="inline-flex items-center space-x-2 glass-teal px-4 py-2 mb-6">
+          <div className="text-white">
+            <div className="inline-flex items-center space-x-2 bg-white/10 border border-white/20 px-3 py-1.5 rounded-full mb-6">
               <Sparkles className="w-4 h-4 text-[#14B8A6]" />
-              <span className="text-sm font-medium text-white">Get Started Today</span>
+              <span className="text-sm text-white">Get Started Today</span>
             </div>
             
             <h2 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-              Ready to Transform Your{' '}
-              <span className="text-gradient">Booking Experience?</span>
+              Ready to Transform Your Booking Experience?
             </h2>
-            <p className="text-base lg:text-lg text-gray-300 mb-8 leading-relaxed">
+            <p className="text-lg text-gray-300 mb-8 leading-relaxed">
               Join hundreds of salons and spas using buuk to streamline operations and delight customers.
             </p>
             
@@ -77,10 +63,10 @@ const CTA = () => {
             <Button
               size="lg"
               onClick={() => window.location.href = 'https://app.onbuuk.com'}
-              className="bg-[#14B8A6] hover:bg-[#0d9488] text-white font-bold px-10 h-16 text-lg mb-8 w-full sm:w-auto group shadow-lg hover:shadow-[#14B8A6]/50 transition-all"
+              className="bg-[#14B8A6] hover:bg-[#0d9488] text-white font-bold px-10 h-16 text-lg mb-8 w-full sm:w-auto shadow-lg transition-all rounded-lg"
             >
               Start Free Trial Now
-              <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-2 w-6 h-6" />
             </Button>
             
             {/* Benefits List */}
@@ -115,7 +101,7 @@ const CTA = () => {
           </div>
 
           {/* Right Content - Form */}
-          <div className="bg-white border-2 border-gray-200 p-8 lg:p-10 shadow-2xl animate-slide-in rounded-lg">
+          <div className="bg-white border-2 border-gray-200 p-8 lg:p-10 shadow-xl rounded-xl">
             <h3 className="text-2xl font-bold text-gray-900 mb-2">
               Request a Demo
             </h3>
@@ -134,7 +120,7 @@ const CTA = () => {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="John Doe"
-                  className="h-12 bg-white border-2 border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-[#14B8A6]"
+                  className="h-12 bg-white border-2 border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-[#14B8A6] rounded-lg"
                 />
               </div>
 
@@ -150,7 +136,7 @@ const CTA = () => {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="john@example.com"
-                  className="h-12 bg-white border-2 border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-[#14B8A6]"
+                  className="h-12 bg-white border-2 border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-[#14B8A6] rounded-lg"
                 />
               </div>
 
@@ -166,7 +152,7 @@ const CTA = () => {
                   value={formData.businessName}
                   onChange={handleChange}
                   placeholder="Your Salon Name"
-                  className="h-12 bg-white border-2 border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-[#14B8A6]"
+                  className="h-12 bg-white border-2 border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-[#14B8A6] rounded-lg"
                 />
               </div>
 
@@ -181,7 +167,7 @@ const CTA = () => {
                   onChange={handleChange}
                   placeholder="What are you looking for in a booking system?"
                   rows={4}
-                  className="resize-none bg-white border-2 border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-[#14B8A6]"
+                  className="resize-none bg-white border-2 border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-[#14B8A6] rounded-lg"
                 />
               </div>
 
@@ -189,7 +175,7 @@ const CTA = () => {
                 type="submit"
                 size="lg"
                 disabled={loading}
-                className="w-full bg-[#14B8A6] hover:bg-[#0d9488] text-white h-14 text-base font-semibold shadow-lg hover:shadow-[#14B8A6]/50 transition-all"
+                className="w-full bg-[#14B8A6] hover:bg-[#0d9488] text-white h-14 text-base font-semibold shadow-lg transition-all rounded-lg"
               >
                 {loading ? 'Sending...' : 'Request Demo'}
               </Button>
