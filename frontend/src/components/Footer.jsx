@@ -12,7 +12,7 @@ const Footer = () => {
             <img 
               src="https://customer-assets.emergentagent.com/job_613aef5e-d3f5-4251-84fe-d7f3fa1d0a69/artifacts/uk5f7m65_buuklogo.png" 
               alt="buuk" 
-              className="h-10 mb-6 brightness-0 invert"
+              className="h-10 mb-6 brightness-0 invert sharp"
             />
             <p className="text-gray-400 mb-6">
               The all-in-one booking management platform for modern service businesses.
