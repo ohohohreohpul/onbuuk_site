@@ -26,7 +26,7 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <section id="how-it-works" className="relative py-32 bg-[#0f766e] overflow-hidden">
+    <section id="how-it-works" className="relative py-32 bg-[#0d9488] overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img 
@@ -34,7 +34,7 @@ const HowItWorks = () => {
           alt="Modern salon reception"
           className="w-full h-full object-cover opacity-20"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0f766e]/90 via-[#0f766e]/80 to-[#0f766e]/90"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0d9488]/90 via-[#0d9488]/85 to-[#0d9488]/90"></div>
       </div>
       
       {/* Background Pattern */}
