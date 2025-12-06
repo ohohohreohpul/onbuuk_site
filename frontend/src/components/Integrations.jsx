@@ -20,15 +20,15 @@ const Integrations = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
         {/* Section Header */}
         <div className="text-center mb-20 animate-fade-in">
-          <div className="inline-flex items-center space-x-2 glass-dark border border-white/20 px-4 py-2 mb-6">
+          <div className="inline-flex items-center space-x-2 bg-[#14B8A6]/10 border border-[#14B8A6] px-4 py-2 mb-6 rounded-full">
             <div className="w-2 h-2 rounded-full bg-[#14B8A6]"></div>
-            <span className="text-sm font-medium text-white">Integrations</span>
+            <span className="text-sm font-medium text-[#14B8A6]">Integrations</span>
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             Connect With Your{' '}
             <span className="text-gradient">Favorite Tools</span>
           </h2>
-          <p className="text-base lg:text-lg text-gray-400 max-w-3xl mx-auto">
+          <p className="text-base lg:text-lg text-gray-600 max-w-3xl mx-auto">
             Seamlessly integrate with the tools you already use every day
           </p>
         </div>
