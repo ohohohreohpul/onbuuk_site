@@ -67,7 +67,7 @@ const Hero = () => {
                 onClick={() => window.location.href = 'https://app.onbuuk.com'}
                 className="bg-[#14B8A6] hover:bg-[#0d9488] text-white px-8 h-12 text-base rounded-lg"
               >
-                Start free trial
+                Start for free
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
               <Button 
