@@ -36,27 +36,27 @@ const WhyChooseBuuk = () => {
   ];
 
   return (
-    <section className="relative py-32 bg-[#0a0a0a] overflow-hidden">
+    <section className="relative py-32 bg-white overflow-hidden">
       {/* Background Pattern - Diagonal Lines */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
-          backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(20, 184, 166, 0.1) 10px, rgba(20, 184, 166, 0.1) 11px)',
+          backgroundImage: 'repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(20, 184, 166, 0.3) 10px, rgba(20, 184, 166, 0.3) 11px)',
         }}></div>
       </div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
         {/* Section Header */}
         <div className="text-center mb-20 animate-fade-in">
-          <div className="inline-flex items-center space-x-2 glass-teal px-4 py-2 mb-6">
+          <div className="inline-flex items-center space-x-2 bg-[#14B8A6]/10 border border-[#14B8A6] px-4 py-2 mb-6 rounded-full">
             <Check className="w-4 h-4 text-[#14B8A6]" />
-            <span className="text-sm font-medium text-white">Why Choose Buuk</span>
+            <span className="text-sm font-medium text-[#14B8A6]">Why Choose Buuk</span>
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             The Complete{' '}
             <span className="text-gradient">Booking Software</span>{' '}
             for Salons, Spas & Massage Studios
           </h2>
-          <p className="text-base lg:text-lg text-gray-400 max-w-4xl mx-auto">
+          <p className="text-base lg:text-lg text-gray-600 max-w-4xl mx-auto">
             Built specifically for beauty and wellness businesses, our appointment booking system helps you manage everything from scheduling to payments, customer relationships to staff management—all from one powerful platform.
           </p>
         </div>
