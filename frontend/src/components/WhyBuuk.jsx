@@ -80,7 +80,7 @@ const WhyBuuk = () => {
                   ))}
                 </div>
                 <p className="text-white/90 italic mb-4">
-                  "buuk has completely transformed how we manage our salon bookings. Our customers love the easy online booking, and we've seen a 40% increase in appointments!"
+                  "We used to spend hours on the phone taking bookings. Now clients book themselves online and we actually get reminders sent automatically. It's saved us maybe 10 hours a week, no joke."
                 </p>
                 <div className="flex items-center space-x-3">
                   <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center text-white font-bold">
