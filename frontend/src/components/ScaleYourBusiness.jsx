@@ -93,101 +93,90 @@ const ScaleYourBusiness = () => {
             </div>
           </div>
 
-          {/* Right Content - Features for Scaling */}
-          <div className="space-y-6 animate-slide-in">
-            <div className="glass-strong border border-white/10 p-8 hover:border-[#14B8A6]/50 transition-all duration-500">
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#14B8A6] to-[#0d9488] flex items-center justify-center flex-shrink-0 shadow-lg">
-                  <Building2 className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-3">Multi-Location Dashboard</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed mb-4">
-                    Manage all your salon, spa, or massage studio locations from one centralized dashboard. Monitor performance, transfer bookings between locations, and maintain consistent service quality across your entire business.
-                  </p>
-                  <ul className="space-y-2 text-sm text-gray-400">
-                    <li className="flex items-start space-x-2">
-                      <span className="text-[#14B8A6]">•</span>
-                      <span>Centralized reporting across all locations</span>
-                    </li>
-                    <li className="flex items-start space-x-2">
-                      <span className="text-[#14B8A6]">•</span>
-                      <span>Staff can work at multiple locations seamlessly</span>
-                    </li>
-                    <li className="flex items-start space-x-2">
-                      <span className="text-[#14B8A6]">•</span>
-                      <span>Unified customer database across all branches</span>
-                    </li>
-                  </ul>
+          {/* Right Content - Professional Image */}
+          <div className="relative animate-slide-in">
+            {/* Main Success Image */}
+            <div className="relative overflow-hidden rounded-lg shadow-2xl">
+              <img 
+                src="https://images.unsplash.com/photo-1675034741621-79a7d07c1369" 
+                alt="Successful salon owner"
+                className="w-full h-[500px] object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+              
+              {/* Success Quote Overlay */}
+              <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                <div className="glass-dark border border-white/20 p-6 rounded-lg">
+                  <p className="text-lg font-semibold mb-2">"buuk transformed my business"</p>
+                  <p className="text-sm text-gray-300">From 1 salon to 4 locations in 18 months</p>
                 </div>
               </div>
             </div>
 
-            <div className="glass-strong border border-white/10 p-8 hover:border-[#14B8A6]/50 transition-all duration-500">
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#A4D23E] to-[#8BC234] flex items-center justify-center flex-shrink-0 shadow-lg">
-                  <Users2 className="w-6 h-6 text-gray-900" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-3">Advanced Staff Management</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed mb-4">
-                    As you grow from a single salon to multiple locations, managing 5, 10, or 50+ staff members becomes effortless. Set individual permissions, track commissions, manage schedules, and monitor performance with our comprehensive staff management tools.
-                  </p>
-                  <ul className="space-y-2 text-sm text-gray-400">
-                    <li className="flex items-start space-x-2">
-                      <span className="text-[#A4D23E]">•</span>
-                      <span>Individual staff booking pages and calendars</span>
-                    </li>
-                    <li className="flex items-start space-x-2">
-                      <span className="text-[#A4D23E]">•</span>
-                      <span>Commission tracking and payroll integration</span>
-                    </li>
-                    <li className="flex items-start space-x-2">
-                      <span className="text-[#A4D23E]">•</span>
-                      <span>Performance metrics per stylist/therapist</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+            {/* Accordion - Key Features */}
+            <div className="mt-6 space-y-3">
+              {features.map((feature, index) => {
+                const Icon = feature.icon;
+                const isOpen = openAccordion === index;
+                
+                return (
+                  <div 
+                    key={index} 
+                    className={`glass-strong border transition-all duration-300 ${
+                      isOpen ? 'border-[#14B8A6]' : 'border-white/10 hover:border-white/20'
+                    }`}
+                  >
+                    <button
+                      onClick={() => setOpenAccordion(isOpen ? -1 : index)}
+                      className="w-full p-5 flex items-center justify-between text-left"
+                    >
+                      <div className="flex items-center space-x-4">
+                        <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
+                          isOpen 
+                            ? 'bg-gradient-to-br from-[#14B8A6] to-[#0d9488] shadow-lg shadow-[#14B8A6]/30' 
+                            : 'bg-white/5'
+                        }`}>
+                          <Icon className={`w-5 h-5 ${isOpen ? 'text-white' : 'text-gray-400'}`} />
+                        </div>
+                        <span className="text-white font-bold">{feature.title}</span>
+                      </div>
+                      <ChevronDown 
+                        className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${
+                          isOpen ? 'rotate-180' : ''
+                        }`} 
+                      />
+                    </button>
+                    
+                    {isOpen && (
+                      <div className="px-5 pb-5 animate-fade-in">
+                        <p className="text-gray-400 text-sm leading-relaxed mb-4 pl-14">
+                          {feature.description}
+                        </p>
+                        <ul className="space-y-2 pl-14">
+                          {feature.highlights.map((highlight, hIndex) => (
+                            <li key={hIndex} className="flex items-start space-x-2 text-sm">
+                              <span className="text-[#14B8A6] mt-1">•</span>
+                              <span className="text-gray-400">{highlight}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
 
-            <div className="glass-strong border border-white/10 p-8 hover:border-[#14B8A6]/50 transition-all duration-500">
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#14B8A6] to-[#0d9488] flex items-center justify-center flex-shrink-0 shadow-lg">
-                  <BarChart3 className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-3">Business Intelligence & Analytics</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed mb-4">
-                    Make data-driven decisions with comprehensive analytics. Track which services are most profitable, identify peak booking times, monitor customer acquisition costs, and forecast revenue growth across all your locations.
-                  </p>
-                  <ul className="space-y-2 text-sm text-gray-400">
-                    <li className="flex items-start space-x-2">
-                      <span className="text-[#14B8A6]">•</span>
-                      <span>Revenue forecasting and trend analysis</span>
-                    </li>
-                    <li className="flex items-start space-x-2">
-                      <span className="text-[#14B8A6]">•</span>
-                      <span>Customer lifetime value tracking</span>
-                    </li>
-                    <li className="flex items-start space-x-2">
-                      <span className="text-[#14B8A6]">•</span>
-                      <span>Service performance comparisons</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div className="glass-teal p-6 rounded-lg">
-              <div className="flex items-center justify-between">
+            {/* CTA Button */}
+            <div className="mt-6 glass-teal p-5 rounded-lg">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div>
                   <p className="text-white font-bold mb-1">Ready to scale your business?</p>
                   <p className="text-sm text-gray-300">Start your 14-day free trial today</p>
                 </div>
                 <Button
                   onClick={() => window.location.href = 'https://app.onbuuk.com'}
-                  className="bg-white text-[#14B8A6] hover:bg-gray-100 font-bold shadow-lg"
+                  className="bg-white text-[#14B8A6] hover:bg-gray-100 font-bold shadow-lg whitespace-nowrap"
                 >
                   Get Started →
                 </Button>
