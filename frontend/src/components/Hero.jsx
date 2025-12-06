@@ -87,31 +87,31 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Content - UI Mockup with Glass Effect */}
+          {/* Right Content - UI Mockup */}
           <div className="relative animate-slide-in hidden lg:block">
-            <div className="glass-strong border border-white/20 p-1 shadow-2xl hover-scale">
+            <div className="bg-white border-2 border-gray-200 p-1 shadow-2xl hover-scale rounded-lg">
               {/* Browser Chrome */}
-              <div className="flex items-center space-x-2 p-3 border-b border-white/10 glass-dark">
+              <div className="flex items-center space-x-2 p-3 border-b border-gray-200 bg-gray-50">
                 <div className="w-3 h-3 rounded-full bg-red-500"></div>
                 <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                 <div className="w-3 h-3 rounded-full bg-green-500"></div>
                 <div className="flex-1 mx-4">
-                  <div className="h-6 glass border border-white/10 flex items-center px-3">
+                  <div className="h-6 bg-white border border-gray-200 rounded flex items-center px-3">
                     <svg className="w-3 h-3 text-gray-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                     </svg>
-                    <span className="text-xs text-gray-400">app.buuk.io/dashboard</span>
+                    <span className="text-xs text-gray-600">app.buuk.io/dashboard</span>
                   </div>
                 </div>
               </div>
               
               {/* Mockup Content - Calendar Dashboard */}
-              <div className="bg-[#0f0f0f] p-6">
-                <div className="glass-strong border border-white/10 p-6">
+              <div className="bg-gray-50 p-6">
+                <div className="bg-white border-2 border-gray-200 p-6 rounded-lg">
                   <div className="flex items-center justify-between mb-6">
                     <div>
-                      <h3 className="text-lg font-bold text-white">Today's Schedule</h3>
-                      <p className="text-sm text-gray-400">Monday, Dec 2 • 15 appointments</p>
+                      <h3 className="text-lg font-bold text-gray-900">Today's Schedule</h3>
+                      <p className="text-sm text-gray-600">Monday, Dec 2 • 15 appointments</p>
                     </div>
                     <div className="flex items-center space-x-2">
                       <div className="w-10 h-10 rounded-lg bg-[#14B8A6] flex items-center justify-center">
