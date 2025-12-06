@@ -267,18 +267,18 @@ const Features = () => {
           </div>
 
           {/* Full Customization */}
-          <div className="glass-strong border border-white/10 p-8 hover:border-[#A4D23E]/50 transition-all duration-500 animate-slide-up hover-scale" style={{animationDelay: '0.4s'}}>
-            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#A4D23E] to-[#8BC234] flex items-center justify-center mb-6 shadow-lg shadow-[#A4D23E]/30">
+          <div className="bg-white border-2 border-gray-200 p-8 hover:border-[#A4D23E] hover:shadow-xl transition-all duration-500 animate-slide-up hover-scale rounded-lg" style={{animationDelay: '0.4s'}}>
+            <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#A4D23E] to-[#8BC234] flex items-center justify-center mb-6 shadow-lg">
               <Palette className="w-7 h-7 text-gray-900" />
             </div>
-            <h3 className="text-2xl font-bold text-white mb-4">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
               Brand Your Way
             </h3>
-            <p className="text-gray-300 mb-6">
+            <p className="text-gray-600 mb-6">
               Custom colors, logos, and form fields. Make it uniquely yours.
             </p>
             <div>
-              <div className="text-xs font-semibold text-gray-400 mb-3">BRAND COLORS</div>
+              <div className="text-xs font-semibold text-gray-600 mb-3">BRAND COLORS</div>
               <div className="grid grid-cols-3 gap-2 mb-4">
                 <div className="h-14 rounded-lg bg-[#14B8A6] flex items-center justify-center shadow-lg">
                   <span className="text-white text-[10px] font-medium">#14B8A6</span>
@@ -286,13 +286,13 @@ const Features = () => {
                 <div className="h-14 rounded-lg bg-[#A4D23E] flex items-center justify-center shadow-lg">
                   <span className="text-gray-900 text-[10px] font-medium">#A4D23E</span>
                 </div>
-                <div className="h-14 rounded-lg bg-gray-900 border border-white/20 flex items-center justify-center shadow-lg">
+                <div className="h-14 rounded-lg bg-gray-900 border border-gray-200 flex items-center justify-center shadow-lg">
                   <span className="text-white text-[10px] font-medium">#1A1A1A</span>
                 </div>
               </div>
-              <div className="p-4 glass border border-white/10 rounded-lg">
-                <div className="text-[10px] font-semibold text-gray-400 mb-2">LOGO</div>
-                <div className="h-10 glass-dark border border-white/10 rounded-lg flex items-center justify-center">
+              <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
+                <div className="text-[10px] font-semibold text-gray-600 mb-2">LOGO</div>
+                <div className="h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center">
                   <span className="text-[#14B8A6] font-bold text-lg">buuk</span>
                 </div>
               </div>
