@@ -156,17 +156,17 @@ const Hero = () => {
               </div>
             </div>
             
-            {/* Floating Stats - Glass Effect */}
-            <div className="absolute -bottom-6 -left-6 glass-strong border border-white/20 p-6 animate-float shadow-2xl">
+            {/* Floating Stats */}
+            <div className="absolute -bottom-6 -left-6 bg-white border-2 border-gray-200 p-6 animate-float shadow-2xl rounded-lg">
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 rounded-lg bg-[#A4D23E] flex items-center justify-center">
+                <div className="w-12 h-12 rounded-lg bg-[#A4D23E] flex items-center justify-center shadow-lg">
                   <svg className="w-7 h-7 text-gray-900" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" />
                   </svg>
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-white">+42%</p>
-                  <p className="text-xs text-gray-400">More bookings</p>
+                  <p className="text-2xl font-bold text-gray-900">+42%</p>
+                  <p className="text-xs text-gray-600">More bookings</p>
                 </div>
               </div>
             </div>
