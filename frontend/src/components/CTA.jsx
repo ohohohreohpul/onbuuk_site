@@ -65,7 +65,7 @@ const CTA = () => {
               onClick={() => window.location.href = 'https://app.onbuuk.com'}
               className="bg-[#14B8A6] hover:bg-[#0d9488] text-white font-bold px-10 h-16 text-lg mb-8 w-full sm:w-auto shadow-lg transition-all rounded-lg"
             >
-              Start Free Trial Now
+              Start for Free
               <ArrowRight className="ml-2 w-6 h-6" />
             </Button>
             
