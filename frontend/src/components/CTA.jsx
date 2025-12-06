@@ -155,7 +155,7 @@ const CTA = () => {
               </div>
 
               <div>
-                <label htmlFor="businessName" className="block text-sm font-semibold text-white mb-2">
+                <label htmlFor="businessName" className="block text-sm font-semibold text-gray-900 mb-2">
                   Business Name *
                 </label>
                 <Input
