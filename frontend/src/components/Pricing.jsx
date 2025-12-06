@@ -115,16 +115,16 @@ const Pricing = () => {
               }`}
             >
               {plan.highlighted && plan.badge && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-[#A4D23E] text-gray-900 px-4 py-1 text-sm font-bold">
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-[#A4D23E] to-[#8BC234] text-gray-900 px-4 py-1 rounded-full text-sm font-bold shadow-lg">
                   {plan.badge}
                 </div>
               )}
               
               <div className="mb-6">
-                <h3 className={`text-2xl font-bold mb-2 ${plan.highlighted ? 'text-white' : 'text-gray-900'}`}>
+                <h3 className="text-2xl font-bold mb-2 text-white">
                   {plan.name}
                 </h3>
-                <p className={`text-sm ${plan.highlighted ? 'text-white/80' : 'text-gray-600'}`}>
+                <p className="text-sm text-gray-400">
                   {plan.description}
                 </p>
               </div>
@@ -132,19 +132,19 @@ const Pricing = () => {
               <div className="mb-8">
                 {plan.customPricing ? (
                   <div>
-                    <div className={`text-3xl font-bold mb-2 ${plan.highlighted ? 'text-white' : 'text-gray-900'}`}>
+                    <div className="text-3xl font-bold mb-2 text-white">
                       Custom Pricing
                     </div>
-                    <p className={`text-sm ${plan.highlighted ? 'text-white/80' : 'text-gray-600'}`}>
+                    <p className="text-sm text-gray-400">
                       Starting from €149/month
                     </p>
                   </div>
                 ) : (
                   <div className="flex items-baseline">
-                    <span className={`text-5xl font-bold ${plan.highlighted ? 'text-white' : 'text-gray-900'}`}>
+                    <span className="text-5xl font-bold text-white">
                       {plan.currency}{plan.price}
                     </span>
-                    <span className={`ml-2 ${plan.highlighted ? 'text-white/80' : 'text-gray-600'}`}>/month</span>
+                    <span className="ml-2 text-gray-400">/month</span>
                   </div>
                 )}
               </div>
@@ -157,11 +157,11 @@ const Pricing = () => {
                     window.location.href = 'https://app.onbuuk.com';
                   }
                 }}
-                className={`w-full mb-8 font-medium h-12 ${
+                className={`w-full mb-8 font-semibold h-12 transition-all shadow-lg ${
                   plan.highlighted 
-                    ? 'bg-white text-[#14B8A6] hover:bg-gray-100' 
+                    ? 'bg-white text-[#14B8A6] hover:bg-gray-100 hover:shadow-xl' 
                     : plan.customPricing
-                    ? 'bg-gray-900 text-white hover:bg-gray-800'
+                    ? 'bg-[#A4D23E] text-gray-900 hover:bg-[#8BC234]'
                     : 'bg-[#14B8A6] text-white hover:bg-[#0d9488]'
                 }`}
               >
@@ -171,12 +171,12 @@ const Pricing = () => {
               <ul className="space-y-3">
                 {plan.features.map((feature, i) => (
                   <li key={i} className="flex items-start space-x-3">
-                    <div className={`flex-shrink-0 w-5 h-5 flex items-center justify-center ${
-                      plan.highlighted ? 'bg-white/20' : 'bg-[#E5F8F6]'
+                    <div className={`flex-shrink-0 w-5 h-5 rounded flex items-center justify-center ${
+                      plan.highlighted ? 'bg-[#14B8A6]/20' : 'bg-white/5'
                     }`}>
                       <Check className={`w-3 h-3 ${plan.highlighted ? 'text-white' : 'text-[#14B8A6]'}`} />
                     </div>
-                    <span className={`text-sm ${plan.highlighted ? 'text-white' : 'text-gray-700'} ${feature.includes('PLUS:') ? 'font-semibold' : ''}`}>
+                    <span className={`text-sm text-gray-300 ${feature.includes('PLUS:') ? 'font-semibold text-white' : ''}`}>
                       {feature}
                     </span>
                   </li>
