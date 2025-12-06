@@ -64,7 +64,7 @@ const Hero = () => {
               Manage appointments, take payments, and grow your business. All in one beautiful platform.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
+            <div className="mb-8">
               <Button 
                 size="lg"
                 onClick={() => window.location.href = 'https://app.onbuuk.com'}
@@ -72,13 +72,6 @@ const Hero = () => {
               >
                 Start for free
                 <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-              <Button 
-                size="lg"
-                variant="outline"
-                className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:text-[#14B8A6] hover:border-[#14B8A6] px-8 h-12 text-base rounded-lg transition-all"
-              >
-                Watch demo
               </Button>
             </div>
 
