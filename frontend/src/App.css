@@ -229,23 +229,7 @@ select:focus {
   background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
 }
 
-/* Premium gradient overlays */
-.gradient-overlay {
-  position: relative;
-}
-
-.gradient-overlay::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(10, 10, 10, 0.6) 0%, rgba(10, 10, 10, 0.9) 100%);
-  z-index: 1;
-}
-
-.gradient-overlay > * {
-  position: relative;
-  z-index: 2;
-}
+/* Removed gradient overlays for minimal flat design */
 
 /* Blog Article Styles - Dark theme */
 .prose {
