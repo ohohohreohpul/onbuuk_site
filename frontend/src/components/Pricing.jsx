@@ -82,9 +82,9 @@ const Pricing = () => {
   };
 
   return (
-    <section id="pricing" className="relative py-32 bg-[#0a0a0a] overflow-hidden">
+    <section id="pricing" className="relative py-32 bg-gray-50 overflow-hidden">
       {/* Background Pattern - Hexagon */}
-      <div className="absolute inset-0 bg-hexagon opacity-40"></div>
+      <div className="absolute inset-0 bg-hexagon opacity-15"></div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
         {/* Section Header */}
