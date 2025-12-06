@@ -64,24 +64,24 @@ const Integrations = () => {
         
         {/* Integration Stats */}
         <div className="grid grid-cols-3 gap-6 mb-12">
-          <div className="glass-strong border border-white/10 p-6 rounded-lg hover-scale">
+          <div className="bg-gray-50 border-2 border-gray-200 p-6 rounded-lg hover-scale hover:border-[#14B8A6] transition-all">
             <div className="text-3xl font-bold text-gradient mb-2">8</div>
-            <div className="text-sm text-gray-400">Active Integrations</div>
+            <div className="text-sm text-gray-600">Active Integrations</div>
           </div>
-          <div className="glass-strong border border-white/10 p-6 rounded-lg hover-scale">
+          <div className="bg-gray-50 border-2 border-gray-200 p-6 rounded-lg hover-scale hover:border-[#14B8A6] transition-all">
             <div className="text-3xl font-bold text-gradient mb-2">12K+</div>
-            <div className="text-sm text-gray-400">Synced Events</div>
+            <div className="text-sm text-gray-600">Synced Events</div>
           </div>
-          <div className="glass-strong border border-white/10 p-6 rounded-lg hover-scale">
+          <div className="bg-gray-50 border-2 border-gray-200 p-6 rounded-lg hover-scale hover:border-[#14B8A6] transition-all">
             <div className="text-3xl font-bold text-gradient mb-2">99.9%</div>
-            <div className="text-sm text-gray-400">Uptime</div>
+            <div className="text-sm text-gray-600">Uptime</div>
           </div>
         </div>
 
         {/* CTA */}
         <div className="text-center">
-          <p className="text-gray-400 mb-6">And 50+ more integrations</p>
-          <button className="glass-strong border border-white/20 text-white font-semibold px-8 py-4 hover:border-[#14B8A6] hover:bg-[#14B8A6]/10 transition-all rounded-lg shadow-lg">
+          <p className="text-gray-600 mb-6">And 50+ more integrations</p>
+          <button className="bg-[#14B8A6] hover:bg-[#0d9488] text-white font-semibold px-8 py-4 transition-all rounded-lg shadow-lg">
             View All Integrations
           </button>
         </div>
