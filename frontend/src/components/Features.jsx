@@ -228,38 +228,38 @@ const Features = () => {
           </div>
 
           {/* Integrated Payments */}
-          <div className="glass-strong border border-white/10 p-8 hover:border-[#14B8A6]/50 transition-all duration-500 animate-slide-up hover-scale" style={{animationDelay: '0.3s'}}>
-            <div className="w-14 h-14 rounded-xl bg-[#14B8A6] flex items-center justify-center mb-6 shadow-lg shadow-[#14B8A6]/30">
+          <div className="bg-white border-2 border-gray-200 p-8 hover:border-[#14B8A6] hover:shadow-xl transition-all duration-500 animate-slide-up hover-scale rounded-lg" style={{animationDelay: '0.3s'}}>
+            <div className="w-14 h-14 rounded-xl bg-[#14B8A6] flex items-center justify-center mb-6 shadow-lg">
               <CreditCard className="w-7 h-7 text-white" />
             </div>
-            <h3 className="text-2xl font-bold text-white mb-4">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
               Stripe Payments
             </h3>
-            <p className="text-gray-300 mb-6">
+            <p className="text-gray-600 mb-6">
               Seamless online payments, in-person checkout, and gift card redemption all in one place.
             </p>
             <div className="space-y-4">
-              <div className="p-4 glass border border-white/10 rounded-lg">
+              <div className="p-4 bg-gray-50 border border-gray-200 rounded-lg">
                 <div className="flex items-center justify-between mb-3">
-                  <div className="text-xs font-semibold text-gray-400">Total Amount</div>
-                  <div className="text-2xl font-bold text-white">€85.00</div>
+                  <div className="text-xs font-semibold text-gray-600">Total Amount</div>
+                  <div className="text-2xl font-bold text-gray-900">€85.00</div>
                 </div>
                 <div className="flex gap-2">
-                  <div className="flex-1 p-3 glass border border-white/10 rounded-lg text-center hover:border-white/20 transition-colors cursor-pointer">
-                    <svg className="w-6 h-6 mx-auto text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                  <div className="flex-1 p-3 bg-white border border-gray-200 rounded-lg text-center hover:border-[#14B8A6] transition-colors cursor-pointer">
+                    <svg className="w-6 h-6 mx-auto text-gray-600" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm0 2v12h16V6H4zm2 2h12v2H6V8zm0 4h8v2H6v-2z"/>
                     </svg>
-                    <div className="text-[10px] text-gray-400 mt-1">Card</div>
+                    <div className="text-[10px] text-gray-600 mt-1">Card</div>
                   </div>
-                  <div className="flex-1 p-3 glass-teal border border-[#14B8A6]/30 rounded-lg text-center cursor-pointer">
+                  <div className="flex-1 p-3 bg-[#14B8A6]/10 border border-[#14B8A6] rounded-lg text-center cursor-pointer">
                     <Shield className="w-6 h-6 mx-auto text-[#14B8A6]" />
                     <div className="text-[10px] text-[#14B8A6] font-semibold mt-1">Stripe</div>
                   </div>
-                  <div className="flex-1 p-3 glass border border-white/10 rounded-lg text-center hover:border-white/20 transition-colors cursor-pointer">
-                    <svg className="w-6 h-6 mx-auto text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                  <div className="flex-1 p-3 bg-white border border-gray-200 rounded-lg text-center hover:border-[#14B8A6] transition-colors cursor-pointer">
+                    <svg className="w-6 h-6 mx-auto text-gray-600" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                     </svg>
-                    <div className="text-[10px] text-gray-400 mt-1">Cash</div>
+                    <div className="text-[10px] text-gray-600 mt-1">Cash</div>
                   </div>
                 </div>
               </div>
