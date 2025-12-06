@@ -181,7 +181,7 @@ const CTA = () => {
                   onChange={handleChange}
                   placeholder="What are you looking for in a booking system?"
                   rows={4}
-                  className="resize-none glass border border-white/20 text-white placeholder:text-gray-500 focus:border-[#14B8A6]"
+                  className="resize-none bg-white border-2 border-gray-200 text-gray-900 placeholder:text-gray-400 focus:border-[#14B8A6]"
                 />
               </div>
 
