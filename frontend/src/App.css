@@ -163,12 +163,7 @@ button:active {
   transform: scale(0.97);
 }
 
-/* Border radius for premium feel */
-* {
-  border-radius: 0.5rem;
-}
-
-/* Override for specific elements that need sharp corners */
+/* Override for logos that need sharp corners */
 .sharp {
   border-radius: 0 !important;
 }
