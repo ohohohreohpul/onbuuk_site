@@ -334,17 +334,4 @@ select:focus {
   transform: scale(1.05);
 }
 
-/* Premium text gradients */
-.text-gradient {
-  background: linear-gradient(135deg, #14B8A6 0%, #0d9488 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.text-gradient-yellow {
-  background: linear-gradient(135deg, #A4D23E 0%, #8BC234 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
+/* Removed text gradients for minimal flat design - use solid colors instead */
