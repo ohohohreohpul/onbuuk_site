@@ -4,8 +4,8 @@ import { Calendar, Users, CreditCard, Gift, Palette, BarChart3, Zap, Shield } fr
 const Features = () => {
   return (
     <section id="features" className="relative py-32 bg-[#0a0a0a] overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-dots opacity-20"></div>
+      {/* Background Pattern - Circuit */}
+      <div className="absolute inset-0 bg-circuit opacity-30"></div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
         {/* Section Header */}
