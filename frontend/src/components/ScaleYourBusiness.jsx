@@ -63,23 +63,23 @@ const ScaleYourBusiness = () => {
               </p>
               
               <div className="bg-gray-50 border-2 border-gray-200 p-6 rounded-xl">
-                <h4 className="text-gray-900 font-bold mb-4">Sarah's Results with Buuk:</h4>
+                <h4 className="text-gray-900 font-bold mb-4">What Changed for Sarah:</h4>
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-600 text-sm">Revenue Growth</span>
-                    <span className="text-[#14B8A6] font-bold text-lg">+280%</span>
+                    <span className="text-gray-600 text-sm">Time Saved Weekly</span>
+                    <span className="text-[#14B8A6] font-bold text-lg">~8 hours</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-600 text-sm">No-Show Rate Reduction</span>
-                    <span className="text-[#14B8A6] font-bold text-lg">-75%</span>
+                    <span className="text-gray-600 text-sm">Fewer No-Shows</span>
+                    <span className="text-[#14B8A6] font-bold text-lg">About half</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-600 text-sm">Time Saved on Admin</span>
-                    <span className="text-[#14B8A6] font-bold text-lg">15 hrs/week</span>
+                    <span className="text-gray-600 text-sm">Locations Managed</span>
+                    <span className="text-[#14B8A6] font-bold text-lg">3 salons</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-600 text-sm">Client Retention</span>
-                    <span className="text-[#14B8A6] font-bold text-lg">92%</span>
+                    <span className="text-gray-600 text-sm">Online Bookings</span>
+                    <span className="text-[#14B8A6] font-bold text-lg">~60%</span>
                   </div>
                 </div>
               </div>
