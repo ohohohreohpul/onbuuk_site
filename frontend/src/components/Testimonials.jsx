@@ -34,15 +34,15 @@ const Testimonials = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
         {/* Section Header */}
         <div className="text-center mb-20 animate-fade-in">
-          <div className="inline-flex items-center space-x-2 glass-teal px-4 py-2 mb-6">
+          <div className="inline-flex items-center space-x-2 bg-[#14B8A6]/10 border border-[#14B8A6] px-4 py-2 mb-6 rounded-full">
             <Quote className="w-4 h-4 text-[#14B8A6]" />
-            <span className="text-sm font-medium text-white">Testimonials</span>
+            <span className="text-sm font-medium text-[#14B8A6]">Testimonials</span>
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             Trusted by{' '}
             <span className="text-gradient">Business Owners</span>
           </h2>
-          <p className="text-base lg:text-lg text-gray-400 max-w-3xl mx-auto">
+          <p className="text-base lg:text-lg text-gray-600 max-w-3xl mx-auto">
             See what salon and spa owners are saying about buuk
           </p>
         </div>
@@ -52,7 +52,7 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <div 
               key={index} 
-              className="glass-strong border border-white/10 p-8 hover-scale hover:border-[#14B8A6]/50 transition-all duration-500 animate-slide-up"
+              className="bg-gray-50 border-2 border-gray-200 p-8 hover-scale hover:border-[#14B8A6] hover:shadow-xl transition-all duration-500 animate-slide-up rounded-lg"
               style={{animationDelay: `${index * 0.1}s`}}
             >
               {/* Stars */}
@@ -63,18 +63,18 @@ const Testimonials = () => {
               </div>
               
               {/* Testimonial Text */}
-              <p className="text-gray-300 mb-6 leading-relaxed text-sm">
+              <p className="text-gray-700 mb-6 leading-relaxed text-sm">
                 "{testimonial.text}"
               </p>
               
               {/* Author */}
-              <div className="flex items-center space-x-3 pt-6 border-t border-white/10">
+              <div className="flex items-center space-x-3 pt-6 border-t border-gray-200">
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#14B8A6] to-[#0d9488] flex items-center justify-center text-white font-bold shadow-lg">
                   {testimonial.author.split(' ').map(n => n[0]).join('')}
                 </div>
                 <div>
-                  <p className="font-bold text-white">{testimonial.author}</p>
-                  <p className="text-sm text-gray-400">{testimonial.role}</p>
+                  <p className="font-bold text-gray-900">{testimonial.author}</p>
+                  <p className="text-sm text-gray-600">{testimonial.role}</p>
                 </div>
               </div>
             </div>
@@ -82,23 +82,23 @@ const Testimonials = () => {
         </div>
 
         {/* Stats Bar */}
-        <div className="glass-strong border border-white/10 p-8 lg:p-10 shadow-2xl">
+        <div className="bg-[#14B8A6]/5 border-2 border-[#14B8A6]/20 p-8 lg:p-10 rounded-lg">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             <div>
               <p className="text-4xl lg:text-5xl font-bold text-gradient mb-2">500+</p>
-              <p className="text-gray-400 text-sm">Active Businesses</p>
+              <p className="text-gray-600 text-sm">Active Businesses</p>
             </div>
             <div>
               <p className="text-4xl lg:text-5xl font-bold text-gradient mb-2">50K+</p>
-              <p className="text-gray-400 text-sm">Monthly Bookings</p>
+              <p className="text-gray-600 text-sm">Monthly Bookings</p>
             </div>
             <div>
               <p className="text-4xl lg:text-5xl font-bold text-gradient mb-2">98%</p>
-              <p className="text-gray-400 text-sm">Customer Satisfaction</p>
+              <p className="text-gray-600 text-sm">Customer Satisfaction</p>
             </div>
             <div>
               <p className="text-4xl lg:text-5xl font-bold text-gradient mb-2">24/7</p>
-              <p className="text-gray-400 text-sm">Support Available</p>
+              <p className="text-gray-600 text-sm">Support Available</p>
             </div>
           </div>
         </div>
