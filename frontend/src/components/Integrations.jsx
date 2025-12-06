@@ -38,4 +38,56 @@ const Integrations = () => {
           {integrations.map((integration, index) => (
             <div 
               key={index} 
-              className=\"glass-strong border border-white/10 p-8 hover:border-[#14B8A6]/50 transition-all duration-500 hover-scale group relative animate-slide-up\"\n              style={{animationDelay: `${index * 0.05}s`}}\n            >\n              {/* Coming Soon Badge */}\n              <div className=\"absolute -top-3 -right-3 bg-gradient-to-r from-[#A4D23E] to-[#8BC234] text-gray-900 px-3 py-1 rounded-full text-xs font-bold shadow-lg z-10\">\n                Coming Soon to Pro\n              </div>\n              \n              <div className={`w-20 h-20 rounded-lg ${integration.bgColor} mb-4 mx-auto group-hover:scale-110 transition-transform flex items-center justify-center p-4 shadow-lg`}>\n                <img \n                  src={integration.logo} \n                  alt={integration.name}\n                  className=\"w-full h-full object-contain filter brightness-0 invert\"\n                />\n              </div>\n              <p className=\"text-center font-semibold text-white\">{integration.name}</p>\n              <div className=\"mt-2 flex items-center justify-center opacity-50\">\n                <div className=\"w-2 h-2 bg-gray-400 rounded-full\"></div>\n                <span className=\"text-xs text-gray-500 ml-1\">Coming Soon</span>\n              </div>\n            </div>\n          ))}\n        </div>\n        \n        {/* Integration Stats */}\n        <div className=\"grid grid-cols-3 gap-6 mb-12\">\n          <div className=\"glass-strong border border-white/10 p-6 rounded-lg hover-scale\">\n            <div className=\"text-3xl font-bold text-gradient mb-2\">8</div>\n            <div className=\"text-sm text-gray-400\">Active Integrations</div>\n          </div>\n          <div className=\"glass-strong border border-white/10 p-6 rounded-lg hover-scale\">\n            <div className=\"text-3xl font-bold text-gradient mb-2\">12K+</div>\n            <div className=\"text-sm text-gray-400\">Synced Events</div>\n          </div>\n          <div className=\"glass-strong border border-white/10 p-6 rounded-lg hover-scale\">\n            <div className=\"text-3xl font-bold text-gradient mb-2\">99.9%</div>\n            <div className=\"text-sm text-gray-400\">Uptime</div>\n          </div>\n        </div>\n\n        {/* CTA */}\n        <div className=\"text-center\">\n          <p className=\"text-gray-400 mb-6\">And 50+ more integrations</p>\n          <button className=\"glass-strong border border-white/20 text-white font-semibold px-8 py-4 hover:border-[#14B8A6] hover:bg-[#14B8A6]/10 transition-all rounded-lg shadow-lg\">\n            View All Integrations\n          </button>\n        </div>\n      </div>\n    </section>\n  );\n};\n\nexport default Integrations;
+              className="glass-strong border border-white/10 p-8 hover:border-[#14B8A6]/50 transition-all duration-500 hover-scale group relative animate-slide-up"
+              style={{animationDelay: `${index * 0.05}s`}}
+            >
+              {/* Coming Soon Badge */}
+              <div className="absolute -top-3 -right-3 bg-gradient-to-r from-[#A4D23E] to-[#8BC234] text-gray-900 px-3 py-1 rounded-full text-xs font-bold shadow-lg z-10">
+                Coming Soon to Pro
+              </div>
+              
+              <div className={`w-20 h-20 rounded-lg ${integration.bgColor} mb-4 mx-auto group-hover:scale-110 transition-transform flex items-center justify-center p-4 shadow-lg`}>
+                <img 
+                  src={integration.logo} 
+                  alt={integration.name}
+                  className="w-full h-full object-contain filter brightness-0 invert"
+                />
+              </div>
+              <p className="text-center font-semibold text-white">{integration.name}</p>
+              <div className="mt-2 flex items-center justify-center opacity-50">
+                <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+                <span className="text-xs text-gray-500 ml-1">Coming Soon</span>
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        {/* Integration Stats */}
+        <div className="grid grid-cols-3 gap-6 mb-12">
+          <div className="glass-strong border border-white/10 p-6 rounded-lg hover-scale">
+            <div className="text-3xl font-bold text-gradient mb-2">8</div>
+            <div className="text-sm text-gray-400">Active Integrations</div>
+          </div>
+          <div className="glass-strong border border-white/10 p-6 rounded-lg hover-scale">
+            <div className="text-3xl font-bold text-gradient mb-2">12K+</div>
+            <div className="text-sm text-gray-400">Synced Events</div>
+          </div>
+          <div className="glass-strong border border-white/10 p-6 rounded-lg hover-scale">
+            <div className="text-3xl font-bold text-gradient mb-2">99.9%</div>
+            <div className="text-sm text-gray-400">Uptime</div>
+          </div>
+        </div>
+
+        {/* CTA */}
+        <div className="text-center">
+          <p className="text-gray-400 mb-6">And 50+ more integrations</p>
+          <button className="glass-strong border border-white/20 text-white font-semibold px-8 py-4 hover:border-[#14B8A6] hover:bg-[#14B8A6]/10 transition-all rounded-lg shadow-lg">
+            View All Integrations
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Integrations;
