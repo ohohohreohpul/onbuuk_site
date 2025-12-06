@@ -6,7 +6,9 @@ import { Toaster } from './components/ui/sonner';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Features from './components/Features';
+import WhyChooseBuuk from './components/WhyChooseBuuk';
 import UIShowcase from './components/UIShowcase';
+import ScaleYourBusiness from './components/ScaleYourBusiness';
 import HowItWorks from './components/HowItWorks';
 import Integrations from './components/Integrations';
 import Testimonials from './components/Testimonials';
@@ -23,7 +25,9 @@ const HomePage = () => (
   <>
     <Hero />
     <Features />
+    <WhyChooseBuuk />
     <UIShowcase />
+    <ScaleYourBusiness />
     <HowItWorks />
     <Integrations />
     <Testimonials />
