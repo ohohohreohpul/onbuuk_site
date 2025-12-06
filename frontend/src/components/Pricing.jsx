@@ -121,10 +121,10 @@ const Pricing = () => {
               )}
               
               <div className="mb-6">
-                <h3 className="text-2xl font-bold mb-2 text-white">
+                <h3 className={`text-2xl font-bold mb-2 ${plan.highlighted ? 'text-white' : 'text-gray-900'}`}>
                   {plan.name}
                 </h3>
-                <p className="text-sm text-gray-400">
+                <p className={`text-sm ${plan.highlighted ? 'text-white/80' : 'text-gray-600'}`}>
                   {plan.description}
                 </p>
               </div>
@@ -132,19 +132,19 @@ const Pricing = () => {
               <div className="mb-8">
                 {plan.customPricing ? (
                   <div>
-                    <div className="text-3xl font-bold mb-2 text-white">
+                    <div className={`text-3xl font-bold mb-2 ${plan.highlighted ? 'text-white' : 'text-gray-900'}`}>
                       Custom Pricing
                     </div>
-                    <p className="text-sm text-gray-400">
+                    <p className={`text-sm ${plan.highlighted ? 'text-white/80' : 'text-gray-600'}`}>
                       Starting from €149/month
                     </p>
                   </div>
                 ) : (
                   <div className="flex items-baseline">
-                    <span className="text-5xl font-bold text-white">
+                    <span className={`text-5xl font-bold ${plan.highlighted ? 'text-white' : 'text-gray-900'}`}>
                       {plan.currency}{plan.price}
                     </span>
-                    <span className="ml-2 text-gray-400">/month</span>
+                    <span className={`ml-2 ${plan.highlighted ? 'text-white/80' : 'text-gray-600'}`}>/month</span>
                   </div>
                 )}
               </div>
