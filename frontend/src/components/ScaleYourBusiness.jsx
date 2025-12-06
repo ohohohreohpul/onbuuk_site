@@ -39,53 +39,46 @@ const ScaleYourBusiness = () => {
   ];
 
   return (
-    <section className="relative py-32 bg-[#003E37] overflow-hidden">
-      {/* Hexagon Pattern Background */}
-      <div className="absolute inset-0 opacity-5" style={{
-        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15z' fill='none' stroke='%2314B8A6' stroke-width='1'/%3E%3C/svg%3E")`,
-        backgroundSize: '60px 60px'
-      }}></div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+    <section className="py-24 px-6 bg-white">
+      <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content - Story */}
-          <div className="animate-fade-in">
-            <div className="inline-flex items-center space-x-2 glass-teal px-4 py-2 mb-6 rounded-full">
+          <div>
+            <div className="inline-flex items-center space-x-2 bg-gray-100 px-3 py-1.5 rounded-full mb-6">
               <BarChart3 className="w-4 h-4 text-[#14B8A6]" />
-              <span className="text-sm font-medium text-white">Success Story</span>
+              <span className="text-sm text-gray-700">Success Story</span>
             </div>
             
-            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-              Scale Your Salon & Spa{' '}
-              <span className="text-gradient">From One Location to Many</span>
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+              Scale Your Salon & Spa From One Location to Many
             </h2>
             
-            <div className="space-y-6 text-gray-300">
-              <p className="text-base lg:text-lg leading-relaxed">
-                <strong className="text-white">Meet Sarah</strong>, who started with a single hair salon in downtown. Within 18 months of using buuk's booking software, she expanded to 4 locations across the city, managing 25 stylists and serving over 1,000 clients monthly.
+            <div className="space-y-6 text-gray-600">
+              <p className="text-lg leading-relaxed">
+                <strong className="text-gray-900">Meet Sarah</strong>, who started with a single hair salon in downtown. Within 18 months of using buuk's booking software, she expanded to 4 locations across the city, managing 25 stylists and serving over 1,000 clients monthly.
               </p>
               
-              <p className="text-sm lg:text-base leading-relaxed">
-                <strong className="text-white">"The turning point was having everything in one system,"</strong> Sarah explains. "Before buuk, I was drowning in spreadsheets, missed appointments, and payment tracking nightmares. Now, I can see real-time performance across all my salons, manage staff schedules from my phone, and my clients love the instant booking confirmation."
+              <p className="text-base leading-relaxed">
+                <strong className="text-gray-900">"The turning point was having everything in one system,"</strong> Sarah explains. "Before buuk, I was drowning in spreadsheets, missed appointments, and payment tracking nightmares. Now, I can see real-time performance across all my salons, manage staff schedules from my phone, and my clients love the instant booking confirmation."
               </p>
               
-              <div className="glass-strong border border-white/10 p-6 rounded-lg">
-                <h4 className="text-white font-bold mb-4">Sarah's Results with Buuk:</h4>
+              <div className="bg-gray-50 border-2 border-gray-200 p-6 rounded-xl">
+                <h4 className="text-gray-900 font-bold mb-4">Sarah's Results with Buuk:</h4>
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-400 text-sm">Revenue Growth</span>
+                    <span className="text-gray-600 text-sm">Revenue Growth</span>
                     <span className="text-[#14B8A6] font-bold text-lg">+280%</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-400 text-sm">No-Show Rate Reduction</span>
+                    <span className="text-gray-600 text-sm">No-Show Rate Reduction</span>
                     <span className="text-[#14B8A6] font-bold text-lg">-75%</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-400 text-sm">Time Saved on Admin</span>
+                    <span className="text-gray-600 text-sm">Time Saved on Admin</span>
                     <span className="text-[#14B8A6] font-bold text-lg">15 hrs/week</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-400 text-sm">Client Retention</span>
+                    <span className="text-gray-600 text-sm">Client Retention</span>
                     <span className="text-[#14B8A6] font-bold text-lg">92%</span>
                   </div>
                 </div>
@@ -93,28 +86,25 @@ const ScaleYourBusiness = () => {
             </div>
           </div>
 
-          {/* Right Content - Professional Image */}
-          <div className="relative animate-slide-in">
+          {/* Right Content - Image & Features */}
+          <div className="relative">
             {/* Main Success Image */}
-            <div className="relative overflow-hidden rounded-lg shadow-2xl">
+            <div className="relative overflow-hidden rounded-xl shadow-xl mb-6">
               <img 
                 src="https://images.unsplash.com/photo-1675034741621-79a7d07c1369" 
                 alt="Successful salon owner"
-                className="w-full h-[500px] object-cover"
+                className="w-full h-[400px] object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
               
               {/* Success Quote Overlay */}
-              <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                <div className="glass-dark border border-white/20 p-6 rounded-lg">
-                  <p className="text-lg font-semibold mb-2">"buuk transformed my business"</p>
-                  <p className="text-sm text-gray-300">From 1 salon to 4 locations in 18 months</p>
-                </div>
+              <div className="absolute bottom-0 left-0 right-0 p-6 bg-white border-t-2 border-gray-200">
+                <p className="text-lg font-semibold text-gray-900 mb-1">"buuk transformed my business"</p>
+                <p className="text-sm text-gray-600">From 1 salon to 4 locations in 18 months</p>
               </div>
             </div>
 
             {/* Accordion - Key Features */}
-            <div className="mt-6 space-y-3">
+            <div className="space-y-3">
               {features.map((feature, index) => {
                 const Icon = feature.icon;
                 const isOpen = openAccordion === index;
@@ -122,8 +112,8 @@ const ScaleYourBusiness = () => {
                 return (
                   <div 
                     key={index} 
-                    className={`glass-strong border transition-all duration-300 ${
-                      isOpen ? 'border-[#14B8A6]' : 'border-white/10 hover:border-white/20'
+                    className={`bg-white border-2 rounded-xl transition-all duration-300 ${
+                      isOpen ? 'border-[#14B8A6] shadow-lg' : 'border-gray-200 hover:border-gray-300'
                     }`}
                   >
                     <button
@@ -133,12 +123,12 @@ const ScaleYourBusiness = () => {
                       <div className="flex items-center space-x-4">
                         <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
                           isOpen 
-                            ? 'bg-gradient-to-br from-[#14B8A6] to-[#0d9488] shadow-lg shadow-[#14B8A6]/30' 
-                            : 'bg-white/5'
+                            ? 'bg-[#14B8A6] shadow-md' 
+                            : 'bg-gray-100'
                         }`}>
-                          <Icon className={`w-5 h-5 ${isOpen ? 'text-white' : 'text-gray-400'}`} />
+                          <Icon className={`w-5 h-5 ${isOpen ? 'text-white' : 'text-gray-600'}`} />
                         </div>
-                        <span className="text-white font-bold">{feature.title}</span>
+                        <span className="text-gray-900 font-bold">{feature.title}</span>
                       </div>
                       <ChevronDown 
                         className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${
@@ -148,15 +138,15 @@ const ScaleYourBusiness = () => {
                     </button>
                     
                     {isOpen && (
-                      <div className="px-5 pb-5 animate-fade-in">
-                        <p className="text-gray-400 text-sm leading-relaxed mb-4 pl-14">
+                      <div className="px-5 pb-5">
+                        <p className="text-gray-600 text-sm leading-relaxed mb-4 pl-14">
                           {feature.description}
                         </p>
                         <ul className="space-y-2 pl-14">
                           {feature.highlights.map((highlight, hIndex) => (
                             <li key={hIndex} className="flex items-start space-x-2 text-sm">
                               <span className="text-[#14B8A6] mt-1">•</span>
-                              <span className="text-gray-400">{highlight}</span>
+                              <span className="text-gray-600">{highlight}</span>
                             </li>
                           ))}
                         </ul>
@@ -168,15 +158,15 @@ const ScaleYourBusiness = () => {
             </div>
 
             {/* CTA Button */}
-            <div className="mt-6 glass-teal p-5 rounded-lg">
+            <div className="mt-6 bg-[#14B8A6]/10 border-2 border-[#14B8A6] p-5 rounded-xl">
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div>
-                  <p className="text-white font-bold mb-1">Ready to scale your business?</p>
-                  <p className="text-sm text-gray-300">Start your 14-day free trial today</p>
+                  <p className="text-gray-900 font-bold mb-1">Ready to scale your business?</p>
+                  <p className="text-sm text-gray-600">Start your 14-day free trial today</p>
                 </div>
                 <Button
                   onClick={() => window.location.href = 'https://app.onbuuk.com'}
-                  className="bg-white text-[#14B8A6] hover:bg-gray-100 font-bold shadow-lg whitespace-nowrap"
+                  className="bg-[#14B8A6] text-white hover:bg-[#0d9488] font-bold shadow-md whitespace-nowrap rounded-lg"
                 >
                   Get Started →
                 </Button>
