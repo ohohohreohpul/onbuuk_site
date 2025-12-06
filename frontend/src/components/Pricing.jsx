@@ -183,8 +183,8 @@ const Pricing = () => {
                 ))}
                 
                 {plan.limitations && (
-                  <li className="pt-4 mt-4 border-t border-gray-200">
-                    <p className="text-xs text-gray-500 mb-2 font-semibold">Limitations:</p>
+                  <li className="pt-4 mt-4 border-t border-white/10">
+                    <p className="text-xs text-gray-400 mb-2 font-semibold">Limitations:</p>
                     {plan.limitations.map((limitation, i) => (
                       <div key={i} className="flex items-start space-x-2 mb-2">
                         <span className="text-xs text-gray-500">• {limitation}</span>
@@ -198,8 +198,8 @@ const Pricing = () => {
         </div>
 
         {/* FAQ Note */}
-        <div className="mt-12 text-center">
-          <p className="text-gray-600">
+        <div className="mt-16 text-center">
+          <p className="text-gray-400">
             All plans include 14-day free trial · No credit card required · Cancel anytime
           </p>
         </div>
