@@ -162,7 +162,7 @@ const ScaleYourBusiness = () => {
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div>
                   <p className="text-gray-900 font-bold mb-1">Ready to scale your business?</p>
-                  <p className="text-sm text-gray-600">Start your 14-day free trial today</p>
+                  <p className="text-sm text-gray-600">Start for free today</p>
                 </div>
                 <Button
                   onClick={() => window.location.href = 'https://app.onbuuk.com'}
