@@ -139,7 +139,7 @@ const CTA = () => {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-semibold text-white mb-2">
+                <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-2">
                   Email Address *
                 </label>
                 <Input
