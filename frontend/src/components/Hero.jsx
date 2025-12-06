@@ -41,7 +41,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="pt-32 pb-24 px-6 bg-white">
+    <section className="pt-32 pb-24 px-8 lg:px-16 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Content Grid */}
         <div className="grid lg:grid-cols-2 gap-12 items-center">
