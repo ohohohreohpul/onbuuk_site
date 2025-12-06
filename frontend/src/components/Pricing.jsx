@@ -43,7 +43,7 @@ const plans = [
   {
     name: 'Pro',
     price: '45',
-    currency: '$',
+    currency: '€',
     description: 'Full power for growing businesses',
     features: [
       'Unlimited admin users',
