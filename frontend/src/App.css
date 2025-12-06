@@ -194,6 +194,24 @@ select:focus {
   background-size: 50px 50px;
 }
 
+/* Animated Hero Grid */
+.hero-grid {
+  background-image: 
+    linear-gradient(rgba(20, 184, 166, 0.4) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 184, 166, 0.4) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: grid-move 20s linear infinite;
+}
+
+@keyframes grid-move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 40px 40px;
+  }
+}
+
 .bg-dots {
   background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
   background-size: 20px 20px;
