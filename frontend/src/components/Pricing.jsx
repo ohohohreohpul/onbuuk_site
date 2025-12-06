@@ -6,7 +6,7 @@ const plans = [
   {
     name: 'Free',
     price: '0',
-    currency: '$',
+    currency: '€',
     description: 'Perfect for getting started with basic booking needs',
     features: [
       '1 admin user (owner only)',
