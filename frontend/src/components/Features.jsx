@@ -73,18 +73,18 @@ const Features = () => {
               </div>
               
               {/* Mockup - Calendar View */}
-              <div className="mt-auto glass-strong border border-white/10 p-5">
+              <div className="mt-auto bg-gray-50 border-2 border-gray-200 p-5 rounded-lg">
                 <div className="flex items-center justify-between mb-4">
-                  <div className="text-xs font-semibold text-white">DECEMBER 2024</div>
+                  <div className="text-xs font-semibold text-gray-900">DECEMBER 2024</div>
                   <div className="flex items-center space-x-2">
                     <div className="w-2 h-2 bg-[#14B8A6] rounded-full"></div>
-                    <span className="text-xs text-gray-400">12 bookings</span>
+                    <span className="text-xs text-gray-600">12 bookings</span>
                   </div>
                 </div>
                 
                 <div className="grid grid-cols-7 gap-1">
                   {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day, i) => (
-                    <div key={i} className="text-center text-xs font-medium text-gray-400 mb-2">{day}</div>
+                    <div key={i} className="text-center text-xs font-medium text-gray-600 mb-2">{day}</div>
                   ))}
                   {[...Array(35)].map((_, i) => {
                     const hasBooking = [8, 9, 10, 14, 15, 16, 17, 21, 22, 23, 28, 29].includes(i);
@@ -99,10 +99,10 @@ const Features = () => {
                           isToday
                             ? 'bg-[#14B8A6] text-white font-bold shadow-lg'
                             : isDisabled
-                            ? 'text-gray-600'
+                            ? 'text-gray-400'
                             : hasBooking
-                            ? 'text-white font-medium hover:bg-white/5 cursor-pointer transition-colors'
-                            : 'text-gray-500 hover:bg-white/5 cursor-pointer transition-colors'
+                            ? 'text-gray-900 font-medium bg-white hover:bg-gray-100 cursor-pointer transition-colors'
+                            : 'text-gray-600 hover:bg-white cursor-pointer transition-colors'
                         }`}
                       >
                         {i + 1}
