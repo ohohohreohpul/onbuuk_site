@@ -31,7 +31,7 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200">
+    <header className="fixed top-0 left-0 right-0 z-50 glass-dark border-b border-white/10">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
@@ -39,25 +39,25 @@ const Header = () => {
             <img 
               src="/buuklogo-new.png" 
               alt="buuk" 
-              className="h-10 w-auto"
+              className="h-10 w-auto brightness-0 invert"
             />
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-10">
-            <button onClick={() => handleNavigation('features')} className="text-gray-700 hover:text-gray-900 transition-colors font-medium text-sm">
+            <button onClick={() => handleNavigation('features')} className="text-gray-300 hover:text-white transition-colors font-medium text-sm">
               Features
             </button>
-            <button onClick={() => handleNavigation('how-it-works')} className="text-gray-700 hover:text-gray-900 transition-colors font-medium text-sm">
+            <button onClick={() => handleNavigation('how-it-works')} className="text-gray-300 hover:text-white transition-colors font-medium text-sm">
               How It Works
             </button>
-            <button onClick={() => handleNavigation('integrations')} className="text-gray-700 hover:text-gray-900 transition-colors font-medium text-sm">
+            <button onClick={() => handleNavigation('integrations')} className="text-gray-300 hover:text-white transition-colors font-medium text-sm">
               Integrations
             </button>
-            <button onClick={() => handleNavigation('pricing')} className="text-gray-700 hover:text-gray-900 transition-colors font-medium text-sm">
+            <button onClick={() => handleNavigation('pricing')} className="text-gray-300 hover:text-white transition-colors font-medium text-sm">
               Pricing
             </button>
-            <button onClick={() => navigate('/blog')} className="text-gray-700 hover:text-gray-900 transition-colors font-medium text-sm">
+            <button onClick={() => navigate('/blog')} className="text-gray-300 hover:text-white transition-colors font-medium text-sm">
               Blog
             </button>
           </nav>
@@ -66,7 +66,7 @@ const Header = () => {
           <div className="hidden md:flex items-center space-x-4">
             <Button 
               onClick={() => window.location.href = 'https://app.onbuuk.com'}
-              className="bg-[#14B8A6] hover:bg-[#0d9488] text-white font-medium px-6 h-11"
+              className="bg-[#14B8A6] hover:bg-[#0d9488] text-white font-semibold px-6 h-11 shadow-lg hover:shadow-[#14B8A6]/50 transition-all"
             >
               Get Started
             </Button>
@@ -75,7 +75,7 @@ const Header = () => {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 hover:bg-gray-100 transition-colors"
+            className="md:hidden p-2 text-white hover:bg-white/10 rounded-lg transition-colors"
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -83,21 +83,21 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200">
+          <div className="md:hidden py-4 border-t border-white/10">
             <nav className="flex flex-col space-y-4">
-              <button onClick={() => handleNavigation('features')} className="text-left text-gray-700 hover:text-gray-900 transition-colors font-medium">
+              <button onClick={() => handleNavigation('features')} className="text-left text-gray-300 hover:text-white transition-colors font-medium">
                 Features
               </button>
-              <button onClick={() => handleNavigation('how-it-works')} className="text-left text-gray-700 hover:text-gray-900 transition-colors font-medium">
+              <button onClick={() => handleNavigation('how-it-works')} className="text-left text-gray-300 hover:text-white transition-colors font-medium">
                 How It Works
               </button>
-              <button onClick={() => handleNavigation('integrations')} className="text-left text-gray-700 hover:text-gray-900 transition-colors font-medium">
+              <button onClick={() => handleNavigation('integrations')} className="text-left text-gray-300 hover:text-white transition-colors font-medium">
                 Integrations
               </button>
-              <button onClick={() => handleNavigation('pricing')} className="text-left text-gray-700 hover:text-gray-900 transition-colors font-medium">
+              <button onClick={() => handleNavigation('pricing')} className="text-left text-gray-300 hover:text-white transition-colors font-medium">
                 Pricing
               </button>
-              <button onClick={() => navigate('/blog')} className="text-left text-gray-700 hover:text-gray-900 transition-colors font-medium">
+              <button onClick={() => navigate('/blog')} className="text-left text-gray-300 hover:text-white transition-colors font-medium">
                 Blog
               </button>
               <div className="pt-4">
