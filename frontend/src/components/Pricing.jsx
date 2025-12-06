@@ -199,7 +199,7 @@ const Pricing = () => {
 
         {/* FAQ Note */}
         <div className="mt-16 text-center">
-          <p className="text-gray-400">
+          <p className="text-gray-600">
             All plans include 14-day free trial · No credit card required · Cancel anytime
           </p>
         </div>
