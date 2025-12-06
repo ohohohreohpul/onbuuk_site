@@ -11,16 +11,13 @@ const Header = () => {
   const handleNavigation = (sectionId) => {
     setIsMenuOpen(false);
     
-    // If we're on homepage, just scroll
     if (location.pathname === '/') {
       const element = document.getElementById(sectionId);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     } else {
-      // If we're on another page, navigate to homepage with hash
       navigate(`/#${sectionId}`);
-      // Scroll after navigation
       setTimeout(() => {
         const element = document.getElementById(sectionId);
         if (element) {
@@ -31,81 +28,65 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 glass-dark border-b border-white/10">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center cursor-pointer" onClick={() => navigate('/')}>
-            <img 
-              src="/buuklogo-new.png" 
-              alt="buuk" 
-              className="h-10 w-auto brightness-0 invert sharp"
-            />
+            <span className="text-xl font-bold text-gray-900">buuk</span>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-10">
-            <button onClick={() => handleNavigation('features')} className="text-gray-300 hover:text-white transition-colors font-medium text-sm">
+          <nav className="hidden md:flex items-center space-x-8">
+            <button onClick={() => handleNavigation('features')} className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
               Features
             </button>
-            <button onClick={() => handleNavigation('how-it-works')} className="text-gray-300 hover:text-white transition-colors font-medium text-sm">
-              How It Works
-            </button>
-            <button onClick={() => handleNavigation('integrations')} className="text-gray-300 hover:text-white transition-colors font-medium text-sm">
-              Integrations
-            </button>
-            <button onClick={() => handleNavigation('pricing')} className="text-gray-300 hover:text-white transition-colors font-medium text-sm">
+            <button onClick={() => handleNavigation('pricing')} className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
               Pricing
             </button>
-            <button onClick={() => navigate('/blog')} className="text-gray-300 hover:text-white transition-colors font-medium text-sm">
+            <button onClick={() => navigate('/blog')} className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
               Blog
             </button>
           </nav>
 
-          {/* CTA Buttons */}
+          {/* CTA Button */}
           <div className="hidden md:flex items-center space-x-4">
             <Button 
               onClick={() => window.location.href = 'https://app.onbuuk.com'}
-              className="bg-[#14B8A6] hover:bg-[#0d9488] text-white font-semibold px-6 h-11 shadow-lg hover:shadow-[#14B8A6]/50 transition-all"
+              className="bg-gray-900 hover:bg-gray-800 text-white text-sm px-5 h-9 rounded-lg transition-all"
             >
-              Get Started
+              Get Started →
             </Button>
           </div>
 
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-white hover:bg-white/10 rounded-lg transition-colors"
+            className="md:hidden p-2 text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-white/10">
+          <div className="md:hidden py-4 border-t border-gray-100">
             <nav className="flex flex-col space-y-4">
-              <button onClick={() => handleNavigation('features')} className="text-left text-gray-300 hover:text-white transition-colors font-medium">
+              <button onClick={() => handleNavigation('features')} className="text-left text-gray-600 hover:text-gray-900 transition-colors">
                 Features
               </button>
-              <button onClick={() => handleNavigation('how-it-works')} className="text-left text-gray-300 hover:text-white transition-colors font-medium">
-                How It Works
-              </button>
-              <button onClick={() => handleNavigation('integrations')} className="text-left text-gray-300 hover:text-white transition-colors font-medium">
-                Integrations
-              </button>
-              <button onClick={() => handleNavigation('pricing')} className="text-left text-gray-300 hover:text-white transition-colors font-medium">
+              <button onClick={() => handleNavigation('pricing')} className="text-left text-gray-600 hover:text-gray-900 transition-colors">
                 Pricing
               </button>
-              <button onClick={() => navigate('/blog')} className="text-left text-gray-300 hover:text-white transition-colors font-medium">
+              <button onClick={() => navigate('/blog')} className="text-left text-gray-600 hover:text-gray-900 transition-colors">
                 Blog
               </button>
               <div className="pt-4">
                 <Button 
                   onClick={() => window.location.href = 'https://app.onbuuk.com'}
-                  className="w-full bg-[#14B8A6] hover:bg-[#0d9488] text-white"
+                  className="w-full bg-gray-900 hover:bg-gray-800 text-white"
                 >
-                  Get Started
+                  Get Started →
                 </Button>
               </div>
             </nav>
