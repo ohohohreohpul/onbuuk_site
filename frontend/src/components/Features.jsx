@@ -10,15 +10,15 @@ const Features = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
         {/* Section Header */}
         <div className="text-center mb-20 animate-fade-in">
-          <div className="inline-flex items-center space-x-2 glass-teal px-4 py-2 mb-6">
+          <div className="inline-flex items-center space-x-2 bg-[#14B8A6]/10 border border-[#14B8A6] px-4 py-2 mb-6 rounded-full">
             <Zap className="w-4 h-4 text-[#14B8A6]" />
-            <span className="text-sm font-medium text-white">Features</span>
+            <span className="text-sm font-medium text-[#14B8A6]">Features</span>
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             Everything to Manage{' '}
             <span className="text-gradient">Your Bookings</span>
           </h2>
-          <p className="text-base lg:text-lg text-gray-400 max-w-3xl mx-auto">
+          <p className="text-base lg:text-lg text-gray-600 max-w-3xl mx-auto">
             All the tools you need to streamline appointments and grow your business
           </p>
         </div>
