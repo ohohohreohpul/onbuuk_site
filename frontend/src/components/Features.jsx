@@ -183,46 +183,46 @@ const Features = () => {
           </div>
 
           {/* Customer Portal */}
-          <div className="glass-strong border border-white/10 p-8 hover:border-[#14B8A6]/50 transition-all duration-500 animate-slide-up hover-scale" style={{animationDelay: '0.2s'}}>
-            <div className="w-14 h-14 rounded-xl bg-[#14B8A6] flex items-center justify-center mb-6 shadow-lg shadow-[#14B8A6]/30">
+          <div className="bg-white border-2 border-gray-200 p-8 hover:border-[#14B8A6] hover:shadow-xl transition-all duration-500 animate-slide-up hover-scale rounded-lg" style={{animationDelay: '0.2s'}}>
+            <div className="w-14 h-14 rounded-xl bg-[#14B8A6] flex items-center justify-center mb-6 shadow-lg">
               <Users className="w-7 h-7 text-white" />
             </div>
-            <h3 className="text-2xl font-bold text-white mb-4">
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
               Customer Portal
             </h3>
-            <p className="text-gray-300 mb-6">
+            <p className="text-gray-600 mb-6">
               Self-service booking, history tracking, and loyalty points. Empower your customers.
             </p>
             <div className="space-y-3">
-              <div className="flex items-center justify-between p-3 glass border border-white/10 rounded-lg hover:border-[#14B8A6]/30 transition-colors">
+              <div className="flex items-center justify-between p-3 bg-gray-50 border border-gray-200 rounded-lg hover:border-[#14B8A6] transition-colors">
                 <div className="flex items-center space-x-3">
                   <div className="w-10 h-10 rounded-lg bg-blue-500 flex items-center justify-center text-white text-xs font-bold">EW</div>
                   <div>
-                    <div className="text-xs font-semibold text-white">Emma Wilson</div>
-                    <div className="text-[10px] text-gray-400">emma@email.com</div>
+                    <div className="text-xs font-semibold text-gray-900">Emma Wilson</div>
+                    <div className="text-[10px] text-gray-600">emma@email.com</div>
                   </div>
                 </div>
-                <div className="text-xs font-medium text-gray-300">245 pts</div>
+                <div className="text-xs font-medium text-gray-700">245 pts</div>
               </div>
-              <div className="flex items-center justify-between p-3 glass-teal border border-[#14B8A6]/30 rounded-lg">
+              <div className="flex items-center justify-between p-3 bg-[#14B8A6]/5 border border-[#14B8A6] rounded-lg">
                 <div className="flex items-center space-x-3">
                   <div className="w-10 h-10 rounded-lg bg-[#14B8A6] flex items-center justify-center text-white text-xs font-bold">JM</div>
                   <div>
-                    <div className="text-xs font-semibold text-white">James Miller</div>
-                    <div className="text-[10px] text-gray-400">james@email.com</div>
+                    <div className="text-xs font-semibold text-gray-900">James Miller</div>
+                    <div className="text-[10px] text-gray-600">james@email.com</div>
                   </div>
                 </div>
                 <div className="text-xs font-medium text-[#14B8A6]">892 pts</div>
               </div>
-              <div className="flex items-center justify-between p-3 glass border border-white/10 rounded-lg hover:border-[#14B8A6]/30 transition-colors">
+              <div className="flex items-center justify-between p-3 bg-gray-50 border border-gray-200 rounded-lg hover:border-[#14B8A6] transition-colors">
                 <div className="flex items-center space-x-3">
                   <div className="w-10 h-10 rounded-lg bg-purple-500 flex items-center justify-center text-white text-xs font-bold">SD</div>
                   <div>
-                    <div className="text-xs font-semibold text-white">Sarah Davis</div>
-                    <div className="text-[10px] text-gray-400">sarah@email.com</div>
+                    <div className="text-xs font-semibold text-gray-900">Sarah Davis</div>
+                    <div className="text-[10px] text-gray-600">sarah@email.com</div>
                   </div>
                 </div>
-                <div className="text-xs font-medium text-gray-300">156 pts</div>
+                <div className="text-xs font-medium text-gray-700">156 pts</div>
               </div>
             </div>
           </div>
