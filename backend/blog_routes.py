@@ -24,22 +24,22 @@ def generate_slug(title: str) -> str:
     return slug
 
 # Public Blog Routes
-@blog_router.get('/', response_model=List[BlogPost])
+@blog_router.get('/')
 async def get_all_posts(published: bool = True):
     """Get all published blog posts"""
     from server import db
     query = {'published': published} if published else {}
-    posts = await db.blog_posts.find(query).sort('createdAt', -1).to_list(100)
-    return [BlogPost(**post) for post in posts]
+    posts = await db.blog_posts.find(query, {'_id': 0}).sort('createdAt', -1).to_list(100)
+    return {'posts': posts}
 
-@blog_router.get('/{slug}', response_model=BlogPost)
+@blog_router.get('/{slug}')
 async def get_post_by_slug(slug: str):
     """Get a single blog post by slug"""
     from server import db
-    post = await db.blog_posts.find_one({'slug': slug, 'published': True})
+    post = await db.blog_posts.find_one({'slug': slug, 'published': True}, {'_id': 0})
     if not post:
         raise HTTPException(status_code=404, detail='Blog post not found')
-    return BlogPost(**post)
+    return post
 
 # Admin Authentication
 @admin_router.post('/login')
