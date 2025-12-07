@@ -136,6 +136,34 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-gray-100">
             <nav className="flex flex-col space-y-4">
+              {/* Solutions Accordion */}
+              <div>
+                <button 
+                  onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}
+                  className="flex items-center justify-between w-full text-left text-gray-600 hover:text-gray-900 transition-colors"
+                >
+                  <span>Solutions</span>
+                  <ChevronDown size={16} className={`transition-transform ${isSolutionsOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {isSolutionsOpen && (
+                  <div className="mt-2 ml-4 space-y-2">
+                    {solutions.map((solution, index) => (
+                      <button
+                        key={index}
+                        onClick={() => {
+                          navigate(solution.path);
+                          setIsMenuOpen(false);
+                          setIsSolutionsOpen(false);
+                        }}
+                        className="block text-sm text-gray-600 hover:text-[#14B8A6] transition-colors py-1"
+                      >
+                        {solution.title}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+              
               <button onClick={() => handleNavigation('features')} className="text-left text-gray-600 hover:text-gray-900 transition-colors">
                 Features
               </button>
