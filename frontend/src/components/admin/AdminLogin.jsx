@@ -53,7 +53,7 @@ const AdminLogin = ({ onLogin }) => {
               type="email"
               value={credentials.email}
               onChange={(e) => setCredentials({ ...credentials, email: e.target.value })}
-              placeholder="admin@buuk.com"
+              placeholder="Enter your email"
               required
               className="h-11 border-gray-300"
             />
@@ -81,10 +81,6 @@ const AdminLogin = ({ onLogin }) => {
             {loading ? 'Logging in...' : 'Login'}
           </Button>
         </form>
-
-        <div className="mt-6 text-center text-sm text-gray-500">
-          Default: admin@buuk.com / admin123
-        </div>
       </div>
     </div>
   );
