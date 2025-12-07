@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../ui/button';
-import { Check, Calendar, Sync, Clock, Smartphone, ArrowRight } from 'lucide-react';
+import { Check, Calendar, RefreshCw, Clock, Smartphone, ArrowRight } from 'lucide-react';
 
 const CalendarScheduling = () => {
   const navigate = useNavigate();
