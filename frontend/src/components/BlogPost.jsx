@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Calendar, Clock, ArrowLeft, Share2, Tag } from 'lucide-react';
 import { Button } from './ui/button';
+import axios from 'axios';
 
-const blogPosts = [
+const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
+
+const mockPosts = [
   {
     id: 1,
     slug: 'how-to-reduce-no-shows-in-your-salon-by-80-percent',
