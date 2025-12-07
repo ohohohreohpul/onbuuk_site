@@ -78,25 +78,27 @@ const Header = () => {
               </button>
               
               {isSolutionsOpen && (
-                <div className="absolute top-full left-0 mt-2 w-[420px] bg-white border border-gray-200 rounded-xl shadow-xl p-4 z-50">
-                  <div className="space-y-2">
-                    {solutions.map((solution, index) => (
-                      <button
-                        key={index}
-                        onClick={() => {
-                          navigate(solution.path);
-                          setIsSolutionsOpen(false);
-                        }}
-                        className="w-full text-left p-3 rounded-lg hover:bg-gray-50 transition-colors group"
-                      >
-                        <div className="font-semibold text-gray-900 text-sm mb-1 group-hover:text-[#14B8A6]">
-                          {solution.title}
-                        </div>
-                        <div className="text-xs text-gray-600">
-                          {solution.description}
-                        </div>
-                      </button>
-                    ))}
+                <div className="absolute top-full left-0 pt-2 z-50">
+                  <div className="w-[420px] bg-white border border-gray-200 rounded-xl shadow-xl p-4">
+                    <div className="space-y-2">
+                      {solutions.map((solution, index) => (
+                        <button
+                          key={index}
+                          onClick={() => {
+                            navigate(solution.path);
+                            setIsSolutionsOpen(false);
+                          }}
+                          className="w-full text-left p-3 rounded-lg hover:bg-gray-50 transition-colors group"
+                        >
+                          <div className="font-semibold text-gray-900 text-sm mb-1 group-hover:text-[#14B8A6]">
+                            {solution.title}
+                          </div>
+                          <div className="text-xs text-gray-600">
+                            {solution.description}
+                          </div>
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 </div>
               )}
