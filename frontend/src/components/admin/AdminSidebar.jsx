@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { LayoutDashboard, FileText, LogOut } from 'lucide-react';
+import { LayoutDashboard, FileText, LogOut, Key } from 'lucide-react';
 
 const AdminSidebar = ({ onLogout }) => {
   const navigate = useNavigate();
@@ -8,7 +8,8 @@ const AdminSidebar = ({ onLogout }) => {
 
   const menuItems = [
     { icon: LayoutDashboard, label: 'Dashboard', path: '/admin' },
-    { icon: FileText, label: 'Blog Posts', path: '/admin/blog' }
+    { icon: FileText, label: 'Blog Posts', path: '/admin/blog' },
+    { icon: Key, label: 'API Keys', path: '/admin/api-keys' }
   ];
 
   const isActive = (path) => {
