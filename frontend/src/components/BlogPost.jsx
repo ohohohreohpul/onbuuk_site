@@ -184,10 +184,12 @@ const BlogPost = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
   const [post, setPost] = useState(null);
+  const [relatedPosts, setRelatedPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchPost();
+    fetchRelatedPosts();
   }, [slug]);
 
   const fetchPost = async () => {
@@ -201,6 +203,18 @@ const BlogPost = () => {
       setPost(mockPost);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const fetchRelatedPosts = async () => {
+    try {
+      const response = await axios.get(`${API}/blog/`);
+      if (response.data.posts) {
+        setRelatedPosts(response.data.posts.filter(p => p.slug !== slug).slice(0, 3));
+      }
+    } catch (error) {
+      console.error('Failed to fetch related posts:', error);
+      setRelatedPosts(mockPosts.slice(0, 3));
     }
   };
 
