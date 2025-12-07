@@ -1,12 +1,36 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from './ui/button';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+
+  const solutions = [
+    {
+      title: 'Booking Management Software',
+      description: 'Complete platform for managing bookings and appointments',
+      path: '/solutions/booking-management-software'
+    },
+    {
+      title: 'Appointment Booking Software',
+      description: 'Flexible appointment scheduling for service businesses',
+      path: '/solutions/appointment-booking-software'
+    },
+    {
+      title: 'Calendar Scheduling App',
+      description: 'Smart calendar with Google sync and availability management',
+      path: '/solutions/calendar-scheduling-app'
+    },
+    {
+      title: 'Salon Booking Apps',
+      description: 'Specialized booking software for salons and spas',
+      path: '/solutions/salon-booking-apps'
+    }
+  ];
 
   const handleNavigation = (sectionId) => {
     setIsMenuOpen(false);
