@@ -6,8 +6,7 @@ import { Textarea } from '../ui/textarea';
 import axios from 'axios';
 import { toast } from 'sonner';
 import AdminSidebar from './AdminSidebar';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
+import TipTapEditor from './TipTapEditor';
 import { Upload, X } from 'lucide-react';
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
