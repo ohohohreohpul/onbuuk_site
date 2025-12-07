@@ -315,7 +315,7 @@ const BlogPost = () => {
       <article className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-6 lg:px-12">
           <div 
-            className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-[#14B8A6] prose-strong:text-gray-900 prose-li:text-gray-700"
+            className="blog-content"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
         </div>
