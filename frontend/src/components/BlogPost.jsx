@@ -299,17 +299,30 @@ const BlogPost = () => {
       </section>
 
       {/* Featured Image */}
-      {post.image && (
-        <section className="py-8 bg-white">
-          <div className="max-w-5xl mx-auto px-6 lg:px-12">
+      <section className="py-8 bg-gray-50">
+        <div className="max-w-5xl mx-auto px-6 lg:px-12">
+          {post.image ? (
             <img 
               src={post.image} 
               alt={post.title}
-              className="w-full h-96 object-cover rounded-xl shadow-lg"
+              className="w-full h-96 object-cover rounded-xl shadow-xl"
+              onError={(e) => {
+                console.error('Image failed to load:', post.image);
+                e.target.style.display = 'none';
+              }}
             />
-          </div>
-        </section>
-      )}
+          ) : (
+            <div className="w-full h-96 bg-gradient-to-br from-[#14B8A6] to-[#0d9488] rounded-xl shadow-xl flex items-center justify-center">
+              <div className="text-center text-white">
+                <svg className="w-24 h-24 mx-auto mb-4 opacity-30" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
+                </svg>
+                <p className="text-lg font-semibold opacity-50">No featured image</p>
+              </div>
+            </div>
+          )}
+        </div>
+      </section>
 
       {/* Article Content */}
       <article className="py-16 bg-white">
