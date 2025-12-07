@@ -160,15 +160,10 @@ const BlogEditor = ({ onLogout }) => {
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Content *
                 </label>
-                <div className="border border-gray-300 bg-white">
-                  <ReactQuill
-                    theme="snow"
-                    value={formData.content}
-                    onChange={(value) => setFormData({ ...formData, content: value })}
-                    modules={modules}
-                    style={{ minHeight: '400px' }}
-                  />
-                </div>
+                <TipTapEditor
+                  content={formData.content}
+                  onChange={(value) => setFormData({ ...formData, content: value })}
+                />
               </div>
 
               {/* Row: Category & Author */}
