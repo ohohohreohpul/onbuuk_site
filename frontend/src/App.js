@@ -20,6 +20,7 @@ import BlogPost from './components/BlogPost';
 import AdminLogin from './components/admin/AdminLogin';
 import BlogList from './components/admin/BlogList';
 import BlogEditor from './components/admin/BlogEditor';
+import APIKeys from './components/admin/APIKeys';
 
 const HomePage = () => (
   <>
