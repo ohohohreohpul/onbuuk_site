@@ -86,6 +86,30 @@ const categories = ['All', 'Best Practices', 'Revenue Growth', 'Customer Retenti
 const Blog = () => {
   const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [blogPosts, setBlogPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchPosts();
+  }, []);
+
+  const fetchPosts = async () => {
+    try {
+      const response = await axios.get(`${API}/blog/`);
+      if (response.data.posts && response.data.posts.length > 0) {
+        setBlogPosts(response.data.posts);
+      } else {
+        // If no posts from API, use mock data
+        setBlogPosts(mockPosts);
+      }
+    } catch (error) {
+      console.error('Failed to fetch posts:', error);
+      // Fallback to mock data
+      setBlogPosts(mockPosts);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const filteredPosts = selectedCategory === 'All' 
     ? blogPosts 
@@ -93,6 +117,17 @@ const Blog = () => {
 
   const featuredPost = blogPosts.find(post => post.featured);
   const regularPosts = filteredPosts.filter(post => !post.featured);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#14B8A6] mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading blog posts...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-white">
