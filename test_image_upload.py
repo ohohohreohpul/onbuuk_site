@@ -7,7 +7,7 @@ import requests
 import io
 import sys
 
-BACKEND_URL = "https://salon-manage-3.preview.emergentagent.com"
+BACKEND_URL = "https://seo-landing-pages.preview.emergentagent.com"
 API_BASE = f"{BACKEND_URL}/api"
 
 def test_image_upload():
