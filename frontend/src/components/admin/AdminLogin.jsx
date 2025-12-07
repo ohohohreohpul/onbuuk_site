@@ -55,7 +55,7 @@ const AdminLogin = ({ onLogin }) => {
               onChange={(e) => setCredentials({ ...credentials, email: e.target.value })}
               placeholder="Enter your email"
               required
-              className="h-11 border-gray-300"
+              className="h-11 border-gray-300 text-gray-900 bg-white"
             />
           </div>
 
@@ -69,7 +69,7 @@ const AdminLogin = ({ onLogin }) => {
               onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
               placeholder="Enter your password"
               required
-              className="h-11 border-gray-300"
+              className="h-11 border-gray-300 text-gray-900 bg-white"
             />
           </div>
 
