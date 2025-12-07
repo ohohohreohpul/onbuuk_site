@@ -7,7 +7,7 @@ import axios from 'axios';
 import { toast } from 'sonner';
 import AdminSidebar from './AdminSidebar';
 import TipTapEditor from './TipTapEditor';
-import { Upload, X } from 'lucide-react';
+import { Upload, X, Save, Eye, ArrowLeft } from 'lucide-react';
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
@@ -39,6 +39,7 @@ const BlogEditor = ({ onLogout }) => {
 
   const [loading, setLoading] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [charCount, setCharCount] = useState({ title: 0, excerpt: 0 });
 
   useEffect(() => {
     if (isEdit) {
@@ -46,32 +47,23 @@ const BlogEditor = ({ onLogout }) => {
     }
   }, [id]);
 
+  useEffect(() => {
+    setCharCount({
+      title: formData.title.length,
+      excerpt: formData.excerpt.length
+    });
+  }, [formData.title, formData.excerpt]);
+
   const fetchPost = async () => {
     try {
-      const response = await axios.get(`${API}/admin/blog/${id}`);
+      const token = localStorage.getItem('adminToken');
+      const response = await axios.get(`${API}/admin/blog/${id}`, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
       setFormData(response.data);
     } catch (error) {
-      toast.error('Failed to fetch post');
-    }
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-
-    try {
-      if (isEdit) {
-        await axios.put(`${API}/admin/blog/${id}`, formData);
-        toast.success('Post updated successfully');
-      } else {
-        await axios.post(`${API}/admin/blog`, formData);
-        toast.success('Post created successfully');
-      }
-      navigate('/admin/blog');
-    } catch (error) {
-      toast.error('Failed to save post');
-    } finally {
-      setLoading(false);
+      toast.error('Failed to load post');
+      console.error(error);
     }
   };
 
@@ -79,93 +71,242 @@ const BlogEditor = ({ onLogout }) => {
     const file = e.target.files[0];
     if (!file) return;
 
+    if (file.size > 5 * 1024 * 1024) {
+      toast.error('Image size should be less than 5MB');
+      return;
+    }
+
     setUploading(true);
-    const formDataUpload = new FormData();
-    formDataUpload.append('file', file);
+    const formDataObj = new FormData();
+    formDataObj.append('file', file);
 
     try {
-      const response = await axios.post(`${API}/admin/upload`, formDataUpload, {
-        headers: { 'Content-Type': 'multipart/form-data' }
+      const token = localStorage.getItem('adminToken');
+      const response = await axios.post(`${API}/admin/upload`, formDataObj, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          Authorization: `Bearer ${token}`
+        }
       });
       setFormData({ ...formData, image: response.data.url });
       toast.success('Image uploaded successfully');
     } catch (error) {
       toast.error('Failed to upload image');
+      console.error(error);
     } finally {
       setUploading(false);
     }
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    if (!formData.title || !formData.excerpt || !formData.content) {
+      toast.error('Please fill in all required fields');
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const token = localStorage.getItem('adminToken');
+      const config = {
+        headers: { Authorization: `Bearer ${token}` }
+      };
+
+      if (isEdit) {
+        await axios.put(`${API}/admin/blog/${id}`, formData, config);
+        toast.success('Post updated successfully!');
+      } else {
+        await axios.post(`${API}/admin/blog`, formData, config);
+        toast.success('Post created successfully!');
+      }
+      
+      navigate('/admin/blog');
+    } catch (error) {
+      toast.error(isEdit ? 'Failed to update post' : 'Failed to create post');
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleSaveDraft = async () => {
+    const draftData = { ...formData, published: false };
+    setFormData(draftData);
+    
+    setLoading(true);
+    try {
+      const token = localStorage.getItem('adminToken');
+      const config = {
+        headers: { Authorization: `Bearer ${token}` }
+      };
+
+      if (isEdit) {
+        await axios.put(`${API}/admin/blog/${id}`, draftData, config);
+      } else {
+        await axios.post(`${API}/admin/blog`, draftData, config);
+      }
+      toast.success('Draft saved successfully!');
+      navigate('/admin/blog');
+    } catch (error) {
+      toast.error('Failed to save draft');
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <div className="flex min-h-screen bg-[#F5F5F5]">
+    <div className="flex min-h-screen bg-gray-50">
       <AdminSidebar onLogout={onLogout} />
       
-      <div className="ml-60 flex-1 p-8">
-        {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-semibold text-gray-900">
-            {isEdit ? 'Edit Blog Post' : 'Create New Post'}
-          </h1>
-          <p className="text-gray-600 mt-1">
-            {isEdit ? 'Update your blog post' : 'Write and publish a new blog post'}
-          </p>
+      <div className="ml-60 flex-1">
+        {/* Top Bar */}
+        <div className="bg-white border-b border-gray-200 px-8 py-4 sticky top-0 z-10">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-4">
+              <Button
+                variant="ghost"
+                onClick={() => navigate('/admin/blog')}
+                className="flex items-center space-x-2"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                <span>Back to Posts</span>
+              </Button>
+              <div className="h-6 w-px bg-gray-300"></div>
+              <h1 className="text-xl font-bold text-gray-900">
+                {isEdit ? 'Edit Post' : 'Create New Post'}
+              </h1>
+            </div>
+            <div className="flex items-center space-x-3">
+              <Button
+                variant="outline"
+                onClick={handleSaveDraft}
+                disabled={loading}
+                className="flex items-center space-x-2"
+              >
+                <Save className="w-4 h-4" />
+                <span>Save as Draft</span>
+              </Button>
+              <Button
+                onClick={handleSubmit}
+                disabled={loading}
+                className="bg-[#14B8A6] hover:bg-[#0d9488] text-white flex items-center space-x-2"
+              >
+                <Eye className="w-4 h-4" />
+                <span>{loading ? 'Publishing...' : 'Publish'}</span>
+              </Button>
+            </div>
+          </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Main Content */}
-          <div className="bg-white border border-gray-200 p-8">
-            <div className="space-y-6">
+        {/* Main Content */}
+        <div className="p-8">
+          <div className="max-w-4xl mx-auto">
+            <form onSubmit={handleSubmit} className="space-y-6">
               {/* Title */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-semibold text-gray-900 mb-2">
                   Title *
                 </label>
                 <Input
+                  type="text"
+                  required
                   value={formData.title}
                   onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                  placeholder="Enter post title"
-                  required
-                  className="h-11 border-gray-300"
+                  placeholder="Enter your blog post title..."
+                  className="text-2xl font-bold h-14 border-2"
                 />
+                <p className="text-xs text-gray-500 mt-1">{charCount.title} / 100 characters (optimal: 50-60)</p>
               </div>
 
               {/* Excerpt */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Excerpt *
+                <label className="block text-sm font-semibold text-gray-900 mb-2">
+                  Excerpt / Meta Description *
                 </label>
                 <Textarea
+                  required
                   value={formData.excerpt}
                   onChange={(e) => setFormData({ ...formData, excerpt: e.target.value })}
-                  placeholder="Brief description of the post"
-                  required
+                  placeholder="Write a brief summary that will appear in search results and blog listings..."
                   rows={3}
-                  className="border-gray-300"
+                  className="resize-none border-2"
                 />
+                <p className="text-xs text-gray-500 mt-1">{charCount.excerpt} / 160 characters (optimal: 150-160)</p>
+              </div>
+
+              {/* Featured Image */}
+              <div>
+                <label className="block text-sm font-semibold text-gray-900 mb-2">
+                  Featured Image
+                </label>
+                <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 hover:border-[#14B8A6] transition-colors">
+                  {formData.image ? (
+                    <div className="relative">
+                      <img
+                        src={formData.image}
+                        alt="Preview"
+                        className="w-full h-64 object-cover rounded-lg"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => setFormData({ ...formData, image: '' })}
+                        className="absolute top-2 right-2 bg-red-500 text-white p-2 rounded-full hover:bg-red-600"
+                      >
+                        <X className="w-4 h-4" />
+                      </button>
+                    </div>
+                  ) : (
+                    <div className="text-center">
+                      <Upload className="w-12 h-12 text-gray-400 mx-auto mb-4" />
+                      <p className="text-sm text-gray-600 mb-2">Click to upload or drag and drop</p>
+                      <p className="text-xs text-gray-500">PNG, JPG up to 5MB</p>
+                      <input
+                        ref={fileInputRef}
+                        type="file"
+                        accept="image/*"
+                        onChange={handleImageUpload}
+                        className="hidden"
+                      />
+                      <Button
+                        type="button"
+                        onClick={() => fileInputRef.current?.click()}
+                        disabled={uploading}
+                        className="mt-4"
+                      >
+                        {uploading ? 'Uploading...' : 'Choose Image'}
+                      </Button>
+                    </div>
+                  )}
+                </div>
               </div>
 
               {/* Content Editor */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-semibold text-gray-900 mb-2">
                   Content *
                 </label>
-                <TipTapEditor
-                  content={formData.content}
-                  onChange={(value) => setFormData({ ...formData, content: value })}
-                />
+                <div className="bg-white">
+                  <TipTapEditor
+                    content={formData.content}
+                    onChange={(value) => setFormData({ ...formData, content: value })}
+                  />
+                </div>
+                <p className="text-xs text-gray-500 mt-2">💡 Tip: Use headings, lists, and formatting to make your content easy to read</p>
               </div>
 
-              {/* Row: Category & Author */}
+              {/* Metadata Row */}
               <div className="grid grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">
                     Category *
                   </label>
                   <select
+                    required
                     value={formData.category}
                     onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                    className="w-full h-11 border border-gray-300 px-3 bg-white"
-                    required
+                    className="w-full px-3 py-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-[#14B8A6]"
                   >
                     {categories.map((cat) => (
                       <option key={cat} value={cat}>{cat}</option>
@@ -174,127 +315,50 @@ const BlogEditor = ({ onLogout }) => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">
                     Author *
                   </label>
                   <Input
+                    type="text"
+                    required
                     value={formData.author}
                     onChange={(e) => setFormData({ ...formData, author: e.target.value })}
                     placeholder="Author name"
-                    required
-                    className="h-11 border-gray-300"
+                    className="border-2"
                   />
                 </div>
               </div>
 
-              {/* Read Time */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Read Time *
-                </label>
-                <Input
-                  value={formData.readTime}
-                  onChange={(e) => setFormData({ ...formData, readTime: e.target.value })}
-                  placeholder="e.g., 5 min read"
-                  required
-                  className="h-11 border-gray-300"
-                />
-              </div>
+              <div className="grid grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-semibold text-gray-900 mb-2">
+                    Read Time
+                  </label>
+                  <Input
+                    type="text"
+                    value={formData.readTime}
+                    onChange={(e) => setFormData({ ...formData, readTime: e.target.value })}
+                    placeholder="e.g., 5 min"
+                    className="border-2"
+                  />
+                </div>
 
-              {/* Featured Image */}
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Featured Image
-                </label>
-                
-                {formData.image ? (
-                  <div className="relative border border-gray-300 p-4">
-                    <img 
-                      src={formData.image} 
-                      alt="Preview" 
-                      className="w-full h-64 object-cover"
-                    />
-                    <button
-                      type="button"
-                      onClick={() => setFormData({ ...formData, image: '' })}
-                      className="absolute top-6 right-6 bg-red-600 text-white p-2 hover:bg-red-700"
-                    >
-                      <X className="w-4 h-4" />
-                    </button>
-                  </div>
-                ) : (
-                  <div className="border-2 border-dashed border-gray-300 p-8 text-center">
-                    <Upload className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-                    <input
-                      ref={fileInputRef}
-                      type="file"
-                      onChange={handleImageUpload}
-                      accept="image/*"
-                      className="hidden"
-                    />
-                    <Button
-                      type="button"
-                      onClick={() => fileInputRef.current.click()}
-                      disabled={uploading}
-                      className="bg-black hover:bg-gray-800 text-white"
-                    >
-                      {uploading ? 'Uploading...' : 'Choose Image'}
-                    </Button>
-                    <p className="text-sm text-gray-500 mt-2">
-                      PNG, JPG up to 5MB
-                    </p>
-                  </div>
-                )}
-              </div>
-
-              {/* Checkboxes */}
-              <div className="space-y-3">
-                <label className="flex items-center space-x-3">
+                <div className="flex items-center space-x-2 pt-8">
                   <input
                     type="checkbox"
+                    id="featured"
                     checked={formData.featured}
                     onChange={(e) => setFormData({ ...formData, featured: e.target.checked })}
-                    className="w-5 h-5 border-gray-300"
+                    className="w-4 h-4 text-[#14B8A6] border-gray-300 rounded focus:ring-[#14B8A6]"
                   />
-                  <span className="text-sm font-medium text-gray-700">
-                    Featured Post
-                  </span>
-                </label>
-
-                <label className="flex items-center space-x-3">
-                  <input
-                    type="checkbox"
-                    checked={formData.published}
-                    onChange={(e) => setFormData({ ...formData, published: e.target.checked })}
-                    className="w-5 h-5 border-gray-300"
-                  />
-                  <span className="text-sm font-medium text-gray-700">
-                    Published
-                  </span>
-                </label>
+                  <label htmlFor="featured" className="text-sm font-medium text-gray-900">
+                    Mark as Featured Post
+                  </label>
+                </div>
               </div>
-            </div>
+            </form>
           </div>
-
-          {/* Actions */}
-          <div className="flex items-center justify-end space-x-4">
-            <Button
-              type="button"
-              onClick={() => navigate('/admin/blog')}
-              variant="outline"
-              className="h-11 px-6 border-gray-300"
-            >
-              Cancel
-            </Button>
-            <Button
-              type="submit"
-              disabled={loading}
-              className="bg-black hover:bg-gray-800 text-white h-11 px-6"
-            >
-              {loading ? 'Saving...' : (isEdit ? 'Update Post' : 'Create Post')}
-            </Button>
-          </div>
-        </form>
+        </div>
       </div>
     </div>
   );
