@@ -35,7 +35,7 @@ const CalendarScheduling = () => {
           <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">Powerful Calendar Features</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-gray-50 border-2 border-gray-200 p-8 rounded-xl">
-              <Sync className="w-12 h-12 text-[#14B8A6] mb-4" />
+              <RefreshCw className="w-12 h-12 text-[#14B8A6] mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Google Calendar Sync</h3>
               <p className="text-gray-600">Two-way sync with Google Calendar keeps your schedule updated across all platforms.</p>
             </div>
