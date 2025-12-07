@@ -284,11 +284,24 @@ const BlogPost = () => {
         </div>
       </section>
 
+      {/* Featured Image */}
+      {post.image && (
+        <section className="py-8 bg-white">
+          <div className="max-w-5xl mx-auto px-6 lg:px-12">
+            <img 
+              src={post.image} 
+              alt={post.title}
+              className="w-full h-96 object-cover rounded-xl shadow-lg"
+            />
+          </div>
+        </section>
+      )}
+
       {/* Article Content */}
-      <article className="py-16">
+      <article className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-6 lg:px-12">
           <div 
-            className="prose prose-lg max-w-none"
+            className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-a:text-[#14B8A6] prose-strong:text-gray-900 prose-li:text-gray-700"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
         </div>
