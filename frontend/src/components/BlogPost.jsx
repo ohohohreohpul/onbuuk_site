@@ -328,12 +328,12 @@ const BlogPost = () => {
             Ready to Grow Your Business?
           </h2>
           <p className="text-xl text-white/90 mb-8">
-            Start your 14-day free trial and see how buuk can help
+            Start for free and see how buuk can help your salon grow
           </p>
           <Button 
             size="lg" 
             onClick={() => window.location.href = 'https://app.onbuuk.com'}
-            className="bg-white text-[#14B8A6] hover:bg-gray-100 font-medium px-8 h-14 text-base"
+            className="bg-white text-[#14B8A6] hover:bg-gray-100 font-semibold px-8 h-14 text-base shadow-lg"
           >
             Start Free Trial
           </Button>
