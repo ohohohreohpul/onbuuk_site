@@ -77,6 +77,12 @@ function App() {
           <Route path="/" element={<PublicLayout><HomePage /></PublicLayout>} />
           <Route path="/blog" element={<PublicLayout><Blog /></PublicLayout>} />
           <Route path="/blog/:slug" element={<PublicLayout><BlogPost /></PublicLayout>} />
+          
+          {/* Solutions Routes */}
+          <Route path="/solutions/booking-management-software" element={<PublicLayout><BookingManagement /></PublicLayout>} />
+          <Route path="/solutions/appointment-booking-software" element={<PublicLayout><AppointmentBooking /></PublicLayout>} />
+          <Route path="/solutions/calendar-scheduling-app" element={<PublicLayout><CalendarScheduling /></PublicLayout>} />
+          <Route path="/solutions/salon-booking-apps" element={<PublicLayout><SalonBooking /></PublicLayout>} />
 
           {/* Admin Routes */}
           <Route path="/admin/login" element={<AdminLogin onLogin={handleLogin} />} />
