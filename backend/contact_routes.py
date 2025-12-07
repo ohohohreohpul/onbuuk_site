@@ -3,7 +3,7 @@ from pydantic import BaseModel, EmailStr
 from datetime import datetime, timezone
 from typing import Optional
 
-contact_router = APIRouter()
+contact_router = APIRouter(prefix='/api', tags=['contact'])
 
 
 class ContactFormSubmission(BaseModel):
