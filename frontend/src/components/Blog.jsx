@@ -245,13 +245,21 @@ const Blog = () => {
                 className="bg-white border-2 border-gray-200 hover:border-[#14B8A6] transition-all duration-300 cursor-pointer group"
               >
                 {/* Image */}
-                <div className="h-48 bg-gray-200 relative overflow-hidden">
-                  <img 
-                    src={post.image} 
-                    alt={post.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-[#14B8A6] opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                <div className="h-48 relative overflow-hidden">
+                  {post.image ? (
+                    <>
+                      <img 
+                        src={post.image} 
+                        alt={post.title}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-[#14B8A6] opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                    </>
+                  ) : (
+                    <div className="w-full h-full bg-gradient-to-br from-[#14B8A6] to-[#0d9488] flex items-center justify-center">
+                      <span className="text-white text-4xl font-bold opacity-20">buuk</span>
+                    </div>
+                  )}
                 </div>
                 
                 {/* Content */}
