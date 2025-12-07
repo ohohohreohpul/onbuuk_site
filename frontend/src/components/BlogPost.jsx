@@ -341,33 +341,48 @@ const BlogPost = () => {
       </section>
 
       {/* Related Posts */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Related Articles</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {blogPosts.filter(p => p.id !== post.id).slice(0, 3).map((relatedPost) => (
-              <div 
-                key={relatedPost.id}
-                onClick={() => navigate(`/blog/${relatedPost.slug}`)}
-                className="bg-white border-2 border-gray-200 hover:border-[#14B8A6] transition-all duration-300 cursor-pointer group"
-              >
-                <div className="h-48 bg-gray-200"></div>
-                <div className="p-6">
-                  <span className="text-xs font-medium text-[#14B8A6] border border-[#14B8A6] px-2 py-1">
-                    {relatedPost.category}
-                  </span>
-                  <h3 className="text-lg font-bold text-gray-900 mt-3 mb-2 group-hover:text-[#14B8A6] transition-colors line-clamp-2">
-                    {relatedPost.title}
-                  </h3>
-                  <p className="text-sm text-gray-600 line-clamp-2">
-                    {relatedPost.excerpt}
-                  </p>
+      {relatedPosts.length > 0 && (
+        <section className="py-16 bg-white">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8">Related Articles</h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              {relatedPosts.map((relatedPost) => (
+                <div 
+                  key={relatedPost.id || relatedPost.slug}
+                  onClick={() => {
+                    navigate(`/blog/${relatedPost.slug}`);
+                    window.scrollTo(0, 0);
+                  }}
+                  className="bg-white border-2 border-gray-200 rounded-xl hover:border-[#14B8A6] hover:shadow-xl transition-all duration-300 cursor-pointer group overflow-hidden"
+                >
+                  {relatedPost.image ? (
+                    <img 
+                      src={relatedPost.image} 
+                      alt={relatedPost.title}
+                      className="w-full h-48 object-cover"
+                    />
+                  ) : (
+                    <div className="h-48 bg-gradient-to-br from-[#14B8A6] to-[#0d9488] flex items-center justify-center">
+                      <span className="text-white text-4xl font-bold opacity-20">buuk</span>
+                    </div>
+                  )}
+                  <div className="p-6">
+                    <span className="text-xs font-medium text-[#14B8A6] border border-[#14B8A6] px-2 py-1 rounded">
+                      {relatedPost.category}
+                    </span>
+                    <h3 className="text-lg font-bold text-gray-900 mt-3 mb-2 group-hover:text-[#14B8A6] transition-colors line-clamp-2">
+                      {relatedPost.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 line-clamp-2">
+                      {relatedPost.excerpt}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
     </div>
   );
 };
