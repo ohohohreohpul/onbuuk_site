@@ -96,17 +96,6 @@ const BlogEditor = ({ onLogout }) => {
     }
   };
 
-  const modules = {
-    toolbar: [
-      [{ 'header': [1, 2, 3, false] }],
-      ['bold', 'italic', 'underline', 'strike'],
-      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-      ['blockquote', 'code-block'],
-      ['link'],
-      ['clean']
-    ],
-  };
-
   return (
     <div className="flex min-h-screen bg-[#F5F5F5]">
       <AdminSidebar onLogout={onLogout} />
