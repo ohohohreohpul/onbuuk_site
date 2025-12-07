@@ -101,6 +101,14 @@ function App() {
             }
           />
           <Route
+            path="/admin/api-keys"
+            element={
+              <ProtectedRoute>
+                <APIKeys onLogout={handleLogout} />
+              </ProtectedRoute>
+            }
+          />
+          <Route
             path="/admin/blog/edit/:id"
             element={
               <ProtectedRoute>
