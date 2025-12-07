@@ -276,7 +276,7 @@ const BlogPost = () => {
               </div>
             </div>
             
-            <Button variant="outline" className="border-2 border-gray-200 hover:border-[#14B8A6]">
+            <Button variant="outline" className="border-2 border-gray-300 hover:border-[#14B8A6] text-gray-900 hover:text-[#14B8A6] bg-white">
               <Share2 className="w-4 h-4 mr-2" />
               Share
             </Button>
