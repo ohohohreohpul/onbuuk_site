@@ -183,8 +183,37 @@ const mockPosts = [
 const BlogPost = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
-  
-  const post = blogPosts.find(p => p.slug === slug);
+  const [post, setPost] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchPost();
+  }, [slug]);
+
+  const fetchPost = async () => {
+    try {
+      const response = await axios.get(`${API}/blog/${slug}`);
+      setPost(response.data);
+    } catch (error) {
+      console.error('Failed to fetch post:', error);
+      // Fallback to mock data
+      const mockPost = mockPosts.find(p => p.slug === slug);
+      setPost(mockPost);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-white flex items-center justify-center pt-32">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#14B8A6] mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading post...</p>
+        </div>
+      </div>
+    );
+  }
 
   if (!post) {
     return (
