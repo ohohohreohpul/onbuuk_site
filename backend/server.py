@@ -10,6 +10,7 @@ from typing import List
 import uuid
 from datetime import datetime, timezone
 from blog_routes import blog_router, admin_router
+from api_key_routes import api_key_router
 
 
 ROOT_DIR = Path(__file__).parent
