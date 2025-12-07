@@ -14,24 +14,40 @@ const CTA = () => {
   });
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     
-    // Mock form submission
-    console.log('Form submitted:', formData);
-    toast.success('Thanks! We\'ll contact you shortly.');
-    
-    // Reset form
-    setTimeout(() => {
-      setFormData({
-        name: '',
-        email: '',
-        businessName: '',
-        message: ''
+    try {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       });
+      
+      const data = await response.json();
+      
+      if (response.ok && data.success) {
+        toast.success(data.message || 'Thanks! We\'ll contact you shortly.');
+        
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          businessName: '',
+          message: ''
+        });
+      } else {
+        toast.error(data.detail || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      toast.error('Failed to submit form. Please try again later.');
+    } finally {
       setLoading(false);
-    }, 1000);
+    }
   };
 
   const handleChange = (e) => {
