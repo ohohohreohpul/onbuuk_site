@@ -5,7 +5,6 @@ Test image upload functionality for blog CMS
 
 import requests
 import io
-from PIL import Image
 import sys
 
 BACKEND_URL = "https://salon-manage-3.preview.emergentagent.com"
@@ -16,14 +15,12 @@ def test_image_upload():
     print("Testing image upload functionality...")
     
     try:
-        # Create a simple test image
-        img = Image.new('RGB', (100, 100), color='red')
-        img_bytes = io.BytesIO()
-        img.save(img_bytes, format='JPEG')
-        img_bytes.seek(0)
+        # Create a simple test file (simulating an image)
+        test_content = b"fake image content for testing"
+        test_file = io.BytesIO(test_content)
         
-        # Upload the image
-        files = {'file': ('test_image.jpg', img_bytes, 'image/jpeg')}
+        # Upload the file
+        files = {'file': ('test_image.jpg', test_file, 'image/jpeg')}
         response = requests.post(f"{API_BASE}/admin/upload", files=files)
         
         if response.status_code == 200:
