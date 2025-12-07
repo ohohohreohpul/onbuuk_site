@@ -66,6 +66,42 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
+            {/* Solutions Dropdown */}
+            <div 
+              className="relative"
+              onMouseEnter={() => setIsSolutionsOpen(true)}
+              onMouseLeave={() => setIsSolutionsOpen(false)}
+            >
+              <button className="text-sm text-gray-600 hover:text-gray-900 transition-colors flex items-center space-x-1">
+                <span>Solutions</span>
+                <ChevronDown size={16} className={`transition-transform ${isSolutionsOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {isSolutionsOpen && (
+                <div className="absolute top-full left-0 mt-2 w-[420px] bg-white border border-gray-200 rounded-xl shadow-xl p-4 z-50">
+                  <div className="space-y-2">
+                    {solutions.map((solution, index) => (
+                      <button
+                        key={index}
+                        onClick={() => {
+                          navigate(solution.path);
+                          setIsSolutionsOpen(false);
+                        }}
+                        className="w-full text-left p-3 rounded-lg hover:bg-gray-50 transition-colors group"
+                      >
+                        <div className="font-semibold text-gray-900 text-sm mb-1 group-hover:text-[#14B8A6]">
+                          {solution.title}
+                        </div>
+                        <div className="text-xs text-gray-600">
+                          {solution.description}
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+            
             <button onClick={() => handleNavigation('features')} className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
               Features
             </button>
