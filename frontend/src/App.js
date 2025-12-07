@@ -21,6 +21,10 @@ import AdminLogin from './components/admin/AdminLogin';
 import BlogList from './components/admin/BlogList';
 import BlogEditor from './components/admin/BlogEditor';
 import APIKeys from './components/admin/APIKeys';
+import BookingManagement from './components/solutions/BookingManagement';
+import AppointmentBooking from './components/solutions/AppointmentBooking';
+import CalendarScheduling from './components/solutions/CalendarScheduling';
+import SalonBooking from './components/solutions/SalonBooking';
 
 const HomePage = () => (
   <>
