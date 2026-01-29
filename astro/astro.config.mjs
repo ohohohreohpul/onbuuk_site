@@ -1,10 +1,14 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
+import node from '@astrojs/node';
 
 export default defineConfig({
   site: 'https://onbuuk.com',
-  output: 'static',
+  output: 'hybrid',  // Hybrid mode: static by default, SSR for specific pages
+  adapter: node({
+    mode: 'standalone'
+  }),
   integrations: [
     tailwind(),
     sitemap({
