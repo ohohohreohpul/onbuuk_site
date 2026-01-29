@@ -5,12 +5,17 @@ export async function getStaticPaths() {
   const apiUrl = import.meta.env.API_URL || 'https://coded-astro-boost.preview.emergentagent.com';
   
   try {
-    const response = await fetch(`${apiUrl}/api/blog`);
+    const response = await fetch(`${apiUrl}/api/blog/`);
     if (!response.ok) {
       return [];
     }
     
-    const posts = await response.json();
+    const data = await response.json();
+    const posts = data.posts || data || [];
+    
+    if (!Array.isArray(posts)) {
+      return [];
+    }
     
     return posts.map((post: any) => ({
       params: { slug: post.slug },
