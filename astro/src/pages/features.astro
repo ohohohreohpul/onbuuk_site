@@ -1,128 +1,103 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const features = [
+  { icon: 'calendar', title: 'Online Scheduling', description: 'Let your customers book appointments 24/7 from your website, social media, or dedicated booking page.', items: ['Real-time availability', 'Multi-service booking', 'Custom booking forms'] },
+  { icon: 'bell', title: 'Automated Reminders', description: 'Reduce no-shows by up to 90% with automated SMS and email reminders.', items: ['SMS notifications', 'Email reminders', 'Custom timing'] },
+  { icon: 'users', title: 'Team Management', description: 'Manage multiple staff members, their schedules, and services all in one place.', items: ['Individual calendars', 'Service assignments', 'Break time management'] },
+  { icon: 'credit-card', title: 'Payment Processing', description: 'Accept payments securely during booking with Stripe integration.', items: ['Secure online payments', 'Deposit collection', 'No-show fees'] },
+  { icon: 'sync', title: 'Calendar Sync', description: 'Sync with Google Calendar and Outlook to keep all your appointments in one place.', items: ['Google Calendar sync', 'Outlook integration', 'Two-way sync'] },
+  { icon: 'chart', title: 'Analytics & Reports', description: 'Get detailed insights into your business performance with comprehensive reports.', items: ['Revenue tracking', 'Customer insights', 'Staff performance'] },
+];
 ---
 
 <BaseLayout
-  title="Features - Buuk Appointment Booking"
+  title="Features - Buuk Appointment Booking Software"
   description="Discover all the powerful features that make Buuk the best appointment booking platform for salons, spas, and service businesses."
   currentPage="features"
 >
-  <main>
+  <main class="pt-16">
     <!-- Hero Section -->
-    <section style="padding: 6rem 1rem 4rem; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);">
-      <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
-        <h1 style="font-size: 3rem; font-weight: 700; color: #0f172a; margin-bottom: 1rem;">
+    <section class="py-20 px-6 lg:px-24 bg-gradient-to-br from-gray-50 to-gray-100">
+      <div class="max-w-7xl mx-auto text-center">
+        <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
           Powerful Features for Modern Businesses
         </h1>
-        <p style="font-size: 1.25rem; color: #64748b; max-width: 600px; margin: 0 auto;">
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
           Everything you need to manage appointments and grow your business
         </p>
       </div>
     </section>
 
     <!-- Features Grid -->
-    <section style="padding: 5rem 1rem;">
-      <div style="max-width: 1200px; margin: 0 auto;">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
-          
-          <!-- Online Scheduling -->
-          <div style="padding: 2rem; background: white; border: 2px solid #e2e8f0; border-radius: 16px;">
-            <div style="width: 64px; height: 64px; background: #14B8A6; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
-              <span style="color: white; font-size: 2rem;">📅</span>
+    <section class="py-20 px-6 lg:px-24">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature) => (
+            <div class="bg-white border-2 border-gray-200 rounded-2xl p-8 hover:border-primary hover:shadow-xl transition-all duration-300">
+              <div class="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center mb-6">
+                {feature.icon === 'calendar' && (
+                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                )}
+                {feature.icon === 'bell' && (
+                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                  </svg>
+                )}
+                {feature.icon === 'users' && (
+                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                  </svg>
+                )}
+                {feature.icon === 'credit-card' && (
+                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                  </svg>
+                )}
+                {feature.icon === 'sync' && (
+                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                  </svg>
+                )}
+                {feature.icon === 'chart' && (
+                  <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                  </svg>
+                )}
+              </div>
+              <h3 class="text-xl font-bold text-gray-900 mb-3">{feature.title}</h3>
+              <p class="text-gray-600 mb-4 leading-relaxed">{feature.description}</p>
+              <ul class="space-y-2">
+                {feature.items.map((item) => (
+                  <li class="flex items-center text-sm text-gray-600">
+                    <svg class="w-4 h-4 text-primary mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
             </div>
-            <h3 style="font-size: 1.5rem; font-weight: 700; color: #0f172a; margin-bottom: 1rem;">Online Scheduling</h3>
-            <p style="color: #64748b; line-height: 1.7; margin-bottom: 1rem;">Let your customers book appointments 24/7 from your website, social media, or dedicated booking page.</p>
-            <ul style="color: #64748b; line-height: 2; padding-left: 1.5rem;">
-              <li>Real-time availability</li>
-              <li>Multi-service booking</li>
-              <li>Custom booking forms</li>
-            </ul>
-          </div>
-
-          <!-- Automated Reminders -->
-          <div style="padding: 2rem; background: white; border: 2px solid #e2e8f0; border-radius: 16px;">
-            <div style="width: 64px; height: 64px; background: #A4D23E; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
-              <span style="color: #0f172a; font-size: 2rem;">🔔</span>
-            </div>
-            <h3 style="font-size: 1.5rem; font-weight: 700; color: #0f172a; margin-bottom: 1rem;">Automated Reminders</h3>
-            <p style="color: #64748b; line-height: 1.7; margin-bottom: 1rem;">Reduce no-shows by up to 90% with automated SMS and email reminders.</p>
-            <ul style="color: #64748b; line-height: 2; padding-left: 1.5rem;">
-              <li>SMS notifications</li>
-              <li>Email reminders</li>
-              <li>Custom timing</li>
-            </ul>
-          </div>
-
-          <!-- Team Management -->
-          <div style="padding: 2rem; background: white; border: 2px solid #e2e8f0; border-radius: 16px;">
-            <div style="width: 64px; height: 64px; background: #14B8A6; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
-              <span style="color: white; font-size: 2rem;">👥</span>
-            </div>
-            <h3 style="font-size: 1.5rem; font-weight: 700; color: #0f172a; margin-bottom: 1rem;">Team Management</h3>
-            <p style="color: #64748b; line-height: 1.7; margin-bottom: 1rem;">Manage multiple staff members, their schedules, and services all in one place.</p>
-            <ul style="color: #64748b; line-height: 2; padding-left: 1.5rem;">
-              <li>Individual calendars</li>
-              <li>Service assignments</li>
-              <li>Break time management</li>
-            </ul>
-          </div>
-
-          <!-- Payment Processing -->
-          <div style="padding: 2rem; background: white; border: 2px solid #e2e8f0; border-radius: 16px;">
-            <div style="width: 64px; height: 64px; background: #14B8A6; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
-              <span style="color: white; font-size: 2rem;">💳</span>
-            </div>
-            <h3 style="font-size: 1.5rem; font-weight: 700; color: #0f172a; margin-bottom: 1rem;">Payment Processing</h3>
-            <p style="color: #64748b; line-height: 1.7; margin-bottom: 1rem;">Accept payments securely during booking with Stripe integration.</p>
-            <ul style="color: #64748b; line-height: 2; padding-left: 1.5rem;">
-              <li>Secure online payments</li>
-              <li>Deposit collection</li>
-              <li>No-show fees</li>
-            </ul>
-          </div>
-
-          <!-- Calendar Sync -->
-          <div style="padding: 2rem; background: white; border: 2px solid #e2e8f0; border-radius: 16px;">
-            <div style="width: 64px; height: 64px; background: #A4D23E; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
-              <span style="color: #0f172a; font-size: 2rem;">🔄</span>
-            </div>
-            <h3 style="font-size: 1.5rem; font-weight: 700; color: #0f172a; margin-bottom: 1rem;">Calendar Sync</h3>
-            <p style="color: #64748b; line-height: 1.7; margin-bottom: 1rem;">Sync with Google Calendar and Outlook to keep all your appointments in one place.</p>
-            <ul style="color: #64748b; line-height: 2; padding-left: 1.5rem;">
-              <li>Google Calendar sync</li>
-              <li>Outlook integration</li>
-              <li>Two-way sync</li>
-            </ul>
-          </div>
-
-          <!-- Analytics -->
-          <div style="padding: 2rem; background: white; border: 2px solid #e2e8f0; border-radius: 16px;">
-            <div style="width: 64px; height: 64px; background: #14B8A6; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
-              <span style="color: white; font-size: 2rem;">📊</span>
-            </div>
-            <h3 style="font-size: 1.5rem; font-weight: 700; color: #0f172a; margin-bottom: 1rem;">Analytics & Reports</h3>
-            <p style="color: #64748b; line-height: 1.7; margin-bottom: 1rem;">Get detailed insights into your business performance with comprehensive reports.</p>
-            <ul style="color: #64748b; line-height: 2; padding-left: 1.5rem;">
-              <li>Revenue tracking</li>
-              <li>Customer insights</li>
-              <li>Staff performance</li>
-            </ul>
-          </div>
-
+          ))}
         </div>
       </div>
     </section>
 
     <!-- CTA Section -->
-    <section style="padding: 5rem 1rem; background: #14B8A6; color: white; text-align: center;">
-      <div style="max-width: 800px; margin: 0 auto;">
-        <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">
+    <section class="py-20 px-6 lg:px-24 bg-primary text-white text-center">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl lg:text-4xl font-bold mb-6">
           Ready to try these features?
         </h2>
-        <p style="font-size: 1.125rem; opacity: 0.95; margin-bottom: 2rem;">
+        <p class="text-lg opacity-95 mb-8">
           Start your free trial today. No credit card required.
         </p>
-        <a href="https://app.onbuuk.com" style="display: inline-block; padding: 1rem 2rem; background: white; color: #14B8A6; font-weight: 600; border-radius: 8px; text-decoration: none;">
+        <a 
+          href="https://app.onbuuk.com"
+          class="inline-block bg-white text-primary font-semibold px-8 py-4 rounded-lg hover:shadow-lg transition-all"
+        >
           Start Free Trial →
         </a>
       </div>
