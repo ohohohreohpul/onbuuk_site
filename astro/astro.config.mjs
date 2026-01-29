@@ -13,6 +13,18 @@ export default defineConfig({
       lastmod: new Date(),
     }),
   ],
+  image: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.pexels.com',
+      },
+    ],
+  },
   vite: {
     ssr: {
       external: ['path']

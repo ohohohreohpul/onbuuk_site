@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 const appointments = [
   { name: 'Emma Wilson', service: 'Haircut & Styling', time: '9:00 AM', status: 'Confirmed', color: 'from-blue-500 to-blue-600', image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80' },
   { name: 'James Miller', service: 'Hair Coloring', time: '10:30 AM', status: 'Confirmed', color: 'from-purple-500 to-purple-600', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80' },
@@ -35,10 +37,15 @@ const stats = [
       <!-- Left: Showcase Image -->
       <div class="animate-on-scroll-left">
         <div class="relative rounded-2xl overflow-hidden shadow-2xl">
-          <img 
-            src="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?w=800&q=80" 
+          <Image
+            src="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?w=800&q=80"
             alt="Salon professional at work"
+            width={800}
+            height={350}
+            format="webp"
+            quality={80}
             class="w-full h-[350px] object-cover"
+            loading="lazy"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
           <div class="absolute bottom-6 left-6 text-white">
@@ -106,10 +113,15 @@ const stats = [
           {appointments.map((appointment, idx) => (
             <div class={`flex items-center justify-between p-4 bg-white border border-gray-200 rounded-xl transition-all duration-300 hover:border-primary hover:shadow-lg hover:-translate-y-0.5 cursor-pointer animate-on-scroll stagger-${idx + 1}`}>
               <div class="flex items-center space-x-4 flex-1">
-                <img 
-                  src={appointment.image} 
+                <Image
+                  src={appointment.image}
                   alt={appointment.name}
+                  width={48}
+                  height={48}
+                  format="webp"
+                  quality={80}
                   class="w-12 h-12 rounded-xl object-cover border-2 border-gray-200"
+                  loading="lazy"
                 />
                 <div class="flex-1">
                   <p class="font-semibold text-gray-900">{appointment.name}</p>
@@ -120,8 +132,8 @@ const stats = [
                 </div>
               </div>
               <span class={`text-xs font-semibold px-4 py-1.5 rounded-full ${
-                appointment.status === 'Confirmed' 
-                  ? 'text-primary bg-primary/10 border border-primary' 
+                appointment.status === 'Confirmed'
+                  ? 'text-primary bg-primary/10 border border-primary'
                   : 'text-yellow-600 bg-yellow-50 border border-yellow-400'
               }`}>
                 {appointment.status}

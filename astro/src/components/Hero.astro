@@ -1,5 +1,5 @@
 ---
-// Hero component with images and animated calendar demo
+import { Image } from 'astro:assets';
 ---
 
 <section class="relative pt-32 pb-24 px-6 lg:px-24 bg-white overflow-hidden">
@@ -27,8 +27,8 @@
         </div>
 
         <h1 class="text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-          Booking software
-          <br /><span class="text-gradient-animate">that actually works</span>
+          Buuk: The All-in-One
+          <br /><span class="text-gradient-animate">Salon & Spa Booking Software</span>
         </h1>
 
         <p class="text-xl text-gray-600 mb-8 leading-relaxed">
@@ -65,10 +65,15 @@
       <div class="relative animate-on-scroll-right">
         <!-- Main Hero Image -->
         <div class="relative rounded-2xl overflow-hidden shadow-2xl">
-          <img 
-            src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?w=800&q=80" 
+          <Image
+            src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?w=800&q=80"
             alt="Modern salon interior with professional setup"
+            width={800}
+            height={450}
+            format="webp"
+            quality={80}
             class="w-full h-[450px] object-cover"
+            loading="eager"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
         </div>
@@ -91,10 +96,15 @@
         <!-- Floating Appointment Card -->
         <div class="absolute -bottom-4 -left-4 bg-white/95 backdrop-blur-sm border-2 border-gray-200 rounded-xl p-4 shadow-xl z-20 animate-float-delay max-w-[280px]">
           <div class="flex items-center space-x-3 mb-3">
-            <img 
-              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" 
+            <Image
+              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80"
               alt="Client"
+              width={40}
+              height={40}
+              format="webp"
+              quality={80}
               class="w-10 h-10 rounded-full object-cover border-2 border-primary"
+              loading="lazy"
             />
             <div>
               <p class="font-semibold text-gray-900 text-sm">New Booking!</p>
@@ -109,10 +119,15 @@
 
         <!-- Small Floating Image -->
         <div class="absolute top-1/2 -left-8 w-24 h-24 rounded-xl overflow-hidden shadow-lg border-2 border-white animate-float hidden lg:block">
-          <img 
-            src="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?w=200&q=80" 
+          <Image
+            src="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?w=200&q=80"
             alt="Spa treatment"
+            width={96}
+            height={96}
+            format="webp"
+            quality={80}
             class="w-full h-full object-cover"
+            loading="lazy"
           />
         </div>
       </div>
