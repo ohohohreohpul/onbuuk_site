@@ -1,0 +1,20 @@
+{
+  "rewrites": [
+    {
+      "source": "/blog/:slug",
+      "destination": "/blog/post"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/admin",
+      "destination": "https://astro-blog-boost.preview.emergentagent.com/admin/login",
+      "statusCode": 302
+    },
+    {
+      "source": "/admin/:path*",
+      "destination": "https://astro-blog-boost.preview.emergentagent.com/admin/:path*",
+      "statusCode": 302
+    }
+  ]
+}
