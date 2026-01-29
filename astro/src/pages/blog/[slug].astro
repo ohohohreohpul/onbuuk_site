@@ -1,8 +1,16 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
+const backendUrl = import.meta.env.API_URL || 'https://coded-astro-boost.preview.emergentagent.com';
+
+// Helper to get full image URL
+function getImageUrl(image: string | undefined): string | null {
+  if (!image) return null;
+  if (image.startsWith('http')) return image;
+  return `${backendUrl}${image}`;
+}
+
 export async function getStaticPaths() {
-  // Use production API URL - Vercel build doesn't have access to localhost
   const apiUrl = import.meta.env.API_URL || 'https://coded-astro-boost.preview.emergentagent.com';
   
   try {
@@ -22,7 +30,7 @@ export async function getStaticPaths() {
     
     return posts.map((post: any) => ({
       params: { slug: post.slug },
-      props: { post },
+      props: { post, backendUrl: apiUrl },
     }));
   } catch (error) {
     console.warn('Failed to fetch blog posts for static paths:', error);
