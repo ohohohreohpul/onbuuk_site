@@ -115,15 +115,17 @@ const TipTapEditor = ({ content, onChange }) => {
     },
     editorProps: {
       attributes: {
-        class: 'prose prose-sm sm:prose lg:prose-lg xl:prose-xl mx-auto focus:outline-none min-h-[300px] p-4',
+        class: 'prose prose-sm sm:prose lg:prose-lg xl:prose-xl mx-auto focus:outline-none min-h-[300px] p-4 text-gray-900',
       },
     },
   });
 
   return (
-    <div className="border-2 border-gray-200 rounded-lg overflow-hidden">
+    <div className="border-2 border-gray-200 rounded-lg overflow-hidden bg-white">
       <MenuBar editor={editor} />
-      <EditorContent editor={editor} />
+      <div className="bg-white text-gray-900">
+        <EditorContent editor={editor} className="[&_.ProseMirror]:text-gray-900 [&_.ProseMirror]:bg-white [&_.ProseMirror_p]:text-gray-900" />
+      </div>
     </div>
   );
 };
