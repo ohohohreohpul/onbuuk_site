@@ -1,18 +1,15 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
+// For catch-all routes, we need getStaticPaths
+// Return empty array - content is loaded client-side
+export function getStaticPaths() {
+  return [];
+}
+
 // Get the slug from the URL for client-side use
 const { slug } = Astro.params;
-
-// For static build, we need getStaticPaths
-// But we return empty paths since content is loaded client-side
-export function getStaticPaths() {
-  // Return a wildcard path to allow any slug
-  // The actual content is fetched client-side
-  return [
-    { params: { slug: undefined } }
-  ];
-}
+const postSlug = Array.isArray(slug) ? slug.join('/') : slug;
 
 // Define the API URL for client-side fetching
 const backendUrl = 'https://astro-blog-boost.preview.emergentagent.com';
