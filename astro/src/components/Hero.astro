@@ -1,0 +1,141 @@
+---
+// Hero component with animated calendar demo
+---
+
+<section class="relative pt-32 pb-24 px-6 lg:px-24 bg-white overflow-hidden">
+  <!-- Background Grid Pattern -->
+  <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(#14B8A6 1px, transparent 1px), linear-gradient(90deg, #14B8A6 1px, transparent 1px); background-size: 60px 60px;"></div>
+  
+  <div class="max-w-7xl mx-auto relative z-10">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Left: Content -->
+      <div>
+        <div class="inline-flex items-center space-x-2 bg-gray-100 px-3 py-1.5 rounded-full mb-6">
+          <div class="w-2 h-2 rounded-full bg-primary"></div>
+          <span class="text-sm text-gray-700">Built for salons & spas</span>
+        </div>
+
+        <h1 class="text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+          Booking software
+          <br />that actually works
+        </h1>
+
+        <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+          Manage appointments, take payments, and grow your business. All in one beautiful platform.
+        </p>
+
+        <div class="mb-8">
+          <a 
+            href="https://app.onbuuk.com"
+            class="inline-flex items-center bg-primary hover:bg-primary-dark text-white px-8 py-4 text-base rounded-lg font-semibold transition-all shadow-md hover:shadow-lg"
+          >
+            Start for free
+            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="flex flex-wrap gap-6 text-sm text-gray-600">
+          <div class="flex items-center space-x-2">
+            <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+            </svg>
+            <span>Start for free</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+            </svg>
+            <span>No credit card required</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+            </svg>
+            <span>Upgrade anytime</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Calendar Demo -->
+      <div class="relative">
+        <!-- Floating Stats Badge -->
+        <div class="absolute -top-3 -right-3 bg-white border-2 border-gray-200 rounded-xl p-3 shadow-lg z-20">
+          <div class="flex items-center space-x-2">
+            <div class="w-8 h-8 rounded-lg bg-secondary flex items-center justify-center">
+              <svg class="w-4 h-4 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+            </div>
+            <div>
+              <p class="text-xl font-bold text-gray-900">248</p>
+              <p class="text-[10px] text-gray-600">Happy customers</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Calendar Card -->
+        <div class="bg-white border-2 border-gray-200 rounded-xl p-5 shadow-lg max-w-md mx-auto">
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <h3 class="text-base font-bold text-gray-900">December 2024</h3>
+              <p class="text-xs text-gray-600">15 bookings this week</p>
+            </div>
+            <div class="flex items-center space-x-1.5">
+              <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span class="text-xs font-medium text-primary">Live</span>
+            </div>
+          </div>
+
+          <!-- Calendar Grid -->
+          <div class="grid grid-cols-7 gap-1.5 mb-4">
+            {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day) => (
+              <div class="text-center text-xs font-medium text-gray-500">{day}</div>
+            ))}
+            {Array.from({ length: 35 }, (_, i) => {
+              const hasBooking = [8, 9, 10, 14, 15, 16, 17, 21, 22, 23].includes(i);
+              const isToday = i === 10;
+              return (
+                <div
+                  class={`aspect-square flex items-center justify-center text-sm rounded-lg transition-all ${
+                    isToday
+                      ? 'bg-primary text-white font-bold shadow-md'
+                      : hasBooking
+                      ? 'bg-primary/10 text-gray-900 font-medium'
+                      : 'text-gray-600 hover:bg-gray-100'
+                  }`}
+                >
+                  {i + 1}
+                </div>
+              );
+            })}
+          </div>
+
+          <!-- Appointment Card -->
+          <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-lg bg-blue-500 flex items-center justify-center text-white font-bold text-sm">
+                  EW
+                </div>
+                <div>
+                  <p class="font-semibold text-gray-900 text-sm">Emma Wilson</p>
+                  <p class="text-xs text-gray-600">Haircut & Styling</p>
+                </div>
+              </div>
+              <div class="flex flex-col items-end space-y-1">
+                <p class="text-sm font-medium text-gray-900">9:00 AM</p>
+                <span class="text-xs font-medium text-primary bg-primary/10 px-2 py-0.5 rounded">
+                  Confirmed
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
