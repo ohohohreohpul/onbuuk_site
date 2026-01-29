@@ -215,7 +215,7 @@ const BlogEditor = ({ onLogout }) => {
                   value={formData.title}
                   onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                   placeholder="Enter your blog post title..."
-                  className="text-2xl font-bold h-14 border-2"
+                  className="text-2xl font-bold h-14 border-2 text-gray-900 bg-white"
                 />
                 <p className="text-xs text-gray-500 mt-1">{charCount.title} / 100 characters (optimal: 50-60)</p>
               </div>
@@ -231,7 +231,7 @@ const BlogEditor = ({ onLogout }) => {
                   onChange={(e) => setFormData({ ...formData, excerpt: e.target.value })}
                   placeholder="Write a brief summary that will appear in search results and blog listings..."
                   rows={3}
-                  className="resize-none border-2"
+                  className="resize-none border-2 text-gray-900 bg-white"
                 />
                 <p className="text-xs text-gray-500 mt-1">{charCount.excerpt} / 160 characters (optimal: 150-160)</p>
               </div>
@@ -324,7 +324,7 @@ const BlogEditor = ({ onLogout }) => {
                     value={formData.author}
                     onChange={(e) => setFormData({ ...formData, author: e.target.value })}
                     placeholder="Author name"
-                    className="border-2"
+                    className="border-2 text-gray-900 bg-white"
                   />
                 </div>
               </div>
@@ -339,7 +339,7 @@ const BlogEditor = ({ onLogout }) => {
                     value={formData.readTime}
                     onChange={(e) => setFormData({ ...formData, readTime: e.target.value })}
                     placeholder="e.g., 5 min"
-                    className="border-2"
+                    className="border-2 text-gray-900 bg-white"
                   />
                 </div>
 
