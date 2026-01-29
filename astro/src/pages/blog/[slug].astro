@@ -62,7 +62,7 @@ const formatDate = (dateString: string) => {
             </span>
           )}
           <span style="color: #64748b; font-size: 0.875rem;">
-            {formatDate(post.created_at)}
+            {formatDate(post.createdAt || post.created_at || post.date)}
           </span>
           {post.readTime && (
             <span style="color: #64748b; font-size: 0.875rem;">
