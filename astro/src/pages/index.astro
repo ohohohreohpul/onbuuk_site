@@ -5,54 +5,124 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <BaseLayout
   title="Buuk - Appointment Booking Solution"
   description="The easiest way to manage appointments and bookings. Schedule, manage, and scale your business with Buuk."
+  currentPage="home"
 >
-  <header style="padding: 2rem 1rem; border-bottom: 1px solid #e2e8f0;">
-    <div style="max-width: 1200px; margin: 0 auto;">
-      <img src="/buuklogo.png" alt="Buuk Logo" style="height: 50px;" />
-    </div>
-  </header>
-
   <main>
-    <section style="padding: 4rem 1rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-align: center;">
+    <!-- Hero Section -->
+    <section style="padding: 6rem 1rem 4rem; background: linear-gradient(135deg, #14B8A6 0%, #0d9488 100%); color: white; text-align: center;">
       <div style="max-width: 1200px; margin: 0 auto;">
-        <h1 style="font-size: 3.5rem; margin-bottom: 1rem; font-weight: 700;">
-          Schedule Smarter
+        <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 9999px; margin-bottom: 1.5rem;">
+          <span style="width: 8px; height: 8px; background: #A4D23E; border-radius: 50%;"></span>
+          <span style="font-size: 0.875rem;">Built for salons & spas</span>
+        </div>
+        <h1 style="font-size: 3.5rem; margin-bottom: 1.5rem; font-weight: 700; line-height: 1.1;">
+          Booking software<br/>that actually works
         </h1>
-        <p style="font-size: 1.25rem; margin-bottom: 2rem; opacity: 0.95;">
-          The easiest appointment booking platform for businesses of all sizes
+        <p style="font-size: 1.25rem; margin-bottom: 2rem; opacity: 0.95; max-width: 600px; margin-left: auto; margin-right: auto;">
+          Manage appointments, take payments, and grow your business. All in one beautiful platform.
         </p>
-        <a href="#get-started" style="display: inline-block; padding: 1rem 2rem; background: white; color: #667eea; font-weight: 600; border-radius: 8px; cursor: pointer;">
-          Get Started Free
+        <a href="https://app.onbuuk.com" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; background: white; color: #14B8A6; font-weight: 600; border-radius: 8px; text-decoration: none; font-size: 1rem;">
+          Start for free
+          <span>→</span>
         </a>
-      </div>
-    </section>
-
-    <section style="padding: 4rem 1rem;">
-      <div style="max-width: 1200px; margin: 0 auto;">
-        <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 3rem;">
-          Why Choose Buuk?
-        </h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-          <div style="padding: 2rem; background: #f8fafc; border-radius: 8px;">
-            <h3 style="margin-bottom: 1rem; color: #667eea;">Easy Setup</h3>
-            <p>Get started in minutes, not days. No technical knowledge required.</p>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 2rem; font-size: 0.875rem;">
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span style="color: #A4D23E;">✓</span>
+            <span>Start for free</span>
           </div>
-          <div style="padding: 2rem; background: #f8fafc; border-radius: 8px;">
-            <h3 style="margin-bottom: 1rem; color: #667eea;">Powerful Features</h3>
-            <p>Everything you need to manage appointments and grow your business.</p>
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span style="color: #A4D23E;">✓</span>
+            <span>No credit card required</span>
           </div>
-          <div style="padding: 2rem; background: #f8fafc; border-radius: 8px;">
-            <h3 style="margin-bottom: 1rem; color: #667eea;">Always Available</h3>
-            <p>24/7 support and reliability you can count on.</p>
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <span style="color: #A4D23E;">✓</span>
+            <span>Upgrade anytime</span>
           </div>
         </div>
       </div>
     </section>
-  </main>
 
-  <footer style="background: #0f172a; color: white; padding: 2rem 1rem; text-align: center; margin-top: 4rem;">
-    <div style="max-width: 1200px; margin: 0 auto;">
-      <p>&copy; 2024 Buuk. All rights reserved.</p>
-    </div>
-  </footer>
+    <!-- Features Section -->
+    <section id="features" style="padding: 5rem 1rem; background: white;">
+      <div style="max-width: 1200px; margin: 0 auto;">
+        <div style="text-align: center; margin-bottom: 3rem;">
+          <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: #f1f5f9; padding: 0.5rem 1rem; border-radius: 9999px; margin-bottom: 1rem;">
+            <span style="color: #14B8A6;">⚡</span>
+            <span style="font-size: 0.875rem; color: #475569;">Features</span>
+          </div>
+          <h2 style="font-size: 2.5rem; font-weight: 700; color: #0f172a; margin-bottom: 1rem;">
+            Everything you need
+          </h2>
+          <p style="font-size: 1.125rem; color: #64748b; max-width: 600px; margin: 0 auto;">
+            All the tools to streamline appointments and grow your business
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+          <div style="padding: 2rem; background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; transition: all 0.3s;">
+            <div style="width: 56px; height: 56px; background: #14B8A6; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+              <span style="color: white; font-size: 1.5rem;">📅</span>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;">Smart Booking</h3>
+            <p style="color: #64748b; line-height: 1.6;">Real-time availability, automated confirmations, and customer self-service portal.</p>
+          </div>
+
+          <div style="padding: 2rem; background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; transition: all 0.3s;">
+            <div style="width: 56px; height: 56px; background: #A4D23E; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+              <span style="color: #0f172a; font-size: 1.5rem;">🎁</span>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;">Gift Cards & Loyalty</h3>
+            <p style="color: #64748b; line-height: 1.6;">Built-in gift card system and customizable loyalty programs.</p>
+          </div>
+
+          <div style="padding: 2rem; background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; transition: all 0.3s;">
+            <div style="width: 56px; height: 56px; background: #14B8A6; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+              <span style="color: white; font-size: 1.5rem;">👥</span>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;">Customer Portal</h3>
+            <p style="color: #64748b; line-height: 1.6;">Self-service booking, history tracking, and loyalty points.</p>
+          </div>
+
+          <div style="padding: 2rem; background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; transition: all 0.3s;">
+            <div style="width: 56px; height: 56px; background: #14B8A6; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+              <span style="color: white; font-size: 1.5rem;">💳</span>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;">Stripe Payments</h3>
+            <p style="color: #64748b; line-height: 1.6;">Seamless online payments, in-person checkout, and gift card redemption.</p>
+          </div>
+
+          <div style="padding: 2rem; background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; transition: all 0.3s;">
+            <div style="width: 56px; height: 56px; background: #A4D23E; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+              <span style="color: #0f172a; font-size: 1.5rem;">🎨</span>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;">Brand Your Way</h3>
+            <p style="color: #64748b; line-height: 1.6;">Custom colors, logos, and form fields. Make it uniquely yours.</p>
+          </div>
+
+          <div style="padding: 2rem; background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 12px; transition: all 0.3s;">
+            <div style="width: 56px; height: 56px; background: #14B8A6; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+              <span style="color: white; font-size: 1.5rem;">📊</span>
+            </div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;">Analytics & Reports</h3>
+            <p style="color: #64748b; line-height: 1.6;">Get insights into your business performance with detailed reports.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section style="padding: 5rem 1rem; background: #0f172a; color: white; text-align: center;">
+      <div style="max-width: 800px; margin: 0 auto;">
+        <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">
+          Ready to grow your business?
+        </h2>
+        <p style="font-size: 1.125rem; opacity: 0.9; margin-bottom: 2rem;">
+          Join thousands of businesses already using Buuk to manage their appointments.
+        </p>
+        <a href="https://app.onbuuk.com" style="display: inline-block; padding: 1rem 2rem; background: #14B8A6; color: white; font-weight: 600; border-radius: 8px; text-decoration: none;">
+          Get Started Free →
+        </a>
+      </div>
+    </section>
+  </main>
 </BaseLayout>

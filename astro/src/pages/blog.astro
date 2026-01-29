@@ -4,7 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 let posts: any[] = [];
 
 try {
-  const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+  const apiUrl = import.meta.env.API_URL || 'http://localhost:8000';
   const response = await fetch(`${apiUrl}/api/blog`, {
     method: 'GET',
     headers: {
@@ -22,55 +22,81 @@ try {
 ---
 
 <BaseLayout
-  title="Buuk Blog - Tips & Insights"
-  description="Learn best practices for appointment scheduling and business growth with our blog."
+  title="Blog - Buuk Appointment Booking Tips & Insights"
+  description="Learn best practices for appointment scheduling, business growth tips, and industry insights from the Buuk team."
+  currentPage="blog"
 >
-  <header style="padding: 2rem 1rem; border-bottom: 1px solid #e2e8f0;">
-    <div style="max-width: 1200px; margin: 0 auto;">
-      <img src="/buuklogo.png" alt="Buuk Logo" style="height: 50px;" />
-    </div>
-  </header>
+  <main>
+    <!-- Hero Section -->
+    <section style="padding: 6rem 1rem 4rem; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);">
+      <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+        <h1 style="font-size: 3rem; font-weight: 700; color: #0f172a; margin-bottom: 1rem;">
+          Buuk Blog
+        </h1>
+        <p style="font-size: 1.25rem; color: #64748b; max-width: 600px; margin: 0 auto;">
+          Tips, insights, and best practices for appointment scheduling and business growth
+        </p>
+      </div>
+    </section>
 
-  <main style="padding: 2rem 1rem;">
-    <div style="max-width: 1200px; margin: 0 auto;">
-      <h1 style="font-size: 2.5rem; margin-bottom: 2rem;">Blog</h1>
-
-      {posts.length > 0 ? (
-        <div style="display: grid; gap: 2rem;">
-          {posts.map((post: any) => (
-            <article style="padding: 1.5rem; border: 1px solid #e2e8f0; border-radius: 8px;">
-              <h2 style="margin-bottom: 0.5rem;">
-                <a href={`/blog/${post.slug}`}>{post.title}</a>
-              </h2>
-              <p style="color: #64748b; margin-bottom: 1rem;">
-                {new Date(post.created_at).toLocaleDateString()}
-              </p>
-              <p style="margin-bottom: 1rem; line-height: 1.6;">
-                {post.excerpt || post.content.substring(0, 200)}...
-              </p>
-              <a href={`/blog/${post.slug}`} style="color: #2563eb; font-weight: 600;">
-                Read More →
-              </a>
-            </article>
-          ))}
-        </div>
-      ) : (
-        <div style="padding: 2rem; background: #f0f4ff; border-radius: 8px; text-align: center; border: 1px solid #e0e7ff;">
-          <h2 style="margin-bottom: 1rem; color: #667eea;">Coming Soon</h2>
-          <p style="color: #64748b; margin-bottom: 1rem;">
-            Our blog is currently being set up. Check back soon for insights on appointment scheduling and business growth.
-          </p>
-          <a href="/" style="display: inline-block; padding: 0.75rem 1.5rem; background: #667eea; color: white; border-radius: 4px; font-weight: 600;">
-            Back to Home
-          </a>
-        </div>
-      )}
-    </div>
+    <!-- Blog Posts -->
+    <section style="padding: 4rem 1rem;">
+      <div style="max-width: 1000px; margin: 0 auto;">
+        {posts.length > 0 ? (
+          <div style="display: grid; gap: 2rem;">
+            {posts.map((post: any) => (
+              <article style="padding: 2rem; border: 2px solid #e2e8f0; border-radius: 16px; background: white; transition: all 0.3s;">
+                {post.image && (
+                  <img 
+                    src={post.image} 
+                    alt={post.title}
+                    style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 1.5rem;"
+                  />
+                )}
+                <div style="display: flex; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
+                  {post.category && (
+                    <span style="background: #14B8A6; color: white; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600;">
+                      {post.category}
+                    </span>
+                  )}
+                  <span style="color: #64748b; font-size: 0.875rem;">
+                    {new Date(post.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                  </span>
+                  {post.readTime && (
+                    <span style="color: #64748b; font-size: 0.875rem;">
+                      {post.readTime} min read
+                    </span>
+                  )}
+                </div>
+                <h2 style="font-size: 1.5rem; font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;">
+                  <a href={`/blog/${post.slug}`} style="text-decoration: none; color: inherit;">
+                    {post.title}
+                  </a>
+                </h2>
+                <p style="color: #64748b; line-height: 1.7; margin-bottom: 1.5rem;">
+                  {post.excerpt || post.content.substring(0, 200).replace(/<[^>]*>/g, '')}...
+                </p>
+                <a href={`/blog/${post.slug}`} style="color: #14B8A6; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+                  Read More <span>→</span>
+                </a>
+              </article>
+            ))}
+          </div>
+        ) : (
+          <div style="padding: 4rem 2rem; background: linear-gradient(135deg, #f0fdf4 0%, #ecfeff 100%); border-radius: 16px; text-align: center; border: 2px solid #14B8A6;">
+            <div style="width: 80px; height: 80px; background: #14B8A6; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+              <span style="font-size: 2.5rem;">📝</span>
+            </div>
+            <h2 style="font-size: 1.75rem; font-weight: 700; color: #0f172a; margin-bottom: 1rem;">Coming Soon</h2>
+            <p style="color: #64748b; margin-bottom: 2rem; max-width: 400px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+              Our blog is being set up with valuable content about appointment scheduling and business growth. Check back soon!
+            </p>
+            <a href="/" style="display: inline-block; padding: 0.875rem 2rem; background: #14B8A6; color: white; border-radius: 8px; font-weight: 600; text-decoration: none;">
+              Back to Home
+            </a>
+          </div>
+        )}
+      </div>
+    </section>
   </main>
-
-  <footer style="background: #0f172a; color: white; padding: 2rem 1rem; text-align: center; margin-top: 4rem;">
-    <div style="max-width: 1200px; margin: 0 auto;">
-      <p>&copy; 2024 Buuk. All rights reserved.</p>
-    </div>
-  </footer>
 </BaseLayout>

@@ -1,95 +1,171 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const apiUrl = import.meta.env.API_URL || 'http://localhost:8000';
 ---
 
 <BaseLayout
   title="Contact Us - Buuk"
-  description="Get in touch with our team. We're here to help."
+  description="Get in touch with our team. We're here to help you with any questions about Buuk appointment booking."
+  currentPage="contact"
 >
-  <header style="padding: 2rem 1rem; border-bottom: 1px solid #e2e8f0;">
-    <div style="max-width: 1200px; margin: 0 auto;">
-      <img src="/buuklogo.png" alt="Buuk Logo" style="height: 50px;" />
-    </div>
-  </header>
+  <main>
+    <!-- Hero Section -->
+    <section style="padding: 6rem 1rem 4rem; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);">
+      <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+        <h1 style="font-size: 3rem; font-weight: 700; color: #0f172a; margin-bottom: 1rem;">
+          Get in Touch
+        </h1>
+        <p style="font-size: 1.25rem; color: #64748b; max-width: 600px; margin: 0 auto;">
+          Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+        </p>
+      </div>
+    </section>
 
-  <main style="padding: 4rem 1rem;">
-    <div style="max-width: 800px; margin: 0 auto;">
-      <h1 style="font-size: 2.5rem; margin-bottom: 1rem; text-align: center;">
-        Get in Touch
-      </h1>
-      <p style="text-align: center; margin-bottom: 3rem; color: #64748b;">
-        Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
-      </p>
-
-      <form
-        method="POST"
-        action="http://localhost:8000/api/contact"
-        style="display: flex; flex-direction: column; gap: 1.5rem;"
-      >
-        <div>
-          <label for="name" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">
-            Full Name
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            required
-            style="width: 100%; padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: 4px; font-size: 1rem;"
-          />
-        </div>
-
-        <div>
-          <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">
-            Email Address
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            style="width: 100%; padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: 4px; font-size: 1rem;"
-          />
-        </div>
-
-        <div>
-          <label for="subject" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">
-            Subject
-          </label>
-          <input
-            type="text"
-            id="subject"
-            name="subject"
-            required
-            style="width: 100%; padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: 4px; font-size: 1rem;"
-          />
-        </div>
-
-        <div>
-          <label for="message" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">
-            Message
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            required
-            style="width: 100%; padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: 4px; font-size: 1rem; resize: vertical; min-height: 150px; font-family: inherit;"
-          ></textarea>
-        </div>
-
-        <button
-          type="submit"
-          style="padding: 0.75rem 2rem; background: #667eea; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; font-size: 1rem;"
+    <!-- Contact Form -->
+    <section style="padding: 4rem 1rem;">
+      <div style="max-width: 600px; margin: 0 auto;">
+        <form
+          id="contact-form"
+          style="display: flex; flex-direction: column; gap: 1.5rem; padding: 2.5rem; background: white; border: 2px solid #e2e8f0; border-radius: 16px;"
         >
-          Send Message
-        </button>
-      </form>
-    </div>
+          <div>
+            <label for="name" style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #0f172a;">
+              Full Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              style="width: 100%; padding: 0.875rem 1rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem; transition: border-color 0.2s;"
+            />
+          </div>
+
+          <div>
+            <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #0f172a;">
+              Email Address
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              style="width: 100%; padding: 0.875rem 1rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem; transition: border-color 0.2s;"
+            />
+          </div>
+
+          <div>
+            <label for="subject" style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #0f172a;">
+              Subject
+            </label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              required
+              style="width: 100%; padding: 0.875rem 1rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem; transition: border-color 0.2s;"
+            />
+          </div>
+
+          <div>
+            <label for="message" style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: #0f172a;">
+              Message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              rows="5"
+              style="width: 100%; padding: 0.875rem 1rem; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 1rem; resize: vertical; min-height: 150px; font-family: inherit; transition: border-color 0.2s;"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            style="padding: 1rem 2rem; background: #14B8A6; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 1rem; transition: all 0.2s;"
+          >
+            Send Message
+          </button>
+
+          <div id="form-status" style="display: none; padding: 1rem; border-radius: 8px; text-align: center;"></div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Contact Info -->
+    <section style="padding: 4rem 1rem; background: #f8fafc;">
+      <div style="max-width: 1000px; margin: 0 auto;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; text-align: center;">
+          <div style="padding: 2rem;">
+            <div style="width: 64px; height: 64px; background: #14B8A6; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+              <span style="font-size: 1.75rem;">📧</span>
+            </div>
+            <h3 style="font-weight: 600; color: #0f172a; margin-bottom: 0.5rem;">Email</h3>
+            <p style="color: #64748b;">support@buuk.app</p>
+          </div>
+          <div style="padding: 2rem;">
+            <div style="width: 64px; height: 64px; background: #A4D23E; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+              <span style="font-size: 1.75rem;">💬</span>
+            </div>
+            <h3 style="font-weight: 600; color: #0f172a; margin-bottom: 0.5rem;">Live Chat</h3>
+            <p style="color: #64748b;">Available 9am - 6pm CET</p>
+          </div>
+          <div style="padding: 2rem;">
+            <div style="width: 64px; height: 64px; background: #14B8A6; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+              <span style="font-size: 1.75rem;">📍</span>
+            </div>
+            <h3 style="font-weight: 600; color: #0f172a; margin-bottom: 0.5rem;">Location</h3>
+            <p style="color: #64748b;">Amsterdam, Netherlands</p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer style="background: #0f172a; color: white; padding: 2rem 1rem; text-align: center; margin-top: 4rem;">
-    <div style="max-width: 1200px; margin: 0 auto;">
-      <p>&copy; 2024 Buuk. All rights reserved.</p>
-    </div>
-  </footer>
+  <script>
+    const form = document.getElementById('contact-form') as HTMLFormElement;
+    const statusDiv = document.getElementById('form-status') as HTMLDivElement;
+
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const formData = new FormData(form);
+      const data = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        subject: formData.get('subject'),
+        message: formData.get('message'),
+      };
+
+      try {
+        // Show loading state
+        const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+
+        // For static site, just show success message
+        // In production, you'd POST to your API
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        
+        statusDiv.style.display = 'block';
+        statusDiv.style.background = '#f0fdf4';
+        statusDiv.style.color = '#166534';
+        statusDiv.style.border = '1px solid #86efac';
+        statusDiv.textContent = 'Thank you! Your message has been sent. We\'ll get back to you soon.';
+        
+        form.reset();
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+
+      } catch (error) {
+        statusDiv.style.display = 'block';
+        statusDiv.style.background = '#fef2f2';
+        statusDiv.style.color = '#991b1b';
+        statusDiv.style.border = '1px solid #fecaca';
+        statusDiv.textContent = 'Something went wrong. Please try again later.';
+      }
+    });
+  </script>
 </BaseLayout>

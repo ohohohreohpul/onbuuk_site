@@ -3,78 +3,142 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout
-  title="Pricing - Buuk"
-  description="Simple, transparent pricing that scales with your business."
+  title="Pricing - Buuk Appointment Booking"
+  description="Simple, transparent pricing that scales with your business. Start free and upgrade as you grow."
+  currentPage="pricing"
 >
-  <header style="padding: 2rem 1rem; border-bottom: 1px solid #e2e8f0;">
-    <div style="max-width: 1200px; margin: 0 auto;">
-      <img src="/buuklogo.png" alt="Buuk Logo" style="height: 50px;" />
-    </div>
-  </header>
+  <main>
+    <!-- Hero Section -->
+    <section style="padding: 6rem 1rem 4rem; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);">
+      <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+        <h1 style="font-size: 3rem; font-weight: 700; color: #0f172a; margin-bottom: 1rem;">
+          Simple, Transparent Pricing
+        </h1>
+        <p style="font-size: 1.25rem; color: #64748b; max-width: 600px; margin: 0 auto;">
+          Choose the plan that fits your business. Start free and scale as you grow.
+        </p>
+      </div>
+    </section>
 
-  <main style="padding: 4rem 1rem;">
-    <div style="max-width: 1200px; margin: 0 auto;">
-      <h1 style="font-size: 2.5rem; margin-bottom: 1rem; text-align: center;">
-        Simple, Transparent Pricing
-      </h1>
-      <p style="text-align: center; margin-bottom: 3rem; color: #64748b; font-size: 1.1rem;">
-        Choose the plan that fits your business
-      </p>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
-        <div style="padding: 2rem; border: 2px solid #e2e8f0; border-radius: 8px; text-align: center;">
-          <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Starter</h3>
-          <p style="color: #64748b; margin-bottom: 1rem;">For small businesses</p>
-          <p style="font-size: 2.5rem; font-weight: 700; margin-bottom: 2rem;"><span style="color: #667eea;">$29</span>/month</p>
-          <ul style="text-align: left; margin-bottom: 2rem; list-style: none;">
-            <li style="padding: 0.5rem 0;">✓ 1,000 appointments/month</li>
-            <li style="padding: 0.5rem 0;">✓ 1 staff member</li>
-            <li style="padding: 0.5rem 0;">✓ Basic reports</li>
-          </ul>
-          <button style="width: 100%; padding: 0.75rem; background: #667eea; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 600;">
-            Get Started
-          </button>
-        </div>
-
-        <div style="padding: 2rem; border: 3px solid #667eea; border-radius: 8px; text-align: center; position: relative; background: #f0f4ff;">
-          <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #667eea; color: white; padding: 0.25rem 1rem; border-radius: 20px; font-size: 0.875rem; font-weight: 600;">
-            POPULAR
+    <!-- Pricing Cards -->
+    <section id="pricing" style="padding: 5rem 1rem;">
+      <div style="max-width: 1200px; margin: 0 auto;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto;">
+          
+          <!-- Starter Plan -->
+          <div style="padding: 2.5rem; border: 2px solid #e2e8f0; border-radius: 16px; text-align: center; background: white;">
+            <h3 style="font-size: 1.5rem; font-weight: 700; color: #0f172a; margin-bottom: 0.5rem;">Starter</h3>
+            <p style="color: #64748b; margin-bottom: 1.5rem;">For small businesses</p>
+            <p style="margin-bottom: 2rem;">
+              <span style="font-size: 3rem; font-weight: 700; color: #14B8A6;">$29</span>
+              <span style="color: #64748b;">/month</span>
+            </p>
+            <ul style="text-align: left; margin-bottom: 2rem; list-style: none; padding: 0;">
+              <li style="padding: 0.75rem 0; border-bottom: 1px solid #f1f5f9; display: flex; align-items: center; gap: 0.75rem;">
+                <span style="color: #14B8A6;">✓</span> 1,000 appointments/month
+              </li>
+              <li style="padding: 0.75rem 0; border-bottom: 1px solid #f1f5f9; display: flex; align-items: center; gap: 0.75rem;">
+                <span style="color: #14B8A6;">✓</span> 1 staff member
+              </li>
+              <li style="padding: 0.75rem 0; border-bottom: 1px solid #f1f5f9; display: flex; align-items: center; gap: 0.75rem;">
+                <span style="color: #14B8A6;">✓</span> Email reminders
+              </li>
+              <li style="padding: 0.75rem 0; display: flex; align-items: center; gap: 0.75rem;">
+                <span style="color: #14B8A6;">✓</span> Basic reports
+              </li>
+            </ul>
+            <a href="https://app.onbuuk.com" style="display: block; padding: 1rem; background: #f1f5f9; color: #0f172a; font-weight: 600; border-radius: 8px; text-decoration: none;">
+              Get Started
+            </a>
           </div>
-          <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; margin-top: 0.5rem;">Professional</h3>
-          <p style="color: #64748b; margin-bottom: 1rem;">For growing businesses</p>
-          <p style="font-size: 2.5rem; font-weight: 700; margin-bottom: 2rem;"><span style="color: #667eea;">$79</span>/month</p>
-          <ul style="text-align: left; margin-bottom: 2rem; list-style: none;">
-            <li style="padding: 0.5rem 0;">✓ 10,000 appointments/month</li>
-            <li style="padding: 0.5rem 0;">✓ 5 staff members</li>
-            <li style="padding: 0.5rem 0;">✓ Advanced reports</li>
-            <li style="padding: 0.5rem 0;">✓ Priority support</li>
-          </ul>
-          <button style="width: 100%; padding: 0.75rem; background: #667eea; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 600;">
-            Get Started
-          </button>
-        </div>
 
-        <div style="padding: 2rem; border: 2px solid #e2e8f0; border-radius: 8px; text-align: center;">
-          <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Enterprise</h3>
-          <p style="color: #64748b; margin-bottom: 1rem;">For large organizations</p>
-          <p style="font-size: 2.5rem; font-weight: 700; margin-bottom: 2rem;"><span style="color: #667eea;">Custom</span></p>
-          <ul style="text-align: left; margin-bottom: 2rem; list-style: none;">
-            <li style="padding: 0.5rem 0;">✓ Unlimited appointments</li>
-            <li style="padding: 0.5rem 0;">✓ Unlimited staff</li>
-            <li style="padding: 0.5rem 0;">✓ Custom integrations</li>
-            <li style="padding: 0.5rem 0;">✓ Dedicated support</li>
-          </ul>
-          <button style="width: 100%; padding: 0.75rem; background: #667eea; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 600;">
-            Contact Us
-          </button>
+          <!-- Professional Plan -->
+          <div style="padding: 2.5rem; border: 3px solid #14B8A6; border-radius: 16px; text-align: center; background: white; position: relative; transform: scale(1.05);">
+            <div style="position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: #14B8A6; color: white; padding: 0.35rem 1.25rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">
+              MOST POPULAR
+            </div>
+            <h3 style="font-size: 1.5rem; font-weight: 700; color: #0f172a; margin-bottom: 0.5rem; margin-top: 0.5rem;">Professional</h3>
+            <p style="color: #64748b; margin-bottom: 1.5rem;">For growing businesses</p>
+            <p style="margin-bottom: 2rem;">
+              <span style="font-size: 3rem; font-weight: 700; color: #14B8A6;">$79</span>
+              <span style="color: #64748b;">/month</span>
+            </p>
+            <ul style="text-align: left; margin-bottom: 2rem; list-style: none; padding: 0;">
+              <li style="padding: 0.75rem 0; border-bottom: 1px solid #f1f5f9; display: flex; align-items: center; gap: 0.75rem;">
+                <span style="color: #14B8A6;">✓</span> 10,000 appointments/month
+              </li>
+              <li style="padding: 0.75rem 0; border-bottom: 1px solid #f1f5f9; display: flex; align-items: center; gap: 0.75rem;">
+                <span style="color: #14B8A6;">✓</span> 5 staff members
+              </li>
+              <li style="padding: 0.75rem 0; border-bottom: 1px solid #f1f5f9; display: flex; align-items: center; gap: 0.75rem;">
+                <span style="color: #14B8A6;">✓</span> SMS + Email reminders
+              </li>
+              <li style="padding: 0.75rem 0; border-bottom: 1px solid #f1f5f9; display: flex; align-items: center; gap: 0.75rem;">
+                <span style="color: #14B8A6;">✓</span> Advanced reports
+              </li>
+              <li style="padding: 0.75rem 0; display: flex; align-items: center; gap: 0.75rem;">
+                <span style="color: #14B8A6;">✓</span> Priority support
+              </li>
+            </ul>
+            <a href="https://app.onbuuk.com" style="display: block; padding: 1rem; background: #14B8A6; color: white; font-weight: 600; border-radius: 8px; text-decoration: none;">
+              Get Started
+            </a>
+          </div>
+
+          <!-- Enterprise Plan -->
+          <div style="padding: 2.5rem; border: 2px solid #e2e8f0; border-radius: 16px; text-align: center; background: white;">
+            <h3 style="font-size: 1.5rem; font-weight: 700; color: #0f172a; margin-bottom: 0.5rem;">Enterprise</h3>
+            <p style="color: #64748b; margin-bottom: 1.5rem;">For large organizations</p>
+            <p style="margin-bottom: 2rem;">
+              <span style="font-size: 3rem; font-weight: 700; color: #14B8A6;">Custom</span>
+            </p>
+            <ul style="text-align: left; margin-bottom: 2rem; list-style: none; padding: 0;">
+              <li style="padding: 0.75rem 0; border-bottom: 1px solid #f1f5f9; display: flex; align-items: center; gap: 0.75rem;">
+                <span style="color: #14B8A6;">✓</span> Unlimited appointments
+              </li>
+              <li style="padding: 0.75rem 0; border-bottom: 1px solid #f1f5f9; display: flex; align-items: center; gap: 0.75rem;">
+                <span style="color: #14B8A6;">✓</span> Unlimited staff
+              </li>
+              <li style="padding: 0.75rem 0; border-bottom: 1px solid #f1f5f9; display: flex; align-items: center; gap: 0.75rem;">
+                <span style="color: #14B8A6;">✓</span> Custom integrations
+              </li>
+              <li style="padding: 0.75rem 0; display: flex; align-items: center; gap: 0.75rem;">
+                <span style="color: #14B8A6;">✓</span> Dedicated support
+              </li>
+            </ul>
+            <a href="/contact" style="display: block; padding: 1rem; background: #f1f5f9; color: #0f172a; font-weight: 600; border-radius: 8px; text-decoration: none;">
+              Contact Us
+            </a>
+          </div>
+
         </div>
       </div>
-    </div>
-  </main>
+    </section>
 
-  <footer style="background: #0f172a; color: white; padding: 2rem 1rem; text-align: center; margin-top: 4rem;">
-    <div style="max-width: 1200px; margin: 0 auto;">
-      <p>&copy; 2024 Buuk. All rights reserved.</p>
-    </div>
-  </footer>
+    <!-- FAQ Section -->
+    <section style="padding: 5rem 1rem; background: #f8fafc;">
+      <div style="max-width: 800px; margin: 0 auto;">
+        <h2 style="font-size: 2rem; font-weight: 700; color: #0f172a; text-align: center; margin-bottom: 3rem;">
+          Frequently Asked Questions
+        </h2>
+        
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <div style="padding: 1.5rem; background: white; border-radius: 12px; border: 1px solid #e2e8f0;">
+            <h3 style="font-weight: 600; color: #0f172a; margin-bottom: 0.5rem;">Can I change plans later?</h3>
+            <p style="color: #64748b; line-height: 1.6;">Yes! You can upgrade or downgrade your plan at any time. Changes take effect immediately.</p>
+          </div>
+          
+          <div style="padding: 1.5rem; background: white; border-radius: 12px; border: 1px solid #e2e8f0;">
+            <h3 style="font-weight: 600; color: #0f172a; margin-bottom: 0.5rem;">Is there a free trial?</h3>
+            <p style="color: #64748b; line-height: 1.6;">Yes, all plans include a 14-day free trial. No credit card required to start.</p>
+          </div>
+          
+          <div style="padding: 1.5rem; background: white; border-radius: 12px; border: 1px solid #e2e8f0;">
+            <h3 style="font-weight: 600; color: #0f172a; margin-bottom: 0.5rem;">What payment methods do you accept?</h3>
+            <p style="color: #64748b; line-height: 1.6;">We accept all major credit cards, PayPal, and bank transfers for annual plans.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 </BaseLayout>

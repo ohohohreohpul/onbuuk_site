@@ -4,61 +4,162 @@ export interface Props {
 }
 
 const { currentPage } = Astro.props;
+
+const navLinks = [
+  { href: '/', label: 'Home', id: 'home' },
+  { href: '/features', label: 'Features', id: 'features' },
+  { href: '/#pricing', label: 'Pricing', id: 'pricing' },
+  { href: '/blog', label: 'Blog', id: 'blog' },
+  { href: '/contact', label: 'Contact', id: 'contact' },
+];
 ---
 
-<nav style="background: white; border-bottom: 1px solid #e2e8f0; padding: 1rem; position: sticky; top: 0; z-index: 100;">
-  <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
-    <div>
-      <a href="/" style="text-decoration: none;">
-        <img src="/buuklogo.png" alt="Buuk Logo" style="height: 40px;" />
-      </a>
-    </div>
+<nav class="nav">
+  <div class="nav-container">
+    <a href="/" class="nav-logo">
+      <img src="https://customer-assets.emergentagent.com/job_613aef5e-d3f5-4251-84fe-d7f3fa1d0a69/artifacts/uk5f7m65_buuklogo.png" alt="Buuk" height="32" />
+    </a>
 
-    <ul style="list-style: none; display: flex; gap: 2rem; margin: 0; padding: 0;">
-      <li>
-        <a
-          href="/"
-          style={`text-decoration: none; font-weight: ${currentPage === 'home' ? '600' : '400'}; color: ${currentPage === 'home' ? '#667eea' : '#0f172a'};`}
-        >
-          Home
-        </a>
-      </li>
-      <li>
-        <a
-          href="/features"
-          style={`text-decoration: none; font-weight: ${currentPage === 'features' ? '600' : '400'}; color: ${currentPage === 'features' ? '#667eea' : '#0f172a'};`}
-        >
-          Features
-        </a>
-      </li>
-      <li>
-        <a
-          href="/pricing"
-          style={`text-decoration: none; font-weight: ${currentPage === 'pricing' ? '600' : '400'}; color: ${currentPage === 'pricing' ? '#667eea' : '#0f172a'};`}
-        >
-          Pricing
-        </a>
-      </li>
-      <li>
-        <a
-          href="/blog"
-          style={`text-decoration: none; font-weight: ${currentPage === 'blog' ? '600' : '400'}; color: ${currentPage === 'blog' ? '#667eea' : '#0f172a'};`}
-        >
-          Blog
-        </a>
-      </li>
-      <li>
-        <a
-          href="/contact"
-          style={`text-decoration: none; font-weight: ${currentPage === 'contact' ? '600' : '400'}; color: ${currentPage === 'contact' ? '#667eea' : '#0f172a'};`}
-        >
-          Contact
-        </a>
-      </li>
+    <ul class="nav-links">
+      {navLinks.map(link => (
+        <li>
+          <a
+            href={link.href}
+            class={`nav-link ${currentPage === link.id ? 'active' : ''}`}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
     </ul>
 
-    <a href="/contact" style="padding: 0.5rem 1.5rem; background: #667eea; color: white; border-radius: 4px; text-decoration: none; font-weight: 600;">
-      Get Started
+    <a href="https://app.onbuuk.com" class="nav-cta">
+      Get Started →
     </a>
+
+    <button class="nav-mobile-toggle" aria-label="Toggle menu">
+      <span class="hamburger"></span>
+    </button>
   </div>
 </nav>
+
+<style>
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-logo img {
+    height: 32px;
+    width: auto;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-link {
+    font-size: 0.875rem;
+    color: #64748b;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: #0f172a;
+  }
+
+  .nav-link.active {
+    color: #14B8A6;
+    font-weight: 600;
+  }
+
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1.25rem;
+    background: #0f172a;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .nav-cta:hover {
+    background: #1e293b;
+  }
+
+  .nav-mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+
+  .hamburger {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #0f172a;
+    position: relative;
+  }
+
+  .hamburger::before,
+  .hamburger::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background: #0f172a;
+    left: 0;
+  }
+
+  .hamburger::before {
+    top: -8px;
+  }
+
+  .hamburger::after {
+    top: 8px;
+  }
+
+  @media (max-width: 768px) {
+    .nav-links,
+    .nav-cta {
+      display: none;
+    }
+
+    .nav-mobile-toggle {
+      display: block;
+    }
+  }
+</style>

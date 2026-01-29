@@ -4,33 +4,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout
   title="Page Not Found - Buuk"
-  description="Sorry, the page you're looking for doesn't exist."
+  description="The page you're looking for doesn't exist."
 >
-  <header style="padding: 2rem 1rem; border-bottom: 1px solid #e2e8f0;">
-    <div style="max-width: 1200px; margin: 0 auto;">
-      <img src="/buuklogo.png" alt="Buuk Logo" style="height: 50px;" />
-    </div>
-  </header>
-
-  <main style="padding: 4rem 1rem; text-align: center;">
-    <div style="max-width: 800px; margin: 0 auto;">
-      <h1 style="font-size: 4rem; margin-bottom: 1rem;">404</h1>
-      <h2 style="font-size: 2rem; margin-bottom: 1rem;">Page Not Found</h2>
-      <p style="margin-bottom: 2rem; color: #64748b; font-size: 1.1rem;">
-        Sorry, the page you're looking for doesn't exist.
+  <main style="padding: 8rem 1rem; text-align: center; min-height: 60vh; display: flex; align-items: center; justify-content: center;">
+    <div style="max-width: 500px;">
+      <div style="font-size: 8rem; font-weight: 700; color: #14B8A6; line-height: 1; margin-bottom: 1rem;">404</div>
+      <h1 style="font-size: 2rem; font-weight: 700; color: #0f172a; margin-bottom: 1rem;">
+        Page Not Found
+      </h1>
+      <p style="color: #64748b; margin-bottom: 2rem; line-height: 1.6;">
+        Sorry, we couldn't find the page you're looking for. It might have been moved or deleted.
       </p>
-      <a
-        href="/"
-        style="display: inline-block; padding: 0.75rem 2rem; background: #667eea; color: white; border-radius: 4px; font-weight: 600;"
-      >
-        Go Back Home
+      <a href="/" style="display: inline-block; padding: 1rem 2rem; background: #14B8A6; color: white; font-weight: 600; border-radius: 8px; text-decoration: none;">
+        Back to Home
       </a>
     </div>
   </main>
-
-  <footer style="background: #0f172a; color: white; padding: 2rem 1rem; text-align: center; margin-top: 4rem;">
-    <div style="max-width: 1200px; margin: 0 auto;">
-      <p>&copy; 2024 Buuk. All rights reserved.</p>
-    </div>
-  </footer>
 </BaseLayout>
