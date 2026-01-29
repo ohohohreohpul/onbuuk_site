@@ -1,6 +1,9 @@
 ---
+export const prerender = false;  // Enable SSR for this page - fetch fresh data on each request
+
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
+const { slug } = Astro.params;
 const backendUrl = import.meta.env.API_URL || 'https://astro-blog-boost.preview.emergentagent.com';
 
 // Helper to get full image URL
@@ -10,35 +13,23 @@ function getImageUrl(image: string | undefined): string | null {
   return `${backendUrl}${image}`;
 }
 
-export async function getStaticPaths() {
-  const apiUrl = import.meta.env.API_URL || 'https://astro-blog-boost.preview.emergentagent.com';
-  
-  try {
-    const response = await fetch(`${apiUrl}/api/blog/`, {
-      signal: AbortSignal.timeout(5000),
-    });
-    if (!response.ok) {
-      return [];
-    }
-    
-    const data = await response.json();
-    const posts = data.posts || data || [];
-    
-    if (!Array.isArray(posts)) {
-      return [];
-    }
-    
-    return posts.map((post: any) => ({
-      params: { slug: post.slug },
-      props: { post, backendUrl: apiUrl },
-    }));
-  } catch (error) {
-    console.warn('Failed to fetch blog posts for static paths:', error);
-    return [];
+// Fetch the post dynamically on each request
+let post: any = null;
+try {
+  const response = await fetch(`${backendUrl}/api/blog/${slug}`, {
+    signal: AbortSignal.timeout(5000),
+  });
+  if (response.ok) {
+    post = await response.json();
   }
+} catch (error) {
+  console.warn('Failed to fetch blog post:', error);
 }
 
-const { post } = Astro.props;
+// If post not found, return 404
+if (!post) {
+  return Astro.redirect('/blog');
+}
 
 // Format date
 const formatDate = (dateString: string) => {
