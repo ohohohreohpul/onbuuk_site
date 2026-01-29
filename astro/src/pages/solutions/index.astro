@@ -1,0 +1,125 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const solutions = [
+  {
+    title: 'Salon Booking Software',
+    description: 'Complete appointment scheduling for hair salons with staff management and automated reminders.',
+    href: '/solutions/salon-booking-software',
+    icon: '✂️',
+    image: 'https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=400&q=80'
+  },
+  {
+    title: 'Spa Booking Software',
+    description: 'Treatment packages, room management, and gift cards for day spas and wellness centers.',
+    href: '/solutions/spa-booking-software',
+    icon: '🧖',
+    image: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=400&q=80'
+  },
+  {
+    title: 'Nail Salon Software',
+    description: 'Service menus, technician scheduling, and walk-in management for nail spas.',
+    href: '/solutions/nail-salon-software',
+    icon: '💅',
+    image: 'https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=400&q=80'
+  },
+  {
+    title: 'Massage Booking Software',
+    description: 'Therapist management, health forms, and session packages for massage studios.',
+    href: '/solutions/massage-booking-software',
+    icon: '💆',
+    image: 'https://images.unsplash.com/photo-1731514771613-991a02407132?w=400&q=80'
+  },
+  {
+    title: 'Barbershop Software',
+    description: 'Walk-in queues, barber scheduling, and loyalty programs for modern barbershops.',
+    href: '/solutions/barbershop-software',
+    icon: '💈',
+    image: 'https://images.unsplash.com/photo-1675034743339-0b0747047727?w=400&q=80'
+  }
+];
+---
+
+<BaseLayout
+  title="Booking Solutions for Beauty & Wellness Businesses - Buuk"
+  description="Appointment booking software tailored for salons, spas, nail studios, massage therapists, and barbershops. Find the perfect solution for your business."
+  currentPage="solutions"
+>
+  <main class="pt-16">
+    <!-- Hero Section -->
+    <section class="py-20 px-6 lg:px-24 bg-gradient-to-br from-primary/5 to-secondary/5 relative overflow-hidden">
+      <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
+      <div class="floating-orb floating-orb-1 -top-32 -right-32 opacity-20"></div>
+      
+      <div class="max-w-7xl mx-auto relative z-10 text-center">
+        <div class="animate-on-scroll">
+          <div class="inline-flex items-center space-x-2 bg-primary/10 px-4 py-2 rounded-full mb-6">
+            <span class="text-sm font-semibold text-primary">Industry Solutions</span>
+          </div>
+          <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            Booking Software for Every <span class="text-gradient-animate">Beauty Business</span>
+          </h1>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            Whether you run a salon, spa, nail studio, or barbershop, we have the perfect booking solution tailored to your specific needs.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solutions Grid -->
+    <section class="py-20 px-6 lg:px-24">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {solutions.map((solution, idx) => (
+            <a 
+              href={solution.href}
+              class={`group bg-white border-2 border-gray-200 rounded-2xl overflow-hidden card-hover card-hover-glow animate-on-scroll stagger-${(idx % 6) + 1}`}
+            >
+              <div class="relative h-48 overflow-hidden">
+                <img 
+                  src={solution.image} 
+                  alt={solution.title}
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <span class="absolute bottom-4 left-4 text-4xl">{solution.icon}</span>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">
+                  {solution.title}
+                </h3>
+                <p class="text-gray-600 mb-4">{solution.description}</p>
+                <span class="inline-flex items-center text-primary font-semibold group-hover:translate-x-1 transition-transform">
+                  Learn More
+                  <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 px-6 lg:px-24 bg-primary text-white text-center">
+      <div class="max-w-3xl mx-auto animate-on-scroll">
+        <h2 class="text-3xl lg:text-4xl font-bold mb-6">Not Sure Which Solution?</h2>
+        <p class="text-lg opacity-95 mb-8">Contact us for a personalized recommendation based on your business needs.</p>
+        <a href="/contact" class="inline-block bg-white text-primary font-semibold px-8 py-4 rounded-xl hover:shadow-lg transition-all">
+          Contact Us →
+        </a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+</script>
