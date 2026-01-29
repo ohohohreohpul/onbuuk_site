@@ -1,0 +1,237 @@
+---
+// Features section with bento grid
+const features = [
+  {
+    icon: 'calendar',
+    title: 'Smart Booking System',
+    description: 'Real-time availability, multi-step booking flow, automated confirmations, and customer self-service portal.',
+    large: true,
+  },
+  {
+    icon: 'gift',
+    title: 'Gift Cards & Loyalty',
+    description: 'Built-in gift card system and customizable loyalty programs to boost retention and revenue.',
+    color: 'secondary',
+  },
+  {
+    icon: 'users',
+    title: 'Customer Portal',
+    description: 'Self-service booking, history tracking, and loyalty points. Empower your customers.',
+  },
+  {
+    icon: 'credit-card',
+    title: 'Stripe Payments',
+    description: 'Seamless online payments, in-person checkout, and gift card redemption all in one place.',
+  },
+  {
+    icon: 'palette',
+    title: 'Brand Your Way',
+    description: 'Custom colors, logos, and form fields. Make it uniquely yours.',
+    color: 'secondary',
+  },
+];
+---
+
+<section id="features" class="py-24 px-6 lg:px-24 bg-white">
+  <div class="max-w-7xl mx-auto">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center space-x-2 bg-gray-100 px-3 py-1.5 rounded-full mb-6">
+        <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+        <span class="text-sm text-gray-700">Features</span>
+      </div>
+      <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+        Everything you need
+      </h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        All the tools to streamline appointments and grow your business
+      </p>
+    </div>
+
+    <!-- Bento Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <!-- Large Feature Card -->
+      <div class="lg:col-span-2 bg-white border-2 border-gray-200 p-8 md:p-10 hover:border-primary hover:shadow-xl transition-all duration-500 rounded-xl relative overflow-hidden">
+        <div class="relative z-10">
+          <div class="w-14 h-14 rounded-xl bg-primary flex items-center justify-center mb-6 shadow-md">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+            Smart Booking System
+          </h3>
+          <p class="text-gray-600 mb-6 text-base lg:text-lg max-w-xl">
+            Real-time availability, multi-step booking flow, automated confirmations, and customer self-service portal. Make booking effortless for your clients.
+          </p>
+          
+          <!-- Mini Calendar Demo -->
+          <div class="bg-gray-50 border border-gray-200 p-5 rounded-lg">
+            <div class="flex items-center justify-between mb-4">
+              <div class="text-xs font-semibold text-gray-900">DECEMBER 2024</div>
+              <div class="flex items-center space-x-2">
+                <div class="w-2 h-2 bg-primary rounded-full"></div>
+                <span class="text-xs text-gray-600">12 bookings</span>
+              </div>
+            </div>
+            <div class="grid grid-cols-7 gap-1">
+              {['S', 'M', 'T', 'W', 'T', 'F', 'S'].map((day) => (
+                <div class="text-center text-xs font-medium text-gray-600 mb-2">{day}</div>
+              ))}
+              {Array.from({ length: 35 }, (_, i) => {
+                const hasBooking = [8, 9, 10, 14, 15, 16, 17, 21, 22, 23, 28, 29].includes(i);
+                const isToday = i === 10;
+                return (
+                  <div class={`aspect-square flex items-center justify-center text-xs rounded relative ${
+                    isToday ? 'bg-primary text-white font-bold shadow' :
+                    i < 8 ? 'text-gray-400' :
+                    hasBooking ? 'text-gray-900 font-medium' : 'text-gray-600'
+                  }`}>
+                    {i + 1}
+                    {hasBooking && !isToday && (
+                      <div class="absolute bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-primary rounded-full"></div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gift Cards -->
+      <div class="bg-white border-2 border-gray-200 p-8 hover:border-secondary hover:shadow-xl transition-all duration-500 rounded-xl">
+        <div class="w-14 h-14 rounded-xl bg-secondary flex items-center justify-center mb-6 shadow-md">
+          <svg class="w-7 h-7 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+          </svg>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Gift Cards & Loyalty</h3>
+        <p class="text-gray-600 mb-6">Built-in gift card system and customizable loyalty programs to boost retention.</p>
+        
+        <!-- Gift Card Preview -->
+        <div class="bg-secondary p-4 rounded-lg text-gray-900 shadow-lg">
+          <div class="flex justify-between items-start mb-6">
+            <div class="text-xs font-bold">BUUK</div>
+            <div class="text-xs font-medium bg-white/20 px-2 py-1 rounded">GIFT</div>
+          </div>
+          <div class="mb-4">
+            <div class="text-3xl font-bold mb-1">€50.00</div>
+            <div class="text-xs opacity-80">Gift Card Value</div>
+          </div>
+          <div class="flex justify-between items-end">
+            <div class="text-xs">
+              <div class="opacity-80 text-[10px] mb-1">CODE</div>
+              <div class="font-mono font-bold text-sm">GIFT-2024</div>
+            </div>
+            <div class="text-xs opacity-80">Exp: 12/2025</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Customer Portal -->
+      <div class="bg-white border-2 border-gray-200 p-8 hover:border-primary hover:shadow-xl transition-all duration-500 rounded-xl">
+        <div class="w-14 h-14 rounded-xl bg-primary flex items-center justify-center mb-6 shadow-md">
+          <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Customer Portal</h3>
+        <p class="text-gray-600 mb-6">Self-service booking, history tracking, and loyalty points.</p>
+        
+        <div class="space-y-3">
+          {[
+            { name: 'Emma Wilson', email: 'emma@email.com', points: '245', color: 'bg-blue-500' },
+            { name: 'James Miller', email: 'james@email.com', points: '892', color: 'bg-primary', active: true },
+            { name: 'Sarah Davis', email: 'sarah@email.com', points: '156', color: 'bg-purple-500' },
+          ].map((customer) => (
+            <div class={`flex items-center justify-between p-3 rounded-lg transition-colors ${customer.active ? 'bg-primary/5 border border-primary' : 'bg-gray-50 border border-gray-200 hover:border-primary'}`}>
+              <div class="flex items-center space-x-3">
+                <div class={`w-10 h-10 rounded-lg ${customer.color} flex items-center justify-center text-white text-xs font-bold`}>
+                  {customer.name.split(' ').map(n => n[0]).join('')}
+                </div>
+                <div>
+                  <div class="text-xs font-semibold text-gray-900">{customer.name}</div>
+                  <div class="text-[10px] text-gray-600">{customer.email}</div>
+                </div>
+              </div>
+              <div class={`text-xs font-medium ${customer.active ? 'text-primary' : 'text-gray-700'}`}>{customer.points} pts</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Payments -->
+      <div class="bg-white border-2 border-gray-200 p-8 hover:border-primary hover:shadow-xl transition-all duration-500 rounded-xl">
+        <div class="w-14 h-14 rounded-xl bg-primary flex items-center justify-center mb-6 shadow-md">
+          <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+          </svg>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Stripe Payments</h3>
+        <p class="text-gray-600 mb-6">Seamless online payments, in-person checkout, and gift card redemption.</p>
+        
+        <div class="p-4 bg-gray-50 border border-gray-200 rounded-lg">
+          <div class="flex items-center justify-between mb-3">
+            <div class="text-xs font-semibold text-gray-600">Total Amount</div>
+            <div class="text-2xl font-bold text-gray-900">€85.00</div>
+          </div>
+          <div class="flex gap-2">
+            <div class="flex-1 p-3 bg-white border border-gray-200 rounded-lg text-center hover:border-primary transition-colors cursor-pointer">
+              <svg class="w-6 h-6 mx-auto text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+              </svg>
+              <div class="text-[10px] text-gray-600 mt-1">Card</div>
+            </div>
+            <div class="flex-1 p-3 bg-primary/10 border border-primary rounded-lg text-center">
+              <svg class="w-6 h-6 mx-auto text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+              <div class="text-[10px] text-primary font-semibold mt-1">Stripe</div>
+            </div>
+            <div class="flex-1 p-3 bg-white border border-gray-200 rounded-lg text-center hover:border-primary transition-colors cursor-pointer">
+              <svg class="w-6 h-6 mx-auto text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+              <div class="text-[10px] text-gray-600 mt-1">Cash</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Customization -->
+      <div class="bg-white border-2 border-gray-200 p-8 hover:border-secondary hover:shadow-xl transition-all duration-500 rounded-xl">
+        <div class="w-14 h-14 rounded-xl bg-secondary flex items-center justify-center mb-6 shadow-md">
+          <svg class="w-7 h-7 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+          </svg>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-4">Brand Your Way</h3>
+        <p class="text-gray-600 mb-6">Custom colors, logos, and form fields. Make it uniquely yours.</p>
+        
+        <div>
+          <div class="text-xs font-semibold text-gray-600 mb-3">BRAND COLORS</div>
+          <div class="grid grid-cols-3 gap-2 mb-4">
+            <div class="h-14 rounded-lg bg-primary flex items-center justify-center shadow-md">
+              <span class="text-white text-[10px] font-medium">#14B8A6</span>
+            </div>
+            <div class="h-14 rounded-lg bg-secondary flex items-center justify-center shadow-md">
+              <span class="text-gray-900 text-[10px] font-medium">#A4D23E</span>
+            </div>
+            <div class="h-14 rounded-lg bg-gray-900 flex items-center justify-center shadow-md">
+              <span class="text-white text-[10px] font-medium">#1A1A1A</span>
+            </div>
+          </div>
+          <div class="p-4 bg-gray-50 border border-gray-200 rounded-lg">
+            <div class="text-[10px] font-semibold text-gray-600 mb-2">LOGO</div>
+            <div class="h-10 bg-white border border-gray-200 rounded-lg flex items-center justify-center">
+              <span class="text-primary font-bold text-lg">buuk</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
