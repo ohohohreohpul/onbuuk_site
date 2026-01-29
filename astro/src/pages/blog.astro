@@ -13,7 +13,8 @@ try {
   });
 
   if (response.ok) {
-    posts = await response.json();
+    const data = await response.json();
+    posts = data.posts || data || [];
   }
 } catch (error) {
   console.warn('Failed to fetch blog posts from API:', error);
