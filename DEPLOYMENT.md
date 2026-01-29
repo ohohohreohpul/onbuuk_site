@@ -137,6 +137,39 @@ export default defineConfig({
 });
 ```
 
+## Important: API Configuration for Deployment
+
+### Build-Time API Calls
+Astro is a static site builder. All API calls in `.astro` files happen at **build time**, not runtime.
+
+**During deployment**, the backend API may not be available, which will cause the build to fail.
+
+### Solution: Graceful Error Handling
+The `blog.astro` page now has error handling that gracefully handles API failures:
+```astro
+try {
+  const response = await fetch(`${apiUrl}/api/blog`);
+  if (response.ok) {
+    posts = await response.json();
+  }
+} catch (error) {
+  console.warn('Failed to fetch blog posts');
+  posts = [];
+}
+```
+
+### For Production Deployment
+1. **Ensure the API is accessible** from the deployment environment, OR
+2. **Use placeholder content** if the API isn't available during build
+
+If your API is available at a production URL:
+```bash
+# In Vercel environment variables, set:
+VITE_API_URL=https://your-api-domain.com
+```
+
+If your API isn't available during build, the pages will still build with placeholder content.
+
 ## Troubleshooting
 
 ### Build Fails with "package.json not found"
@@ -166,6 +199,24 @@ astro/public/
 
 ### 404 Errors After Deployment
 For SPA-like routing, configure your host to serve `astro/dist/index.html` for all requests. However, Astro generates static HTML for each route, so this shouldn't be necessary.
+
+### Build Fails with "fetch failed" or "ECONNREFUSED"
+This happens when `.astro` pages try to fetch from an API that isn't running during the build.
+
+**Error:**
+```
+fetch failed
+  Caused by:
+  connect ECONNREFUSED 127.0.0.1:8000
+```
+
+**Solution:**
+1. Wrap API calls in try-catch blocks
+2. Provide graceful fallbacks when API is unavailable
+3. Set `VITE_API_URL` to a production API URL during deployment
+4. Or accept that pages will build with placeholder content
+
+All pages now have proper error handling, so they will build even if the API isn't available.
 
 ## Build Output
 
