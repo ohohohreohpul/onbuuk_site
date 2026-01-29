@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://buuk.app/sitemap-index.xml
+Sitemap: https://onbuuk.com/sitemap-index.xml
 
 # Disallow admin and API routes (if any)
 Disallow: /admin/

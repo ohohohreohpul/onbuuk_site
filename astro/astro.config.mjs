@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  site: 'https://buuk.app',
+  site: 'https://onbuuk.com',
   output: 'static',
   integrations: [
     tailwind(),
