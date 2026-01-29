@@ -12,7 +12,7 @@ from datetime import datetime
 import os
 
 # Get backend URL from frontend .env file
-BACKEND_URL = "https://seo-landing-pages.preview.emergentagent.com"
+BACKEND_URL = "https://coded-astro-boost.preview.emergentagent.com"
 API_BASE = f"{BACKEND_URL}/api"
 
 # Test credentials

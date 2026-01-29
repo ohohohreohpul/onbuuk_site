@@ -7,7 +7,7 @@ import requests
 import io
 import sys
 
-BACKEND_URL = "https://seo-landing-pages.preview.emergentagent.com"
+BACKEND_URL = "https://coded-astro-boost.preview.emergentagent.com"
 API_BASE = f"{BACKEND_URL}/api"
 
 def test_image_upload():
