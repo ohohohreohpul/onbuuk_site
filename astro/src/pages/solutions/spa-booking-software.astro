@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const features = [
+  { title: 'Treatment Packages', description: 'Create and manage spa packages with multiple services, room assignments, and time slots.' },
+  { title: 'Room & Resource Management', description: 'Assign treatment rooms, equipment, and therapists to maximize your spa capacity.' },
+  { title: 'Online Gift Cards', description: 'Sell digital gift cards online. Perfect for spa gifts and special occasions.' },
+  { title: 'Client Intake Forms', description: 'Collect health information and preferences before appointments with custom forms.' },
+  { title: 'Loyalty Rewards', description: 'Build repeat business with points-based loyalty programs and member discounts.' },
+  { title: 'Revenue Analytics', description: 'Track bookings, revenue, popular services, and staff performance with detailed reports.' }
+];
+---
+
+<BaseLayout
+  title="Spa Booking Software | Day Spa Appointment Scheduling - Buuk"
+  description="Complete spa booking software for day spas and wellness centers. Treatment packages, room management, gift cards, and client intake forms. Try free."
+  currentPage="solutions"
+>
+  <main class="pt-16">
+    <!-- Hero Section -->
+    <section class="py-20 px-6 lg:px-24 bg-gradient-to-br from-primary/5 to-secondary/5 relative overflow-hidden">
+      <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
+      <div class="floating-orb floating-orb-2 -bottom-20 -left-20 opacity-30"></div>
+      
+      <div class="max-w-7xl mx-auto relative z-10">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="animate-on-scroll">
+            <div class="inline-flex items-center space-x-2 bg-primary/10 px-4 py-2 rounded-full mb-6">
+              <span class="text-sm font-semibold text-primary">🧖 For Spas & Wellness</span>
+            </div>
+            <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              Spa Booking Software for <span class="text-gradient-animate">Ultimate Relaxation</span>
+            </h1>
+            <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+              Streamline your spa operations with powerful booking software. Manage treatments, rooms, therapists, and guest experiences seamlessly.
+            </p>
+            <a href="https://app.onbuuk.com" class="inline-flex items-center bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 btn-shine">
+              Start Free Trial
+              <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+          <div class="animate-on-scroll-right">
+            <img 
+              src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80" 
+              alt="Spa treatment and wellness"
+              class="rounded-2xl shadow-2xl w-full h-[400px] object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="py-20 px-6 lg:px-24">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16 animate-on-scroll">
+          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+            Built for Spa Excellence
+          </h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Features designed to create unforgettable spa experiences
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {features.map((feature, idx) => (
+            <div class={`bg-white border-2 border-gray-200 rounded-2xl p-8 card-hover card-hover-glow animate-on-scroll stagger-${(idx % 6) + 1}`}>
+              <h3 class="text-xl font-bold text-gray-900 mb-4">{feature.title}</h3>
+              <p class="text-gray-600">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="py-20 px-6 lg:px-24 bg-gray-50">
+      <div class="max-w-4xl mx-auto text-center animate-on-scroll">
+        <img 
+          src="https://images.pexels.com/photos/5699476/pexels-photo-5699476.jpeg?w=600&q=80" 
+          alt="Spa consultation"
+          class="w-full h-64 object-cover rounded-2xl mb-8 shadow-lg"
+        />
+        <blockquote class="text-2xl text-gray-700 italic mb-6">
+          "Buuk transformed how we manage our spa. Bookings are up 40% and no-shows are down significantly."
+        </blockquote>
+        <p class="font-semibold text-gray-900">— Wellness Spa Manager</p>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 px-6 lg:px-24 bg-primary text-white text-center">
+      <div class="max-w-3xl mx-auto animate-on-scroll">
+        <h2 class="text-3xl lg:text-4xl font-bold mb-6">Transform Your Spa Today</h2>
+        <p class="text-lg opacity-95 mb-8">Start your free trial and see the difference in days.</p>
+        <a href="https://app.onbuuk.com" class="inline-block bg-white text-primary font-semibold px-8 py-4 rounded-xl hover:shadow-lg transition-all">
+          Get Started Free →
+        </a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.animate-on-scroll, .animate-on-scroll-right').forEach(el => observer.observe(el));
+</script>

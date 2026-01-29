@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const features = [
+  { title: 'Therapist Management', description: 'Manage massage therapists, their specialties, certifications, and availability.' },
+  { title: 'Service Duration Control', description: 'Set up 30, 60, 90-minute sessions with buffer times between appointments.' },
+  { title: 'Room Assignment', description: 'Automatically assign massage rooms based on service type and therapist.' },
+  { title: 'Client Health Forms', description: 'Collect health history and preferences before each massage session.' },
+  { title: 'Package Deals', description: 'Offer massage packages and memberships to encourage repeat visits.' },
+  { title: 'Therapist Commission', description: 'Track earnings and calculate therapist commissions automatically.' }
+];
+---
+
+<BaseLayout
+  title="Massage Booking Software | Massage Therapy Scheduling - Buuk"
+  description="Massage booking software for massage therapists and studios. Therapist management, room assignment, health forms, and package deals. Start free."
+  currentPage="solutions"
+>
+  <main class="pt-16">
+    <!-- Hero Section -->
+    <section class="py-20 px-6 lg:px-24 bg-gradient-to-br from-primary/5 to-green-50 relative overflow-hidden">
+      <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
+      
+      <div class="max-w-7xl mx-auto relative z-10">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="animate-on-scroll">
+            <div class="inline-flex items-center space-x-2 bg-green-100 px-4 py-2 rounded-full mb-6">
+              <span class="text-sm font-semibold text-green-600">💆 For Massage Studios</span>
+            </div>
+            <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              Massage Booking Software for <span class="text-gradient-animate">Healing Hands</span>
+            </h1>
+            <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+              Professional appointment scheduling for massage therapists and studios. Manage sessions, therapists, and client wellness journeys.
+            </p>
+            <a href="https://app.onbuuk.com" class="inline-flex items-center bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 btn-shine">
+              Start Free Trial
+              <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+          <div class="animate-on-scroll-right">
+            <img 
+              src="https://images.unsplash.com/photo-1731514771613-991a02407132?w=800&q=80" 
+              alt="Massage therapy session"
+              class="rounded-2xl shadow-2xl w-full h-[400px] object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="py-20 px-6 lg:px-24">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16 animate-on-scroll">
+          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+            Built for Massage Professionals
+          </h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Tools designed for massage therapists and wellness studios
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {features.map((feature, idx) => (
+            <div class={`bg-white border-2 border-gray-200 rounded-2xl p-8 card-hover card-hover-glow animate-on-scroll stagger-${(idx % 6) + 1}`}>
+              <h3 class="text-xl font-bold text-gray-900 mb-4">{feature.title}</h3>
+              <p class="text-gray-600">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 px-6 lg:px-24 bg-primary text-white text-center">
+      <div class="max-w-3xl mx-auto animate-on-scroll">
+        <h2 class="text-3xl lg:text-4xl font-bold mb-6">Ready to Streamline Your Practice?</h2>
+        <p class="text-lg opacity-95 mb-8">Join massage therapists using Buuk for better bookings.</p>
+        <a href="https://app.onbuuk.com" class="inline-block bg-white text-primary font-semibold px-8 py-4 rounded-xl hover:shadow-lg transition-all">
+          Get Started Free →
+        </a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.animate-on-scroll, .animate-on-scroll-right').forEach(el => observer.observe(el));
+</script>

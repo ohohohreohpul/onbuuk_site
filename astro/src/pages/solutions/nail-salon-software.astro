@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const features = [
+  { title: 'Service Menu Builder', description: 'Create detailed service menus with manicures, pedicures, nail art, and add-ons with custom pricing.' },
+  { title: 'Technician Scheduling', description: 'Manage nail technician availability, breaks, and client preferences easily.' },
+  { title: 'Walk-in Management', description: 'Handle both appointments and walk-ins with smart queue management.' },
+  { title: 'Client History', description: 'Track favorite colors, allergies, and preferences for personalized service.' },
+  { title: 'SMS Confirmations', description: 'Automatic appointment confirmations and reminders reduce no-shows.' },
+  { title: 'Point of Sale', description: 'Process payments, tips, and product sales right from the booking system.' }
+];
+---
+
+<BaseLayout
+  title="Nail Salon Booking Software | Nail Spa Appointment System - Buuk"
+  description="Professional nail salon booking software. Service menus, technician scheduling, walk-in management, and client tracking. Perfect for nail spas."
+  currentPage="solutions"
+>
+  <main class="pt-16">
+    <!-- Hero Section -->
+    <section class="py-20 px-6 lg:px-24 bg-gradient-to-br from-pink-50 to-primary/5 relative overflow-hidden">
+      <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
+      
+      <div class="max-w-7xl mx-auto relative z-10">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="animate-on-scroll">
+            <div class="inline-flex items-center space-x-2 bg-pink-100 px-4 py-2 rounded-full mb-6">
+              <span class="text-sm font-semibold text-pink-600">💅 For Nail Salons</span>
+            </div>
+            <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              Nail Salon Software That <span class="text-gradient-animate">Keeps You Polished</span>
+            </h1>
+            <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+              Manage appointments, technicians, and client preferences with booking software built for nail salons and nail spas.
+            </p>
+            <a href="https://app.onbuuk.com" class="inline-flex items-center bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 btn-shine">
+              Start Free Trial
+              <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+          <div class="animate-on-scroll-right">
+            <img 
+              src="https://images.unsplash.com/photo-1632345031435-8727f6897d53?w=800&q=80" 
+              alt="Nail salon service"
+              class="rounded-2xl shadow-2xl w-full h-[400px] object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="py-20 px-6 lg:px-24">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16 animate-on-scroll">
+          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+            Features for Nail Professionals
+          </h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Everything you need to run a successful nail business
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {features.map((feature, idx) => (
+            <div class={`bg-white border-2 border-gray-200 rounded-2xl p-8 card-hover card-hover-glow animate-on-scroll stagger-${(idx % 6) + 1}`}>
+              <h3 class="text-xl font-bold text-gray-900 mb-4">{feature.title}</h3>
+              <p class="text-gray-600">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 px-6 lg:px-24 bg-primary text-white text-center">
+      <div class="max-w-3xl mx-auto animate-on-scroll">
+        <h2 class="text-3xl lg:text-4xl font-bold mb-6">Ready to Upgrade Your Nail Salon?</h2>
+        <p class="text-lg opacity-95 mb-8">Join nail salons already using Buuk.</p>
+        <a href="https://app.onbuuk.com" class="inline-block bg-white text-primary font-semibold px-8 py-4 rounded-xl hover:shadow-lg transition-all">
+          Get Started Free →
+        </a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.animate-on-scroll, .animate-on-scroll-right').forEach(el => observer.observe(el));
+</script>

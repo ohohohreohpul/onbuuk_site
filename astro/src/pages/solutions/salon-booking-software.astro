@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const features = [
+  { title: 'Online Appointment Booking', description: 'Let clients book 24/7 from your website or social media. Real-time availability updates automatically.' },
+  { title: 'Staff Calendar Management', description: 'Manage multiple stylists, their schedules, breaks, and service assignments all in one place.' },
+  { title: 'Automated SMS Reminders', description: 'Reduce no-shows by up to 90% with automated appointment reminders via SMS and email.' },
+  { title: 'Client Management', description: 'Track client preferences, booking history, and build loyalty with repeat customers.' },
+  { title: 'Payment Processing', description: 'Accept deposits, process payments, and manage gift cards seamlessly with Stripe.' },
+  { title: 'Custom Branding', description: 'Match your salon\'s brand with custom colors, logo, and booking page design.' }
+];
+---
+
+<BaseLayout
+  title="Salon Booking Software | Hair Salon Appointment System - Buuk"
+  description="Professional salon booking software for hair salons. Online appointments, staff scheduling, automated reminders, and payment processing. Start free today."
+  currentPage="solutions"
+>
+  <main class="pt-16">
+    <!-- Hero Section -->
+    <section class="py-20 px-6 lg:px-24 bg-gradient-to-br from-primary/5 to-secondary/5 relative overflow-hidden">
+      <div class="absolute inset-0 bg-grid-pattern opacity-30"></div>
+      <div class="floating-orb floating-orb-1 -top-20 -right-20 opacity-30"></div>
+      
+      <div class="max-w-7xl mx-auto relative z-10">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="animate-on-scroll">
+            <div class="inline-flex items-center space-x-2 bg-primary/10 px-4 py-2 rounded-full mb-6">
+              <span class="text-sm font-semibold text-primary">✂️ For Hair Salons</span>
+            </div>
+            <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              Salon Booking Software That <span class="text-gradient-animate">Grows Your Business</span>
+            </h1>
+            <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+              The complete appointment scheduling solution for hair salons. Manage bookings, staff, clients, and payments—all from one beautiful dashboard.
+            </p>
+            <a href="https://app.onbuuk.com" class="inline-flex items-center bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 btn-shine">
+              Start Free Trial
+              <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+          <div class="animate-on-scroll-right">
+            <img 
+              src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=800&q=80" 
+              alt="Professional hair salon interior"
+              class="rounded-2xl shadow-2xl w-full h-[400px] object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="py-20 px-6 lg:px-24">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16 animate-on-scroll">
+          <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+            Everything Your Salon Needs
+          </h2>
+          <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            Powerful features designed specifically for hair salons
+          </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {features.map((feature, idx) => (
+            <div class={`bg-white border-2 border-gray-200 rounded-2xl p-8 card-hover card-hover-glow animate-on-scroll stagger-${(idx % 6) + 1}`}>
+              <h3 class="text-xl font-bold text-gray-900 mb-4">{feature.title}</h3>
+              <p class="text-gray-600">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 px-6 lg:px-24 bg-primary text-white text-center">
+      <div class="max-w-3xl mx-auto animate-on-scroll">
+        <h2 class="text-3xl lg:text-4xl font-bold mb-6">Ready to Modernize Your Salon?</h2>
+        <p class="text-lg opacity-95 mb-8">Join thousands of salons using Buuk to streamline appointments.</p>
+        <a href="https://app.onbuuk.com" class="inline-block bg-white text-primary font-semibold px-8 py-4 rounded-xl hover:shadow-lg transition-all">
+          Get Started Free →
+        </a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.animate-on-scroll, .animate-on-scroll-right').forEach(el => observer.observe(el));
+</script>
