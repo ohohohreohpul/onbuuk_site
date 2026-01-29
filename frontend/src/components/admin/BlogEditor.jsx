@@ -306,7 +306,7 @@ const BlogEditor = ({ onLogout }) => {
                     required
                     value={formData.category}
                     onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                    className="w-full px-3 py-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-[#14B8A6]"
+                    className="w-full px-3 py-2 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-[#14B8A6] text-gray-900 bg-white"
                   >
                     {categories.map((cat) => (
                       <option key={cat} value={cat}>{cat}</option>
