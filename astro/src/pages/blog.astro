@@ -55,9 +55,9 @@ try {
           <div style="display: grid; gap: 2rem;">
             {posts.map((post: any) => (
               <article style="padding: 2rem; border: 2px solid #e2e8f0; border-radius: 16px; background: white; transition: all 0.3s;">
-                {post.image && (
+              {post.image && (
                   <img 
-                    src={post.image} 
+                    src={getImageUrl(post.image)} 
                     alt={post.title}
                     style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 1.5rem;"
                   />
