@@ -18,6 +18,12 @@
   status = 302
   force = true
 
+# Blog post pages - serve the blog template, let client-side JS handle the content
+[[redirects]]
+  from = "/blog/*"
+  to = "/blog/index.html"
+  status = 200
+
 # Redirects for SPA-like behavior (optional)
 [[redirects]]
   from = "/*"
