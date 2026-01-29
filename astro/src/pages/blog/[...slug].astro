@@ -129,7 +129,9 @@ const backendUrl = 'https://astro-blog-boost.preview.emergentagent.com';
     }
   </style>
 
-  <script define:vars={{ slug, backendUrl }}>
+  <script define:vars={{ postSlug, backendUrl }}>
+    // Use the slug passed from the server
+    const slug = postSlug || window.location.pathname.split('/blog/')[1];
     // Helper to get full image URL
     function getImageUrl(image) {
       if (!image) return null;
