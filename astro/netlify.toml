@@ -8,13 +8,13 @@
 # Admin redirects - must be before the 404 redirect
 [[redirects]]
   from = "/admin"
-  to = "https://coded-astro-boost.preview.emergentagent.com/admin/login"
+  to = "https://astro-blog-boost.preview.emergentagent.com/admin/login"
   status = 302
   force = true
 
 [[redirects]]
   from = "/admin/*"
-  to = "https://coded-astro-boost.preview.emergentagent.com/admin/:splat"
+  to = "https://astro-blog-boost.preview.emergentagent.com/admin/:splat"
   status = 302
   force = true
 
