@@ -1,10 +1,12 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   site: 'https://buuk.app',
   output: 'static',
   integrations: [
+    tailwind(),
     sitemap({
       changefreq: 'weekly',
       priority: 0.7,
@@ -17,7 +19,6 @@ export default defineConfig({
     }
   },
   build: {
-    // Optimize for production
     inlineStylesheets: 'auto',
   },
 });
