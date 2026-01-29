@@ -120,6 +120,13 @@ const TipTapEditor = ({ content, onChange }) => {
     },
   });
 
+  // Sync editor content when prop changes (e.g., when loading existing post)
+  useEffect(() => {
+    if (editor && content && editor.getHTML() !== content) {
+      editor.commands.setContent(content);
+    }
+  }, [content, editor]);
+
   return (
     <div className="border-2 border-gray-200 rounded-lg overflow-hidden bg-white">
       <MenuBar editor={editor} />
