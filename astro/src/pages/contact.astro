@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact Us - Buuk"
+  description="Get in touch with our team. We're here to help."
+>
+  <header style="padding: 2rem 1rem; border-bottom: 1px solid #e2e8f0;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <img src="/buuklogo.png" alt="Buuk Logo" style="height: 50px;" />
+    </div>
+  </header>
+
+  <main style="padding: 4rem 1rem;">
+    <div style="max-width: 800px; margin: 0 auto;">
+      <h1 style="font-size: 2.5rem; margin-bottom: 1rem; text-align: center;">
+        Get in Touch
+      </h1>
+      <p style="text-align: center; margin-bottom: 3rem; color: #64748b;">
+        Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+      </p>
+
+      <form
+        method="POST"
+        action="http://localhost:8000/api/contact"
+        style="display: flex; flex-direction: column; gap: 1.5rem;"
+      >
+        <div>
+          <label for="name" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">
+            Full Name
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            style="width: 100%; padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: 4px; font-size: 1rem;"
+          />
+        </div>
+
+        <div>
+          <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">
+            Email Address
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            style="width: 100%; padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: 4px; font-size: 1rem;"
+          />
+        </div>
+
+        <div>
+          <label for="subject" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">
+            Subject
+          </label>
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            required
+            style="width: 100%; padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: 4px; font-size: 1rem;"
+          />
+        </div>
+
+        <div>
+          <label for="message" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">
+            Message
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            required
+            style="width: 100%; padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: 4px; font-size: 1rem; resize: vertical; min-height: 150px; font-family: inherit;"
+          ></textarea>
+        </div>
+
+        <button
+          type="submit"
+          style="padding: 0.75rem 2rem; background: #667eea; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; font-size: 1rem;"
+        >
+          Send Message
+        </button>
+      </form>
+    </div>
+  </main>
+
+  <footer style="background: #0f172a; color: white; padding: 2rem 1rem; text-align: center; margin-top: 4rem;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <p>&copy; 2024 Buuk. All rights reserved.</p>
+    </div>
+  </footer>
+</BaseLayout>

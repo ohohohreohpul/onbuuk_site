@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const response = await fetch('http://localhost:8000/api/blog');
+const posts = response.ok ? await response.json() : [];
+---
+
+<BaseLayout
+  title="Buuk Blog - Tips & Insights"
+  description="Learn best practices for appointment scheduling and business growth with our blog."
+>
+  <header style="padding: 2rem 1rem; border-bottom: 1px solid #e2e8f0;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <img src="/buuklogo.png" alt="Buuk Logo" style="height: 50px;" />
+    </div>
+  </header>
+
+  <main style="padding: 2rem 1rem;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h1 style="font-size: 2.5rem; margin-bottom: 2rem;">Blog</h1>
+
+      {posts.length > 0 ? (
+        <div style="display: grid; gap: 2rem;">
+          {posts.map((post: any) => (
+            <article style="padding: 1.5rem; border: 1px solid #e2e8f0; border-radius: 8px;">
+              <h2 style="margin-bottom: 0.5rem;">
+                <a href={`/blog/${post.slug}`}>{post.title}</a>
+              </h2>
+              <p style="color: #64748b; margin-bottom: 1rem;">
+                {new Date(post.created_at).toLocaleDateString()}
+              </p>
+              <p style="margin-bottom: 1rem; line-height: 1.6;">
+                {post.excerpt || post.content.substring(0, 200)}...
+              </p>
+              <a href={`/blog/${post.slug}`} style="color: #2563eb; font-weight: 600;">
+                Read More →
+              </a>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <p>No blog posts yet.</p>
+      )}
+    </div>
+  </main>
+
+  <footer style="background: #0f172a; color: white; padding: 2rem 1rem; text-align: center; margin-top: 4rem;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <p>&copy; 2024 Buuk. All rights reserved.</p>
+    </div>
+  </footer>
+</BaseLayout>

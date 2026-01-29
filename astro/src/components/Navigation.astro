@@ -1,0 +1,64 @@
+---
+export interface Props {
+  currentPage?: string;
+}
+
+const { currentPage } = Astro.props;
+---
+
+<nav style="background: white; border-bottom: 1px solid #e2e8f0; padding: 1rem; position: sticky; top: 0; z-index: 100;">
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+    <div>
+      <a href="/" style="text-decoration: none;">
+        <img src="/buuklogo.png" alt="Buuk Logo" style="height: 40px;" />
+      </a>
+    </div>
+
+    <ul style="list-style: none; display: flex; gap: 2rem; margin: 0; padding: 0;">
+      <li>
+        <a
+          href="/"
+          style={`text-decoration: none; font-weight: ${currentPage === 'home' ? '600' : '400'}; color: ${currentPage === 'home' ? '#667eea' : '#0f172a'};`}
+        >
+          Home
+        </a>
+      </li>
+      <li>
+        <a
+          href="/features"
+          style={`text-decoration: none; font-weight: ${currentPage === 'features' ? '600' : '400'}; color: ${currentPage === 'features' ? '#667eea' : '#0f172a'};`}
+        >
+          Features
+        </a>
+      </li>
+      <li>
+        <a
+          href="/pricing"
+          style={`text-decoration: none; font-weight: ${currentPage === 'pricing' ? '600' : '400'}; color: ${currentPage === 'pricing' ? '#667eea' : '#0f172a'};`}
+        >
+          Pricing
+        </a>
+      </li>
+      <li>
+        <a
+          href="/blog"
+          style={`text-decoration: none; font-weight: ${currentPage === 'blog' ? '600' : '400'}; color: ${currentPage === 'blog' ? '#667eea' : '#0f172a'};`}
+        >
+          Blog
+        </a>
+      </li>
+      <li>
+        <a
+          href="/contact"
+          style={`text-decoration: none; font-weight: ${currentPage === 'contact' ? '600' : '400'}; color: ${currentPage === 'contact' ? '#667eea' : '#0f172a'};`}
+        >
+          Contact
+        </a>
+      </li>
+    </ul>
+
+    <a href="/contact" style="padding: 0.5rem 1.5rem; background: #667eea; color: white; border-radius: 4px; text-decoration: none; font-weight: 600;">
+      Get Started
+    </a>
+  </div>
+</nav>
