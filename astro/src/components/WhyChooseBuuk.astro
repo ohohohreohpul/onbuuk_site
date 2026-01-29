@@ -8,17 +8,6 @@ const benefits = [
   { icon: 'star', title: 'Customer Loyalty & Rewards', description: 'Build a thriving community of repeat customers with built-in loyalty programs and reward tiers.' }
 ];
 
-const checkItems = [
-  'Salon appointment booking software with calendar sync',
-  'Spa scheduling software with treatment packages',
-  'Massage therapy booking system with therapist management',
-  'Beauty salon software with inventory tracking',
-  'Hair salon booking app for mobile clients',
-  'Wellness center management software',
-  'Day spa booking platform with gift cards',
-  'Nail salon scheduling with service customization'
-];
-
 const iconMap: Record<string, string> = {
   'trending-up': 'M13 7h8m0 0v8m0-8l-8 8-4-4-6 6',
   'users': 'M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z',
@@ -36,20 +25,55 @@ const iconMap: Record<string, string> = {
   <div class="floating-orb floating-orb-1 bottom-20 -left-32 opacity-30"></div>
   
   <div class="max-w-7xl mx-auto relative z-10">
-    <!-- Section Header -->
-    <div class="text-center mb-16 animate-on-scroll">
-      <div class="inline-flex items-center space-x-2 bg-primary/10 px-4 py-2 rounded-full mb-6">
-        <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20">
-          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-        </svg>
-        <span class="text-sm font-semibold text-primary">Why Choose Buuk</span>
+    <!-- Section Header with Image -->
+    <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+      <div class="animate-on-scroll">
+        <div class="inline-flex items-center space-x-2 bg-primary/10 px-4 py-2 rounded-full mb-6">
+          <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+          <span class="text-sm font-semibold text-primary">Why Choose Buuk</span>
+        </div>
+        <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          The Complete Booking Software for <span class="text-gradient-animate">Beauty Businesses</span>
+        </h2>
+        <p class="text-xl text-gray-600">
+          Built specifically for salons, spas, and wellness businesses, our appointment booking system helps you manage everything from scheduling to payments.
+        </p>
       </div>
-      <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 max-w-4xl mx-auto">
-        The Complete Booking Software for <span class="text-gradient-animate">Salons, Spas & Massage Studios</span>
-      </h2>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-        Built specifically for beauty and wellness businesses, our appointment booking system helps you manage everything from scheduling to payments.
-      </p>
+      
+      <div class="animate-on-scroll-right">
+        <div class="grid grid-cols-2 gap-4">
+          <div class="rounded-2xl overflow-hidden shadow-xl h-48">
+            <img 
+              src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=400&q=80" 
+              alt="Salon appointment"
+              class="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+            />
+          </div>
+          <div class="rounded-2xl overflow-hidden shadow-xl h-48 mt-8">
+            <img 
+              src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=400&q=80" 
+              alt="Spa relaxation"
+              class="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+            />
+          </div>
+          <div class="rounded-2xl overflow-hidden shadow-xl h-48 -mt-4">
+            <img 
+              src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&q=80" 
+              alt="Beauty treatment"
+              class="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+            />
+          </div>
+          <div class="rounded-2xl overflow-hidden shadow-xl h-48 mt-4">
+            <img 
+              src="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?w=400&q=80" 
+              alt="Wellness service"
+              class="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+            />
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Benefits Grid -->
@@ -66,27 +90,6 @@ const iconMap: Record<string, string> = {
         </div>
       ))}
     </div>
-
-    <!-- SEO-Rich Bottom Content -->
-    <div class="mt-16 bg-gradient-to-r from-primary/5 to-secondary/5 border-2 border-primary/20 p-8 lg:p-12 rounded-2xl animate-on-scroll">
-      <div class="max-w-4xl mx-auto">
-        <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">
-          Everything You Need in a Salon & Spa Booking System
-        </h3>
-        <div class="grid md:grid-cols-2 gap-4 text-gray-700 text-sm">
-          {checkItems.map((item, idx) => (
-            <div class={`flex items-start space-x-3 animate-on-scroll stagger-${(idx % 6) + 1}`}>
-              <div class="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
-                </svg>
-              </div>
-              <span>{item}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -99,5 +102,5 @@ const iconMap: Record<string, string> = {
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-  document.querySelectorAll('section .animate-on-scroll').forEach(el => observer.observe(el));
+  document.querySelectorAll('section .animate-on-scroll, section .animate-on-scroll-right').forEach(el => observer.observe(el));
 </script>
