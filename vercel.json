@@ -1,0 +1,7 @@
+{
+  "buildCommand": "cd astro && npm install && npm run build",
+  "outputDirectory": "astro/dist",
+  "framework": "astro",
+  "nodeVersion": "18.x",
+  "installCommand": "cd astro && npm install"
+}

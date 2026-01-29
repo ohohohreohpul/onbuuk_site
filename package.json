@@ -1,0 +1,23 @@
+{
+  "name": "buuk",
+  "version": "1.0.0",
+  "description": "Buuk - Appointment Booking Solution",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "cd astro && npm run dev",
+    "build": "cd astro && npm install && npm run build",
+    "preview": "cd astro && npm run preview",
+    "install": "cd astro && npm install",
+    "postinstall": "echo 'Build setup complete'"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "keywords": [
+    "appointment",
+    "booking",
+    "scheduling"
+  ]
+}
