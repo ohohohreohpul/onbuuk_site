@@ -49,6 +49,7 @@ Migrate an existing React-based website ("vibe coded") to Astro for improved SEO
 - [x] **BUG FIX**: TipTapEditor content sync when editing posts
 - [x] **BUG FIX**: Blog images displaying with absolute URLs
 - [x] Admin access from custom domain via redirect
+- [x] **LIVE BLOG UPDATES**: Blog now fetches content client-side, so changes in admin appear immediately on the live site without rebuilding
 
 ### Bug Fixes Detail
 1. **"0 changes" bug** - Fixed by adding useEffect in TipTapEditor.jsx to sync content when editing existing posts
