@@ -1,35 +1,8 @@
 ---
-export const prerender = false;  // Enable SSR for this page - fetch fresh data on each request
-
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-let posts: any[] = [];
-const backendUrl = import.meta.env.API_URL || 'https://astro-blog-boost.preview.emergentagent.com';
-
-// Helper to get full image URL
-function getImageUrl(image: string | undefined): string | null {
-  if (!image) return null;
-  if (image.startsWith('http')) return image;
-  return `${backendUrl}${image}`;
-}
-
-try {
-  const response = await fetch(`${backendUrl}/api/blog/`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    signal: AbortSignal.timeout(5000),
-  });
-
-  if (response.ok) {
-    const data = await response.json();
-    posts = data.posts || data || [];
-  }
-} catch (error) {
-  console.warn('Failed to fetch blog posts from API:', error);
-  posts = [];
-}
+// Define the API URL for client-side fetching
+const backendUrl = 'https://astro-blog-boost.preview.emergentagent.com';
 ---
 
 <BaseLayout
@@ -50,64 +23,132 @@ try {
       </div>
     </section>
 
-    <!-- Blog Posts -->
+    <!-- Blog Posts Container -->
     <section style="padding: 4rem 1rem;">
       <div style="max-width: 1000px; margin: 0 auto;">
-        {posts.length > 0 ? (
-          <div style="display: grid; gap: 2rem;">
-            {posts.map((post: any) => (
-              <article style="padding: 2rem; border: 2px solid #e2e8f0; border-radius: 16px; background: white; transition: all 0.3s;">
-              {post.image && (
-                  <img 
-                    src={getImageUrl(post.image)} 
-                    alt={post.title}
-                    style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 1.5rem;"
-                  />
-                )}
-                <div style="display: flex; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
-                  {post.category && (
-                    <span style="background: #14B8A6; color: white; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600;">
-                      {post.category}
-                    </span>
-                  )}
-                  <span style="color: #64748b; font-size: 0.875rem;">
-                    {new Date(post.createdAt || post.created_at || post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-                  </span>
-                  {post.readTime && (
-                    <span style="color: #64748b; font-size: 0.875rem;">
-                      {post.readTime} min read
-                    </span>
-                  )}
-                </div>
-                <h2 style="font-size: 1.5rem; font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;">
-                  <a href={`/blog/${post.slug}`} style="text-decoration: none; color: inherit;">
-                    {post.title}
-                  </a>
-                </h2>
-                <p style="color: #64748b; line-height: 1.7; margin-bottom: 1.5rem;">
-                  {post.excerpt || post.content.substring(0, 200).replace(/<[^>]*>/g, '')}...
-                </p>
-                <a href={`/blog/${post.slug}`} style="color: #14B8A6; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
-                  Read More <span>→</span>
-                </a>
-              </article>
-            ))}
+        <!-- Loading State -->
+        <div id="loading-state" style="text-align: center; padding: 4rem;">
+          <div style="width: 40px; height: 40px; border: 3px solid #e2e8f0; border-top-color: #14B8A6; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 1rem;"></div>
+          <p style="color: #64748b;">Loading blog posts...</p>
+        </div>
+
+        <!-- Posts Container -->
+        <div id="posts-container" style="display: none;"></div>
+
+        <!-- Empty State -->
+        <div id="empty-state" style="display: none; padding: 4rem 2rem; background: linear-gradient(135deg, #f0fdf4 0%, #ecfeff 100%); border-radius: 16px; text-align: center; border: 2px solid #14B8A6;">
+          <div style="width: 80px; height: 80px; background: #14B8A6; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+            <span style="font-size: 2.5rem;">📝</span>
           </div>
-        ) : (
-          <div style="padding: 4rem 2rem; background: linear-gradient(135deg, #f0fdf4 0%, #ecfeff 100%); border-radius: 16px; text-align: center; border: 2px solid #14B8A6;">
-            <div style="width: 80px; height: 80px; background: #14B8A6; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
-              <span style="font-size: 2.5rem;">📝</span>
-            </div>
-            <h2 style="font-size: 1.75rem; font-weight: 700; color: #0f172a; margin-bottom: 1rem;">Coming Soon</h2>
-            <p style="color: #64748b; margin-bottom: 2rem; max-width: 400px; margin-left: auto; margin-right: auto; line-height: 1.6;">
-              Our blog is being set up with valuable content about appointment scheduling and business growth. Check back soon!
-            </p>
-            <a href="/" style="display: inline-block; padding: 0.875rem 2rem; background: #14B8A6; color: white; border-radius: 8px; font-weight: 600; text-decoration: none;">
-              Back to Home
-            </a>
-          </div>
-        )}
+          <h2 style="font-size: 1.75rem; font-weight: 700; color: #0f172a; margin-bottom: 1rem;">Coming Soon</h2>
+          <p style="color: #64748b; margin-bottom: 2rem; max-width: 400px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+            Our blog is being set up with valuable content about appointment scheduling and business growth. Check back soon!
+          </p>
+          <a href="/" style="display: inline-block; padding: 0.875rem 2rem; background: #14B8A6; color: white; border-radius: 8px; font-weight: 600; text-decoration: none;">
+            Back to Home
+          </a>
+        </div>
       </div>
     </section>
   </main>
+
+  <style>
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+
+  <script define:vars={{ backendUrl }}>
+    // Helper to get full image URL
+    function getImageUrl(image) {
+      if (!image) return null;
+      if (image.startsWith('http')) return image;
+      return `${backendUrl}${image}`;
+    }
+
+    // Format date
+    function formatDate(dateString) {
+      return new Date(dateString).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+    }
+
+    // Render a single post card
+    function renderPostCard(post) {
+      const imageUrl = getImageUrl(post.image);
+      const imageHtml = imageUrl ? `
+        <img 
+          src="${imageUrl}" 
+          alt="${post.title}"
+          style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 1.5rem;"
+          onerror="this.style.display='none'"
+        />
+      ` : '';
+
+      return `
+        <article style="padding: 2rem; border: 2px solid #e2e8f0; border-radius: 16px; background: white; transition: all 0.3s; margin-bottom: 2rem;">
+          ${imageHtml}
+          <div style="display: flex; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
+            ${post.category ? `
+              <span style="background: #14B8A6; color: white; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600;">
+                ${post.category}
+              </span>
+            ` : ''}
+            <span style="color: #64748b; font-size: 0.875rem;">
+              ${formatDate(post.createdAt || post.created_at || post.date)}
+            </span>
+            ${post.readTime ? `
+              <span style="color: #64748b; font-size: 0.875rem;">
+                ${post.readTime} min read
+              </span>
+            ` : ''}
+          </div>
+          <h2 style="font-size: 1.5rem; font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;">
+            <a href="/blog/${post.slug}" style="text-decoration: none; color: inherit;">
+              ${post.title}
+            </a>
+          </h2>
+          <p style="color: #64748b; line-height: 1.7; margin-bottom: 1.5rem;">
+            ${post.excerpt || (post.content ? post.content.substring(0, 200).replace(/<[^>]*>/g, '') + '...' : '')}
+          </p>
+          <a href="/blog/${post.slug}" style="color: #14B8A6; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+            Read More <span>→</span>
+          </a>
+        </article>
+      `;
+    }
+
+    // Fetch and render posts
+    async function loadPosts() {
+      const loadingState = document.getElementById('loading-state');
+      const postsContainer = document.getElementById('posts-container');
+      const emptyState = document.getElementById('empty-state');
+
+      try {
+        const response = await fetch(`${backendUrl}/api/blog/`);
+        if (!response.ok) throw new Error('Failed to fetch');
+        
+        const data = await response.json();
+        const posts = data.posts || data || [];
+
+        loadingState.style.display = 'none';
+
+        if (posts.length === 0) {
+          emptyState.style.display = 'block';
+        } else {
+          postsContainer.innerHTML = posts.map(renderPostCard).join('');
+          postsContainer.style.display = 'block';
+        }
+      } catch (error) {
+        console.error('Failed to load blog posts:', error);
+        loadingState.style.display = 'none';
+        emptyState.style.display = 'block';
+      }
+    }
+
+    // Load posts when page is ready
+    document.addEventListener('DOMContentLoaded', loadPosts);
+  </script>
 </BaseLayout>
