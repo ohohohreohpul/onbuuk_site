@@ -1,0 +1,126 @@
+---
+const benefits = [
+  {
+    icon: 'trending-up',
+    title: 'Grow Your Salon & Spa Business',
+    description: 'Our booking software helps salon owners, spa managers, and massage studio operators increase revenue by 40% on average.'
+  },
+  {
+    icon: 'users',
+    title: 'Comprehensive Customer Management',
+    description: 'Build lasting relationships with your spa and salon clients. Track customer preferences, booking history, and loyalty points.'
+  },
+  {
+    icon: 'clock',
+    title: '24/7 Online Booking System',
+    description: 'Never miss a booking opportunity. Your salon or spa is open for appointments around the clock with online booking.'
+  },
+  {
+    icon: 'shield',
+    title: 'Secure Payment Processing',
+    description: 'Accept payments confidently with integrated Stripe payments. Process deposits, no-show fees, and full payments seamlessly.'
+  },
+  {
+    icon: 'zap',
+    title: 'Automated Scheduling & Reminders',
+    description: 'Save hours every week with smart automation. SMS and email reminders reduce no-shows significantly.'
+  },
+  {
+    icon: 'star',
+    title: 'Customer Loyalty & Rewards',
+    description: 'Build a thriving community of repeat customers with built-in loyalty programs and reward tiers.'
+  }
+];
+
+const checkItems = [
+  'Salon appointment booking software with calendar sync',
+  'Spa scheduling software with treatment packages',
+  'Massage therapy booking system with therapist management',
+  'Beauty salon software with inventory tracking',
+  'Hair salon booking app for mobile clients',
+  'Wellness center management software',
+  'Day spa booking platform with gift cards',
+  'Nail salon scheduling with service customization'
+];
+---
+
+<section class="py-24 px-6 lg:px-24 bg-white">
+  <div class="max-w-7xl mx-auto">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center space-x-2 bg-gray-100 px-3 py-1.5 rounded-full mb-6">
+        <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+        </svg>
+        <span class="text-sm text-gray-700">Why Choose Buuk</span>
+      </div>
+      <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 max-w-4xl mx-auto">
+        The Complete Booking Software for Salons, Spas & Massage Studios
+      </h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Built specifically for beauty and wellness businesses, our appointment booking system helps you manage everything from scheduling to payments.
+      </p>
+    </div>
+
+    <!-- Benefits Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {benefits.map((benefit) => (
+        <div class="bg-gray-50 border-2 border-gray-200 p-8 hover:border-primary hover:shadow-xl transition-all duration-500 rounded-xl">
+          <div class="w-14 h-14 rounded-xl bg-primary flex items-center justify-center mb-6 shadow-md">
+            {benefit.icon === 'trending-up' && (
+              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+              </svg>
+            )}
+            {benefit.icon === 'users' && (
+              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+              </svg>
+            )}
+            {benefit.icon === 'clock' && (
+              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            )}
+            {benefit.icon === 'shield' && (
+              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            )}
+            {benefit.icon === 'zap' && (
+              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            )}
+            {benefit.icon === 'star' && (
+              <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+              </svg>
+            )}
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">{benefit.title}</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">{benefit.description}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- SEO-Rich Bottom Content -->
+    <div class="mt-16 bg-primary/5 border-2 border-primary/20 p-8 lg:p-12 rounded-xl">
+      <div class="max-w-4xl mx-auto">
+        <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">
+          Everything You Need in a Salon & Spa Booking System
+        </h3>
+        <div class="grid md:grid-cols-2 gap-4 text-gray-700 text-sm">
+          {checkItems.map((item) => (
+            <div class="flex items-start space-x-3">
+              <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              <span>{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
