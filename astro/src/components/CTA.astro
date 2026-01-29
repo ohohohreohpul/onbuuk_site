@@ -11,7 +11,15 @@ const apiUrl = import.meta.env.API_URL || 'https://coded-astro-boost.preview.eme
   <!-- Decorative Shapes -->
   <div class="absolute top-20 right-20 w-32 h-32 border-2 border-white/10 rounded-full animate-float"></div>
   <div class="absolute bottom-20 left-20 w-24 h-24 bg-white/5 rounded-2xl rotate-12 animate-float-delay"></div>
-  <div class="absolute top-1/2 right-1/4 w-16 h-16 border border-primary/30 rounded-lg animate-rotate-slow"></div>
+  
+  <!-- Background Image Overlay -->
+  <div class="absolute inset-0 opacity-10">
+    <img 
+      src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1920&q=60" 
+      alt=""
+      class="w-full h-full object-cover"
+    />
+  </div>
   
   <div class="max-w-7xl mx-auto relative z-10">
     <div class="grid lg:grid-cols-2 gap-16 items-center">
@@ -31,6 +39,20 @@ const apiUrl = import.meta.env.API_URL || 'https://coded-astro-boost.preview.eme
           Join hundreds of salons and spas using buuk to streamline operations and delight customers.
         </p>
         
+        <!-- Showcase Images -->
+        <div class="flex items-center gap-4 mb-8">
+          <div class="flex -space-x-3">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&q=80" alt="User" class="w-10 h-10 rounded-full border-2 border-white object-cover" />
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80" alt="User" class="w-10 h-10 rounded-full border-2 border-white object-cover" />
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&q=80" alt="User" class="w-10 h-10 rounded-full border-2 border-white object-cover" />
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&q=80" alt="User" class="w-10 h-10 rounded-full border-2 border-white object-cover" />
+          </div>
+          <div>
+            <p class="text-white font-semibold">500+ businesses</p>
+            <p class="text-gray-400 text-sm">trust Buuk daily</p>
+          </div>
+        </div>
+        
         <!-- Big CTA Button -->
         <a
           href="https://app.onbuuk.com"
@@ -43,7 +65,7 @@ const apiUrl = import.meta.env.API_URL || 'https://coded-astro-boost.preview.eme
         </a>
         
         <!-- Benefits List -->
-        <ul class="space-y-4 mb-8">
+        <ul class="space-y-4">
           {['Start for free, no credit card required', 'Setup in under 30 minutes', 'Upgrade anytime as you grow'].map((item, idx) => (
             <li class={`flex items-center space-x-3 animate-on-scroll stagger-${idx + 1}`}>
               <div class="w-7 h-7 rounded-lg bg-primary flex items-center justify-center flex-shrink-0 shadow-lg">
@@ -55,8 +77,6 @@ const apiUrl = import.meta.env.API_URL || 'https://coded-astro-boost.preview.eme
             </li>
           ))}
         </ul>
-        
-        <p class="text-sm text-gray-400">Or fill out the form to request a personalized demo →</p>
       </div>
 
       <!-- Right Content - Form -->
