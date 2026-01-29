@@ -1,8 +1,8 @@
 ---
 const appointments = [
-  { name: 'Emma Wilson', service: 'Haircut & Styling', time: '9:00 AM', status: 'Confirmed', color: 'from-blue-500 to-blue-600' },
-  { name: 'James Miller', service: 'Hair Coloring', time: '10:30 AM', status: 'Confirmed', color: 'from-purple-500 to-purple-600' },
-  { name: 'Sarah Davis', service: 'Manicure', time: '12:00 PM', status: 'Pending', color: 'from-pink-500 to-pink-600' }
+  { name: 'Emma Wilson', service: 'Haircut & Styling', time: '9:00 AM', status: 'Confirmed', color: 'from-blue-500 to-blue-600', image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80' },
+  { name: 'James Miller', service: 'Hair Coloring', time: '10:30 AM', status: 'Confirmed', color: 'from-purple-500 to-purple-600', image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80' },
+  { name: 'Sarah Davis', service: 'Manicure', time: '12:00 PM', status: 'Pending', color: 'from-pink-500 to-pink-600', image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80' }
 ];
 
 const stats = [
@@ -30,20 +30,39 @@ const stats = [
       </p>
     </div>
 
-    <!-- Stats Grid -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-      {stats.map((stat, idx) => (
-        <div class={`bg-white/90 backdrop-blur-sm border-2 border-gray-200 p-6 rounded-2xl card-hover animate-on-scroll stagger-${idx + 1}`}>
-          <div class="flex items-center justify-between mb-4">
-            <div class="text-[10px] text-gray-600 font-bold tracking-wider">{stat.label}</div>
-            <div class={`w-10 h-10 rounded-xl bg-${stat.color}-100 flex items-center justify-center`}>
-              <div class={`w-2 h-2 bg-${stat.color}-500 rounded-full animate-pulse`}></div>
-            </div>
+    <!-- Two Column Layout: Image + Stats -->
+    <div class="grid lg:grid-cols-2 gap-12 mb-12">
+      <!-- Left: Showcase Image -->
+      <div class="animate-on-scroll-left">
+        <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+          <img 
+            src="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?w=800&q=80" 
+            alt="Salon professional at work"
+            class="w-full h-[350px] object-cover"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+          <div class="absolute bottom-6 left-6 text-white">
+            <p class="text-2xl font-bold mb-1">Real-time Updates</p>
+            <p class="text-sm opacity-90">See bookings as they happen</p>
           </div>
-          <div class="text-4xl font-bold text-gray-900 mb-2">{stat.value}</div>
-          <div class="text-sm text-green-600 font-medium">{stat.change}</div>
         </div>
-      ))}
+      </div>
+
+      <!-- Right: Stats Grid -->
+      <div class="grid grid-cols-2 gap-4">
+        {stats.map((stat, idx) => (
+          <div class={`bg-white/90 backdrop-blur-sm border-2 border-gray-200 p-5 rounded-2xl card-hover animate-on-scroll stagger-${idx + 1}`}>
+            <div class="flex items-center justify-between mb-3">
+              <div class="text-[10px] text-gray-600 font-bold tracking-wider">{stat.label}</div>
+              <div class={`w-8 h-8 rounded-lg bg-${stat.color}-100 flex items-center justify-center`}>
+                <div class={`w-2 h-2 bg-${stat.color}-500 rounded-full animate-pulse`}></div>
+              </div>
+            </div>
+            <div class="text-3xl font-bold text-gray-900 mb-1">{stat.value}</div>
+            <div class="text-xs text-green-600 font-medium">{stat.change}</div>
+          </div>
+        ))}
+      </div>
     </div>
 
     <!-- Main Dashboard Preview -->
@@ -87,9 +106,11 @@ const stats = [
           {appointments.map((appointment, idx) => (
             <div class={`flex items-center justify-between p-4 bg-white border border-gray-200 rounded-xl transition-all duration-300 hover:border-primary hover:shadow-lg hover:-translate-y-0.5 cursor-pointer animate-on-scroll stagger-${idx + 1}`}>
               <div class="flex items-center space-x-4 flex-1">
-                <div class={`w-12 h-12 rounded-xl bg-gradient-to-br ${appointment.color} flex items-center justify-center text-white font-bold shadow-md`}>
-                  {appointment.name.split(' ').map(n => n[0]).join('')}
-                </div>
+                <img 
+                  src={appointment.image} 
+                  alt={appointment.name}
+                  class="w-12 h-12 rounded-xl object-cover border-2 border-gray-200"
+                />
                 <div class="flex-1">
                   <p class="font-semibold text-gray-900">{appointment.name}</p>
                   <p class="text-sm text-gray-600">{appointment.service}</p>
@@ -122,5 +143,5 @@ const stats = [
     });
   }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-  document.querySelectorAll('section .animate-on-scroll, section .animate-on-scroll-scale').forEach(el => observer.observe(el));
+  document.querySelectorAll('section .animate-on-scroll, section .animate-on-scroll-scale, section .animate-on-scroll-left').forEach(el => observer.observe(el));
 </script>
