@@ -1,127 +1,43 @@
 ---
-export const prerender = false;  // Enable SSR for this page - fetch fresh data on each request
-
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
+// Get the slug from the URL
 const { slug } = Astro.params;
-const backendUrl = import.meta.env.API_URL || 'https://astro-blog-boost.preview.emergentagent.com';
 
-// Helper to get full image URL
-function getImageUrl(image: string | undefined): string | null {
-  if (!image) return null;
-  if (image.startsWith('http')) return image;
-  return `${backendUrl}${image}`;
-}
-
-// Fetch the post dynamically on each request
-let post: any = null;
-try {
-  const response = await fetch(`${backendUrl}/api/blog/${slug}`, {
-    signal: AbortSignal.timeout(5000),
-  });
-  if (response.ok) {
-    post = await response.json();
-  }
-} catch (error) {
-  console.warn('Failed to fetch blog post:', error);
-}
-
-// If post not found, return 404
-if (!post) {
-  return Astro.redirect('/blog');
-}
-
-// Format date
-const formatDate = (dateString: string) => {
-  return new Date(dateString).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  });
-};
+// Define the API URL for client-side fetching
+const backendUrl = 'https://astro-blog-boost.preview.emergentagent.com';
 ---
 
 <BaseLayout
-  title={`${post.title} - Buuk Blog`}
-  description={post.excerpt || post.content.substring(0, 160).replace(/<[^>]*>/g, '')}
+  title="Blog Post - Buuk"
+  description="Read the latest insights on appointment scheduling and business growth from the Buuk team."
   currentPage="blog"
 >
   <main>
-    <!-- Article Header -->
-    <section style="padding: 6rem 1rem 3rem; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);">
-      <div style="max-width: 800px; margin: 0 auto;">
-        <a href="/blog" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #14B8A6; font-weight: 500; margin-bottom: 1.5rem; text-decoration: none;">
-          ← Back to Blog
-        </a>
-        
-        <div style="display: flex; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; align-items: center;">
-          {post.category && (
-            <span style="background: #14B8A6; color: white; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600;">
-              {post.category}
-            </span>
-          )}
-          <span style="color: #64748b; font-size: 0.875rem;">
-            {formatDate(post.createdAt || post.created_at || post.date)}
-          </span>
-          {post.readTime && (
-            <span style="color: #64748b; font-size: 0.875rem;">
-              · {post.readTime} min read
-            </span>
-          )}
-        </div>
-        
-        <h1 style="font-size: 2.5rem; font-weight: 700; color: #0f172a; line-height: 1.2; margin-bottom: 1rem;">
-          {post.title}
-        </h1>
-        
-        {post.author && (
-          <div style="display: flex; align-items: center; gap: 0.75rem;">
-            <div style="width: 40px; height: 40px; background: #14B8A6; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">
-              {post.author.charAt(0).toUpperCase()}
-            </div>
-            <span style="font-weight: 500; color: #0f172a;">{post.author}</span>
-          </div>
-        )}
-      </div>
-    </section>
+    <!-- Loading State -->
+    <div id="loading-state" style="padding: 8rem 1rem; text-align: center;">
+      <div style="width: 40px; height: 40px; border: 3px solid #e2e8f0; border-top-color: #14B8A6; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 1rem;"></div>
+      <p style="color: #64748b;">Loading article...</p>
+    </div>
 
-    <!-- Featured Image -->
-    {post.image && (
-      <section style="padding: 0 1rem;">
-        <div style="max-width: 800px; margin: 0 auto;">
-          <img 
-            src={getImageUrl(post.image)} 
-            alt={post.title}
-            style="width: 100%; height: 400px; object-fit: cover; border-radius: 16px; margin-top: -2rem; box-shadow: 0 20px 40px rgba(0,0,0,0.1);"
-          />
-        </div>
-      </section>
-    )}
+    <!-- Post Content Container -->
+    <div id="post-container" style="display: none;"></div>
 
-    <!-- Article Content -->
-    <section style="padding: 3rem 1rem 5rem;">
-      <div style="max-width: 700px; margin: 0 auto;">
-        <article class="blog-content" set:html={post.content} />
-      </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section style="padding: 4rem 1rem; background: #14B8A6; color: white; text-align: center;">
-      <div style="max-width: 600px; margin: 0 auto;">
-        <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 1rem;">
-          Ready to streamline your bookings?
-        </h2>
-        <p style="font-size: 1.125rem; opacity: 0.95; margin-bottom: 2rem;">
-          Join thousands of businesses using Buuk to manage appointments.
-        </p>
-        <a href="https://app.onbuuk.com" style="display: inline-block; padding: 1rem 2rem; background: white; color: #14B8A6; font-weight: 600; border-radius: 8px; text-decoration: none;">
-          Start Free Trial →
-        </a>
-      </div>
-    </section>
+    <!-- Error State -->
+    <div id="error-state" style="display: none; padding: 8rem 1rem; text-align: center;">
+      <h1 style="font-size: 2rem; font-weight: 700; color: #0f172a; margin-bottom: 1rem;">Post Not Found</h1>
+      <p style="color: #64748b; margin-bottom: 2rem;">The blog post you're looking for doesn't exist or has been removed.</p>
+      <a href="/blog" style="display: inline-block; padding: 0.875rem 2rem; background: #14B8A6; color: white; border-radius: 8px; font-weight: 600; text-decoration: none;">
+        Back to Blog
+      </a>
+    </div>
   </main>
 
   <style>
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
     .blog-content {
       font-size: 1.125rem;
       line-height: 1.8;
@@ -205,4 +121,136 @@ const formatDate = (dateString: string) => {
       padding: 0;
     }
   </style>
+
+  <script define:vars={{ slug, backendUrl }}>
+    // Helper to get full image URL
+    function getImageUrl(image) {
+      if (!image) return null;
+      if (image.startsWith('http')) return image;
+      return `${backendUrl}${image}`;
+    }
+
+    // Format date
+    function formatDate(dateString) {
+      return new Date(dateString).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+    }
+
+    // Render post content
+    function renderPost(post) {
+      const imageUrl = getImageUrl(post.image);
+      const imageSection = imageUrl ? `
+        <section style="padding: 0 1rem;">
+          <div style="max-width: 800px; margin: 0 auto;">
+            <img 
+              src="${imageUrl}" 
+              alt="${post.title}"
+              style="width: 100%; height: 400px; object-fit: cover; border-radius: 16px; margin-top: -2rem; box-shadow: 0 20px 40px rgba(0,0,0,0.1);"
+              onerror="this.parentElement.parentElement.style.display='none'"
+            />
+          </div>
+        </section>
+      ` : '';
+
+      // Update page title
+      document.title = `${post.title} - Buuk Blog`;
+
+      return `
+        <!-- Article Header -->
+        <section style="padding: 6rem 1rem 3rem; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);">
+          <div style="max-width: 800px; margin: 0 auto;">
+            <a href="/blog" style="display: inline-flex; align-items: center; gap: 0.5rem; color: #14B8A6; font-weight: 500; margin-bottom: 1.5rem; text-decoration: none;">
+              ← Back to Blog
+            </a>
+            
+            <div style="display: flex; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; align-items: center;">
+              ${post.category ? `
+                <span style="background: #14B8A6; color: white; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600;">
+                  ${post.category}
+                </span>
+              ` : ''}
+              <span style="color: #64748b; font-size: 0.875rem;">
+                ${formatDate(post.createdAt || post.created_at || post.date)}
+              </span>
+              ${post.readTime ? `
+                <span style="color: #64748b; font-size: 0.875rem;">
+                  · ${post.readTime} min read
+                </span>
+              ` : ''}
+            </div>
+            
+            <h1 style="font-size: 2.5rem; font-weight: 700; color: #0f172a; line-height: 1.2; margin-bottom: 1rem;">
+              ${post.title}
+            </h1>
+            
+            ${post.author ? `
+              <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <div style="width: 40px; height: 40px; background: #14B8A6; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600;">
+                  ${post.author.charAt(0).toUpperCase()}
+                </div>
+                <span style="font-weight: 500; color: #0f172a;">${post.author}</span>
+              </div>
+            ` : ''}
+          </div>
+        </section>
+
+        ${imageSection}
+
+        <!-- Article Content -->
+        <section style="padding: 3rem 1rem 5rem;">
+          <div style="max-width: 700px; margin: 0 auto;">
+            <article class="blog-content">
+              ${post.content}
+            </article>
+          </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section style="padding: 4rem 1rem; background: #14B8A6; color: white; text-align: center;">
+          <div style="max-width: 600px; margin: 0 auto;">
+            <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 1rem;">
+              Ready to streamline your bookings?
+            </h2>
+            <p style="font-size: 1.125rem; opacity: 0.95; margin-bottom: 2rem;">
+              Join thousands of businesses using Buuk to manage appointments.
+            </p>
+            <a href="https://app.onbuuk.com" style="display: inline-block; padding: 1rem 2rem; background: white; color: #14B8A6; font-weight: 600; border-radius: 8px; text-decoration: none;">
+              Start Free Trial →
+            </a>
+          </div>
+        </section>
+      `;
+    }
+
+    // Fetch and render post
+    async function loadPost() {
+      const loadingState = document.getElementById('loading-state');
+      const postContainer = document.getElementById('post-container');
+      const errorState = document.getElementById('error-state');
+
+      try {
+        const response = await fetch(`${backendUrl}/api/blog/${slug}`);
+        
+        if (!response.ok) {
+          throw new Error('Post not found');
+        }
+        
+        const post = await response.json();
+
+        loadingState.style.display = 'none';
+        postContainer.innerHTML = renderPost(post);
+        postContainer.style.display = 'block';
+      } catch (error) {
+        console.error('Failed to load blog post:', error);
+        loadingState.style.display = 'none';
+        errorState.style.display = 'block';
+      }
+    }
+
+    // Load post when page is ready
+    document.addEventListener('DOMContentLoaded', loadPost);
+  </script>
 </BaseLayout>
